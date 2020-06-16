@@ -1,1 +1,58 @@
-\Subsection{Билет 12: NAME}
+\Subsection{Билет 12: Метрические пространства. Примеры. Шары в метрических пространствах.}
+\begin{definition} \thmslashn 
+
+    Метрическое пространства - пара $\left<X, \rho\right>$, где $X$ - множество, $\rho : X \times X \mapsto \mathbb{R}$ - метрика, $\rho$ обладает следующими свойствами:
+
+    \begin{enumerate}
+        \item $\rho(x, y) \ge 0$, и $\rho(x, y) = 0 \iff x = y$
+        \item $\rho(x, y) = \rho(y, x)$
+        \item $\rho(x, z) \le \rho(x, y) + \rho(y, z)$ (неравенство треугольника, $\triangle$)
+    \end{enumerate}
+\end{definition}
+\begin{example} \thmslashn
+
+    Обычная метрика на $\R$: $\left<\R, \rho(x, y) = |x-y|\right>$.
+
+    <<Метрика лентяя>> на произвольном множестве: 
+    $\rho(x,y) = \begin{cases} 0 & x = y\\ 1 & x \neq y \end{cases}$ 
+
+    Обычная метрика на $\R^2$ - длина отрезка: $\rho(\left<x_1, y_1\right>, \left<x_2, y_2\right>) = \sqrt{(x_1-x_2)^2+(y_1-y_2)^2} $
+
+    Множество - точки на поверхности сферы, метрика - кратчайшая дуга межту точками.
+
+    Манхэттанская метрика на $\R^2$: $\rho(\left<x_1, y_1\right>, \left<x_2, y_2\right>) = |x_1-x_2|+|y_1-y_2|$.
+
+    Французкая железнодорожная метрка: Есть центральный объект, от него есть несколько <<лучей>>. 
+
+    Если $A$ и $B$ на одном луче, то $\rho(A, B) = AB$
+
+    Если на разных: $\rho(A, B) = AP + PB$, где $P$ - центральный объект.
+
+    \TODO{Надо-ли ФЖМ доказывать?}
+\end{example}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    Открытым шаром радиуса $r\in \R$ с центром в $a\in X$ называется $B_r(a) = \{x\in X \ssep \rho(a, x) < r\}$.
+    
+    Замкнутым шаром радиуса $r\in \R$ с центром в $a\in X$ называется $\overline{B}_r(a) = \{x\in X \ssep \rho(a, x) \le  r\}$.
+\end{definition}
+\begin{properties} \thmslashn
+
+    $B_{r_1}(a)\cap B_{r_2}(a) = B_{\min \{r_1, r_2\} }(a)$ 
+
+    Если $a \neq b$, то $\exists{r\in \R}\quad B_{r}(a)\cap B_{r}(b) = \emptyset$.
+    \begin{proof} \thmslashn
+    
+        Возьмём $r = \frac{\rho(a, b)}{2}$.
+
+        Пусть $x\in B_{r}(a)\cap B_{r}(b)$.
+
+        Тогда $\rho(a, x) < \frac{\rho(a, b)}{2}$ и $\rho(x, b) < \frac{\rho(a, b)}{2}$.
+
+        Но тогда $\rho(a, x) + \rho(x, b) < \rho(a, b)$, противоречие с $\triangle$.
+    \end{proof}
+
+    Аналогичная пара свойств есть и у $\overline{B}$.
+\end{properties}
