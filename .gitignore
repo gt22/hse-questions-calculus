@@ -1,0 +1,13 @@
+.localconfig
+pdf/
+tmp/
+*~
+
+# in case of somebody being inaccurate
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.toc
+*.out
+
