@@ -39,7 +39,23 @@
 
     Если на разных: $\rho(A, B) = AP + PB$, где $P$ - центральный объект.
 
-    \TODO{Надо-ли доказывать что метрика?}
+    \begin{proof} \thmslashn
+    
+        При условии что расстояния между объектами на одном луче являются метрикой, докажем что ФЖМ - метрика:
+
+        Если $A$ и $B$ находятся на одном луче, всё тривиально следует из того, что расстояние на луче - метрика.
+
+        Пусть $A$, $B$ - на разных лучах $ \implies A \neq B$, $A, B \neq P$.
+
+        \[ \rho(A, B) = AP + PB > 0 \impliedby AP, PB > 0 .\]
+        \[ \rho(A, B) = AP + PB = PB + AP = BP + PA = \rho(B, A) .\]
+
+        Пусть $C$ лежит на одной ветке с $A$:
+        \[ \rho(A, C) + \rho(C, B) = AC + (CP + PB) = (AC + CP) + PB \ge  AP + PB = \rho(A, B) .\]
+
+        Пусть $C$ лежит на собственной ветке:
+        \[ \rho(A, C) + \rho(C, B) = (AP + PC) + (CP + PB) \ge  AP + PB = \rho(A, B). \qedhere\] 
+    \end{proof}
 \end{example}
 \begin{definition} \thmslashn 
 
