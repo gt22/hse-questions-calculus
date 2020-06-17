@@ -61,15 +61,15 @@
 
     Пусть $\left<X, \rho\right>$ - метрическое пространство.
 
-    Открытым шаром радиуса $r\in \R$ с центром в $a\in X$ называется $B_r(a) = \{x\in X \ssep \rho(a, x) < r\}$.
+    Открытым шаром радиуса $r\in \R_{>0}$ с центром в $a\in X$ называется $B_r(a) = \{x\in X \ssep \rho(a, x) < r\}$.
     
-    Замкнутым шаром радиуса $r\in \R$ с центром в $a\in X$ называется $\overline{B}_r(a) = \{x\in X \ssep \rho(a, x) \le  r\}$.
+    Замкнутым шаром радиуса $r\in \R_{>0}$ с центром в $a\in X$ называется $\overline{B}_r(a) = \{x\in X \ssep \rho(a, x) \le  r\}$.
 \end{definition}
 \begin{properties} \thmslashn
 
     $B_{r_1}(a)\cap B_{r_2}(a) = B_{\min \{r_1, r_2\} }(a)$ 
 
-    Если $a \neq b$, то $\exists{r\in \R}\quad B_{r}(a)\cap B_{r}(b) = \emptyset$.
+    Если $a \neq b$, то $\exists{r > 0}\quad B_{r}(a)\cap B_{r}(b) = \emptyset$.
     \begin{proof} \thmslashn
     
         Возьмём $r = \frac{\rho(a, b)}{2}$.

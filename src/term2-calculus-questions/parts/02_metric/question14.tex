@@ -1,1 +1,79 @@
-\Subsection{Билет 14: NAME}
+\Subsection{Билет 14: Внутренние точки и внутренность множе- ства. Свойства.}
+
+\begin{definition}[повтор] \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    Точка $a\in A$ называется внутренней если $\exists{r > 0}\quad B_{r}(a) \subset A$.
+
+    Множество внутренних точек называется внутренностью множества, и обозначается $\Int A$.
+\end{definition}
+
+\begin{properties} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    \begin{enumerate}
+        \item $\Int A \subset A$
+        \item $\Int A$ - объеденение всех открытых множеств содержащихся в $A$.
+            \begin{proof} \thmslashn
+            
+                Пусть $G = \bigcup\limits_{\alpha\in I} U_{\alpha}$, где $U_{\alpha} \subset A$ - открытое.
+
+                $\Int A \subset G$:
+                \begin{equation*}
+                    \begin{split}
+                        x\in G 
+                        &\implies \exists{\alpha\in I}\quad x\in U_{\alpha}\\
+                        &\implies \exists{r > 0}\quad B_{r}(x) \subset U_{\alpha} \subset A\\
+                        &\implies x\in \Int A
+                    \end{split}
+                \end{equation*}
+                $G \subset \Int A$:  $x\in \Int A \implies \exists{r > 0}\quad B_{r}(x) \subset A$. $B_{r}(x)$ - открытое множество, значит $\exists{\alpha\in I}\quad U_{\alpha} = B_{r}(x) \implies x\in G$.
+            \end{proof}
+        \item $\Int A$ - откртое множество
+            \begin{proof} \thmslashn
+            
+                $A$ - объединение открытых множеств, значит открыто.
+            \end{proof}
+        \item $\Int A = A \iff A$ - открыто
+            \begin{proof} \thmslashn
+            
+                Необходимость ($\implies$): $\Int A$ открыто.
+
+                Достаточность ($\impliedby$): $A$ открыто $\implies$ все точки внутренние $\implies$ $A = \Int A$.
+            \end{proof}
+        \item $A \subset B \implies \Int A \subset \Int B$
+        \item $\Int (A\cap B) = \Int A\cap \Int B$
+            \begin{proof} \thmslashn
+
+                В сторону $ \subset $:
+                \begin{equation*}
+                    \begin{split}
+                        A\cap B \subset A 
+                        &\implies \Int (A\cap B) \subset \Int A\\
+                        A\cap B \subset B 
+                        &\implies \Int (A\cap B) \subset \Int B\\
+                        &\implies \Int (A\cap B) \subset \Int A\cap \Int B
+                    \end{split}
+                \end{equation*}
+                В сторону $\supset$:
+                \begin{equation*}
+                    \begin{split}
+                        x&\in \Int A\cap \Int B\\
+                        x&\in \Int A\\
+                        x&\in \Int B\\
+                        \exists&{r_1}\quad B_{r_1}(x) \subset A\\
+                        \exists&{r_2}\quad B_{r_2}(x) \subset B\\
+                        B&_{\min \{r_1, r_2\} }(x) \subset A\cap B\\
+                        x&\in \Int (A\cap B)
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $\Int \Int A = \Int A$
+             \begin{proof} \thmslashn
+            
+                Заметим, что $\Int A$ - открытое по $3$, дальше по $4$ видно равенство.
+            \end{proof}
+    \end{enumerate}
+\end{properties}

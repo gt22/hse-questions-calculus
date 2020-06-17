@@ -30,3 +30,4 @@
 
 Пустое множество - `\emptyset`
 
+Предикаты - `\forall{x \in X}\quad \exists{y \in Y}\quad x = y`

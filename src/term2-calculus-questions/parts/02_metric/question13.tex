@@ -1,1 +1,60 @@
-\Subsection{Билет 13: NAME}
+\Subsection{Билет 13: Открытые множества: определение и свойства.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    Точка $a\in A$ называется внутренней если $\exists{r > 0}\quad B_{r}(a) \subset A$.
+
+    Множество внутренних точек называется внутренностью множества, и обозначается $\Int A$.
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    $A$ называется открытым, если все его точки внутренние.
+\end{definition}
+\begin{properties} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+    \begin{enumerate}
+        \item $ \emptyset$, $X$ - отктрыте множества.
+        \item Объединение любого количества открытых множеств открыто
+            \begin{proof} \thmslashn
+            
+                Пусть $\forall{\alpha\in I}\quad A_{\alpha}$ - открытое множество. $A := \bigcup\limits_{\alpha\in I} A_{\alpha}$.
+               Возьмём точку $a$,  $\exists{\beta\in I}\quad a\in A_{\beta}$.
+
+               Так-как $A_{\beta}$ открытое, $\exists{r > 0}\quad B_{r}(a) \subset A_{\beta} \subset A$. 
+            \end{proof}
+        \item Пересечение конечного количества открытых множеств открыто
+            \begin{proof} \thmslashn
+            
+                Пусть $I = [1; n]$, $\forall{k\in I}\quad a\in A_{k}$, $A_{k}$ - открытое.
+
+                Тогда $\forall{k\in I}\quad \exists{r_{k} > 0}\quad B_{r_{k}}(a) \subset A_{k}$.
+
+                Пусть $r = \min\limits_{k} r_{k} > 0$.
+
+                Тогда $\forall{k\in I}\quad B_{r}(a) \subset B_{r_{k}}(a) \subset A_{k} \implies B_{r}(a) \subset \bigcap\limits_{k=1}^{n} A_{k}$.
+            \end{proof}
+        \item $\forall{a\in X}\quad \forall{r\in \mathbb{R}}\quad B_{r}(a)$ - открытое множество.
+            \begin{proof} \thmslashn
+                
+
+                Пусть $x\in B_{r}(a)$, $\tilde{r} = r - \rho(x, a)$.
+
+                Покажем что $B_{\tilde{r}}(x) \subset B_{r}(a)$:
+                \begin{equation*}
+                    \begin{split}
+                        y\in B_{\tilde{r}}(x) 
+                        &\implies \rho(y, x) < \tilde{r}\\
+                        &\implies \rho(y, x) < r - \rho(x, a)\\
+                        &\implies \rho(y, x) + \rho(x, a) < r\\
+                        & \overset{\triangle}{\implies} \rho(y, a) < r\\
+                        &\implies y\in B_{r}(a) \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+    \end{enumerate}
+\end{properties}
