@@ -233,7 +233,7 @@
   \DeclareMathOperator{\Tr}{Tr}
   \DeclareMathOperator{\grad}{grad}
   \newcommand{\actson}{\curvearrowright}
-  
+  \newcommand{\punct}{\mathring} 
   \usepackage{
     nameref,
     hyperref,
@@ -327,6 +327,15 @@
 
   \newcommand\ENABLEDMATH{YES}
 }
+
+\catcode`@=11
+\def\caseswithdelim#1#2{\left#1\,\vcenter{\normalbaselines\m@th
+  \ialign{\strut$##\hfil$&\quad##\hfil\crcr#2\crcr}}\right.}% you might like it without the \strut
+\catcode`@=12
+%
+\def\bcases#1{\caseswithdelim[{#1}}
+\def\vcases#1{\caseswithdelim|{#1}}
+%
 
 \newcommand\enablecode{
   \usepackage{listings}

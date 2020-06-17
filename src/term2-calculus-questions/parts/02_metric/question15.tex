@@ -42,3 +42,31 @@
             \end{proof}
     \end{enumerate}
 \end{properties}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    Замыкание множества $A \subset X$ - пересечение всех замкнутых множеств, содержащих $A$. Обозначается $\Cl A$ или $\overline{A}$.
+\end{definition}
+
+\begin{theorem} \thmslashn
+
+    \[ \Cl A = X \setminus \Int (X \setminus A) .\]
+    \begin{proof} \thmslashn
+    
+        Будем доказывать в виде $X \setminus \Cl A = \Int (X \setminus A)$ :
+
+        Знаем, что $\Int (X \setminus A) = \bigcup_{\alpha} U_{\alpha}$ по всем $U_{\alpha}$ таким, что $U_{\alpha} \subset (X \setminus A)$ и $U_{\alpha}$ открыто.
+
+        Пусть $C$ - замкнутое множество, такое, что $A \subset C$. Тогда $X \setminus C$ - открытое, и $(X \setminus A) \subset (X \setminus C) \implies \exists{\alpha}\quad U_{\alpha} = X \setminus C$.
+
+        Аналогично в другую сторону - $\forall{\alpha}\quad X \setminus U_{\alpha}$ - замкнутое надмножество $A$.
+
+        Пусть $C_{\alpha} = X \setminus U_{\alpha}$.
+
+        \[ X \setminus \Cl A = X \setminus \bigcap_{\alpha} C_{\alpha} = \bigcup_{\alpha} (X \setminus C_{\alpha}) = \bigcup_{\alpha} U_{\alpha} = \Int (X \setminus A). \qedhere\] 
+
+
+    \end{proof}
+\end{theorem}

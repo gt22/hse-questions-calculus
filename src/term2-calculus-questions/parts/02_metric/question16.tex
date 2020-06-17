@@ -1,1 +1,181 @@
-\Subsection{Билет 16: NAME}
+\Subsection{Билет 16: Свойства замыкания. Предельные точки. Связь с замыканием множества.}
+
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item $A \subset \Cl A$
+        \item $\Cl A$ - замкнутое множество
+            \begin{proof} \thmslashn
+            
+                По определению, $\Cl A$ - пересечение замкнутых множетв.
+            \end{proof}
+        \item $\Cl A = A \iff A $ замкнуто
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        A = \Cl A
+                        &\iff X \setminus A = X \setminus \Cl A\\
+                        &\iff X \setminus A = \Int (X \setminus A)\\
+                        &\iff X \setminus A \text{ открыто}\\
+                        &\iff A \text{ замкнуто} \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $A \subset B \implies \Cl A \subset \Cl B$
+            \begin{proof} \thmslashn
+
+                \begin{equation*}
+                    \begin{split}
+                        A \subset B 
+                        &\implies (X \setminus B) \subset (X \setminus A)\\
+                        &\implies \Int (X \setminus B) \subset \Int (X \setminus A)\\
+                        &\implies X \setminus \Int (X \setminus A) \subset X \setminus \Int (X \setminus B)\\
+                        &\implies \Cl A \subset \Cl B \qedhere
+                    \end{split}
+                \end{equation*} 
+            \end{proof}
+        \item $\Cl (A \cup B) = \Cl A \cup \Cl B$
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        \Cl (A \cup B)
+                        &= X \setminus \Int (X \setminus (A \cup B)\\
+                        &= X \setminus \Int ((X \setminus A)\cap (X \setminus B))\\
+                        &= X \setminus (\Int (X \setminus A)\cap \Int (X \setminus B))\\
+                        &= (X \setminus \Int (X \setminus A)) \cup (X \setminus \Int (X \setminus B))\\
+                        &= \Cl A \cup \Cl B \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $\Cl (\Cl A) = \Cl A$
+             \begin{proof} \thmslashn
+            
+                $\Cl A$ замкнуто по свойству $2$, равенство следует из свойства $3$.
+            \end{proof}
+    \end{enumerate}
+\end{properties}
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    \[ a\in \Cl A \iff \forall{r > 0}\quad B_{r}(a)\cap A \neq \emptyset .\]
+
+    \begin{proof} \thmslashn
+    
+        Необходимость ($\implies$ ):
+
+        Предположим что $\exists{r > 0}\quad B_{r}(a)\cap A = \emptyset$.
+
+        Тогда $a \not\in A$ и $B_{r}(a) \subset X \setminus A$, значит $a\in \Int (X \setminus A) \implies a \not\in X \setminus \Int(X \setminus A) \implies a\not\in \Cl A$.
+
+        Достаточность ($\impliedby$):
+
+        Пусть $a \not\in \Cl A$, тогда $\exists{F}\quad $ - замкнутое надмножество $A$, такое, что $a \not\in F \implies a\in X \setminus F$. При этом, $X \setminus F$ открыто.
+
+        Тогда $\exists{r > 0}\quad B_{r}(a) \subset X \setminus F \subset X \setminus A$.
+
+        Но тогда $B_{r}(a)\cap A = \emptyset$.
+    \end{proof}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$, а $U \subset X$ - открытое множетсво. При этом $A\cap U = \emptyset$.
+
+    Тогда $\Cl A\cap U = \emptyset$
+    \begin{proof} \thmslashn
+    
+        \begin{equation*}
+            \begin{split}
+                x\in \Cl A\cap U 
+                &\implies x\in U\\
+                &\implies \exists{r > 0}\quad B_{r}(x) \subset U\\
+                &\implies B_{r}(x)\cap A \subset U\cap A = \emptyset\\
+                &\implies x \not\in \Cl A\\
+                &\implies x \not\in \Cl A\cap U
+            \end{split}
+        \end{equation*}
+        
+        Получили противоречие, значит таких $x$ не существует.
+    \end{proof}
+\end{consequence}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    Проколотой окрестностью радиуса $r\in \R_{>0}$ с центров в $a\in X$ называется $\punct{B}_{r}(a) := B_{r}(a) \setminus \{a\} = \{x\in X \ssep 0 < \rho(x, a) < r\}$. 
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    $a\in A$ называется предельной точкой, если $\forall{r > 0}\quad \punct{B}_{r}(a)\cap A \neq \emptyset$.
+
+    Множества предельных точек множества $A$ обозначается $A'$.
+\end{definition}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item $\Cl A = A \cup A'$ 
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        a\in \Cl A 
+                        &\iff \forall{r > 0}\quad B_{a}(a)\cap A \neq \emptyset\\
+                        &\iff \bcases{a\in A \cr \punct{B}_{r}(a)\cap A \neq \emptyset}\\
+                        &\iff \bcases{a\in A \cr a\in A'} \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $A \subset B \implies A' \subset B'$ 
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        a\in A'
+                        &\implies \forall{r}\quad \punct{B}_{r}(a)\cap A \neq \emptyset\\
+                        &\implies \punct{B}_{r}(a)\cap B \neq \emptyset\\
+                        &\implies a\in B'
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $(A \cup B)' = A' \cup B'$
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        A \subset A \cup B &\implies A' \subset (A \cup B)'\\
+                        B \subset A \cup B &\implies B' \subset (A \cup B)'\\
+                                           &\implies A' \cup B' \subset (A \cup B)'
+                    \end{split}
+                \end{equation*}
+
+                Покажем другое включение: возьмём $x\in (A \cup B)'$.
+
+                Пусть $x \not\in A'$: Тогда $\exists{R > 0}\quad \punct{B}_{R}(x)\cap A = \emptyset$. 
+
+                Заметим, что $\forall{0 < r \le  R}\quad \punct{B}_{r}(x)\cap A \subset B_{R}(x)\cap A  = \emptyset$, значит $\forall{r > 0}\quad \exists{0 < R_{r} < r}\quad B_{R_{r}}(x)\cap A = \emptyset$.
+
+                Так-как $\punct{B}_{R_{r}}(x)\cap (A \cup B) \neq \emptyset$, значит $\punct{B}_{R_{r}}(x)\cap B \neq \emptyset$.
+                Тогда
+                \[ \forall{r > 0}\quad \punct{B}_{r}(x)\cap B \supset \punct{B}_{R_{r}}(x)\cap B \neq \emptyset  .\]
+
+                Значит, $x\in B'$
+            \end{proof}
+        \item $A' \subset A \iff A$ - замкнутое
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        A \text{ - замкнутое}
+                        &\iff A = \Cl A\\
+                        &\iff A = A \cup A'\\
+                        &\iff A' \subset A \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+    
+    \end{enumerate}
+\end{properties}
