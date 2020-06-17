@@ -1,1 +1,54 @@
-\Subsection{Билет 79: NAME}
+\\Subsection{Билет 79: Теорема Лагранжа для векторнозначных
+функций.}
+
+\begin{theorem} \thmslashn
+    
+    f : [a, b] \mapsto \mathbb{R}^m непрервына и дифференцируема на  (a, b). Тогда \exists c \in (a, b), такое что \left\Vertf(b) - f(a)\right\Vert \leq \left\Vert f'(c)\right\Vert (b - a)
+    \begin{proof} \thmslashn
+        *пустая строка*
+        тратата
+    \end{proof}
+\end{theorem}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    $A$ называется замкнутым, если $X \setminus A$ - открыто. 
+\end{definition}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item $ \emptyset, X$ - замкнуты.
+        \item Пересечение любого количества замкнутых множеств замкнуто
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                        X \setminus \bigcap_{\alpha\in I} A_{\alpha} = \bigcup_{\alpha\in I} (X \setminus A_{\alpha}) 
+                \end{equation*}
+            \end{proof}
+
+            Так-как $\forall{\alpha}\quad X \setminus A_{\alpha}$ - открытое, то $\bigcup_{\alpha\in I} A_{\alpha}$ - откртоые, значит $\bigcap_{\alpha\in I} A_{\alpha}$ - замкнутое.
+
+        \item Объединение конечного количества замкнутых множеств замкнуто
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    X \setminus \bigcup_{k = 1}^{n} A_{k} = \bigcap_{k = 1}^{n} (X \setminus A_{k})
+                \end{equation*}
+            \end{proof}
+
+            $X \setminus A_{k}$ открыто, значит их конечное пересечение открыто, значит $\bigcup_{k=1}^{n} A_{k}$ - замкнуто.
+        \item $\forall{a\in X}\quad \forall{r > 0}\quad \overline{B}_{r}(a)$ - замкнутое множество.
+            \begin{proof} \thmslashn
+            
+                Покажем что $X \setminus \overline{B}_{r}(a) = \{x\in X \ssep \rho(x, a) > r\} $ - открыто.
+
+                Пусть $x\in X \setminus \overline{B}_{r}(a)$. $\tilde{r} = \rho(x, a) - r$. Тогда докажем что $B_{\tilde{r}}(x)\cap B_{r}(a) = \emptyset$:
+
+                Пусть $y\in B_{\tilde{r}}(x)\cap \overline{B}_{r}(a)$, тогда $\rho(x, y) < \tilde{r}$, $\rho(y, a) < r$.
+                \[ \rho(x, a) \overset{\triangle}{\le} \rho(x, y) + \rho(y, a) < \tilde{r} + r = \rho(x, a)  .\]
+
+                Получили противоречие, значит $B_{\tilde{r}}(x)\cap B_{r}(a) = \emptyset \implies B_{\tilde{r}}(x) \subset X \setminus \overline{B}_{r}(a)$, значит $X \setminus \overline{B}_{r}(a)$ - открытое.
+            \end{proof}
+    \end{enumerate}
+\end{properties}
