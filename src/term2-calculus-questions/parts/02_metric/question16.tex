@@ -179,3 +179,18 @@
     
     \end{enumerate}
 \end{properties}
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    \[ a\in A' \iff \forall{r > 0}\quad B_{r}(a)\cap A \text{ содержит бесконечно много точек} .\]
+    \begin{proof} \thmslashn
+    
+        Необходимость ($\implies$):
+        
+        Знаем, что $\punct{B}_{r}(a)\cap A \neq \emptyset$, возьмём точку $x_1\in \punct{B}_{r}(a)\cap A$, возьмём $r_2 = \rho(x_1, a)$, знаем, что $\punct{B}_{r}(a)\cap A \neq \emptyset$, можем взять точку оттуда, и вообще повторять бесконечное число раз.
+
+        Достаточность ($\le$):
+        $B_{r}(a)\cap A$ содержит бесконечно много точек $\implies \punct{B}_{r}(a)\cap A$ содержит бесконечно много точек $\implies \punct{B}_{r}(a)\cap A \neq \emptyset \implies a\in A'$.
+    \end{proof}
+\end{theorem}

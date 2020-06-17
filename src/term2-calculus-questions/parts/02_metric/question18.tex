@@ -1,1 +1,132 @@
-\Subsection{Билет 18: NAME}
+\Subsection{Билет 18: Скалярное произведение и норма. Свойства и примеры. Неравенство Коши–Буняковского.}
+
+\begin{definition} \thmslashn 
+
+    Нормированным пространством над $\R$ называется пара $\left<X, \|\cdot\|\right>$, где $X$ - линейное пространство над $\R$ (далее одно и тоже обозначение используется для линейного пространства и его множества векторов), а $\|\cdot\| : X \mapsto \R$ - норма, обладающая следующими свойствами $\forall{x, y\in X}\quad \forall{\lambda\in \R}\quad $.
+
+    \begin{enumerate}
+        \item $\|x\| \ge 0$ и $\|x\| = 0 \iff x = \vec{0}$
+        \item $\|\lambda x\| = \lambda \|x\|$
+        \item $\|x + y\| \le \|x\| + \|y\|$ ($\triangle$)
+    \end{enumerate}
+\end{definition}
+\begin{example} \thmslashn
+
+    $X = \R$,  $\|x\| = |x|$
+\end{example}
+\begin{example} \thmslashn
+
+    На $X = \R^{d}$ можно задать бесконечно много норм:
+    \[ \|x\|_{1} = \sum\limits_{i=1}^{d} |x_{i}| .\]
+    \[ \|x\|_{2} = \sqrt{\sum\limits_{i=1}^{d} |x_{i}|^{2}}  .\]
+    \[ \|x\|_{n} = \sqrt[n]{\sum\limits_{i=1}^{d} |x_{i}|^{n}}  .\]
+    \[ \|x\|_{\infty} = \max\limits_{i\in 1, \ldots, d} |x_{i}| .\] 
+\end{example}
+\begin{example} \thmslashn
+
+    $X = C[a, b]$,  $\|f\| = \max\limits_{x\in [a, b]} |f(x)|$.
+
+    \begin{proof} \thmslashn
+    
+        Докажем неравенство треугольника:
+        \begin{equation*}
+            \begin{split}
+                \|f + g\|
+                &= \max\limits_{x\in [a, b]} |f(x) + g(x)|\\
+                &= |f(x_0) + g(x_0)|\\
+                &\le |f(x_0) + |g(x_0)|\\
+                &\le \max\limits_{x\in [a, b]} |f(x)| + \max\limits_{x\in [a, b]} |g(x)|\\
+                &= \|f\| + \|g\| \qedhere
+            \end{split}
+        \end{equation*}
+    \end{proof}
+\end{example}
+\begin{definition} \thmslashn 
+
+    Пусть $X$ - линейное пространство, тогда функция $\left<\cdot, \cdot\right> : X \times X \mapsto \mathbb{R}$ называется скалярным произведением, если удовлетворяет следующим свойствам $\forall{x, y, z\in X}\quad \forall{\lambda\in \mathbb{R}}\quad $:
+
+    \begin{enumerate}
+        \item $\left<x, x\right> \ge 0$ и $\left<x, x\right> = 0 \iff x = \vec{0}$.
+        \item $\left<\lambda x, y\right> = \lambda \left<x, y\right>$
+        \item $\left<x, y\right> = \left<y, x\right>$
+        \item $\left<x + y, z\right> = \left<x, z\right> + \left<y, z\right>$
+    \end{enumerate}
+\end{definition}
+\begin{remark} \thmslashn
+
+    Аналогичные определения можно дать над $\mathbb{C}$, тогда надо ещё потребовать $\left<x, x\right>\in \R$, и третий пункт примет вид $\left<x, y\right> = \overline{\left<y, x\right>}$.
+\end{remark}
+\begin{example} \thmslashn
+
+    $X = \R^{d}$, $\left<x, y\right> = \sum\limits_{i=1}^{d} x_{i}y_{i}$
+\end{example}
+\begin{example} \thmslashn
+
+    Пусть $w_1, \ldots, w_{d} > 0$, тогда 
+    
+    $X = \R^{d}$, $\left<x, y\right> = \sum\limits_{i=1}^{d} w_{i}x_{i}y_{i}$
+\end{example}
+\begin{example} \thmslashn
+
+    $X = C[a, b]$,  $\left<f, g\right> = \int\limits_{a}^{b} f(t)g(t)dt $
+\end{example}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item $\left<\lambda x + \mu y, z\right> = \lambda \left<x, z\right> + \mu \left<y, z\right>$ и $\left<x, \lambda y + \mu z\right> = \lambda \left<x, y\right> + \mu \left<x, z\right>$
+        \item Неравенство Коши-Буняковского: $\left<x, y\right>^2 \le \left<x, x\right> \cdot \left<y, y\right>$
+            \begin{proof} \thmslashn
+            
+            
+                Пусть $t\in \R$.
+                \[ \left<x + ty, x + ty\right> \ge 0 .\] 
+                \[ \left<x + ty, x + ty\right> = \left<x, x\right> + 2t\left<x, y\right> + t^2\left<y, y\right> .\]
+
+                Это квадратное уровнение имеет корень только если $x+ty = 0$, значит не более одного корня. Его дискриминат $\le 0$:
+                \[ (2 \left<x, y\right>)^2 - 4 \left<x, x\right> \cdot \left<y, y\right> \le 0 \implies \left<x, y\right>^2 \le \left<x, x\right> \cdot \left<y, y\right> .\qedhere\] 
+            \end{proof}
+        \item $\|x\| = \sqrt{\left<x, x\right>}$ - норма
+            \begin{proof} \thmslashn
+            
+                \begin{enumerate}
+                    \item Первое свойство переносится напрямую, из аналогичных свойств для $\left<x, x\right>$ и $\sqrt{} $.
+                    \item $\|\lambda x\| = \sqrt{\left<\lambda x, \lambda x\right>} = \sqrt{\lambda^2 \left<x, x\right>} = |\lambda| \sqrt{\left<x, x\right>} = \lambda \|x\|$ 
+                    \item
+                        \begin{equation*}
+                            \begin{split}
+                                \|x + y\| \le \|x\| + \|y\|
+                                &\iff \sqrt{\left<x + y, x+y\right>} \le \sqrt{\left<x, x\right>} + \sqrt{\left<y, y\right>}\\
+                                &\overset{\cdot^2}{\iff} \left<x + y, x + y\right>  \le \left<x, x\right> + 2 \sqrt{\left<x, x\right>} \sqrt{\left<y, y\right>} + \left<y, y\right>\\
+                                &\iff \left<x, x\right> + 2\left<x, y\right> + \left<y, y\right>\\
+                                &\iff \left<x, y\right> \le \sqrt{\left<x, x\right>}\sqrt{\left<y, y\right>}\\
+                                &\iff \left<x, y\right>^2 \le \left<x, x\right>\left<y, y\right>
+                            \end{split}
+                        \end{equation*}
+                \end{enumerate}
+                Последнее неравенство - неравенство Коши-Буняковского.
+            \end{proof}
+    \end{enumerate}
+\end{properties}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item $\rho(x, y) = \|x - y\|$ - метрика
+            \begin{proof} \thmslashn
+            
+                \begin{enumerate}
+                    \item Первое свойство переходит прямо
+                    \item $\rho(y, x) = \|y - x\| = \|(-1)(x - y)\| = |(-1)|\|x - y\| = \rho(x, y)$ 
+                    \item $\|x - y\| \le \|x - z\| + \|z - y\|$ ($\triangle$ для нормы). 
+                \end{enumerate}
+            \end{proof}
+        \item $| \|x\| - \|y\| | \le \|x - y\|$ 
+            \begin{proof} \thmslashn
+            
+                \[ \|x\| = \|(x - y) + y\| \overset{\triangle}{\le} \|x - y\| + \|y\| .\] 
+                \[ \|y\| = \|(y - x) + x\| \overset{\triangle}{\le} \|y - x\| + \|x\| = \|x - y\| + \|x\| .\]
+
+                \[ \|x\| \le \|x - y\| + \|y\| \implies \|x\| - \|y\| \le \|x - y\| .\]
+                \[ \|y\| \le \|x - y\| + \|x\| \implies \|y\| - \|x\| \le \|x - y\| .\]
+            \end{proof}
+    \end{enumerate}
+\end{properties}

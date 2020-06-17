@@ -1,1 +1,67 @@
-\Subsection{Билет 17: NAME}
+\Subsection{Билет 17: Индуцированная метрика. Открытые и замкнутые множества в пространстве и в подпространстве.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $Y \subset X$.
+
+    Тогда пара $\left<Y, \left. \rho\right|_{Y \times Y}\right>$ называется метрическим подпростраством $X$.
+
+    Далее, при разговое о подпростравах обычно будет указываться только множество, а метрика использоваться та-же что и для основного пространства.
+\end{definition}
+
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $Y$ - его подпространство.
+
+    $A \subset Y$ открыто в $Y$ тогда и только тогда, когда $\exists{G}$ открытое в $X$, такое, что $A = G\cap Y$
+    \begin{proof} \thmslashn
+    
+        Необходимость ($\implies$):
+        
+        \begin{equation*}
+            \begin{split}
+                A \text{ - открыто в $Y$} 
+                &\implies \forall{a\in A}\quad \exists{r_{a} > 0}\quad B^{Y}_{r_{a}}(a) \subset A\\
+                &\implies A = \bigcup_{a\in A} B^{Y}_{r(a)}(A) \subset \bigcup_{a\in A} B^{X}_{r(a)}(a) =: G
+            \end{split}
+        \end{equation*}
+        $G$ - подходящее множество - оно открыто как объединение открытых, покажем что $A = G\cap Y$:
+        \[ B^{Y}_{r}(x) = B^{X}_{r}(x)\cap Y .\]
+        \[ G\cap Y = Y\cap \bigcup_{a\in A} B^{X}_{r(a)}(a) = \bigcup_{a\in A} B^{Y}_{r(a)}(a) = A .\]
+
+        Достаточность ($\impliedby$):
+
+        Пусть $A = G\cap Y$. Возьмём $a\in A$.
+
+        \begin{equation*}
+            \begin{split}
+                G \text{ открыто в $X$} 
+                &\implies \exists{r > 0}\quad B^{X}_{r}(a) \subset G\\
+                &\implies B^{X}_{r}(a)\cap Y \subset G\cap Y\\
+                &\implies B^{Y}_{r}(a) \subset A\\
+                &\implies A \text{ открыто в $Y$} \qedhere
+            \end{split}
+        \end{equation*}
+    \end{proof}
+\end{theorem}
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $Y$ - его подпространство.
+
+    $A \subset Y$ замкнуто тогда и только тогда, когда $\exists{F}$ замкнутое в $X$, такое, что $A = F\cap Y$.
+    \begin{proof} \thmslashn
+    
+        $F := X \setminus G$, где $G$ - открытое в  $X$ такое, что  $G\cap Y = Y \setminus A$ существование которого экивалентно открытости $Y \setminus A \iff $ замкнутости $A$.
+        \begin{equation*}
+            \begin{split}
+                F\cap Y 
+                &= (X \setminus G)\cap Y\\
+                &= (X\cap Y) \setminus G\\
+                &= Y \setminus G\\
+                &= Y \setminus (G\cap Y)\\
+                &= Y \setminus (Y \setminus A)\\
+                &= A
+            \end{split}
+        \end{equation*}
+    \end{proof}
+\end{theorem}
