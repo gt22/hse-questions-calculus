@@ -1,1 +1,90 @@
-\Subsection{Билет 22: NAME}
+\Subsection{Билет 22: Покрытия. Компактность. Компактность в пространстве и в подпространстве. Простейшие свойства компактных множеств.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    Семейство множеств $U_{\alpha} \subset X$ называется открытым покрытием множества $A$ (покрытием $A$ открытыми множествами), если
+    \begin{enumerate}
+        \item $A \subset \bigcup_{\alpha\in I} U_{\alpha} $ 
+        \item $\forall{\alpha\in I}\quad U_{\alpha}$ - открытое.
+    \end{enumerate}
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    $K \subset X$ называется компактом, если из любого отркытого покрытия можно выбрать конечное открытое покрытие.
+\end{definition}
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространтсво, $Y \subset X$ - подпространство.
+
+    Тогда компактность $K \subset Y$ в $Y$ и в $X$ равносильны.
+    \begin{proof} \thmslashn
+    
+        $Y \implies X$:
+
+        Пусть $G_{\alpha} \subset X$ - открытое покрытие $K$ в $X$.
+        
+        Тогда $U_{\alpha} = G_{\alpha}\cap Y$ - открытое покрытие $K$ в $Y$. 
+        
+        Можем выбрать конечное $U_{\alpha_{k}}$.
+        
+        $U_{\alpha_{k}} \subset G_{\alpha_{k}} \implies G_{\alpha_{k}}$ - конечное открытое покрытие.
+
+        $X \implies Y$:
+
+        Пусть $U_{\alpha} \subset Y$ - открытое покрытие $K$ в $Y$.
+
+        Тогда $\exists{G_{\alpha} \text{ открытое в $X$}}\quad U_{\alpha} = G_{\alpha}\cap Y$.
+
+        $U_{\alpha} \subset G_{\alpha} \implies G_{\alpha}$ - открытое покрытие $K$ в $X$.
+
+        Значит, можем выбрать конечное $G_{\alpha_{k}}$. Тогда 
+        \[ \bigcup_{k = 1}^{n} U_{\alpha_{k}} = \bigcup_{k = 1}^{n} (G_{\alpha_{k}} \subset Y) = Y\cap \bigcup_{k=1}^{n}G_{\alpha_{k}} \supset Y\cap K = K .\]
+
+        Значит, $U_{\alpha_{k}}$ - конечное покрытие $K$ в $Y$.
+    \end{proof}
+\end{theorem}
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $K$ - компакт. Тогда
+
+    \begin{enumerate}
+        \item $K$ - замкнуто
+            \begin{proof} \thmslashn
+            
+                Возьмём $a\in X \setminus K$.
+
+                Заметим, что $\forall{x\in K}\quad B_{\frac{\rho(x, a)}{2}} \cap  B_{\frac{\rho(x, a)}{2}}(x) = \emptyset$.
+
+                Возьмём открытое покрытие $K$: $K \subset \bigcup\limits_{x\in K} B_{\frac{\rho(x, a)}{2}}(x)$.
+
+                Выберем конечное: $K \subset \bigcup\limits_{k = 1}^{n} B_{\frac{\rho(a, x_{k})}{2}}(x_{k})$.
+
+                Тогда, при $r := \min\limits_{k} \{\frac{\rho(x_{k}, a)}{2}\}$, $B_{r}(a)\cap K = \emptyset \implies B_{r}(a) \subset X \setminus K \implies a\in \Int (X \setminus K) \implies X \setminus K$ открыто $\implies$ $K$ замкнуто.
+            \end{proof}
+        \item $K$ - ограничено
+            \begin{proof} \thmslashn
+            
+                Возьмём $a\in K$.
+
+                Тогда $\bigcup_{n = 1}^{\infty} B_{n}(a)$ - открытое покрытие.
+
+                Выберем конечное: $K \subset \bigcup_{k=1}^{m} B_{n_{k}}(a) = B_{r}(a) $, $r := \max\limits_{k} \{n_{k}\} $.
+            \end{proof}
+    \end{enumerate}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+    Если $K$ - компакт и $\tilde{K} \subset K$ - замкнуто, то $\tilde{K}$ - компакт.
+    \begin{proof} \thmslashn
+    
+        Пусть $U_{\alpha}$ - открытое покрытие $\tilde{K}$.
+
+        Тогда, если добавить к нему $X \setminus \tilde{K}$ (которое открыто так-как $\tilde{K}$ замкнуто), получится открытое покрытие $K$. Выберем конечное.
+
+        \[ \bigcup_{k=1}^{n} U_{\alpha_{k}} \cup (X \setminus \tilde{K}) \supset K \supset \tilde{K} \implies \bigcup_{k=1}^{n} U_{\alpha_{k}} \supset \tilde{K} \qedhere .\] 
+    \end{proof}
+\end{consequence}

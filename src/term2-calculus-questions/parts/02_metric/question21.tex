@@ -1,1 +1,70 @@
-\Subsection{Билет 21: NAME}
+\Subsection{Билет 21: Фундаментальные последовательности. Свойства. Полнота. Полнота $\R^{d}$}
+
+\textbf{Тут что-то странное с порядком билетов, рекомендуется сначала прочитать билет 22}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространоство.
+
+    Последовательность $x_{n}$ называется фундаментальной
+    \[ \forall{\eps > 0}\quad \exists{N\in \N}\quad \forall{n, m \ge  N}\quad \rho(x_{n}, x_{m}) < \eps  .\] 
+\end{definition}
+
+\begin{lemma} \thmslashn
+
+    Фундаментальная последовательность ограничена
+
+    \begin{proof} \thmslashn
+    
+        Подставим $\eps = 1$, получим $\forall{n \ge N}\quad \rho(x_{N}, x_{n}) < 1 \implies x_{n}\in B_{1}(N)$, пусть 
+        \[ r = \max \{1, \max\limits_{k < N} \{\rho(x_{N}, x_{k})\} \} .\]
+
+        Тогда $\forall{n\in \N}\quad x_{n}\in B_{r}(x_{N})$.
+    \end{proof}
+\end{lemma}
+
+\TODO{Это все свойства фундаментальной последовательнсоти?}
+
+\begin{definition} \thmslashn 
+
+    Метрическое пространство называется полным, если любая фундаментальная последовательность имеет предел.
+\end{definition}
+\begin{lemma} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    Пусть $x_{n}\in X$ - фундаментальна, а $\lim\limits_{k \to \infty} x_{n_{k}} = a$. Тогда $\lim\limits_{n \to \infty} x_{n} = a$.
+    \begin{proof} \thmslashn
+    
+        \[ \lim\limits_{n \to \infty} x_{n_{k}} = a \implies \forall{\eps > 0}\quad \exists{M\in \N}\quad \forall{k \ge M}\quad \rho(x_{n_{k}}, a) < \eps  .\]
+        \[ x_{n} \text{ - фундаментальна } \implies \forall{\eps > 0}\quad \exists{N \in \N}\quad \forall{n, m \ge N}\quad \rho(x_{n}, x_{m}) < \eps .\] 
+
+        Пусть $L = \max \{N, n_{M}\}$.
+
+        Тогда $\forall{n > L}\quad \exists{k}\quad \rho(x_{n}, a) < \rho(x_{n}, x_{n_{k}}) + \rho(x_{n_{k}}, a) < 2\eps$.
+
+        Значит, $\rho(x_{n}, a) \to 0 \implies x_{n} \to a$.
+    \end{proof}
+\end{lemma}
+\begin{consequence} \thmslashn
+
+    \begin{enumerate}
+        \item $\R^{d}$ - полное
+            \begin{proof} \thmslashn
+            
+                Пусть $x_{n}\in \R^{d}$ - фундаментальная последовательность.
+
+                Тогда $x_{n}$ ограничена $\implies$ $\exists{x_{n_{k}}}\quad $ - сходящаяся к точке из $\R^{d}$ подпоследовательность (Больцано-Вейерштрасс из следующего билета), пусть $\lim\limits_{k \to \infty} x_{n_{k}} = a$.
+
+
+                Тогда $\lim\limits_{n \to \infty} x_{n} = a\in \R^{d}$.
+            \end{proof}
+        \item $K$ - компакт в $\left<X, \rho\right>$ $\implies \left<K, \rho\right>$ - полное.
+            \begin{proof} \thmslashn
+            
+               $K$ - компакт,  $x_{n}\in K$ - фундаментальна.
+
+               $\exists{x_{n_{k}}\in K}\quad \lim\limits_{k \to \infty} x_{n_{k}} = a\in K \implies \lim\limits_{n \to \infty} x_{n} = a\in K$.
+            \end{proof}
+    \end{enumerate}
+\end{consequence}

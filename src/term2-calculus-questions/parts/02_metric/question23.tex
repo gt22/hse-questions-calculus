@@ -1,1 +1,31 @@
-\Subsection{Билет 23: NAME}
+\Subsection{Билет 23: Теорема о пересечении семейства компак- тов. Следствие о вложенных компактах.}
+
+\begin{theorem} \thmslashn
+
+    Пусть $K_{\alpha}$ - семейство компактов, и для любого конечного набора компактов пересечение непусто.
+
+    Тогда $\bigcap\limits_{\alpha\in I} K_{\alpha} \neq \emptyset$.
+    \begin{proof} \thmslashn
+    
+        Предположим $\bigcap\limits_{\alpha\in I} K_{\alpha} = \emptyset $.
+
+        Тогда $\exists{\alpha_0\in I}\quad K_{\alpha_0} \subset X \setminus \bigcap\limits_{\alpha\in I}^{\alpha \neq \alpha_0} K_{\alpha} = \bigcup\limits_{\alpha\in I}^{\alpha \neq \alpha_0} (X \setminus K_{\alpha})$ - получилось открытое покрытие.
+
+        Выберем конечное: $K_{\alpha_0} \subset \bigcup\limits_{k=1}^{n} (X \setminus K_{\alpha_{k}}) = X \setminus \bigcap\limits_{k=1}^{n} K_{\alpha_k}$.
+
+        Но тогда $\bigcap\limits_{k=0}^{n} K_{\alpha_{k}} = \emptyset$, противоречие. \qedhere
+
+
+    \end{proof}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+    Пусть $K_1 \supset K_2 \supset K_3, \ldots$ - непустые компакты.
+
+    Тогда $\bigcap_{k=1}^{\infty} K_{k} \neq \emptyset $.
+
+    \begin{proof} \thmslashn
+    
+        Пересечение конечного числа компактов - компакт с максимальным номером $\neq \emptyset$.
+    \end{proof}
+\end{consequence}
