@@ -1,3 +1,4 @@
+
 \Subsection{Билет 3: Эквивалентная для суммы $\sum\limits_{k = 1}^n k^p$. Формула трапеций.}
 
 \begin{example}\slashns
@@ -52,11 +53,11 @@
 	
 	$f \in C^2[a,b]$ и $\tau$-- дробление. Тогда:
 	
-	$\abs{\int\limits_a^b f - \sum\limits_{k=1}^{n} \frac{f(x_{k-1}) + f(x_k)}{2} (x_k - x_{k-1})} \le \frac{\abs{\tau}^2}{8} \int\limits_a^b \abs{f''}$
+	$\left|\int\limits_a^b f - \sum\limits_{k=1}^{n} \frac{f(x_{k-1}) + f(x_k)}{2} (x_k - x_{k-1})\right| \le \frac{\left|\tau\right|^2}{8} \int\limits_a^b \left| f''\right|$
 	
 	В частности, если дробление на равные отрезки
 	
-	$\abs{\int\limits_a^b f - \frac{b-a}{n}(\frac{f(x_0)}{2} + \sum\limits_{k=1}^{n-1}f(x_k) + \frac{f(x_n)}{2})} \le \frac{(b-a)^2}{8n^2} \int\limits_a^b \abs{f''}$
+	$\left|\int\limits_a^b f - \frac{b-a}{n}(\frac{f(x_0)}{2} + \sum\limits_{k=1}^{n-1}f(x_k) + \frac{f(x_n)}{2})\right| S\le \frac{(b-a)^2}{8n^2} \int\limits_a^b \left|f''\right|$
 \end{theorem}
 
 
@@ -64,8 +65,9 @@
 	
 	$\Delta:= \int\limits_a^b f - \sum\limits_{k=1}^{n} \frac{f(x_{k-1}) + f(x_k)}{2}(x_k - x_{k-1}) = \sum\limits_{k=1}^{n}(\int\limits_{x_{k-1}}^{x_k} f - \frac{f(x_{k-1}) + f(x_k)}{2} (x_k - x_{k-1})) =\\= -\frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} f''(t)(t-x_{k-1})(x_k - t) \, dt $
 	
-	$\abs{t-x_{k-1}}\abs{x_{k}-t}\le \frac{(x_k - x_{k - 1})^2}{4}\le \frac{\abs{\tau}^2}{4}$
+	$\left|t-x_{k-1}\right|\left|x_{k}-t\right|\le \frac{(x_k - x_{k - 1})^2}{4}\le \frac{\left|\tau\right|^2}{4}$
 	
-	$\abs{\Delta} \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \abs{f''(t)}(t - x_{k-1})(x_k - t) \, dt \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \abs{f''(t)}\frac{\abs{\tau}^2}{4} \, dt = \frac{\abs{\tau}^2}{8} \int\limits_a^b \abs{f''}$
+	$\left|\Delta\right| \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \left|f''(t)\right|(t - x_{k-1})(x_k - t) \, dt \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \left|f''(t)\right|\frac{\left|\tau\right|^2}{4} \, dt = \frac{\left|\tau\right|^2}{8} \int\limits_a^b \left|f''\right|$
 		
 \end{proof}
+
