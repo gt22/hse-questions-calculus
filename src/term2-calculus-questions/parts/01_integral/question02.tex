@@ -1,1 +1,62 @@
-\Subsection{Билет 2: NAME}
+\newpage
+\Subsection{Билет 2: Оценка разности интеграла и интегральной суммы. Интеграл как предел интегральных сумм. Интегрируемость по Риману.}
+
+\begin{theorem} \thmslashn 
+
+	$|S(f,\tau,\xi) - \int\limits_a^b f| \le (b-a)\omega_f(|\tau|)$
+
+	($\omega_f$ -- модуль непрерывности)
+
+	\begin{proof} \thmslashn
+    
+        $\begin{array}{rcll}
+    	\Delta  &:=& S(f,\tau,\xi) - \int\limits_a^b f \\
+    	        & =& \sum\limits_{k=0}^{n-1} f(\xi_k)(x_{k+1} - x_{k}) - \int\limits_a^b f \\
+    	        & =& \sum\limits_{k=0}^{n-1} f(\xi_k)(x_{k+1} - x_{k}) - \sum\limits_{k=0}^{n-1} \int\limits_{x_{k}}^{x_{k+1}} f \\
+    	        & =& \sum\limits_{k=0}^{n-1} (f(\xi_k)(x_{k+1} - x_{k}) - \int\limits_{x_{k}}^{x_{k+1}} f) \\
+    	        & =& \sum\limits_{k=0}^{n-1} \int\limits_{x_{k}}^{x_{k+1}} f(\xi_k) - \int\limits_{x_{k}}^{x_{k+1}} f \\
+    	        & =& \sum\limits_{k=0}^{n-1} \int\limits_{x_{k}}^{x_{k+1}} (f(\xi_k) -  f(t))\ dt \\
+    	\end{array}$
+
+        $\begin{array}{rcll}
+    	|\Delta| &\le& \sum\limits_{k=0}^{n-1} |\int\limits_{x_{k}}^{x_{k+1}} (f(\xi_k) - f(t))\ dt| \\
+    	         &\le& \sum\limits_{k=0}^{n-1} \int\limits_{x_{k}}^{x_{k+1}} |f(\xi_k) - f(t)|\ dt & \text{по определению } \omega_f : |\xi_k - t| < |\tau| \Rightarrow |f(\xi_k) - f(t)| < |\omega_f(|\tau|)| \\
+    	         &\le& \sum\limits_{k=0}^{n-1} \int\limits_{x_{k}}^{x_{k+1}} \omega_f(|\tau|)\ dt\\
+    	         &\le& \sum\limits_{k=0}^{n-1}  \omega_f(|\tau|)(x_{k+1} - x_{k}) \\
+    	         &\le& \omega_f(|\tau|)(b-a) \\
+    	\end{array}$
+
+    \end{proof}
+
+    \begin{consequence} \thmslashn
+    	
+    	$f \in C([a,b])$, тогда
+
+    	Для любой последовательности оснащённых дроблений $(\tau,\xi)_n$, такой что $|\tau_n| \rightarrow 0$, верно:
+
+    	$\lim S(f,\tau_n,\xi_n) = \int\limits_a^b f$
+
+		\begin{proof} \thmslashn
+
+    		$f \in C([a,b]) \Leftrightarrow \lim\limits_{x \rightarrow 0} \omega_f(x) = 0 \Rightarrow \lim \omega_f(|\tau_n|)(b-a) = 0$
+
+    	\end{proof}
+
+    \end{consequence}
+
+\end{theorem}
+
+\begin{definition} \thmslashn 
+
+	Функция интегрируема по Риману, если: 
+
+	Для любой последовательности оснащённых дроблений $(\tau,\xi)_n$, такой что $|\tau_n| \rightarrow 0$, верно:
+
+    $\lim S(f,\tau_n,\xi_n) = I$
+
+    И для всех последовательностей $I$ -- одинаковый
+
+    $I$ -- интеграл Римана
+
+
+\end{definition}
