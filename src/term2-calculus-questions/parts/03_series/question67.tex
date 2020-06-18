@@ -1,10 +1,10 @@
 \Subsection{Билет 67: Равномерная сходимость степенного ряда. Непрерывность суммы степенного ряда. Теорема Абеля.}
 \begin{theorem} \thmslashn
 
-	$R$ -- радиус сходимости, $0 < r < R$. Тогда в круге $z \leq r$ ряд сходится равномерно.
+	$R$ -- радиус сходимости, $0 < r < R$. Тогда в круге $|z| \le r$ ряд сходится равномерно.
 	\begin{proof} \thmslashn
 		
-		$r < R \implies \sum_{n = 0}^{\infty}a_nr^n$ сходится абсолютно. Для ряда $\sum_{n = 0}^{\infty}a_nz^n,\ |z| \leq r$ воспользуемся признаком Вейерштрасса. $|a_nz^n| \leq |a_n|r^n$, $|a_n|r^n$ сходится$\implies$по признаку Вейерштрасса $\sum_{n = 0}^{\infty}a_nz^n,\ |z| \leq r$ сходится равномерно. 
+		$r < R \implies \sum\limits_{n = 0}^{\infty}a_nr^n$ сходится абсолютно. Для ряда $\sum\limits_{n = 0}^{\infty}a_nz^n,\ |z| \le r$ воспользуемся признаком Вейерштрасса. $|a_nz^n| \le |a_n|r^n$, $|a_n|r^n$ сходится $\implies$ по признаку Вейерштрасса $\sum\limits_{n = 0}^{\infty}a_nz^n,\ |z| \le r$ сходится равномерно. 
 	\end{proof}
 \end{theorem}
 
@@ -12,7 +12,7 @@
 
 	Равномерной сходимости во всем круге может не быть.
 	
-	Контрпимер $R = 1$, $\sum_{n = 0}^{\infty}z^n = \frac{1}{1 - z}$, хвост ряда $\sum_{k = n}^{\infty}z^k = \frac{z^n}{1 - z} \not\rightrightarrows 0$, т.к. можем одновременно приблизить числитель к единице, а знаминатель к нулю, и дробь получается сколь угодно большой.
+	Контрпимер $R = 1$, $\sum\limits_{n = 0}^{\infty}z^n = \frac{1}{1 - z}$, хвост ряда $\sum\limits_{k = n}^{\infty}z^k = \frac{z^n}{1 - z} \not\uniconv 0$, т.к. можем одновременно приблизить числитель к единице, а знаминатель к нулю, и дробь получается сколь угодно большой.
 \end{remark}
 
 \begin{consequence} \thmslashn
@@ -47,14 +47,14 @@
 
 \begin{theorem}[Абеля] \thmslashn
 
-	Пусть $R$ -- радиус сходимости ряда $\sum_{n = 0}^{\infty}a_nz^n$ и ряд сходится при $z = R$. Тогда на отрезке $[0, R]$ ряд сходится равномерно.
+	Пусть $R$ -- радиус сходимости ряда $\sum\limits_{n = 0}^{\infty}a_nz^n$ и ряд сходится при $z = R$. Тогда на отрезке $[0, R]$ ряд сходится равномерно.
 	\begin{proof} \thmslashn
 		
-		$\sum_{n = 0}^{\infty}a_nx^n = \sum_{n = 0}^{\infty}a_nR^n\left(\frac{x}{R}\right)^n$. Применим признак Абеля. $\sum_{n = 0}^{\infty}a_nR^n$ сходится равномерно (нет зависимости от $x$), $\left(\frac{x}{R}\right)^n \in [0, 1] \implies$равномерно огранич., $\left(\frac{x}{R}\right)^n$ монотонно убывает, тогда по признаку Абеля $\sum_{n = 0}^{\infty}a_nx^n$ сходится равномерно.
+		$\sum\limits_{n = 0}^{\infty}a_nx^n = \sum\limits_{n = 0}^{\infty}a_nR^n\left(\frac{x}{R}\right)^n$. Применим признак Абеля. $\sum\limits_{n = 0}^{\infty}a_nR^n$ сходится равномерно (нет зависимости от $x$), $\left(\frac{x}{R}\right)^n \in [0, 1] \implies$равномерно огранич., $\left(\frac{x}{R}\right)^n$ монотонно убывает, тогда по признаку Абеля $\sum\limits_{n = 0}^{\infty}a_nx^n$ сходится равномерно.
 	\end{proof}
 \end{theorem}
 
 \begin{consequence} \thmslashn
 
-	$f(x) = \sum_{n = 0}^{\infty}a_nx^n$, если выполнены условия теоремы, то $f(x) \in C[0, R]$, т.к. равномерная сходимость влечет непрерывность. В частности, $\lim\limits_{x \to R-} \sum_{n = 0}^{\infty}a_nx^n = \sum_{n = 0}^{\infty}a_nR^n$.
+	$f(x) = \sum\limits_{n = 0}^{\infty}a_nx^n$, если выполнены условия теоремы, то $f(x) \in C[0, R]$, т.к. равномерная сходимость влечет непрерывность. В частности, $\lim\limits_{x \to R-} \sum\limits_{n = 0}^{\infty}a_nx^n = \sum\limits_{n = 0}^{\infty}a_nR^n$.
 \end{consequence}
