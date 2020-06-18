@@ -2,6 +2,7 @@
 \Subsection{Билет 3: Эквивалентная для суммы $\sum\limits_{k = 1}^n k^p$. Формула трапеций.}
 
 \begin{example}\slashns
+
 	$S_n(p) = 1^p + 2^p + 3^p +...+n^p$
 	
 	Ограничим $S_n(p)$ сверху: $S_n(p) < n \cdot n^p = n^{p+1}$
@@ -25,12 +26,14 @@
 \end{example}
 
 \begin{lemma}\slashns
+
     $f \in C^2[a,b]$. Тогда:
 
 	$\int\limits_{\alpha}^{\beta} f(t) \, dt - \frac{f(\alpha) + f(\beta)}{2}(\beta - \alpha) = -\frac12 \int\limits_{\alpha}^{\beta} f''(t)(t-\alpha)(\beta - t) \, dt$	
 \end{lemma}
 
 \begin{proof}\slashns
+
 	$\\ \gamma:= \frac{\alpha + \beta}{2}$
 	
 	$\int\limits_{\alpha}^{\beta} f(t) \, dt = \int\limits_{\alpha}^{\beta} f(t) (t - \gamma)'\, dt =  f(t)(t-\gamma) \Big|_{\alpha}^{\beta} - \int\limits_{\alpha}^{\beta} f'(t) (t - \gamma)\, dt
