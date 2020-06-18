@@ -1,11 +1,11 @@
 \Subsection{Билет 69: Комплексная диффернцируемость. Дифференцирование степенного ряда.}
 
-\begin{definition} \thmslash
+\begin{definition} \thmslashn
 	
 	$f : E \mapsto \mathbb{C}$, $E \subset \mathbb{C}$, $z_0 \in \;$Int$ E$. Если существует $k \in \mathbb{C}$, такое что $f(z) = f(z_0) + k(z - z_0) + o(z - z_0)$ при $z \rightarrow z_0$, то $f$ -- \textcolor{red}{\textbf{комплексно-дифференцируема в точке}} $z_0$ и $k$ -- \textcolor{red}{\textbf{производная}} $f$ в точке $z_0$.
 \end{definition}
 
-\begin{remark} \thmslash
+\begin{remark} \thmslashn
 
 	\begin{enumerate} 
 		\item $k = \lim\limits_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} =: f'(z_0)$
@@ -13,14 +13,14 @@
 	\end{enumerate}
 \end{remark}
 
-\begin{theorem} \thmslash
+\begin{theorem} \thmslashn
 
 	$R$ -- радиус сходимости ряда $f(z) = \sum\limits_{n = 0}^{\infty} a_n(z - z_0)^n$
 	
 	Тогда $f$ -- бесконечно дифференцируема в круге $|z - z_0| < R$ и
 	
 	$f^{(m)}(z) = \sum\limits_{n = m}^{\infty} n(n-1)\ldots(n-m+1)a_n(z-z_0)^{n-m}$
-	\begin{proof} \thmslash
+	\begin{proof} \thmslashn
 	
 		\begin{center}
 			\begin{tikzpicture}[xscale=5, yscale=5]
