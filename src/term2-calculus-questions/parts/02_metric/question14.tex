@@ -1,4 +1,4 @@
-\Subsection{Билет 14: Внутренние точки и внутренность множе- ства. Свойства.}
+\Subsection{Билет 14: Внутренние точки и внутренность множества. Свойства.}
 
 \begin{definition}[повтор] \thmslashn 
 
@@ -20,7 +20,7 @@
             
                 Пусть $G = \bigcup\limits_{\alpha\in I} U_{\alpha}$, где $U_{\alpha} \subset A$ - открытое.
 
-                $\Int A \subset G$:
+                $G \subset \Int A$:
                 \begin{equation*}
                     \begin{split}
                         x\in G 
@@ -29,7 +29,7 @@
                         &\implies x\in \Int A
                     \end{split}
                 \end{equation*}
-                $G \subset \Int A$:  $x\in \Int A \implies \exists{r > 0}\quad B_{r}(x) \subset A$. $B_{r}(x)$ - открытое множество, значит $\exists{\alpha\in I}\quad U_{\alpha} = B_{r}(x) \implies x\in G$.
+                $\Int A \subset G$:  $x\in \Int A \implies \exists{r > 0}\quad B_{r}(x) \subset A$. $B_{r}(x)$ - открытое множество, значит $\exists{\alpha\in I}\quad U_{\alpha} = B_{r}(x) \implies x\in G$.
             \end{proof}
         \item $\Int A$ - откртое множество
             \begin{proof} \thmslashn
@@ -49,24 +49,28 @@
 
                 В сторону $ \subset $:
                 \begin{equation*}
-                    \begin{split}
-                        A\cap B \subset A 
-                        &\implies \Int (A\cap B) \subset \Int A\\
-                        A\cap B \subset B 
-                        &\implies \Int (A\cap B) \subset \Int B\\
-                        &\implies \Int (A\cap B) \subset \Int A\cap \Int B
-                    \end{split}
+                    \left.
+                        \begin{split}
+                            A\cap B \subset A 
+                            &\implies \Int (A\cap B) \subset \Int A\\
+                            A\cap B \subset B 
+                            &\implies \Int (A\cap B) \subset \Int B\\
+                        \end{split}
+                    \right\}
+                    \implies \Int (A\cap B) \subset \Int A\cap \Int B
                 \end{equation*}
                 В сторону $\supset$:
                 \begin{equation*}
                     \begin{split}
-                        x&\in \Int A\cap \Int B\\
-                        x&\in \Int A\\
-                        x&\in \Int B\\
-                        \exists&{r_1}\quad B_{r_1}(x) \subset A\\
-                        \exists&{r_2}\quad B_{r_2}(x) \subset B\\
-                        B&_{\min \{r_1, r_2\} }(x) \subset A\cap B\\
-                        x&\in \Int (A\cap B)
+                        x\in \Int A\cap \Int B \implies
+                        \left\{
+                            \begin{split}
+                                x&\in \Int A \implies \exists{r_1} : B_{r_1}(x) \subset A\\
+                                x&\in \Int B \implies \exists{r_2} : B_{r_2}(x) \subset B\\
+                            \end{split}
+                        \right\} 
+                        &\implies B_{\min \{r_1, r_2\} }(x) \subset A\cap B  \implies\\
+                        &\implies x\in \Int (A\cap B)
                     \end{split}
                 \end{equation*}
             \end{proof}
