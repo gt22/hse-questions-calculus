@@ -1,1 +1,39 @@
-\Subsection{Билет 68: NAME}
+\Subsection{Билет 68: Почленное интегрирование суммы степенного ряда.}
+\begin{lemma} \thmslashn
+
+	$x_n, y_n \in \mathbb{R}$ и $\lim\limits_{n\to+\infty}x_n \in (0, +\infty)$. Тогда $\overline{\lim}x_ny_n = \lim x_n\overline{\lim}y_n$. 
+	\begin{proof} \thmslashn
+		
+		$A = \lim x_n, B = \overline{\lim}y_n, C = \overline{\lim}x_ny_n$. (Напоминание: верхний предел это наибольший из частичных).
+		
+		$\exists n_k$, т.ч. $x_{n_k}y_{n_k} \to C$. $\lim x_{n_k}y_{n_k} = \lim x_{n_k} \lim y_{n_k}$, равенство есть, т.к. существует предел слева и предел $x_{n_k}$. Из равенства следует, что $\lim y_{n_k} = \frac{C}{A} \leq B \implies C \leq AB$.
+		
+		$\exists m_k$, т.ч. $y_{n_k} \to B$. $\lim x_{m_k}y_{m_k} = \lim x_{m_k} \lim y_{m_k} \implies \lim x_{m_k}y_{m_k} = AB \leq C$. 
+		
+		Итого равенство.
+	\end{proof}
+\end{lemma}
+
+\begin{consequence} \thmslashn
+
+	Радиусы сходимости рядов $\sum_{n = 0}^{\infty}a_nz^n, \sum_{n = 0}^{\infty}a_n\frac{z^{n + 1}}{n + 1}, \sum_{n = 1}^{\infty}a_nnz^{n - 1}$ совпадают.
+	\begin{proof} \thmslashn
+		
+		Домножение на $z$ не влияет на радиус, поэтому докажем для рядов 
+		$\sum_{n = 0}^{\infty}a_nz^n,\\ \sum_{n = 0}^{\infty}a_n\frac{z^{n}}{n + 1}, \sum_{n = 1}^{\infty}a_nnz^{n}$.
+		
+		\[
+		R_1 = \frac{1}{\overline{\lim}\sqrt[n]{|a_n|}}, R_2 = \frac{1}{\overline{\lim}\frac{\sqrt[n]{|a_n|}}{\sqrt[n]{n + 1}}}, R_3 = \frac{1}{\overline{\lim}\sqrt[n]{|a_n|}\sqrt[n]{n}}
+		\]
+		$\lim\sqrt[n]{n + 1} = \lim\sqrt[n]{n} = 1$, по лемме можем вытащить из под верхнего предела и окажется, что $R_1 = R_2 = R_3$.
+	\end{proof}
+\end{consequence}
+
+\begin{theorem}[Почленное интегрирование степенного ряда] \thmslashn
+
+$R$ -- радиус сходимости ряда $f(x) = \sum_{n = 0}^{\infty}a_n(x - x_0)^n$. Тогда при $|x - x_0| < R$\\ $\int\limits_{x_0}^{x}f(t)dt = \sum_{n = 0}^{\infty}a_n\frac{(x - x_0)^{n + 1}}{n + 1}$ и полученный ряд имеет тот же радиус сходимости.
+\begin{proof} \thmslashn
+	
+	На $[x_0, x]$ ряд сходится равномерно (теорема из билета 67)$\implies f \in C[x_0, x]$ и можно интегрировать почленно $\int\limits_{x_0}^{x}\sum_{n = 0}^{\infty}a_n(t - x_0)^ndt = \sum_{n = 0}^{\infty}a_n\int\limits_{x_0}^{x}(t - x_0)^ndt = \sum_{n = 0}^{\infty}a_n\frac{(x - x_0)^{n + 1}}{n + 1}$.
+\end{proof}
+\end{theorem}
