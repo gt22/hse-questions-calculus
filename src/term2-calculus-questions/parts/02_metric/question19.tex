@@ -1,1 +1,55 @@
-\Subsection{Билет 19: NAME}
+\Subsection{Билет 19: Предел последовательности в метрическом пространстве. Определение и основные свойства.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $x_{n}\in X$.
+
+    \[ \lim\limits_{n \to \infty} x_{n} = a \iff \forall{\eps > 0}\quad \exists{N\in \N}\quad \forall{n \ge N}\quad \rho(x_{n}, a) < \eps .\] 
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $E \subset X$.
+
+    $E$ называется ограниченным если $\exists{r > 0}\quad \exists{a\in X}\quad E \subset B_{r}(a)$.
+\end{definition}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item Предел единственнен
+            \begin{proof} \thmslashn
+            
+                Пусть $\lim\limits_{n \to \infty} x_{n} = a$, $\lim\limits_{n \to \infty} x_{n} = b$, $a \neq b$.
+
+                Возьмём $\eps = \frac{\rho(a, b)}{2}$, $a \neq b \implies \eps > 0$, возьмём $N = \max \{N_a, N_{b}\} $, где $N_{a}, N_{b}$ - $N$ из соответствующих определений предела при подстановке  $\eps$.
+
+                Тогда, $\rho(x_{N}, a) < \eps$ и $\rho(x_{N}, b) < \eps$.
+
+                Но тогда $\rho(a, b) \overset{\triangle}{\le } \rho(a, x_{N}) + \rho(x_{N}, b) < 2\eps = \rho(a, b)$. Противоречие, значит предел единствененн.
+            \end{proof}
+        \item $\lim\limits_{n \to \infty} x_{n} = a \iff \lim\limits_{n \to \infty} \rho(x_{n}, a) = 0$ 
+            \begin{proof} \thmslashn
+            
+                Определения посимвольно совпадают.
+            \end{proof}
+        \item Если последовательность имеет предел, она ограничена
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        \lim\limits_{n \to \infty} x_{n} = a 
+                        &\implies \lim\limits_{n \to \infty} \rho(x_{n}, a) = 0\\
+                        &\implies \rho(x_{n}, a) \text{ - ограниченная последовательность вещественных чисел}\\
+                        &\implies \exists{R > 0}\quad \rho(x_{n}, a) < R\\
+                        &\implies \{x_{n}\} \subset B_{R}(a) \qedhere 
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item Если $a$ - предельная точка множества $A$, то можно выбрать последовательность $x_{n}\in A$, такую что $\lim\limits_{n \to \infty} x_{n} = a$, и $\rho(x_{n}, a)$ строго монотонно убывает.
+            \begin{proof} \thmslashn
+            
+                По определению предельной точки, $\forall{r > 0}\quad \punct{B}_{r}(a) \neq \emptyset$.
+
+                Пусть $r_1 = 1$, $r_{n} = \min \{\frac{1}{n}, \rho(x_{n-1}, a)\}$, $x_{n}\in \punct{B}_{r_{n}}(a)$ - такой $x_{n}$ всегда можно выбрать, так-как окрестность непуста. Тогда $\rho(x_{n}, a) < r \implies \rho(x_{n}, a) < \frac{1}{n} \implies \rho(x_{n}, a) \to 0 \implies \lim\limits_{n \to \infty} x_{n} = a$, и при этом $\rho(x_{n}, a) < r_{n} < \rho(x_{n-1}, a)$.
+            \end{proof}
+    \end{enumerate}
+\end{properties}

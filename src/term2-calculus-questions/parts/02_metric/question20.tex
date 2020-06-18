@@ -1,1 +1,98 @@
-\Subsection{Билет 20: NAME}
+\Subsection{Билет 20: Арифметические свойства пределов последовательности векторов. Покоординатная сходимость.}
+
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \|\cdot \|\right>$ - нормированное пространство, $x_{n}, y_{n}, a, b\in X$, $\lambda_{n}, \lambda\in \R$, $x_{n} \to a$, $y_{n} \to b$, $\lambda_{n} \to \lambda$.
+
+    Тогда:
+
+    \[ \|x_{n} - a\| \to 0. \]
+    \[ \|y_{n} - b\| \to 0. \]
+
+    \begin{enumerate}
+        \item $x_{n} + y_{n} \to a + b$ 
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        0 
+                        &\le \|(x_{n} + y_{n}) - (a + b)\|\\
+                        &= \|(x_{n} - a) + (y_{n} - b)\|\\
+                        &\overset{\triangle}{\le} \|x_{n} - a\| + \|y_{n} - b\|\\
+                        &\to 0 + 0 = 0 \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $\lambda_{n}x_{n} \to \lambda a$ 
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        0 
+                        &\le \|\lambda_{n} x_{n} - \lambda a\|\\
+                        &= \|\lambda_{n} x_{n} - \lambda_{n} a + \lambda_{n} a - \lambda a\|\\
+                        &= \|\lambda_{n}(x_{n} - a) + (\lambda_{n} - \lambda) a\|\\
+                        &\le \|\lambda_{n}(x_{n} - a)\| + \|(\lambda_{n} - \lambda) a\|\\
+                        &= |\lambda_{n}| \|x_{n} - a\| + |(\lambda_{n} - \lambda)| \|a\|\\
+                        &\to |\lambda| \cdot 0 + 0 \cdot \|a\| = 0 \qedhere
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item $x_{n} - y_{n} \to a - b$ 
+            \begin{proof} \thmslashn
+            
+                $-y_{n} = -1 \cdot y_{n} \implies -1 \cdot b = -b$, $x_{n} + (-y_{n}) \to a + (-b) = a - b$.
+            \end{proof}
+        \item $\|x_{n}\| \to \|a\|$ 
+            \begin{proof} \thmslashn
+            
+                \[ 0 \le \left| \|x\| - \|a\| \right| \le \|x - a\| \to 0 .\qedhere\] 
+            \end{proof}
+        \item Если задано скалярное произведение и $\|x\| = \sqrt{\left<x, x\right>} $, то $\left<x_{n}, y_{n}\right> \to \left<a, b\right>$.
+            \begin{proof} \thmslashn
+            
+                Заметим следующий факт:
+                \begin{equation*}
+                    \begin{split}
+                        \frac{1}{4}\left( \|x + y\|^2 - \|x - y\|^2 \right) 
+                        &= \frac{1}{4}\left( \left<x + y, x + y\right> - \left<x - y, x - y\right> \right) \\
+                        &= \frac{1}{4}\left( \left<x, x\right> + 2\left<x, y\right> + \left<y, y\right> - \left( \left<x, x\right> -2\left<x, y\right> + \left<y, y\right> \right)  \right)\\
+                        &= \frac{1}{4} \cdot 4\left<x, y\right>\\
+                        &= \left<x, y\right>
+                    \end{split}
+                \end{equation*}
+
+                Теперь:
+                \begin{equation*}
+                    \begin{split}
+                        \left<x_{n}, y_{n}\right> - \left<a, b\right> 
+                        &= \left<x_{n}, y_{n}\right> - \left<x_{n}, b\right> + \left<x_{n}, b\right> - \left<a, b\right>\\
+                        &= \left<x_{n}, y_{n} - b\right> - \left<x_{n} - a, y_{n}\right>\\
+                        &= \frac{1}{4}\left( \|x_{n} + y_{n} - b\|^2 - \|x_{n} - y_{n} + b\|^2 - \|x_{n} - a + y_{n}\|^2 + \|x_{n} - a - y_{n}\|^2  \right)\\
+                        &\to  \frac{1}{4}\left( \|a\|^2 - \|a\|^2 - \|b\|^2 + \|b\|^2  \right) = 0 \qedhere 
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+    \end{enumerate}
+\end{theorem}
+\begin{definition} \thmslashn 
+
+    Пусть $x_{n}\in \R^{d}$, $x_{n} = (x_n^{(1)}, \ldots, x_{n}^{(d)})$.
+
+    Тогда $x_{n}$ покоординатно сходится к $x_0$, если
+    \[ \forall{k\in [1, d]}\quad \lim\limits_{n \to \infty} x_{n}^{(k)} = x_0^{(k)} .\] 
+\end{definition}
+\begin{theorem} \thmslashn
+
+    В $\R^{d}$ с евклидовой нормой сходимость по норме эквивалентна координатной.
+    \begin{proof} \thmslashn
+    
+        Необходимость (норма $\implies$ коорд):
+
+        \[ \forall{k\in [1, d]}\quad 0 \le (x_{n}^{(k)} - x_0^{(k)})^2 \le \sum\limits_{j=1}^{d} (x_{n}^{(j)} - x_{0}^{(j)})^2 = \|x_{n} - x_0\|^2 \to 0.\]
+
+    Достаточноость (коорд $\implies$ норма)
+
+    \[ 0 \le \|x - x_0\|^2 = \sum\limits_{k=1}^{d} (x_{n}^{(k)} - x_{0}^{(k)}) \to 0. \qedhere\] 
+    \end{proof}
+\end{theorem}
