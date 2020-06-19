@@ -2,23 +2,34 @@
 
 \begin{theorem} \thmslashn
 
-    $f : [a, b] \mapsto \mathbb{R}^m$ непрерывна и дифференцируема на $(a, b)$. Тогда $\exists c \in (a, b)$, такая что $\left\Vert f(b) - f(a) \right\Vert \leqslant \left\Vert f'(c)\right\Vert(b - a)$
+    $f : [a, b] \mapsto \R^m$ непрерывна и дифференцируема на $(a, b)$. Тогда $\exists{c}\quad \in (a, b)$, такая что $\left\| f(b) - f(a) \right\| \le \left\| f'(c)\right\|(b - a)$
     \begin{proof} \thmslashn
 
-	$\varphi(x) := \langle f(x), f(b) - f(a)\rangle : [a, b] \mapsto \mathbb{R}$\newline
-	$\varphi(x)$ удовлетворяет условию одномерной теоремы Лагранжа\newline
-	$\exists c \in (a, b)$, т.ч. $\varphi(b) - \varphi(a) = \varphi(c')(b - a) = \langle f'(c), f(b) - f(a)\rangle(b - a)$\newline
-	$\varphi'(x) = \langle f'(x), f(b) - f(a)\rangle + \langle f(x), (f(b) - f(a))'\rangle = \langle f'(x), f(b) - f(a)\rangle$\newline
-        $\varphi(b) - \varphi(a) = \langle f(b), f(b) - f(a)\rangle - \langle f(a), f(b) - f(a)\rangle = \langle f(b) - f(a), f(b) - f(a)\rangle = \left\Vert f(b) - f(a) \right\Vert^2$\newline 
-        $\left\Vert f(b) - f(a) \right \Vert^2 = \langle f'(c), f(b) - f(a)\rangle(b - a) \leqslant \left \Vert f'(c) \right\Vert \left \Vert f(b) - f(a) \right \Vert (b - a)$ (Коши-Буняковский)\newline
-        $\left\Vert f(b) - f(a)\right\Vert \leqslant \left\Vert f'(c) \right\Vert(b - a)$
+	$\phi(x) := \left< f(x), f(b) - f(a)\right> : [a, b] \mapsto \R$
+
+	$\phi(x)$ удовлетворяет условию одномерной теоремы Лагранжа
+
+	$\exists{c} \quad \in (a, b)$, т.ч. $\phi(b) - \phi(a) = \phi(c')(b - a) = \left< f'(c), f(b) - f(a)\right>(b - a)$
+
+	$\phi'(x) = \left< f'(x), f(b) - f(a)\right> + \left< f(x), (f(b) - f(a))'\right> = \left< f'(x), f(b) - f(a)\right>$
+
+        $\phi(b) - \phi(a) = \left< f(b), f(b) - f(a)\right> - \left< f(a), f(b) - f(a)\right> = \left< f(b) - f(a), f(b) - f(a)\right> = \left\| f(b) - f(a) \right\|^2$
+
+        $\left\| f(b) - f(a) \right\|^2 = \left< f'(c), f(b) - f(a)\right>(b - a) \le \left\| f'(c) \right\| \left\| f(b) - f(a) \right\| (b - a)$ (Коши-Буняковский)
+
+        $\left\| f(b) - f(a)\right\| \le \left\| f'(c) \right\|(b - a)$
     \end{proof}
-    \item Замечание. Равенство может никогда не достигаться \newline
-	$f(x) = (\cos{x}, \sin{x}) : [0, 2\Pi] \mapsto \mathbb{R}^2$\newline
-	$f(0) = (1, 0) = f(2\Pi)$\newline
-	$f(2\Pi) - f(0) = (0, 0) \Rightarrow \left\Vert f(2\Pi) - f(0) \right\Vert = 0$\newline
-	$f'(x) = ((\cos{x})', (\sin{x})') = (-\sin{x}, \cos{x})\newline
-	\left\Vert f'(x) \right\Vert = 1 \Rightarrow \left\Vert f'(c) \right\Vert (2\Pi - 0) = 2\Pi > \left\Vert f(2\Pi) - f(0) \right\Vert = 0$
+    \item Замечание. Равенство может никогда не достигаться 
+
+	$f(x) = (\cos{x}, \sin{x}) : [0, 2\Pi] \mapsto \R^2$
+ 
+	$f(0) = (1, 0) = f(2\Pi)$
+
+	$f(2\Pi) - f(0) = (0, 0) \implies \left\| f(2\Pi) - f(0) \right\| = 0$
+
+	$f'(x) = ((\cos{x})', (\sin{x})') = (-\sin{x}, \cos{x})$
+
+	$\left\| f'(x) \right\| = 1 \implies \left\| f'(c) \right\| (2\Pi - 0) = 2\Pi > \left\| f(2\Pi) - f(0) \right\| = 0$
 
 \end{theorem}
 
