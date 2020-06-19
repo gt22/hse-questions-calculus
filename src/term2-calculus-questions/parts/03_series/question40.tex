@@ -1,1 +1,155 @@
-\Subsection{Билет 40: NAME}
+\Subsection{Билет 40: Ряды в нормированных пространствах.  Простейшие свойства. Покоординатная сходимость ряда в $\R^d$}
+
+\begin{definition}
+    $X$ - нормированное пространство, $x_1, x_2, \dots \in X$ - вектора из пространства
+
+    $\sum\limits_{n=1}^{+\infty} x_n$ - ряд
+
+    Здесь и далее Храбров обозначал $x_n^{(i)}$ - $i$-ая координата $n$-ого члена ряда.
+\end{definition}
+
+
+\begin{definition}
+
+    Частичная сумма ряда: $S_n := \sum\limits_{k=1}^{n} x_n$. $S_n \in X$
+\end{definition}
+
+\begin{definition}
+
+    Ряд сходится, если $\exists \lim\limits_{n \to \infty} S_n$.
+
+    То есть существует предел частичных сумм.
+\end{definition}
+
+\begin{theorem}[Необходимое условие сходимости ряда]
+
+    Если ряд $\sum\limits_{n=1}^{+\infty} x_n$ сходится, то $\lim\limits_{n \to \infty} x_n = 0$
+\end{theorem}
+
+\begin{proof}
+    $x_n = S_n - S_{n-1}$
+
+    $\lim\limits_{n \to +\infty} x_n = \lim\limits_{n \to +\infty} (S_n - S_{n-1}) = \lim\limits_{n \to +\infty} S_n - \lim\limits_{n \to +\infty} S_{n-1} = S - S = 0$
+
+    (оба предела существуют, так что можно разбивать предел разности на разность пределов)
+
+\end{proof}
+
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+
+        \item Единственность суммы
+
+            Сумма - это предел, а предел единственнен
+        \item Линейность суммы
+
+        Если $\sum\limits_{n = 1}^{+\infty} x_n$ и $\sum\limits_{n =1}^{+\infty} y_n$ сходятся, $\alpha, \beta \in \R$, то $\sum\limits_{n =1}^{+\infty} (\alpha x_n + \beta y_n)$ сходится и равен $\alpha \sum\limits_{n =1}^{+\infty} x_n + \beta \sum\limits_{n =1}^{+\infty} y_n$
+
+            \begin{proof} 
+        
+                Расписать то же самое через частичные суммы 
+    
+                $\sum\limits_{n =1}^{+\infty} (\alpha x_n + \beta y_n) = \lim_{n\to +\infty} {\alpha S_{x, n} + \beta S_{y, n}} = \alpha \lim_{n \to +\infty} S_{x,n} + \beta \lim_{n \to +\infty} S_{y,n} = \alpha \sum\limits_{n =1}^{+\infty} x_n + \beta \sum\limits_{n =1}^{+\infty} y_n$
+                
+            \end{proof}
+
+        \item Расстановка скобок
+
+            Если ряд сходился, то после расстановки скобок он тоже будет сходится к той же сумме.
+
+            Было: $x_1 + x_2 + x_3 + x_4 + x_5 + x_6 + x_7 + x_8 + x_9 + x_{10} + \dots = S$
+
+            Стало: $x_1 + (x_2 + x_3) + (x_4 + x_5 + x_6 + x_7) + x_8 + (x_9 + x_{10}) + \dots = S$ равно той же сумме, если она была
+
+            \begin{proof} Когда мы расставили скобки, мы от частичных сумм $S_1, S_2, \dots$, у которых был предел, перешли к частичным суммам $S_1, S_3, S_7, S_8, S_{10}$ (в примере выше), то есть взяли подпоследовательность частичных сумм, а она имеет тот же предел, что и сама последовательность, если он был
+            \end{proof}
+
+            \begin{remark}
+                Можно расставить скобки, чтобы ряд СТАЛ СХОДИТСЯ: пример для $X = \R$:
+
+                $1 + (-1) + 1 + (-1) + 1 + (-1) + \dots$ -- расходится
+
+                $(1 + (-1)) + (1 + (-1)) + (1+(-1)) + \dots = 0 + 0 + 0$ -- сходится, равен 0
+            \end{remark}
+        \item Можно выкинуть/добавить конечное число членов ряда, и это не повлияет на сходимость, но может изменить сумму
+
+            \begin{proof}
+                (очевидно, можно скипать, если понятно)
+
+                Добавление: 
+                \[ x_1 + x_2 + x_3 + \dots = \sum\limits_{n=1}^{+\infty} x_n = S_x\]
+                
+                Тогда 
+                \[
+                y_1 + y_2 + \dots + y_{k-1} + y_k + x_1 + x_2 + x_3 + \dots = \underbrace{\sum\limits_{n = 1}^{+\infty} y_n}_{S_y} + \sum\limits_{n=1}^{+\infty} x_n = S_y + S_x\]
+
+                Сумму конечного числа $y_n$ можно посчитать, а сумма $x_n$ существует по условию, так что и итоговая сумма тоже есть.
+
+
+
+                Убирание: $\sum\limits_{n=1}^{+\infty} x_n = S$, $\sum\limits_{n=m}^{+\infty} x_n = ?$
+
+                Частичные суммы первого: $S_n = \sum\limits_{k=1}^{n} x_k$, второго: $S'_n = \sum\limits_{k=m}^{m+n-1} x_k$
+
+                Тогда: $S'_n = S_{n+m-1} - S_{m-1}$
+
+                Притом $S_{m-1}$ - какой-то элемент из $X$, фиксированный.
+
+                Но тогда, раз $\exists \lim\limits_{n \to +\infty} S_n$, то $\exists \lim\limits_{n \to +\infty} (S_{n+m-1} - S_{m-1}) = \lim\limits_{n \to +\infty} S'_n$ (сдвинули начало и вычли константу),
+            \end{proof}
+        \item Покоординатная сходимость равносильна сходимости в $\R^d$
+
+            $\sum\limits_{n=1}^{+\infty} x_n$ сходится $\iff \forall i: 0 \le i \le d,\, \sum\limits_{n=1} x_n^{(i)}$ сходится
+
+            \begin{proof}
+                Надо расписывать через частичные суммы.
+                \[
+                    S_n = \sum\limits_{k=1}^{n} x_k = \sum\limits_{k=1}^{n}
+                    \left(
+                        \begin{array}{c}
+                            x_k^{(1)} \\
+                            x_k^{(2)} \\
+                            x_k^{(3)} \\
+                            \vdots \\
+                            x_k^{(d)} \\
+                        \end{array} 
+                    \right) =
+                    \left(
+                        \begin{array}{c}
+                            \sum\limits_{k=1}^{n} x_k^{(1)} \\
+                            \sum\limits_{k=1}^{n} x_k^{(2)} \\
+                            \sum\limits_{k=1}^{n} x_k^{(3)} \\
+                            \vdots \\
+                            \sum\limits_{k=1}^{n} x_k^{(d)} \\
+                        \end{array}
+                    \right) = 
+                    \left(
+                        \begin{array}{c}
+                            S_n^{(1)} \\
+                            S_n^{(2)} \\
+                            S_n^{(3)} \\
+                            \vdots \\
+                            S_n^{(d)} \\
+                        \end{array}
+                    \right)
+                \]
+                Чтобы $\sum\limits x_n$ сходился, нужно, чтобы $\exists \lim\limits_{n\to +\infty} S_n$. 
+                
+                Чтобы была покоординатная сходимость, нужно, чтобы $\forall i: 0 \le i \le d, \, \exists \lim\limits_{n\to +\infty} S_{n}^{(i)}$. 
+
+                Звучит тавтологично, если честно, но вообще, если бы у нас было не $\R^d$, то не всегда верно, что существование предела равносильно существованию предела координат. Но вот в $\R^d$ у нас была отдельна теорема, по которой это верно.
+
+                В нашем конспекте $\ref{q20_th2.7}$
+
+                В конспекте Ани она на странице 32, теорема 2.6
+
+                Думаю, на неё будет достаточно сослаться.
+
+            \end{proof}
+    \end{enumerate}
+\end{properties}
+
+
+
+
