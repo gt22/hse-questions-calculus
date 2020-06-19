@@ -1,1 +1,80 @@
-\Subsection{Билет 59: NAME}
+\Subsection{Билет 59: Признак сравнения. Признак Вейерштрасса. Следствие. Примеры.}
+
+\begin{theorem}[Признак сравнения] \thmslashn
+
+$u_n, v_n : E \mapsto \mathbb{R}$. Если $\forall x \in E$ $|u_n(x)| \leqslant v_n(x)$ и $\sum\limits_{n = 1}^{\infty}{v_n(x)}$ - равномерно сходится. Тогда $\sum\limits_{n = 1}^{\infty}{u_n(x)}$ - равномерно сходится.
+
+\begin{proof} \thmslashn
+
+  Так как $\sum\limits_{n = 1}^{\infty}{v_n(x)}$ - равномерно сходится, можно применить признак Коши:
+  \[\begin{aligned}
+    \forall \eps > 0\, \exists N\in\mathbb{N} : \forall n \geqslant N\, \forall p \in \mathbb{N}\, \forall x \in E \text{ выполняется } \left|\sum\limits_{k = n}^{n + p} v_k(x)\right| < \eps
+  \end{aligned}\]
+  Из условия теоремы можно записать неравенство на частичные суммы.
+  \[\begin{aligned}
+    \eps > \left|\sum\limits_{k = n}^{n+p}{v_k(n)}\right| \geqslant \sum\limits_{k = n}^{n+p}{|u_k(x)|} \geqslant \left|\sum\limits_{k = n}^{n+p}{u_k(x)}\right|
+  \end{aligned}\]
+  Получили, что критерий Коши выполняется для ряда $\sum\limits_{n = 1}^{\infty}{u_n(x)}$, значит он сходится равномерно.
+
+\end{proof}
+\end{theorem}
+
+\begin{theorem}[Признак Вейерштрасса] \thmslashn
+
+  $u_n : E \mapsto \mathbb{R}$. Если $\exists \{a_n\} :  |u_n(x)| \leqslant a_n \, \forall x \in E \text{ и } \sum\limits_{n = 1}^{\infty}{a_n}$ - сходится. Тогда $\sum\limits_{n=1}^{\infty}{u_n(x)}$ - равномерно сходится.
+  \begin{proof} \thmslashn
+    
+    $v_n(x):=a_n \Rightarrow \sum\limits_{n=1}^{\infty}v_n$ -  равномерно сходится $\Rightarrow \sum\limits_{n=1}^{\infty}{u_n}$ -  равномерно сходится по признаку сравнения.
+  \end{proof}
+\end{theorem}
+
+\begin{consequence} \thmslashn
+
+  Если ряд $\sum\limits_{n = 1}^{\infty}{|u_n(x)|}$ - равномерно сходится, тогда $\sum\limits_{n = 1}^{\infty}{u_n(x)}$ - равномерно сходится.
+  \begin{proof} \thmslashn
+
+    Воспользуемся признаком сравнения для рядов $\sum\limits_{n = 1}^{\infty}{u_n(x)} \text{ и } \sum\limits_{n = 1}^{\infty}{|u_n(x)|}$
+  \end{proof}
+\end{consequence}
+
+\begin{example} \thmslashn
+
+  $\sum\limits_{n = 1}^{\infty}{\frac{\sin{x}}{n^2}}$ - равномерно сходится на $\mathbb{R}$
+  \begin{proof} \thmslashn
+
+    $\{a_n\} := \frac{1}{n^2}$. Воспользуемся признаком Вейерштрасса для $\sum\limits_{n = 1}^{\infty}{\frac{\sin{x}}{n^2}} \text{ и } a_n$
+  \end{proof}
+\end{example}
+
+\begin{remark} \thmslashn
+
+  Абсолютная и равномерная сходимости - разные вещи.
+
+  \begin{enumerate}
+  \item
+    Ряд сходится абсолютно, но не сходится равномерно.
+    \begin{example} \thmslashn
+
+      $\sum\limits_{n = 1}^{\infty}{x^n}$ на $(-1; 1)$
+      \begin{proof} \thmslashn
+
+        $\sum\limits_{n = 1}^{\infty}{|x^{n}|} = \frac{1}{1 - |x|}$  - геометрическая прогрессия. Действительно, такой ряд сходится абсолютно. По критерию Коши докажем, что равномерной сходимости нет.
+        \[\begin{aligned}
+          \exists \eps > 0 : \exists N \in \mathbb{N}\, \forall n \geqslant N \,\exists p \in \mathbb{N} \,\exists \overline{x} \in E: \,\left|\sum\limits_{k = n}^{n+p}{v_n(\overline{x})}\right| \geqslant \eps
+        \end{aligned}\]
+        При выполнении такого условия равномерной сходимости не будет. Возьмем $\eps = \frac{1}{2}$, $p = 0$, $\overline{x} = \sqrt[n]{\frac{1}{2}}$.
+      \end{proof}
+    \end{example}
+  \item
+    Ряд сходится равномерно, но не сходится абсолютно.
+    \begin{example} \thmslashn
+
+      $\sum\limits_{n = 1}^{\infty}{\frac{(-1)^n}{n}}$ - сходится равномерно, но нет абсолютной сходимости.
+    \end{example}
+  \item
+    Также бывает, что ряд сходится абсолютно, равномерно, но ряд из модулей не сходится равномерно.
+    Пример в следующем вопросе. $\sum\limits_{n = 1}^{\infty}{(-1)^n\frac{x^n}{n}}$
+  \end{enumerate}
+\end{remark}
+
+
