@@ -45,7 +45,7 @@
     
     По условию $|F| \le M$
     
-    $\int\limits_a^c fg = \int\limits_a^c F'g = Fg \Big|_a^c - \int\limits_a^c Fg'$
+    $\int\limits_a^c fg = \int\limits_a^c F'g =  \left. Fg \right|_a^c - \int\limits_a^c Fg'$
     
     Надо доказать, что существует предел при  $c \to +\infty$
     
@@ -53,7 +53,7 @@
     
     Надо доказать, что $\int\limits_a^c Fg'$ сходится. Докажем, что он абсолютно сходится, то есть, что $\int\limits_a^c |F| \cdot |g'|$ сходится. 
     
-    $\int\limits_a^c |F| \cdot |g'| \le M \int\limits_a^c |g'| = M |\int\limits_a^c g'| = M | g \Big|_a^c | = M|g(c) - g(a)| \le M|g(a)| \implies \int\limits_a^{+\infty} |F'g|$ сходится.
+    $\int\limits_a^c |F| \cdot |g'| \le M \int\limits_a^c |g'| = M |\int\limits_a^c g'| = M | \left. g \right|_a^c | = M|g(c) - g(a)| \le M|g(a)| \implies \int\limits_a^{+\infty} |F'g|$ сходится.
     
     
 \end{proof}
