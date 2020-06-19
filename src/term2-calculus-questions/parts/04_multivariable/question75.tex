@@ -1,1 +1,118 @@
-\Subsection{Билет 75: NAME}
+\Subsection{Билет 75: Производная по направлению. Экстремальное свойство градиента}
+
+
+	
+\begin{definition}[Направление] \thmslashn
+		
+	Это такой вектор, единичной длины, который смотрит в нужную нам сторону.  	
+		
+\end{definition}
+
+\begin{definition}[Производная по направлению] \thmslashn
+	
+	Имеем направление $ h $. Также есть внутренняя точка $ a $, то есть $ a \in \mathrm{Int} E $. И сама функция $ f : E \mapsto \mathbb{R} $. Напомню, что $ E \subset \mathbb{R}^n $. 
+	
+	Тогда следующая штука, это производная функции $ f $ по направлению $ h $ в точке $ a $:
+	\[
+	\frac{\partial f}{\partial h} (a) := \lim_{t \to 0} \frac{f(a + t \cdot h) - f(a)}{t}
+	\]
+
+\end{definition}
+
+\begin{theorem}[Вспомогательная теорема] \thmslashn
+	
+	Имеем направление $ h $, $ f : E \mapsto \mathbb{R} $, $ a \in \mathrm{Int} E $ и $ f $ дифференцируема в точке $ a $.
+	
+	Тогда выполняются следующие равенства:
+	\[
+	\frac{\partial f}{\partial h} (a) = d_a f (h) = \langle \nabla f, h \rangle
+	\]
+	
+	\begin{proof} \thmslashn
+			
+		Воспользуемся определением дифференцируемости функции $ f $: 
+		\[
+		f(a + t \cdot h) = f(a) + T(t \cdot h) + \alpha(t \cdot h)
+		\]
+		
+		Воспользуемся линейностью и получим:
+		\[
+		f(a + t \cdot h) = f(a) + t \cdot Th + \alpha(t \cdot h) \implies
+		\]
+		\[
+		\implies f(a + t \cdot h) - f(a) = t \cdot Th + \alpha(t \cdot h)
+		\]
+		
+		Теперь распишем производную по направлению
+		\[
+		\frac{\partial f}{\partial h} (a) = \lim_{t \to 0} \frac{f(a + t \cdot h) - f(a)}{t}
+		\]
+		
+		Благодаря прошлым замечанием, можем заменить числитель:
+		\[
+		\frac{\partial f}{\partial h} (a) = \lim_{t \to 0} \frac{t \cdot Th + \alpha(t \cdot h)}{t} = \lim_{t \to 0} (Th + \frac{\alpha(t \cdot h)}{t})
+		\]
+		
+		Заметим, что $ Th $ какая-то константа, поэтому можно вынести:
+		\[
+		\frac{\partial f}{\partial h} (a) = Th + \lim_{t \to 0} \frac{\alpha(t \cdot h)}{t}
+		\]
+		
+		Заметим, что $ \| t \cdot h \| = t \cdot \| h \| = t $: норма направления равна единице.
+		Следовательно $ \lim_{t \to 0} \frac{\alpha(t \cdot h)}{t} = \lim_{t \to 0} \frac{\alpha(t \cdot h)}{\| t \cdot h \|} = 0 $: по определению $ \alpha $.  \\
+		Получаем, что
+		\[
+		\frac{\partial f}{\partial h} (a) = Th
+		\]
+		
+		Осталось вспомнить, что $ Th = d_a f (h) $, просто альтернативная запись. Следовательно, первое равенство у нас есть. \\ \\
+		Разберёмся со вторым. Но тут совсем всё просто, так как перед нами определение градиента. ()
+		
+	\end{proof}
+	
+\end{theorem}
+
+\begin{consequence}[Экстремальное свойство градиента] \thmslashn
+	
+	Имеем направление $ h $, $ f : E \mapsto \mathbb{R} $, функция $ f $ дифференцируема в точке $ a $ и $ \nabla f(a) \neq 0 $.
+	
+	Тогда для любого направления $ h $ выполнено следующее: 
+	\[
+	- \| \nabla f(a) \| \leq \frac{\partial f}{\partial h} (a) \leq \| \nabla f(a) \|
+	\]
+	
+	А равенство достигается, когда $ h = \pm \frac{\nabla f(a)}{\|\nabla f(a) \|} $
+	
+	\leavevmode \linebreak
+	\textbf{Смысл следствия.} Оно объясняет физический смысл градиента. Градиент это вектор, в направлении которого функция меняется быстрее всего.
+	
+	\begin{proof} \thmslashn
+		
+		Напишем равенство, которое мы вывели в прошлой теореме:
+		\[
+		\frac{\partial f}{\partial h} (a) = \langle \nabla f, h \rangle \implies
+		| \frac{\partial f}{\partial h} (a) | = | \langle \nabla f, h \rangle |
+		\]
+		
+		Напишем неравенство Коши-Буняковского. 
+		\[
+		| \langle \nabla f, h \rangle | \leq \| \nabla f(a) \| \cdot \| h \| = \| \nabla f(a) \| \implies
+		| \frac{\partial f}{\partial h} (a) | \leq \| \nabla f(a) \|        
+		\] 
+		
+		То есть неравенство мы уже доказали. 
+		
+		Далее осталось вспомнить, когда в неравенстве Коши-Буняковского, получается равенство. Это происходит тогда и только тогда, когда вектора являются пропорциональными. Осталось вспомнить, что норма $ h $ должна быть строго равна единице. Следовательно у нас есть два возможных выбора для $ h $:
+		\[
+		h = \pm \frac{\nabla f(a)}{\|\nabla f(a) \|}
+		\]
+		
+	\end{proof}
+	
+\end{consequence}
+
+
+
+
+
+
