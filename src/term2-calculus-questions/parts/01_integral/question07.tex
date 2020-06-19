@@ -1,1 +1,147 @@
-\Subsection{Билет 7: NAME}
+\Subsection{Билет 7: ! Определение несобственного интеграла. Критерий Коши. Примеры.}
+
+\begin{definition} \thmslashn 
+	
+	Если $-\infty < a < b \le +\infty$ и  $f \in C[a,b)$,
+	 
+	Пусть $L := \lim\limits_{c \to b-} \int\limits_a^c f(x) \, dx$.
+	
+	Аналогично если $-\infty \le a < b < +\infty$ и $f \in C(a,b]$,
+	
+	Пусть $L := \lim\limits_{c \to a+} \int\limits_c^b f(x) \, dx$
+	
+	
+	Тогда если $L$ существует в $\overline{\R}$, то $\int\limits_a^b f(x)\,dx := L$
+	
+	Если он конечен, скажем, что интеграл сходится, иначе -- если предел не существует или бесконечен -- интеграл расходится.
+	
+	Определённый интеграл называется несобственным, если выполняется, по крайней мере, одно из следующих условий:
+	
+	1) Область интегрирования является бесконечной.
+	
+	2) Функция является неограниченной в окрестности некоторых точек области интегрирования.
+	
+\end{definition}
+
+\begin{remark}\slashns
+	
+	Если $f \in C[a,b]$, то определение не дает ничего нового, потому что:
+	
+	$\int\limits_a^b f(x) \, dx = \lim\limits_{c \to b-} \int\limits_a^c f(x) \, dx$
+	
+	Доказательство: $\abs{\int\limits_a^b f - \int\limits_a^c f} = \abs{\int\limits_c^b f} \le \int\limits_c^b \abs{f} \le \int\limits_c^b M = M(b-c) \to 0$ при $c \to b-$
+	
+\end{remark}
+
+\begin{theorem}[Критерий Коши сходимости интегралов]\slashns
+	
+	$-\infty < a < b \le +\infty \;\; f\in C[a,b)$
+	
+	$\int\limits_a^b f$ сходится $\iff \;\; \forall \eps > 0 \;\;  \exists \tilde{b} \in (a,b) : \;\; \forall c, d \in (\tilde{b}, b) \;\; \abs{\int\limits_c^d f} < \eps$ 
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	``$\implies$''
+	
+	По определению интеграл сходится $\iff$ $\lim\limits_{c \to b-} \int\limits_a^c = \int\limits_a^b f$ -- существует и конечен.
+	
+	Тогда $\lim\limits_{d \to b-} \int\limits_d^b f = \int\limits_a^b f - \lim\limits_{d \to b-} \int\limits_a^d f = \int\limits_a^b f - \int\limits_a^b f = 0$
+	
+	Значит $\forall \eps > 0 \;\; \exists \delta > 0 : \forall d \in(b - \delta, b) \;\; \abs{\int\limits_d^b f} = \abs{\int\limits_a^b f - \int\limits_a^d f} < \eps$
+	
+	Тогда наш $ \abs{\int\limits_c^d f} = \abs{\int\limits_a^d f - \int\limits_a^c f} \le \abs{\int\limits_a^d f - \int\limits_a^b f} + \abs{\int\limits_a^b f - \int\limits_a^c f} < 2\eps$
+	
+	``$\Longleftarrow$''
+	
+	Обозначим $F(x) := \int\limits_a^x f(t) \, dt$
+	
+	Переписанное условие: $\forall \eps > 0 \;\;\exists \tilde{b} \in (a,b)\;\; \forall c, d \in (\tilde{b}, b) \implies \abs{F(c) - F(d)} < \eps$
+	
+	Пусть наша $\tilde{b} = b - \delta$
+	
+	Тогда перепишем условие как $\forall \eps > 0 \;\;\exists \delta > 0 \;\;\forall c, d \in (b- \delta, b) \implies \abs{F(c) - F(d)} < \eps$
+	
+	Это и есть критерий Коши для $\lim\limits_{c \to b-} F(c)$.
+\end{proof}
+
+\begin{consequence}\slashns
+	
+	$-\infty < a < b \le +\infty \;\; f \in C[a,b)$
+	
+	Если $\exists c_n, d_n \in[a,b)$, т.ч. $\lim\limits_{n \to \infty} c_n = \lim\limits_{n \to \infty} d_n = b$
+	
+	и $\int\limits_{c_n}^{d_n} f \not\to 0$, то $\int\limits_a^b f$ расходится.
+	
+\end{consequence}
+
+\begin{proof}\slashns
+	
+	От противного. Пусть $\int\limits_a^b f$ сходится. Докажем, что $\int\limits_{c_n}^{d_n} f \to 0$ при $n \to \infty$.
+	
+	Возьмем $\eps > 0$ и по нему найдем $\tilde{b} \in (a,b)$ из критерия Коши.
+	
+	Т.к. $c_n, d_n \to b \implies \exists N \;\; \forall n > N \;\; c_n, d_n > \tilde{b}$
+	
+	$\implies$ по критерию Коши $\abs{\int\limits_{c_n}^{d_n} f} < \eps$.
+	
+	Значит, $\int\limits_{c_n}^{d_n} f \to 0$, что противоречит условию.
+\end{proof}
+
+\begin{remark}\slashns
+	
+	$f \in C[a,b) \;\; -\infty < a < b \le +\infty$.
+	
+	Тогда на $[a,b)$ существует первообразная $F$.
+	
+	Значит существование $\int\limits_a^b f$ -- это существование $\lim\limits_{c \to b-} (F(c) - F(a)) = \lim\limits_{c \to b-} F(c) - F(a)$.
+	
+	Т.е. существование интеграла равносильно тому, что первообразная $F(x)$ имеет предел в точке $b$(слева).
+	
+	Соглашение: если $F$ не определена в точке $b$, считать, что $F \Big|_a^b := \lim\limits_{c\to b-} F(c) - F(a)$
+	
+	Тогда если $\int\limits_a^b f$ существует, то $\int\limits_a^b f = F\Big|_a^b$
+	
+\end{remark}
+
+\begin{example}\slashns
+	
+	\begin{enumerate}
+		\item
+		$\int\limits_1^{+\infty} \frac{dx}{x^p} = \lim\limits_{c \to +\infty} \int\limits_1^c \frac{dx}{x^p} = \begin{cases}\lim\limits_{c \to +\infty} \frac1{x^{p-1}} \cdot \frac{-1}{p-1} \Big|_1^c & p \ne 1 \\ 
+		\lim\limits_{c \to +\infty} \ln x \Big|_1^c & p = 1\end{cases}$
+		
+		1) При $p=1$
+		
+		$\int\limits_1^c \frac{dx}{x} = \ln c \to +\infty$
+		
+		Тогда интеграл расходится.
+		
+		2) При $p \ne 1$
+		
+		$\int\limits_1^c \frac{dx}{x^p} = \frac1{p-1} - \frac1{(p-1)c^{p-1}} \to \frac1{p-1}$, если $p>1$
+		
+		Если же $p < 1$, то $\to +\infty$.
+		
+		Получили, что $\int\limits_1^{+\infty} \frac{dx}{x^p}$ сходится $\iff p > 1$.
+		
+		\item 
+		$\int\limits_0^{1} \frac{dx}{x^p} = \lim\limits_{c \to 0+} \int\limits_c^1 \frac{dx}{x^p}$
+		
+		1) Если $p = 1$
+		
+		$\int\limits_c^1 \frac{dx}{x^p} = \ln x \Big|_c^1 = -\ln c = +\infty$
+		
+		Значит, интеграл расходится.
+		
+		2) Если же $p \ne 1$
+		
+		$\int\limits_c^1 \frac{dx}{x^p} = \frac1{x^{p-1}} \frac{1}{1-p}\Big|_c^1 = \frac1{1-p} - \frac1{(1-p)c^{p-1}}$
+		
+		Если $p > 1 \implies \to + \infty$
+		
+		Если $p < 1 \implies \frac1{1-p}$
+		
+		Получили, что $\int\limits_0^{1} \frac{dx}{x^p}$ сходится $\iff p < 1$
+	\end{enumerate}
+\end{example}
