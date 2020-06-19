@@ -8,22 +8,22 @@
 	
 	Сначала немного обозначений:
 
-	$A_n := \sum\limits_{k = 1}^{n} a_n \;\; B_n:= \sum\limits_{k=1}^{n}b_n$
+	$A_n := \sum\limits_{k = 1}^{n} a_n$ $B_n:= \sum\limits_{k=1}^{n}b_n$
 	
-	$\tilde{A}_n := \sum\limits_{k = 1}^{n}|a_k| \;\; \tilde{B}_n := \sum\limits_{k=1}^{n}|b_k|$
+	$\tilde{A}_n := \sum\limits_{k = 1}^{n}\left|a_k\right|$ $\tilde{B}_n := \sum\limits_{k=1}^{n}\left|b_k\right|$
 	
-	$\tilde{A} := \sum\limits_{k = 1}^{\infty}|a_k| \;\; \tilde{B} := \sum\limits_{k=1}^{\infty}|b_k|$
+	$\tilde{A} := \sum\limits_{k = 1}^{\infty}\left|a_k\right|$ $\tilde{B} := \sum\limits_{k=1}^{\infty}\left|b_k\right|$
 	
 	
-	$\tilde{S}_m$ -- частичная сумма ряда из $|a_nb_k|$
+	$\tilde{S}_m$ -- частичная сумма ряда из $\left|a_nb_k\right|$
 	
-	$\tilde{S}_m \le \sum\limits_{i, j} |a_ib_j| = \sum\limits_{i = 1}^{\max{i}}\abs{a_i}\sum\limits_{j = 1}^{\max{j}}\abs{b_j} \le \tilde{A}\tilde{B} < +\infty$, меньше бесконечности, т.к. ряды абсолютно сходятся.
+	$\tilde{S}_m \le \sum\limits_{i, j} \left|a_ib_j\right| = \sum\limits_{i = 1}^{\max{i}}\left|a_i\right|\sum\limits_{j = 1}^{\max{j}}\left|b_j\right| \le \tilde{A}\tilde{B} < +\infty$, меньше бесконечности, т.к. ряды абсолютно сходятся.
 	
 	Частичные суммы $\tilde{S}_m$ ограничены $\implies $ ряд сходится.
 	
 	Складывать будем все в таком порядке: сначала $a_1b_1$, потом все, что до индекса $2$, все, что до индекса $3$, и т.д. Т.е. $(a_1b_1) + (a_2b_1 + a_2b_2 + a_1b_2) + (a_3b_1 + a_3b_2 + a_3b_3 + a_2b_3 + a_1b_3) + ...$.
 	
-	%TODO Табличка с квадратиками 
+	\TODO Табличка с квадратиками 
 	
 	$S_m$ -- частичная сумма такого ряда
 	
@@ -33,7 +33,7 @@
 	
 	$S_m = S_{n^2} + \sum\limits_{k=1}^{...}a_{n+1}b_k + \sum\limits_{k = n}^{...}a_kb_{n+1}$
 	
-	$\sum\limits_{k=1}^{n+1}\abs{a_{n+1}}\abs{b_k} + \sum\limits_{k=1}^{n}\abs{a_k}\abs{b_{n+1}} = \abs{a_{n+1}}\tilde{B}_{n+1} + \abs{b_{n+1}}\tilde{A}_{n} \le \abs{a_{n+1}}\tilde{B} + \abs{b_{n+1}}\tilde{A} \to 0$, т.к. $\lim a_n = \lim b_n = 0$
+	$\sum\limits_{k=1}^{n+1}\left|a_{n+1}b_k\right| + \sum\limits_{k=1}^{n}\left|a_kb_{n+1}\right| = \left|a_{n+1}\right|\tilde{B}_{n+1} + \left|b_{n+1}\right|\tilde{A}_{n} \le \left|a_{n+1}\right|\tilde{B} + \left|b_{n+1}\right|\tilde{A} \to 0$, т.к. $\lim a_n = \lim b_n = 0$
 	
 	$\implies S_n \to AB$
 \end{proof}
@@ -68,6 +68,6 @@
 		
 		$\frac{1}{\sqrt{n-k}\sqrt{k}} \le \frac{1}{n-1}$ (т.к. среднее арифметичкое больше среднего геометрического)
 		
-		$|c_{n-1}| \ge 1 \implies$ ряд $\sum c_n$ расходится.
+		$\left|c_{n-1}\right| \ge 1 \implies$ ряд $\sum c_n$ расходится.
 	\end{enumerate}
 \end{remark}
