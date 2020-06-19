@@ -1,1 +1,72 @@
-\Subsection{Билет 51: NAME}
+\Subsection{Билет 51: Теорема Абеля о произведении рядов (с леммой).}
+
+\begin{theorem}[Абеля]\slashns
+	
+	$\sum a_n = A, \;\; \sum b_n = B, \;\; \sum c_n = C$
+	
+	И $\sum c_n$ -- произведение $\sum a_n$ и $\sum b_n$
+	
+	Тогда $AB=C$.
+\end{theorem}
+
+\begin{lemma}\slashns
+	
+	$x_n \to x,\;\;y_n \to y$ при $n\to\infty$.
+	
+	Тогда 
+	
+	$\frac{x_1y_n+x_2y_{n-1}+x_3y_{n-2}+...+x_ny_1}{n} \to xy$
+\end{lemma}
+
+\begin{proof}\slashns
+	
+	Пусть $y = 0$. надо доказать, что $\frac{x_1y_n+x_2y_{n-1}+x_3y_{n-2}+...+x_ny_1}{n} \to 0$
+	
+	Есть две последовательности, имеющие предел, значит они ограничены. Значит, есть какая-то константа $M$, что $\abs{x_n} \le M \;\; \abs{y_n} \le M \;\; \forall n$
+	
+	$\forall \epsilon > 0 \exists N \;\; \forall n \ge N \;\; \abs{y_n} < \epsilon$
+	
+	Возьмем $n > N$.
+	
+	$\abs{x_1y_n}+\abs{x_2y_{n-1}}+...+\abs{x_{n - N}y_{N+1}} + \abs{x_{n - N + 1}y_{N}} + ...+ \abs{x_ny_1}$
+	
+	Первые $n-N$ слагаемых оценим сверху, как $(n-N)M\epsilon$. Оставшиеся оценим как $\le M^2N$
+	
+	$\abs{x_1y_n}+\abs{x_2y_{n-1}}+...+\abs{x_{n - N}y_{N+1}} + \abs{x_{n - N + 1}y_{N}} + ...+ \abs{x_ny_1} \le M\epsilon(n-N) + M^2N$
+	
+	$\abs{\frac{x_1y_n + x_2y_{n-1} + ...x_ny_1}{n}} \le \frac{M\epsilon(n-N) + M^2N}{n} < \epsilon M + \epsilon M$
+	
+	(Последнее -- при достаточно больших $n$).
+	
+	Пусть $y_n = y$
+	
+	$\frac{x_1y_n+x_2y_{n-1}+...+x_ny_1}{n} = \frac{x_1+x_2+...+x_n}{n}y \to xy$
+	
+	(Последнее показывается по теореме Штольца).
+	
+	Общий случай.
+	
+	$\tilde{y}_n := y_n - y \to 0$
+	
+	$\frac{x_1\tilde{y}_n+x_2\tilde{y}_{n-1}+...+x_n\tilde{y}_1}{n} \to 0$
+	
+	$\frac{x_1y+x_2y+...+x_ny}{n} \to xy$
+	
+	И сложим. Получим ровно то, что надо.
+	
+\end{proof}
+
+\begin{proof}(теоремы)\slashns
+	
+	$\frac{A_1B_n+A_2B_{n-1}+...+A_nB_1}{n} \to AB$ по лемме.
+	
+	Но что же написано в числителе?
+	
+	$a_1(b_1+b_2+...+b_n) + (a_1+a_2)(b_1+b_2+...+b_{n-1}) + ...+ (a_1+a_2+...+a_n)b_1 =\\= na_1b_1 + (n-1)(a_1b_2+a_2b_2) + (n-2)(a_1b_3 + a_2b_2+a_3b_1) + ...=\\= nc_1 + (n-1)c_2+(n-2)c_3+...+c_{n} = C_1 + C_2 + ...+ C_n$
+	
+	Получается, что знаем, что $\frac{C_1+C_2+...+C_n}{n} \to AB$
+	
+	Но с другой стороны, $\frac{C_1+C_2+...+C_n}{n} \to C$
+	
+	$\implies C=AB$
+\end{proof}
