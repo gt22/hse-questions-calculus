@@ -1,1 +1,37 @@
-\Subsection{Билет 64: NAME}
+\Subsection{Билет 64: Теорема об интегрировании равномерно сходящейся последовательности(ряда). Существенность равномерности.}
+
+\begin{theorem}[О перестановке предела и суммы] \thmslashn
+
+  $f_n \in C[a, b]$, $f_n \rightrightarrows f$ на $[a, b]$.\\
+  Тогда $\int\limits_a^x f_n(t)dt \rightrightarrows \int\limits_a^x f(t)dt$
+\begin{proof} \thmslashn
+  
+  \[\left|\int\limits_a^x f_n(t)dt - \int\limits_a^x f(t)dt\right| = \left|\int\limits_a^x (f_n(t) - f(t))dt\right| \leq \int\limits_a^x |f_n(t) - f(t)|dt \leq \] \[\leq (x - a)\max\limits_{t\in [a, b]}{|f_n(t) - f(t)|} \leq (b - a)\max\limits_{t\in [a, b]}{|f_n(t) - f(t)|} \longrightarrow 0 \]
+  Почему последнее стремится к 0? Потому что была теорема про равномерную сходимость, только в той теореме был супремум. Более того, последнее выражение ещё и от x не зависит, значит
+  \[\max\limits_x \left|\int\limits_a^x f_n(t)dt - \int\limits_a^x f(t)dt\right| \longrightarrow 0\]
+  Значит, по той же теореме, где был изначально супремум, получаем равномерную сходимость. Что и требовалось доказать.
+\end{proof}
+\end{theorem}
+
+\begin{consequence} \thmslashn
+
+  $u_n \in C[a, b]$, $\sum\limits_{n = 1}^{\infty} u_n(x)$ сходится равномерно на $[a, b]$.\\
+  Тогда $\int\limits_{a}^x \sum\limits_{n = 1}^{\infty} u_n(t) dt = \sum\limits_{n = 1}^{\infty}\int\limits_{a}^x u_n(t) dt$
+\begin{proof} \thmslashn
+  
+  $S_n \rightrightarrows S \Rightarrow \int\limits_a^x S_n \rightrightarrows \int\limits_a^x S$. В то же время $\int\limits_a^x S_n = \int\limits_a^x \sum\limits_{k = 1}^n u_k(x) = \sum\limits_{k = 1}^n\int\limits_a^x u_k(x)$. Мы знаем, что такая сумма интегралов имеет конечный предел, а такая сумма интегралов это просто частичная сумма ряда. Значит, мы знаем, что частичная сумма ряда имеет некоторый предел. Значит, просто сумма ряда это и есть тот самый предел.\\
+  Значит, $\sum\limits_{n = 1}^{\infty}\int\limits_a^x u_n(t) = \int\limits_a^x S = \int\limits_{a}^x \sum\limits_{n = 1}^{\infty} u_n(t) $ 
+\end{proof}
+\end{consequence}
+
+\begin{remark} \thmslashn
+  
+  Поточечной сходимости не хватает
+  
+\begin{example}
+   
+   $f_n(x) = nxe^{-nx^2}$ на $[0, 1]$, $\lim\limits_{n\to \infty} f_n(x) = 0$
+   \[\int\limits_0^1 f_n(t) dt = \int\limits_0^1 nte^{-nt^2} dt = [s = nt^2] = \frac{1}{2} \int\limits_0^n e^{-s} ds = -\frac{1}{2}e^{-s} |^n_0 = \frac{1 - e^{-n}}{2} \nrightarrow 0\] А предельная функция 0. Что-то не то...
+\end{example}
+
+\end{remark}
