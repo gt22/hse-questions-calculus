@@ -1,1 +1,133 @@
-\Subsection{Билет 74: NAME}
+\Subsection{Билет 74: Дифференцируемость координатных функций. Примеры дифференцируемых отображений}
+
+Разберем несколько примеров дифференцируемых отображений.
+
+\begin{example} \thmslashn
+
+    $f(x) = const = c$ 
+
+    $f(a + h) = f(a)$
+
+    $T \equiv 0$, $\alpha \equiv 0$
+
+\end{example}
+
+\begin{example} \thmslashn
+
+    $f$ - линейное отображение
+
+    $f(a + h) = f(a) + f(h) = f(a) + T(h)$
+
+    $T = f$, $\alpha \equiv 0$ 
+
+\end{example}
+
+\begin{definition} \thmslashn
+
+    $f: E \mapsto \mathbb{R}^m, \ E \subset \mathbb{R}^n$
+
+    $
+        f(x) = 
+        \begin{pmatrix}
+            f_1(x)\\
+            f_2(x)\\
+            \vdots\\
+            f_m(x)
+        \end{pmatrix}
+     f_k:  E \subset \mathbb{R}^n \mapsto \mathbb{R}$ - координатные функции
+
+
+\end{definition}
+
+\begin{theorem} \thmslashn
+
+    Дифференцируемость функции $f$ в точке $a$ равносильна дифференцируемости в точке $a$
+
+    всех ее координатных функций.
+
+    \begin{proof} \thmslashn
+        
+        $f: E \mapsto R^m, E \subset \mathbb{R}^n$
+
+        \begin{enumerate}
+            \item $\Rightarrow$
+                $f(a + h) = f(a) + Th + \alpha(h)$, где $\alpha(h) = o(||h||)$
+
+                Распишем определение в виде векторного равенства:
+
+                $
+                \begin{pmatrix}
+                    f_1(a + h)\\
+                    f_2(a + h)\\
+                    \vdots\\
+                    f_m(a + h)
+                \end{pmatrix} = 
+                \begin{pmatrix}
+                    f_1(a)\\
+                    f_2(a)\\
+                    \vdots\\
+                    f_m(a)
+                \end{pmatrix} +
+                \begin{pmatrix}
+                    T_1(h)\\
+                    T_2(h)\\
+                    \vdots\\
+                    T_m(h)
+                \end{pmatrix} +
+                \begin{pmatrix}
+                    \alpha_1(h)\\
+                    \alpha_2(h)\\
+                    \vdots\\
+                    \alpha_m(h)
+                \end{pmatrix}  
+                $
+                
+                Рассмотрим конкретную координату:    
+
+                $f_k(a + h) = f_k(a) + T_k h + \alpha_k(h)$ 
+
+                $T_k h$ - произведение строки матрицы на вектор, поэтому - линейное отображение
+
+                (по сути просто скалярное произведение).
+
+                Необходимо показать, что $\dfrac{\alpha_k(h)}{||h||} \to 0$ при $h \to 0$
+
+                Достаточно заметить, что так как $||\alpha(h)|| = \sqrt{\sum\alpha_k(h)^2}$, то $|\alpha_k(h)| \le ||\alpha(h)||$
+
+                Но тогда $\dfrac{|\alpha_k(h)|}{||h||} \le \dfrac{||\alpha(h)||}{||h||} \to 0$
+
+                Отсюда получаем вывод, что $\dfrac{\alpha_k(h)}{||h||} \to 0$, получается,
+
+                что доказали для всех координатных функций.
+            \item $\Leftarrow$
+
+                Знаем, что $f_k(a + h) = f_k(a) + T_k h + \alpha_k(h)$ и $\dfrac{\alpha_k(h)}{||h||} \to 0$ при $h \to 0$
+
+                Соберем все это в один вектор, из строчек $T$ получаем матрицу, тогда в результате:
+
+                $f(a + h) = f(a) + T h + \alpha(h)$
+
+                Надо проверить, что $\dfrac{\alpha(h)}{||h||} \to 0$, т. е. $\dfrac{||\alpha(h)||}{||h||} \to 0$ 
+
+                $\dfrac{||\alpha(h)||}{||h||} = \dfrac{\sqrt{\alpha_1(h)^2 + \ldots + \alpha_m(h)^2 }}{||h||} = 
+                \sqrt{\dfrac{\alpha_1(h)^2}{||h||^2} + \ldots + \dfrac{\alpha_m(h)^2}{||h||^2}} \to 0$
+        \end{enumerate}
+
+    \end{proof}
+
+\end{theorem}
+
+\begin{consequence} \thmslashn
+
+    Строки матрицы Якоби - градиенты координтных функций.
+
+    \begin{proof} \thmslashn
+
+        Строки матрицы Якоби - это те самые $T_k$, которые встречались в доказательстве теоремы. 
+
+        Тогда можно заметить, что $T_k h = \langle T_k^T, h \rangle$
+
+        Отсюда получаем, что строки матрицы Якоби - градиенты координтных функций.
+    \end{proof}
+
+\end{consequence}
