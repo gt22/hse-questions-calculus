@@ -1,1 +1,204 @@
-\Subsection{Билет 8: NAME}
+\Subsection{Билет 8: Свойства несобственных интегралов.}
+
+\begin{properties}\slashns
+	
+	Везде $-\infty < a < b \le + \infty \;\; f \in C[a,b)$
+	
+	\begin{enumerate}
+		\item
+		Аддитивность.
+		
+		$\int\limits_a^b f$ сходится $\implies \forall c \in (a,b) \;\; \int\limits_c^b f$ сходится.
+		
+		\begin{proof}\slashns
+			
+			$\int\limits_a^b f$ -- сходится $\implies \exists \lim\limits_{B \to b -} \int\limits_a^B f =: \int\limits_a^b f$
+			
+			$\int\limits_a^B f= \int\limits_a^c f + \int\limits_c^B f \implies \lim\limits_{B \to b-} \int\limits_a^B f = \int\limits_a^c f + \lim\limits_{B \to b-} \int\limits_c^B f $
+			
+			Тогда $\lim\limits_{B \to b-} \int\limits_c^B f$ должен сходится. 
+			
+			Получили, что $\int\limits_a^b f = \int\limits_a^c f + \int\limits_c^b f$.	
+		\end{proof}
+		
+		\item
+		$\int\limits_a^b f$  сходится $\implies \int\limits_c^b f \to 0$ при $c \to b-$.
+		
+		$\int\limits_a^b f = \int\limits_a^c f + \int\limits_c^b f$
+		
+		$\int\limits_c^b f = \int\limits_a^b f - \int\limits_a^c f$
+		
+		$\implies \lim\limits_{c \to b-} \int\limits_c^b f = \int\limits_a^b f - \lim\limits_{c \to b-} \int\limits_a^c f = \int\limits_a^b f - \int\limits_a^b f = 0$
+		
+		\item
+		Линейность. $\int\limits_a^b f$ и $\int\limits_a^b g$ сходятся $\implies \int\limits_a^b(\alpha f + \beta g)$ сходится тоже.
+		
+		И $\int\limits_a^b(\alpha f + \beta g) = \alpha \int\limits_a^b f +\beta \int\limits_a^b g$
+		
+		\begin{proof}\slashns
+			
+			
+			$\int\limits_a^B(\alpha f + \beta g) = \alpha \int\limits_a^B f + \beta \int\limits_a^B g$.
+			
+			Перейдём к пределу $B \to b-$.
+			
+			$\implies$ предел существует, конечен $\implies$ интеграл сходится и
+			
+			$\int\limits_a^b(\alpha f + \beta g)= \alpha \int\limits_a^b f +\beta \int\limits_a^b g$ 
+		\end{proof}
+	
+		\begin{remark}\slashns
+		
+			$\int\limits_a^b f$ сходится $\int\limits_a^b g$ расходится $\implies \int\limits_a^b (f \pm g)$ расходится. 
+		
+			Доказательство -- от противного.
+		\end{remark}
+	
+		\item
+		Монотонность $f, g \in C[a,b) \;\; f\le g \implies \int\limits_a^b f \le \int\limits_a^b g$
+	
+		\begin{proof}\slashns
+		
+			$c \in [a,b) \implies f,g \in C[a,c]$
+			
+			$\int\limits_a^c f \le \int\limits_a^c g$
+			
+			Переходим к пределу в неравенстве. $c \to b-$
+			
+			$\int\limits_a^b f \le \int\limits_a^b g$
+			
+		\end{proof}
+		
+		\item Интегрирование по частям.  
+		
+		$f, g \in C^1[a,b)$
+		
+		Если $\int\limits_a^b fg'$ сходится и $\exists \lim\limits_{c \to b-} f(c)\cdot g(c)$, то $\int\limits_a^b f'g$ сходится и
+		
+		$\int\limits_a^b fg' = fg \Big|_a^b - \int\limits_a^b f'g$
+		
+		\begin{proof}\slashns
+			
+			$c \in [a,b) \;\; f,g \in C^1[a,c]$
+			
+			$\int\limits_{a}^{c} fg' =  fg\Big|_a^c - \int\limits_a^c f'g$
+			
+			Теперь напишем предел $c \to b-$
+			
+			$\implies \lim\limits_{c \to b-} \int\limits_a^c fg' = \lim\limits_{c \to b-} (fg\Big|_a^c - \int\limits_a^c f'g) =
+			 \lim\limits_{c \to b-} fg\Big|_a^c - \lim\limits_{c \to b-}\int\limits_a^c f'g =  \lim\limits_{c \to b-} f(c)\cdot g(c) - f(a) \cdot g(a) -  \int\limits_a^b f'g$
+			
+			$\implies \int\limits_a^b fg' = fg \Big|_a^b - \int\limits_a^b f'g$
+			
+			при существовании $ \lim\limits_{c \to b-} f(c)\cdot g(c)$ и $\int\limits_a^b f'g$, что есть в условии.
+			
+		\end{proof}
+		
+		\item Замена переменной.
+		
+		$f \in C[a,b)\;\; \phi :[\alpha,\beta) \to [a,b) $  и $\phi$ непрерывна и дифференцируема
+		
+		$\phi{(\beta)} := c := \lim\limits_{\gamma \to \beta-} \phi(\gamma)$
+		
+		Тогда $\int\limits_{\alpha}^{\beta} f(\phi(t))\phi'(t) \, dt = \int\limits_{\phi{(\alpha)}}^{c} f(x) \, dx$
+		
+		Если существует интеграл в одной из частей, то существует и в другой, и они равны.
+		
+		\begin{proof}\slashns
+			
+			$F(y) = \int\limits_{\phi{(\alpha)}}^{y} f(x) \, dx\;\;\;\; y\in [a,b)$
+			
+			$\Phi(\gamma) = \int\limits_{\alpha}^{\gamma} f(\phi(t))\phi'(t) \, dt\;\;\;\; \gamma \in [\alpha, \beta)$
+			
+			$\Phi(\gamma) = F(\phi(\gamma))$
+			
+			Если существует предел в правой части. Т.е. $ \int\limits_{\phi{(\alpha)}}^{c} f(x) \, dx$
+			
+			Тогда $\int\limits_{\phi{(\alpha)}}^{c} f(x) \, dx = \lim\limits_{y \to c-}F(y) - F(\phi(\alpha)) = \lim\limits_{y \to c-}F(y) - \Phi(\alpha)$
+			
+			$\int\limits_{\alpha}^{\beta}f(\phi(t))\phi'(t) \, dt = \lim\limits_{\gamma \to \beta-} \Phi(\gamma) - \Phi(\alpha)$
+			
+			Это было бы верно, если бы предел существовал. Поймем, почему существует.
+			
+			$\lim\limits_{\gamma \to \beta-} \Phi(\gamma) = \lim\limits_{\gamma \to \beta-} F(\phi(\gamma))$
+			
+			$a \le \phi(\gamma) < b \implies c \in [a,b]$
+			
+			Если $c \ne b$, то предел существует и равен $F(c)$.
+			
+			Если $c = b$, то предел тоже существует.
+			
+			(В силу непрерывности)
+			
+			Теперь надо понять, что $ \lim\limits_{y \to c-} F(y) = \lim\limits_{\gamma \to \beta-} \Phi(\gamma) = \lim\limits_{\gamma \to \beta-} F(\phi(\gamma))$
+			\if 0	
+			Если $c\ne b$, то $F$ непрерывна в точке $c$ и предел композиции в непрерывной функцией.
+			
+			Если $c=b$ и $\lim\limits_{y \to \beta-} F(y)$ конечен, то доопределим $F$ в точке $b$ и получим непрерывную функцию на $[a,b]$
+			
+			Если $c= b$ и $\lim\limits_{y\to b-} F(y) = \pm\infty$
+			\fi	
+			
+			Возьмем $\gamma_n \to \beta \implies \phi(\gamma_n) \to c$ оба стремятся слева
+			
+			$F(c_n) \to \lim\limits_{y \to c} F(y)$
+			
+			$F(\phi(\gamma_n)) = \Phi(\gamma_n) \to \lim\limits_{\gamma \to \beta-} \Phi(\gamma)$
+			
+			%	(Последняя часть была универсальной на самом деле)
+			
+			Случай второй. Существует $\int\limits_{\alpha}^{\beta} f(\phi(t))\phi'(t) \,dt$
+			
+			Т.е. существует $\lim\limits_{\gamma \to \beta-} \Phi(\gamma)$
+			
+			Если $c < b$, то $f\in C[\phi(a), c]$ и $\int\limits_{\phi(\alpha)}^{c} f(x) \, dx$ существует и мы попали в первый случай.
+			
+			Поэтому $c=b$. 
+			
+			Возьмем последовательность $\gamma_n \to \beta$. Тогда $\phi(\gamma_n) \to b$
+			
+			Пусть $y_n \to b$. Надо доказать, что $F(y_n)$ имеет предел.
+			
+			Поймем, что $\exists \delta_n \in [\alpha, \beta) \;\; \phi(\delta_n) = y_n$.
+			
+			$\phi(\alpha) \le y_n \le \phi(\gamma_m)$
+			
+			$\implies$ по непрерывности $\phi$ существует $\delta_n \in[\alpha, \gamma_m]$, т.ч. $y_n = \phi(\delta_n)$.
+			
+			Покажем, что $\delta_n \to \beta$. Пусть это не так.
+			
+			Тогда $\delta_{n_k} < \beta - \eps$ для некоторого $\eps > 0$.
+			
+			$\phi : [\alpha, \beta-\eps] \to [a,b)$ и непрерывна на отрезке. Значит, по теореме Вейерштрасса в какой-то точке достигается максимум. 
+			
+			$\phi(\delta_{n_k})\le \phi(p) < b$. 
+			
+			Но это противоречит с тем, что $y_{n_k} \to b$. 
+			
+			Тогда $F(y_n) = F(\phi(\delta_n)) = \Phi(\delta_n)$ имеет предел.
+			
+			
+		\end{proof}
+	
+		\begin{example}\slashns
+		
+			Замена $x = \sin{t} \implies dx = \cos{t} \; dt$.
+		
+			$\int\limits_0^1 \dfrac{dx}{\sqrt{1-x^2}} = \int\limits_0^{\pi/2} \dfrac{1}{\cos{t}} \cos{t} \; dt =  \int\limits_0^{\pi/2} dt = \dfrac{\pi}{2}.$
+		\end{example}
+				
+	\end{enumerate}	
+\end{properties}
+
+\begin{remark}\slashns
+	
+	$f \in C[a,b)$
+	
+	$\int\limits_a^b f(x) \, dx$
+	
+	Сделаем замену. $x = b - \frac1t$. Тогда 
+	
+	$\int\limits_{\frac1{b-a}}^{+\infty} f(b - \frac1t)\frac{dt}{t^2}$
+	
+	Т.е. теперь есть связь с бесконечностями -- конечностями.
+\end{remark}

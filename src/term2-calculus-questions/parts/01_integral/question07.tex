@@ -1,5 +1,7 @@
 \Subsection{Билет 7: ! Определение несобственного интеграла. Критерий Коши. Примеры.}
 
+\newcommand\abs[1]{\left|#1\right|}
+
 \begin{definition} \thmslashn 
 	
 	Если $-\infty < a < b \le +\infty$ и  $f \in C[a,b)$,
@@ -46,7 +48,9 @@
 	
 	По определению интеграл сходится $\iff$ $\lim\limits_{c \to b-} \int\limits_a^c = \int\limits_a^b f$ -- существует и конечен.
 	
-	Тогда $\forall \eps > 0 \;\; \exists \delta > 0 : \forall d \in(b - \delta, b) \;\; \abs{\int\limits_a^b f - \int\limits_a^d f} < \eps$
+	Тогда $\lim\limits_{d \to b-} \int\limits_d^b f = \int\limits_a^b f - \lim\limits_{d \to b-} \int\limits_a^d f = \int\limits_a^b f - \int\limits_a^b f = 0$
+	
+	Значит $\forall \eps > 0 \;\; \exists \delta > 0 : \forall d \in(b - \delta, b) \;\; \abs{\int\limits_d^b f} = \abs{\int\limits_a^b f - \int\limits_a^d f} < \eps$
 	
 	Тогда наш $ \abs{\int\limits_c^d f} = \abs{\int\limits_a^d f - \int\limits_a^c f} \le \abs{\int\limits_a^d f - \int\limits_a^b f} + \abs{\int\limits_a^b f - \int\limits_a^c f} < 2\eps$
 	
