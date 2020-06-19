@@ -1,1 +1,122 @@
-\Subsection{Билет 82: NAME}
+\Subsection{Билет 82: Частные производные высших порядков.
+Теорема о перестановке частных производных в $\mathbb{R}^2$}
+
+\begin{definition}\slashns
+	
+	$f: E \to \R \;\; E\subset \R^n \;\; E$ -- открытое множество.
+	
+	$\frac{\partial f}{\partial x_k} : E \to \R $
+	
+	$\frac{\partial^2 f}{\partial x_j \partial x_k} := \frac{\partial}{\partial x_j} \cdot \frac{\partial f}{\partial x_k} \;\;\; f_{x_k x_j}'' := (f'_{x_k})_{x_j}'$
+
+	Т.е. сначала фиксируем $x_k$ (как будто параметр), считаем производную по $x_j$, затем наоборот.
+
+	Это частная производная второго порядка, можно писать и большие аналогично.
+\end{definition}
+
+\begin{example}\slashns
+	
+	$f(x,y) = x^y$
+	
+	$\frac{\partial f}{\partial x} = yx^{y-1} \;\; \frac{\partial f}{\partial y} = x^y \ln x$
+	
+	$\frac{\partial^2 f }{\partial x^2} = y(y-1)x^{y-2}$
+	
+	$\frac{\partial^2 f}{\partial y \partial x} = \frac{\partial}{\partial y} (yx^{y-1}) = x^{y-1} + y\cdot x^{y-1} \ln x$
+	
+	$\frac{\partial^2 f}{\partial y^2 } = \frac{\partial}{\partial y}(x^y \ln x) = \ln^2 x \cdot x^y$
+	
+	$\frac{\partial^2 f}{\partial x \partial y} = yx^{y-1}\ln x + x^{y-1}$
+\end{example}
+
+\begin{example}\slashns
+	
+	$f(x, y) = \begin{cases}
+	xy\frac{x^2 - y^2}{x^2+y^2} & x^2 + y^2 \ne 0\\
+	0 & x=y=0\\
+	\end{cases}$
+	
+	$\frac{\partial f}{\partial x} = y \frac{x^2 - y^2}{x^2+y^2} + xy \cdot \frac{-2y^2}{(x^2+y^2)^2}\cdot 2x = \frac{y(x^4-y^4) - 4x^2y^3}{(x^2 + y^2)^2}$
+	
+	$\frac{\partial f}{\partial x}(0, 0) = \lim\limits_{x \to 0} \frac{f(x, 0) - f(0, 0)}{x} = \lim\limits_{x \to 0} \frac{0}{x} = 0$
+	
+	$\frac{\partial^2 f}{\partial y \partial x}(0, 0) = \lim\limits_{y \to 0} \frac{\frac{\partial f}{\partial x}f(0, y) - \frac{\partial f}{\partial x}f(0, 0)}{y} = \lim\limits_{y \to 0} \frac{-y}{y} = -1 $
+	
+	Но в силу антисимметричности $x$ и $y$.
+	
+	$\frac{\partial^2 f}{\partial x \partial y}(0, 0) = 1$
+\end{example}
+
+\begin{theorem}\slashns
+	
+	$f: E \to \R \;\; E\subset \R^2 \;\; (x_0, y_0)  \in \Int E$
+	
+	$\frac{\partial f}{\partial x} $,
+	$\frac{\partial f}{\partial y} $ и 
+	$\frac{\partial^2 f}{\partial x \partial y} $ 
+	существуют в окрестности точки $(x_0, y_0)$ и $\frac{\partial^2 f}{\partial x \partial y} $ ещё и непрерывна в ней
+	
+	
+	Тогда существует и $\frac{\partial^2 f}{\partial x \partial y}$ в точке $(x_0, y_0)$. 
+
+	Более того $\frac{\partial^2 f}{\partial x \partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)$
+\end{theorem}
+
+\begin{proof}\slashns
+
+	Рассмотрим $\phi(s) = f(s, y_0 + k) - f(s, y_0)$, где $k$ - некоторое малое число. 
+	$\phi$ дифф. в окресности точки $x_0$ (по условию теоремы), поэтому можем применить к ней т. Лагранжа (одномерную):
+	
+	$\phi(x_0 + h) - \phi(x_0) = h \phi'(x_0 + \theta_1 h) \;\; \theta_1 \in (0,1)$
+
+	Обозначим $\Delta = \phi(x_0 + h) - \phi(x_0)$. 
+
+	$\Delta = h(\frac{\partial f}{\partial x} (x_0 + \theta_1 h, y_0 + k) - \frac{\partial f}{\partial x}(x_0 + \theta_1h, y_0)) = h(\tilde{\phi}(y_0+k) - \tilde{\phi}(y_0)) =\\= hk\tilde{\phi}'(y_0 + \theta_2 k) = hk \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k)$
+	
+	
+	$\tilde{\phi}(t) = \frac{\partial f}{\partial x} (x_0 + \theta_1 h, t)$
+
+	
+	$\Delta = hk \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k)$
+	
+	$\psi(t) = f(x_0 + h, t) - f(x_0, t)$
+	
+	$\Delta = \psi(y_0 + k) - \psi(y_0) = k\psi'(y_0 + \theta_3 k) = kh\frac{\partial^2 f}{\partial x \partial y}(x_0 + \theta_4 h, y_0 + \theta_3 k) $
+	
+	Получили, что
+	
+	$\Delta = hk \frac{\partial^2 f}{\partial x \partial y} (x_0 + \theta_4 h, y_0 + \theta_3 k)$
+	
+	$\implies \frac{\partial^2 f}{\partial x \partial y} (x_0 + \theta_4 h, y_0 + \theta_3 k) =\frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k) $
+	
+	$\implies  \frac{\partial^2 f}{\partial x \partial y} (x_0, y_0) =\frac{\partial^2 f}{\partial y \partial x} (x_0, y_0) $
+	
+	(Последнее -- в силу непрерывности этих производных, устремили $h,k\to 0$)
+	
+\end{proof}
+
+\begin{definition}\slashns
+	
+	$f: D \to \R \;\; R\subset \R^n \;\; D$ -- открыто
+	
+	$f$ -- $r$ раз непрерывно дифференцируема = $r$-гладкая,
+	
+	если все частичные производные до $r$-ого порядка существуют и непрерывны.
+	
+	Обозначение -- $C^r(D)$
+\end{definition}
+
+\begin{theorem}\slashns
+	
+	$f: D \to \R \;\; D \subset \R^n \;\; D$ -- открыто $f \in C^r(D)$
+	
+	$i_1, i_2, ...,i_r$ -- перестановка $j_1, j_2, ... , j_r$
+	
+	Тогда $\frac{\partial^r f}{\partial x_{i_1} \partial x_{i_2}...\partial x_{i_r}  } = \frac{\partial^r f}{\partial x_{j_1} \partial x_{j_2}...\partial x_{j_r}  }$
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	Предыдущая теорема говорит, что любая транспозиция не меняет частной производной. А значит, можем всегда переставить все в неубывающем порядке индексов.
+\end{proof}
+

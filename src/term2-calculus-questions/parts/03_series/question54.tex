@@ -1,1 +1,72 @@
-\Subsection{Билет 54: NAME}
+\Subsection{Билет 54: Поточечная и равномерная сходимость последовательности функций. Определение и примеры. Критерий равномерной сходимости. Следствия.}
+
+\begin{definition} \thmslashn
+  
+  Пусть $f_n, f \colon E \to \mathbb{R}$ (тут можно и $\mathbb{C}$).
+  \begin{enumerate}
+  \item Последовательность $f_n$ поточечно сходится к $f$ на множестве $E$, если $\lim\limits_{n\to\infty}f_n(x) = f(x)$ для всех $x\in E$.
+  \item Последовательность $f_n$ равномерно сходится к $f$ на множестве $E$, если
+    $$\forall \varepsilon > 0 \quad \exists N \quad \forall n \geqslant N\quad \forall x \in E\quad |f_n(x) - f(x)|\leqslant \varepsilon$$
+    Обозначение для равномерной сходимости: $f_n\rightrightarrows f$ (и как-то указывать на каком множестве эта равномерная сходимость: или словами после, или под стрлочками)
+    
+\end{enumerate}
+\end{definition}
+\begin{remark} \thmslashn
+  
+  Запишем оба определения с помощью кванторов:
+  \begin{enumerate}
+  \item ${\color{blue}\forall x \in E} \quad \forall \varepsilon > 0 \quad \exists N \quad \forall n \geqslant N\quad |f_n(x) - f(x)|\leqslant \varepsilon$
+  \item $\forall \varepsilon > 0 \quad \exists N \quad \forall n \geqslant N\quad{\color{blue}\forall x \in E} \quad  |f_n(x) - f(x)|\leqslant \varepsilon$
+  \end{enumerate}
+  Получается, что в первом случае $N$ зависит \textbf{и} от $x$, \textbf{и} от $\varepsilon$, а во втором - \textbf{только} от $\varepsilon$. 
+\end{remark}
+\begin{remark} \thmslashn
+  
+  Из равномерной сходимости следует поточечная к той же функции. Действительно, если есть универсальный номер, зависящий только от $\varepsilon$, то он подходит и для конкретного $x$.
+\end{remark}
+\begin{example} \thmslashn
+
+  Пусть $E = (0; 1)\quad f_n(x) = x^n\quad f(x) = 0$, тогда
+
+  $f_n$ поточечно сходится к $f$ (какое-то число из $(0, 1)$ в $n$-ной степени стремится к нулю), однако равномернорной сходимости нет. Условие не выполняется даже для $\varepsilon = \frac{1}{2}$, поскольку $|x^n - 0| < \frac{1}{2}$ не может выполняться при все $x\in(0;1)$ ни для какого $n$, поскольку $x$ мы можем сколь угодно близко подвинуть к $1$, и $x^n$ будет сколь угодно близко к $1$, в частности больше $\frac{1}{2}$.
+  Мораль: из поточечной сходимости равномерная \textbf{не} следует.
+\end{example}
+\begin{theorem}[Критерий равномерной сходимости] \thmslashn
+
+  Пусть $f_n, f \colon E \to \mathbb{R}$. Тогда
+  $$f_n \rightrightarrows f \Leftrightarrow \sup_{x\in E}|f_n(x) - f(x)| \rightarrow 0 \text{ при } n\to \infty$$
+  \begin{proof} \thmslashn
+
+    \paragraph{"$\Leftarrow$"} Запишем правый предел по определению:
+    $$\forall\varepsilon>0\quad\exists N\quad\forall n \geqslant N\quad \sup_{x\in E}|f_n(x) - f(x)| < \varepsilon$$
+    А для супремума верно следующее: $\forall x\in E \quad |f_n(x) - f(x)|\leqslant\sup_{x\in E}|f_n(x) - f(x)|<\varepsilon$, поэтому:
+    $$\forall\varepsilon>0\quad\exists N\quad\forall n \geqslant N\quad \forall x\in E \quad |f_n(x) - f(x)|<\varepsilon$$
+    Ничего не напоминает? Мне вот определение равномерной сходимости напоминает.
+    \paragraph{"$\Rightarrow$"} Запишем определение равномерной сходимости:
+    $$\forall \varepsilon > 0 \quad \exists N \quad \forall n \geqslant N\quad {\color{blue}\forall x \in E\quad |f_n(x) - f(x)|\leqslant \varepsilon}$$
+    Синее означает то, что $\varepsilon$ является верхней границей для всех $|f_n(x) - f(x)|$, а значит, $\sup$ таких разностей будет меньше или равен $\varepsilon$, отсюда:
+    $$\forall \varepsilon > 0 \quad \exists N \quad \forall n \geqslant N\quad {\color{blue}\sup_{x\in E}|f_n(x) - f(x)|\leqslant \varepsilon}$$
+    А это означает то, что $\sup$ стремится к нулю при $n\rightarrow\infty$ (по определению).
+  \end{proof}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+  \begin{enumerate}
+  \item Если $|f_n(x) - f(x)| \leq a_n$ при любых $x\in E$ и $\lim\limits_{n\rightarrow\infty}a_n = 0$, то $f_n\rightrightarrows 0$ на $E$.
+    \begin{proof} \thmslashn
+
+      Если разность меньше $a_n$ во всех точках, то $\sup\limits_{x\in E}|f_n(x) - f(x)| \leqslant a_n\to 0$ при $n\to\infty$
+    \end{proof}
+  \item Если $\exists x_n\in E$ такие, что $f_n(x) - f(x)$ не стремится к нулю, то равномерной сходимости нет.  
+    \begin{proof} \thmslashn
+
+      Это означает, что $\sup\limits_{x\in E}|f_n(x) - f(x)| \geqslant |f_n(x) - f(x)| \neq 0$ при $n\rightarrow\infty$, а значит, нет стремления к нулю у супремума, критерий равномерной сходимости не выполняется, равномерной сходимости нет.
+    \end{proof}
+  \end{enumerate}
+\end{consequence}
+\begin{example} \thmslashn
+
+  Пусть $E = (0; 1)\quad f_n(x) = x^n\quad f(x) = 0$, возьмем $x_n = 1-\frac{1}{n}$, но мы знаем это:
+  $$\left(1 - \frac{1}{n}\right)^n \rightarrow\frac{1}{e} \neq 0$$
+  Раз предел не 0, то равномерной сходимости нет. (Предел может быть только нулем, потому что поточечный предел 0 (иначе пределов было бы несколько, так как равномерная сходимость влекла бы предел к другой функции)). Пример закончился, его явно в билете нет, но пусть будет.
+\end{example}
