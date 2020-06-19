@@ -1,1 +1,64 @@
-\Subsection{Билет 56: NAME}
+\Subsection{Билет 56: Пространство $\ell^{\infty}$ и его полнота}
+
+\begin{definition} Пространство $\ell^{\infty}(E)$. \thmslashn
+	
+	\begin{center}
+		$\ell^{\infty}(E) := \{ f : E \mapsto \R $ $|$ $\sup\limits_{x \in E}$$|f(x)| < +\infty \}$
+	\end{center}
+	
+	c нормой $||f||_{\ell^{\infty}(E)} := \sup\limits_{x \in E}|f(x)|$
+\end{definition}
+
+Другими словами, нормированное пространство $\ell^{\infty}(E)$ состоит из ограниченных на $E$ функций.
+
+\begin{remark} $\sup\limits_{x \in E}|f(x)|$ действительно норма \thmslashn
+	
+	\begin{enumerate}
+	
+		\item $||f|| \ge 0$ и $||f|| = 0$ $\iff$ $\sup\limits_{x \in E}|f(x)| \ge 0$ и $\sup\limits_{x \in E}|f(x)| = 0$ $\iff$ $f \equiv 0$
+	
+		\item $\sup\limits_{x \in E}|\lambda f(x)| = {|\lambda| \sup\limits_{x \in E}f(x)} \quad \forall {\lambda \in \R} \quad \forall x \in X$
+	
+		\item Неравенство треугольника
+	
+			$||f + g|| = \sup\limits_{x \in E}|f(x) + g(x)| \le \sup\limits_{x \in E}(|f(x)| + |g(x)|) \le \sup\limits_{x \in E}|f(x)| + \sup\limits_{x \in E}|g(x)| = ||f|| + ||g||$
+	
+	\end{enumerate}
+	
+	В доказательстве нер-ва треугольника пользовались тем, что $|a+b| \le |a| + |b|$ и $\sup(f+g) \le \sup(f) + \sup(g)$
+	
+\end{remark}
+
+\begin{remark} Связь нормы с равномерной сходимостью \thmslashn
+	
+	$f_n \uniconv f \text{ на } E \iff \lim\limits_{n \to \infty}\sup\limits_{x \in E}|f_n(x) - f(x)| = 0 \iff \lim\limits_{n \to +\infty}||f_n - f|| = 0 \iff$
+	 
+	$f_n \text{ сходится к } f \text{ в пространстве } \ell^{\infty}(E) $
+	
+	То есть про равномерную сходимость можно думать как про сходимость в специальном нормированном пространстве.
+	
+\end{remark}
+
+\begin{theorem} \thmslashn
+	
+	$\ell^{\infty}(E)$ - полное нормированное пространство.
+	
+	\begin{proof} \thmslashn
+		
+		Надо доказать, что каждая фундаментальная последовательность из $\ell^{\infty}$ сходится к элементу этого же пространства.
+		
+		Пусть $f_n$ фундаментальная последовательность из $\ell^{\infty}$. Тогда
+		\[\forall {\eps > 0} \quad {\exists N} \quad \forall {m,n \ge N} \quad || f_n - f_m|| < \eps \]
+		
+		Заметим, что $|| f_n - f_m || = \sup\limits_{x \in E}|f_n(x) - f_m(x) | \ge |f_n(x) - f_m(x)|$ при $x \in E$.
+		
+		То есть $|f_n(x) - f_m(x)| < \eps$. Тогда по критерию Коши для равномерной сходимости $f_n \uniconv f$, где $f : E \mapsto \R$ - некоторая функция.
+		
+		Осталось понять, что $f \in \ell^{\infty}(E)$, т.е. что $f$ - ограниченная функция.
+		
+		Подставим $\eps = 1$ в определение равномерной сходимости. Для него найдется $N$, т.ч. при $n \ge N$ $|f_n(x) - f(x)| < 1$ при всех $x \in E$. Тогда по неравенству треугольника : 
+		\[|f(x)| \le |f_n(x)| + |f(x) - f_n(x)| < |f_n(x)| + 1 \le ||f_n|| + 1\]
+		
+		Но т.к. $n$ - фиксированное число, то $|f(x)|$ не превосходит какого-то фиксированного выражения. Значит $f$ - ограниченная функция.
+ 	\end{proof}
+\end{theorem}
