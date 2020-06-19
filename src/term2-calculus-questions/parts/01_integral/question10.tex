@@ -1,1 +1,60 @@
-\Subsection{Билет 10: NAME}
+\Subsection{Билет 10: Абсолютная сходимость. Признак Дирихле.}
+
+\begin{definition}[Абсолютная сходимость.] \thmslashn
+	
+	$f \in C[a,b)$
+	
+	$\int\limits_a^b f$ абсолютно сходится, если $\int\limits_a^b |f|$ сходится.
+	
+\end{definition}
+
+\begin{theorem} \thmslashn
+	
+	Если $\int\limits_a^b f$ абсолютно сходится, то $\int\limits_a^b f$ сходится.
+	
+\end{theorem} 
+
+\begin{proof} \thmslashn
+    
+    $ 0 \leq f_{\pm} \leq |f|$
+    
+    $\int\limits_a^b f$ абсолютно сходится $\implies \int\limits_a^b |f|$ сходится $\implies \int\limits_a^b f_{\pm}$ сходится
+    
+    $\int\limits_a^b f = \int\limits_a^b (f_{+} - f_{-}) = \int\limits_a^b f_{+} - \int\limits_a^b f_{-} \implies \int\limits_a^b f$ сходится.
+    
+\end{proof}
+
+\begin{theorem}[признак Дирихле] \thmslashn
+	
+	$f, g \in C[a,+\infty)$
+	
+	1. $\exists M : \;\; |\int\limits_a^c f| \leq M$ при всех $c > a$.
+	
+	2. $g$ -- монотонная функция.
+	
+	3. $\lim\limits_{x \to +\infty} g(x) = 0$
+	
+	Тогда $\int\limits_a^{+\infty} fg$ сходится.
+\end{theorem}
+
+\begin{proof} \thmslashn
+
+    Лишь для $g \in C^1[a,+\infty)$.
+    
+    Пусть $F(y) := \int\limits_a^y f$
+    
+    По условию $|F| \leq M$
+    
+    $\int\limits_a^c fg = \int\limits_a^c F'g = Fg \Big|_a^c - \int\limits_a^c Fg'$
+    
+    Надо доказать, что существует предел при  $c \to +\infty$
+    
+    Распишем первое слагаемое как: $F(c)g(c) - F(a)g(a)$. Тогда $F(c)g(c) \to 0$ при $c \to +\infty$, так как это произведение бесконечно малой на ограниченную.
+    
+    Надо доказать, что $\int\limits_a^c Fg'$ сходится. Докажем, что он абсолютно сходится, то есть, что $\int\limits_a^c |F| \cdot |g'|$ сходится. 
+    
+    $\int\limits_a^c |F| \cdot |g'| \leq M \int\limits_a^c |g'| = M |\int\limits_a^c g'| = M | g \Big|_a^c | = M|g(c) - g(a)| \leq M|g(a)| \implies \int\limits_a^{+\infty} |F'g|$ сходится.
+    
+    
+\end{proof}
+
