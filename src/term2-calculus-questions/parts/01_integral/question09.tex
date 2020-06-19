@@ -1,9 +1,11 @@
 \Subsection{Билет 9: Несобственные интегралы от неотрицательных функций. Признак сравнения. Следствия.}
 
 \begin{theorem} \thmslashn
+
     $f \ge 0 \;\; f \in C[a,b)$
 
     Тогда сходимость $\int\limits_a^b f(x) \, dx$ равносильна ограниченности сверху первообразной F.
+
 \end{theorem}
 
 \begin{proof} \thmslashn
@@ -19,6 +21,7 @@
 \end{proof}
 
 \begin{consequence} \thmslashn
+
     $f,g \in C[a,b)  \;\; 0 \le f \le g $
     \begin{enumerate}
     
@@ -27,6 +30,7 @@
         \item Если $\int\limits_{a}^{b} f$ расходится, то $\int\limits_{a}^{b} g$ расходится.
         
     \end{enumerate}
+
 \end{consequence}
 
 \begin{proof} \thmslashn
@@ -39,25 +43,34 @@
         \item От противного. Пусть $\int\limits_{a}^{b} g$ сходится, тогда и $\int\limits_{a}^{b} f$ сходится по первому пункту. Противоречие.
         
     \end{enumerate}
+
 \end{proof}
 
 \begin{remark}
+
     \begin{enumerate}
     
         \item Неравенству $f \le g$ достаточно выполнения для аргументов, близких к b.
+
         \begin{proof} \thmslashn
+
             $\int\limits_{a}^{b} f = \int\limits_{a}^{c} f + \int\limits_{c}^{b} f$
     
             Для второго слагаемого $f \le g$, используем следствие.
         \end{proof}
     
         \item Вместо $f \le g$ можно использовать и $f = O(g)$
+
         \begin{proof} \thmslashn
+
             $\int\limits_{a}^{b} Cg = C \int\limits_{a}^{b} g $ -- сходится.
+
         \end{proof}
     
         \item Если $f \ge 0$, $f \in C[a,+\infty)$ и $f = O(\frac1{x^{1+\eps}})$ при $\eps > 0$, то $\int\limits_{a}^{+\infty} f $ сходится.
+
         \begin{proof} \thmslashn
+
             $f \in O(\frac1{x^{1+\eps}}) \implies f \le M\cdot \frac1{x^{1+\eps}} =: g$
 			
 			Надо доказать, что $\int\limits_a^{+\infty} g$ сходится.
@@ -65,11 +78,13 @@
 			$\int\limits_a^{+\infty}  M\cdot \frac1{x^{1+\eps}} = M\int\limits_a^{+\infty} \frac1{x^{1+\eps}}$ -- сходится.
 
         \end{proof}
+
     \end{enumerate}
 
 \end{remark}
 
 \begin{consequence} \thmslashn
+
     $f, g \ge 0 \;\; f,g \in C[a,b)$ и $f \sim g$ при $x \to b-$
 		
     Тогда $\int\limits_a^b f$ и $\int\limits_a^b g$ ведут себя одинаково.
@@ -77,14 +92,17 @@
 \end{consequence}
 
 \begin{proof} \thmslashn
+
     $f \sim g \implies$ найдется такое $c$, что $\frac{g}{2} \le f \le 2g$ при $x > c$
 
     Если $\int\limits_{a}^{b} g $ сходится, то $f \le 2g \implies \int\limits_{a}^{b} f$ сходится.
 
     Если $\int\limits_{a}^{b} f $ сходится, то $g \le 2f \implies \int\limits_{a}^{b} g$ сходится.
+
 \end{proof}
 
 \begin{remark} \thmslashn
+
     $f \ge 0 \;\; f \in C[a,+\infty)$ и $\int_a^{+\infty} f$ сходится.
 
     Это НЕ значит $f(x) \to 0$ при $x \to +\infty$
