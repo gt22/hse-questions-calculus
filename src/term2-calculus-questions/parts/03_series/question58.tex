@@ -1,1 +1,88 @@
-\Subsection{Билет 58: NAME}
+\Subsection{Билет 58: Поточечная и равномерная сходимость рядов. Остаток ряда. Критерий Коши. Необходимое
+условие равномерной сходимости ряда.}
+
+\begin{remark}
+    Момент с лекции: \href{https://www.youtube.com/watch?v=KfeUfFaKZHo}{youtu.be} \newline
+    Записи Александра Игоревича c лекции: \href{https://drive.google.com/file/d/1RjjQ-4fzkRGXTJR-QFnaVCY-DEZRW8Do/view}{drive.google}
+\end{remark}
+
+\begin{definition}\slashns
+	
+	$u_n : E \to \mathbb{R}(\mathbb{C})$
+	
+	$\sum\limits_{n = 1}^{\infty} u_n(x)$ -- функциональный ряд
+	
+	$S_n(x) := \sum\limits_{k = 1}^{n} u_k(x)$ -- частичная сумма.
+	
+	Если $S_n$ поточечно сходится к $S$,то ряд поточечно сходится, если $S_n \rightrightarrows S$, то ряд равномерно сходится.
+\end{definition}
+
+\begin{definition}\slashns
+	
+	Пусть ряд $\sum\limits_{n = 1}^{\infty} u_n(x)$ сходится поточечно
+	
+	$r_n(x) := \sum\limits_{k = n + 1}^{\infty} u_k(x) = S(x) - S_n(x)$ -- остаток функции ряда.
+\end{definition}
+
+\begin{theorem}\slashns
+	
+	$\sum\limits_{n = 1}^{\infty} u_n(x)$ равномерно сходится на $E$
+	
+	$\iff r_n \rightrightarrows 0$ на $E$.
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	$\sum\limits_{n = 1}^{\infty} u_n(x)$ -- равномерно сходится $\iff S_n \rightrightarrows S$ на $E \iff r_n=S-S_n \rightrightarrows 0$
+\end{proof}
+
+\begin{theorem}[Критерий Коши]\slashns
+	
+	$\sum u_n(x)$ равномерно сходится на $E$
+	
+	$\iff \forall \epsilon > 0 \;\; \exists N \;\; \forall n > N \;\; \forall p \in \N \;\; \forall x \in E \;\; |\sum\limits_{k = n+1}^{n+p} u_k(x)| < \epsilon$
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	$\sum u_n(x)$ равномерно сходится $\iff S_n \rightrightarrows S$ на $E$
+	
+	$\iff \forall \epsilon > 0 \;\; \exists N \;\; \forall m,n > N \;\; \forall x \in E \;\; |S_m - S_n| < \epsilon$
+	
+	$\forall \epsilon > 0 \;\; \exists N \;\; \forall n > N \;\; \forall p \in \N \;\; \forall x \in E \;\; |S_{n+p} - S_n| < \epsilon$
+	
+	$|\sum\limits_{k = n+1}^{n+p} u_k(x)| = |\sum\limits_{k = 1}^{n+p} u_k(x) - \sum\limits_{k = 1}^{n} u_k(x)| = |S_{n+p} - S_n|$
+\end{proof}
+
+\begin{consequence}[(Необходимое условие сходимости функции ряда)]\slashns
+
+	Если ряд $\sum u_n(x)$ равномерно сходится, то $u_n \rightrightarrows 0$.
+\end{consequence}
+
+\begin{proof}\slashns
+	
+	Возьмем критерий Коши и $p=1$.
+	
+	$\forall \epsilon > 0 \;\; \exists N \;\; \forall n > N \;\; \forall x \in E \;\; |u_{n+1}(x)| < \epsilon$
+	
+	Это определение равномерной сходимости $u_n \rightrightarrows 0$.
+\end{proof}
+
+\begin{remark}\slashns
+	
+	\begin{enumerate}
+		\item
+		Если $\exists x_n \in E$, для которой $u_n(x_n) \not\to 0$, то $\sum u_n(x)$ не сходится равномерно.
+		\item Из того, что ряд $\sum u_n(x_n)$ расходится ничего не следует
+	\end{enumerate}
+\end{remark}
+
+\begin{example}\slashns
+	
+	$u_n(x) = \begin{cases}
+	\frac1n & \text{ при } x \in [\frac{1}{n+1}, \frac1n)\\
+	0 & \text{ иначе }
+	\end{cases}$
+	
+	$\sum u_n(\frac{1}{n+1}) = \sum \frac1n$ -- расходится.
+\end{example}
