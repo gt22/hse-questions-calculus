@@ -68,7 +68,11 @@
 	
 	$\left|t-x_{k-1}\right|\left|x_{k}-t\right|\le \frac{(x_k - x_{k - 1})^2}{4}\le \frac{\left|\tau\right|^2}{4}$
 	
+	Первое неравенство выполняется, поскольку $a = \left|t-x_{k-1}\right|, b = \left|x_{k}-t\right|.\ t\in [x_k, x_{k-1}].\ a + b =  \left|x_k - x_{k - 1}\right|\\ \implies ab$ максимально при $a = b = \frac{(x_k - x_{k - 1})}{2}$(чтобы доказать это можно найти вершину параболы $\\y = (t-x_{k-1})(t-x_{k})$).
+	
 	$\left|\Delta\right| \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \left|f''(t)\right|(t - x_{k-1})(x_k - t) \, dt \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \left|f''(t)\right|\frac{\left|\tau\right|^2}{4} \, dt = \frac{\left|\tau\right|^2}{8} \int\limits_a^b \left|f''\right|$
 		
+	При делении на равные отрезки $\left|\tau\right| = \frac{b - a}{n}.$	
+	
 \end{proof}
 
