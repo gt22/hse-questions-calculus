@@ -1,1 +1,113 @@
-\Subsection{Билет 44: NAME}
+\Subsection{Билет 44: Признак Даламбера. Примеры. Связь между признаками Коши и Даламбера.}
+
+\begin{theorem}[признак Даламбера]\thmslashn
+	
+	$a_n > 0$
+	
+	\begin{enumerate}
+		\item Если $\frac{a_{n+1}}{a_n} \ge 1$, то ряд расходится.
+		\item Если $\frac{a_{n+1}}{a_n} \le d < 1$, то ряд сходится.
+		\item Пусть $d^* = \lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n}$
+		
+		Если $d^* < 1$, то ряд сходится.
+		
+		Если $d^* > 1$, то ряд расходится.
+		
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item $\frac{a_{n+1}}{a_n} \ge 1 \implies a_n \le a_{n+1}$
+
+		$ \implies$ начиная с некоторого места члены ряда возрастают, $0 < a_1 \le a_2 \le ...$
+		
+		$\implies a_n \not\to 0 \implies$  ряд расходится
+
+		\item $\frac{a_{n+1}}{a_n} \le d \implies a_{n+1} \le d \cdot a_{n}$ начиная с некоторого места.
+
+		$\implies a_{n+k} \le d^k \cdot a_n$ при всех $k$
+
+		$\implies$ при всех $k \ge n$ $a_k \le d^{k - n} \cdot a_n = d^k \cdot \frac{a_n}{d^n} = d^k \cdot const$
+
+		$\implies a_k = \mathcal{O}(d^k)$
+
+		$\sum\limits_{n=1}^{\infty}d^k$ -- это сумма геометрической прогрессии, знаменатель которой меньше 1, то есть $\sum\limits_{n=1}^{\infty}d^k$ сходится, тогда по признаку сравнения $\sum\limits_{n=1}^{\infty}a_n$ тоже сходится.
+		
+		\item 
+		\begin{enumerate}
+			\item $\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} = d^* < 1$
+		
+			$d:= \frac{d^*+1}{2} < 1$
+		
+			$\implies$ начиная с некоторого номера $\frac{a_{n+1}}{a_n} < d < 1 \implies$ попали в первый пункт, сходится
+		
+			\item $\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} = d^* > 1$
+		
+			$\implies$ с некоторого номера $\frac{a_{n+1}}{a_n} \ge 1$
+		
+			$\implies$ ряд расходится.
+		\end{enumerate} 
+	\end{enumerate}
+\end{proof}
+
+\begin{remark}\thmslashn
+	
+	Если $\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} = 1$, то ряд может как сходиться, так и расходиться.
+
+	\begin{enumerate}
+
+		\item $\sum\limits_{n = 1}^{\infty} \frac1n$ -- расходится
+
+		$\lim\limits_{n \to \infty} \frac{\frac 1{n+1}}{\frac 1n} = \lim\limits_{n \to \infty} \frac n{n+1} = 1$
+
+		\item $\sum\limits_{n = 1}^{\infty} \frac1{n(n+1)}$ -- сходится
+	
+		$\lim\limits_{n \to \infty} \frac{\frac 1{(n+1)(n+2)}}{\frac 1{n(n+1)}} = \lim\limits_{n \to \infty} \frac n{n+2} = 1$
+	\end{enumerate}
+\end{remark}
+
+\begin{example}\thmslashn
+	
+	$\sum\limits_{n = 0}^{\infty} \frac{x^n}{n!}$, при $x > 0$
+	
+	\underline{По Даламберу.}
+
+	 $\frac{a_{n+1}}{a_n} = \frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n} = \frac{x}{n+1} \to 0$
+	
+	$\implies $ ряд сходится
+	
+	\underline {По Коши.}
+	
+	$\sqrt[n]{\frac{x^n}{n!}} = \frac{x}{\sqrt[n]{n!}}$ 
+
+	Воспользуемся формулой Стирлинга:
+
+	$ \frac{x}{\sqrt[n]{n!}} \sim \frac{x}{\sqrt[n]{n^n\cdot e^{-n} \cdot \sqrt{2\pi n}}}\sim \frac x {\frac ne} = \frac{xe}{n} \to 0$
+
+	$\implies $ ряд сходится
+\end{example}
+
+\begin{theorem}[Связь между признаками Коши и Даламбера]\thmslashn
+	
+	$a_n > 0$
+	
+	Если существует $\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} =: d$, то существует и $\lim\limits_{n \to \infty} \sqrt[n]{a_n}$ и он равен $d$
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Будем рассматривать не сами выражения, а их логарифмы.
+
+	$\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} = d \iff \lim\limits_{n \to \infty} \ln(\frac{a_{n+1}}{a_n}) = \ln d$
+
+	Хотим доказать, что $\lim\limits_{n \to \infty} \ln \sqrt[n]{a_n} = \ln d$
+	
+
+	Применяем Штольца!
+	
+	$\lim\limits_{n \to \infty} \ln \sqrt[n]{a_n} = \lim\limits_{n \to \infty} \frac{\ln a_n}{n} = \lim\limits_{n \to \infty} \frac{\ln a_{n+1} - \ln a_n}{(n+1) - n} = \lim\limits_{n \to \infty} \ln (\frac{a_{n+1}}{a_n}) = \ln d$
+	
+\end{proof}
+

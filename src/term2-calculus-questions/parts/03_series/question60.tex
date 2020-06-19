@@ -1,1 +1,68 @@
-\Subsection{Билет 60: NAME}
+\Subsection{Билет 60: Признаки Дирихле и Лейбница для равномерной сходимости}
+
+\begin{theorem}[Признак Дирихле (Дурихле)] \thmslashn
+  
+  $a_n, b_n : E\mapsto \mathbb{R}$
+  \begin{enumerate}
+  \item
+    $|\sum\limits_{k = 1}^{n}{a_k(x)}| \leqslant K\, \forall n\, \forall x \in E$
+  \item
+    $b_n \rightrightarrows 0$ на $E$
+  \item
+    $\forall x \in E \, b_n(x)$ - монотонны по $n$
+  \end{enumerate}
+  При выполнении этих условий $\sum\limits_{n = 1}^{\infty}{a_n(x)b_n(x)}$ - равномерно сходится на $E$.
+
+  \begin{proof} \thmslashn
+    
+    $A_n(x) := \sum\limits_{k = 1}^{n}{a_k(x)}$. $\left|A_n(x)\right|\leqslant K$, по условию. Воспользуемся преобразованием Абеля (если забыли доказательство - оно в вопросе 46). Его корректность для функциональных рядов можно проверить, повторив обычное доказательсвто с приписанным '$(x)$'
+    \[\begin{aligned}
+      \sum\limits_{k = 1}^{n}{a_n(x)b_n(x)} = A_n(x)b_n(x) + \sum\limits_{k = 1}^{n-1}{A_k(x)(b_k(x) - b_{k+1}(x))}
+    \end{aligned}\]
+    \begin{itemize}
+    \item
+      $A_n(x)b_n(x) \rightrightarrows 0$ - как произведение равномерно ограниченной на равномерно стремящуюся к нулю
+    \item
+      $\sum\limits_{k = 1}^{\infty}{A_k(x)(b_k(x) - b_{k+1}(x))}$ - равномерно сходится. Воспользуемся для доказательства этого факта признаком сравнения. \\
+      $u_k(x) := A_k(x)(b_k(x) - b_{k+1}(x))$ и $v_n(x) := K|b_k(x) - b_{k+1}(x)|$
+      Осталось доказать, что $v_n(x)$ - равномерно сходится.
+      $\sum\limits_{n = 1}^{\infty}{|b_n(x) - b_{n+1}(x)|} \underbrace{=}_{b_n(x) - \text{монотонные}} \left|\sum\limits_{n=1}^{\infty}{b_n(x)-b_{n+1}(x)}\right|$.
+      Посмотрим на частичные суммы:
+        \[\begin{aligned}
+          \left|\sum\limits_{k = 1}^{n}{b_k(x) - b_{k+1}(x)}\right| = |b_1(x) - b_{n+1}(x)| \rightrightarrows |b_1(x)|
+        \end{aligned}\]
+      Докажем последний переход:
+      \[\begin{aligned}
+        ||b_1(x) - b_{n+1}(x)| - b_1(x)| \leqslant |b_1(x) - b_{n+1}(x) - b_1(x)| = |b_{n+1}(x)| \underbrace{\rightrightarrows}_{\text{по условию}} 0
+      \end{aligned}\]
+      Так как частичные суммы равномерно сходятся, то и сам ряд равномерно сходится.
+    \end{itemize}
+  \end{proof}    
+\end{theorem}
+
+\begin{theorem}[Признак Лейбница] \thmslashn
+
+$b_n : E\mapsto \mathbb{R}$
+\begin{enumerate}
+\item
+  $\forall x \in E \, b_n(x) \geqslant 0$ и монотонны
+\item
+  $b_n(x) \rightrightarrows 0$ на $E$.
+\end{enumerate}
+Тогда ряд $\sum\limits_{n = 1}^{\infty}{(-1)^{n-1}b_n(x)}$ - равномерно сходится.
+  \begin{proof} \thmslashn
+    
+    $a_n(x):= (-1)^{n-1}$. И воспользуемся признаком Дирихле для $a_n(x)$ и $b_n(x)$. Частичные суммы $a_n(x)$ либо 1, либо 0 $\Rightarrow$ ограничены.
+  \end{proof}
+\end{theorem}
+
+\begin{example}
+
+  $\sum\limits_{n=1}^{\infty}{\frac{(-1)^n}{n}x^n}$ - равномерно сходитя на $(0; 1)$
+  \begin{proof} \thmslashn
+
+    $\frac{x^n}{n} \leqslant \frac{1}{n} \Rightarrow \frac{x^n}{n} \rightrightarrows 0$, также $\frac{x^n}{n}$ монотонная. Получаем равномерную сходимость ряда по Лейбницу.
+    Также ряд $\sum\limits_{n = 1}^{\infty}{|(-1)^{n-1}\frac{x^n}{n}|}$ - сходится, так как меньше геометрической прогрессии. \textbf{НО} такой ряд не сходится равномерно по критерию Коши.
+
+  \end{proof}
+\end{example}

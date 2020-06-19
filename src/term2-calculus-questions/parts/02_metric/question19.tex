@@ -51,5 +51,14 @@
 
                 Пусть $r_1 = 1$, $r_{n} = \min \{\frac{1}{n}, \rho(x_{n-1}, a)\}$, $x_{n}\in \punct{B}_{r_{n}}(a)$ - такой $x_{n}$ всегда можно выбрать, так-как окрестность непуста. Тогда $\rho(x_{n}, a) < r \implies \rho(x_{n}, a) < \frac{1}{n} \implies \rho(x_{n}, a) \to 0 \implies \lim\limits_{n \to \infty} x_{n} = a$, и при этом $\rho(x_{n}, a) < r_{n} < \rho(x_{n-1}, a)$.
             \end{proof}
+        \item $A \subset X$, $x_{n}\in A$, $\lim\limits_{n \to \infty} x_{n} = a \implies a\in A \cup A' = \Cl A$.
+            \begin{proof} \thmslashn
+                
+                Если $a \not\in A$:
+
+                Предположим что $a \not\in A' \implies \exists{\eps > 0}\quad \punct{B}_{\eps}(a)\cap A = \emptyset \implies \not \exists{x\in A}\quad 0 < \rho(x, a) < \eps$.
+
+                Но, если подставить этот $\eps$ в определение предела, то получим что $\exists{N}\quad \rho(x_{N}, a) < \eps$ и $x_{N}\in A \implies x_{N} \neq a \implies \rho(x_{N}, a) > 0$. Противоречие, значит $a\in A'$.
+            \end{proof}
     \end{enumerate}
 \end{properties}

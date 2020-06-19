@@ -1,1 +1,36 @@
-\Subsection{Билет 4: NAME}
+\Subsection{Билет 4: Формула Эйлера-Маклорена (для второй производной).}
+
+\begin{theorem}(Формула Эйлера-Маклорена для второй производной)\slashns
+	
+	$f\in C^2[m,n] \;\; m,n \in \mathbb{Z}$
+	
+	$\sum\limits_{k = m}^{n} f(k) = \frac{f(m) + f(n)}{2} + \int\limits_m^n f(t) \,dt + \frac12 \int\limits_m^n f''(t) \cdot \{t\}(1 - \{t\}) \,dt$
+\end{theorem}
+
+\begin{proof}\slashns
+
+    $\\$Подставим в формулу $m = k, n = k+1$. Получим: 
+	
+	$f(k) + f(k+1) = \frac{f(k) + f(k+1)}{2} + \int\limits_k^{k+1} f(t) \, dt + \frac12 \int\limits_k^{k+1}f''(t)\cdot \{t\}(1 - \{t\}) \,dt$
+
+    Выразим отсюда $f(k)$:
+
+	$f(k) = \int\limits_k^{k+1} f(t) \, dt + \frac{f(k) - f(k + 1)}{2} + \frac12 \int\limits_k^{k+1}f''(t)\cdot \{t\}(1 - \{t\}) \,dt$
+	
+	Просуммируем от $m$ до $n-1$.
+	
+	$\sum\limits_{k=m}^{n-1} f(k) = \frac{f(m) - f(n)}{2} + \int\limits_m^n f(t)\, dt + \frac12 \int\limits_m^n f''(t)\cdot \{t\}(1 - \{t\}) \,dt$
+	
+	$f(n) + \sum\limits_{k=m}^{n-1} f(k) = f(n) + \frac{f(m) - f(n)}{2} + \int\limits_m^n f(t)\, dt + \frac12 \int\limits_m^n f''(t)\cdot \{t\}(1 - \{t\}) \,dt = 
+	\\=\frac{f(m) + f(n)}{2} + \int\limits_m^n f(t)\, dt + \frac12 \int\limits_m^n f''(t)\cdot \{t\}(1 - \{t\}) \,dt$
+	
+	Т.е. достаточно лишь проверить формулу для $f(k)=...$
+	
+	Заметим, что выражение не зависит от $k\ (f(t + k) = g(t)) \implies$ можно "сдвинуть". Будем считать, что $k = 0$. Тогда $\{t\} = t.$
+	
+	$f(0) = \int\limits_0^{1} f(t) \, dt + \frac{f(0) - f(1)}{2} + \frac12 \int\limits_0^{1}f''(t)\cdot t(1 - t) \,dt$
+	
+	$\int\limits_0^{1} f(t) \, dt - \frac{f(0) + f(1)}{2} = -\frac12 \int\limits_0^{1}f''(t - 0)\cdot t(1 - t) \,dt$
+	
+	Верно по лемме из билета 3: $\alpha = 0, \beta = 1$.
+\end{proof}

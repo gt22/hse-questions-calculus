@@ -1,1 +1,156 @@
-\Subsection{Билет 41: NAME}
+\Subsection{Билет 41: Критерий Коши. Абсолютная сходимость. Группировка членов ряда. Свойства}
+
+\begin{theorem}[Критерий Коши] \thmslashn 
+	
+	$X$ -- полное нормированное пространство.
+	
+	$\sum a_n$ сходится $\iff $ $\forall{\eps > 0}\quad \exists{N}\quad \forall{m>n>N} \;\; \left\|\sum\limits_{k=n}^{m}a_k\right\| < \eps$
+
+	\begin{proof} \thmslashn
+		
+		$S_n:= \sum\limits_{k=1}^{n} a_k$
+		
+		$\sum a_n$ -- сходится $\iff \exists $ конечный $\lim\limits_{n \to \infty} S_n$
+		
+		$\iff$ (полнота $X$) $S_n$ -- фундаментальная последовательность
+		
+		$\iff \; \forall{\eps > 0} \quad \exists{N} \quad \forall{m,n > N} \quad \|S_m - S_n\| < \eps$
+	
+	$\|S_m - S_{n - 1}\| = \left\|\sum\limits_{k =n}^{m}a_k\right\|$
+	\end{proof}
+
+\end{theorem}
+
+\begin{definition}[Абсолютная сходимость] \thmslashn 
+	
+	$x_n \in X$ -- нормированное пространство
+
+	$\sum\limits_{n = 1}^{\infty}x_n$ -- абсолютно сходится, если $\sum\limits_{n = 1}^{\infty}\|x_n\|$ -- сходится
+
+\end{definition}
+
+\begin{theorem} \thmslashn 
+
+	$X$ -- полное нормированное пространство
+
+	Если $\sum\limits_{n=1}^{\infty}x_n$ -- абсолютно сходится, то
+	\begin{enumerate}
+		\item $\sum\limits_{n=1}^{\infty}x_n$ -- сходится 
+		
+		\begin{proof} \thmslashn 
+
+			$\sum\limits_{n=1}^{\infty}\|x_n\|$ -- сходится $\implies$ (Критерий Коши для $\|x_n\|$) $\;\forall{\eps}\quad \exists{N} \quad m,n\ge N \quad \sum\limits_{k=n}^{m}\|x_k\|< \eps$
+
+			$\eps > \sum\limits_{k=n}^{m}\|x_k\| \ge \left\|\sum\limits_{k=n}^{m}x_k\right\|$
+	
+			$\implies\; \forall{\eps} \quad \exists{N} \quad \forall{n,m \ge N}\quad \left\|\sum\limits_{k=n}^{m}x_k\right\| < \eps$
+			
+			$\implies$ (Критерий Коши для $x_n$) $\sum\limits_{n=1}^{\infty}x_n$ -- сходится
+		\end{proof}
+
+		\item $\left\|\sum\limits_{n=1}^{\infty}x_n\right\| \le \sum\limits_{n=1}^{\infty}\|x_n\|$
+		
+		\begin{proof} \thmslashn 
+			\[
+				\left\|\sum\limits_{k = 1}^{n}x_k\right\| \le \sum\limits_{k = 1}^{n}\|x_k\|
+			\]
+			\[
+				\left\|\sum\limits_{k = 1}^{n}x_k\right\| \to \left\|\sum\limits_{k = 1}^{\infty}x_k\right\|\;\text{и}\;\sum\limits_{k = 1}^{n}\|x_k\|\to\sum\limits_{k = 1}^{\infty}\|x_k\|
+			\]
+			\[
+				\implies \left\|\sum\limits_{k = 1}^{\infty}x_k\right\| \le \sum\limits_{k = 1}^{\infty}\|x_k\|
+			\]
+		\end{proof}
+	\end{enumerate} 
+\end{theorem}
+
+\begin{definition}[Группировка членов ряда] \thmslashn 
+
+	$(x_1 + x_2) + (x_3 + x_4 + x_5) + x_6 + (x_7 + x_8)+\ldots$
+\end{definition}
+
+\begin{remark}\thmslashn
+
+	\begin{enumerate}
+		\item Если исходный ряд сходился, то ряд получившийся после группировки сходится к той же сумме.
+		\item В обратную сторону верно не всегда
+		\begin{example}
+			$(1 - 1)+(1- 1) + (1-1)+\ldots$
+		\end{example}
+	\end{enumerate}
+\end{remark}
+
+\begin{theorem}[Когда верно в обратную сторону] \thmslashn
+
+	$\sum\limits_{n=1}^{\infty}x_n$
+
+	$S_n = \sum\limits_{k=1}^{n}x_k$
+
+	\begin{enumerate}
+
+		\item Если $\lim x_n = 0$ и количество слагаемых в каждой группе $\le M$
+		
+			\begin{proof} \thmslashn
+
+				$S_{n_k}$ -- подпоследовательность чатичных сумм $\lim\limits_{k\to \infty} S_{n_k} = S$
+
+				(группировка – всего лишь выбор подпоследовательности частичных сумм)
+
+				\[
+					x_1 + x_2 + \ldots + x_{n_k}) + (x_{n_k + 1} + \ldots + x_{n_k + r} + \ldots	
+				\]
+
+				\[
+					\|S_{n_k + r} - S\| = \|S_{n_k} - S + x_{n_k + 1} + \ldots + x_{n_k + r}\| \le	
+				\]
+
+				\[
+					\le \|S_{n_k} - S\| + \|x_{n_k + 1}\| + \ldots + \|x_{n_k + r}\|	
+				\]
+
+				Выберем $K$, т.ч. если $k \ge K$, то $\|S_{n_k} - S\| < \eps$
+
+				Выберем $N$, т.ч. если $n \ge N$, то $\|x_n\| <  \eps$
+
+				Если выполняется и то, и то, тогда:
+				
+				$\|S_{n_k} - S\| + \|x_{n_k + 1}\| + \ldots + \|x_{n_k + r}\| < \eps(M + 1)$
+
+				Значит $\forall{\eps > 0}$ мы можем выбрать $N_1$, т.ч. $\forall{n \ge N_1} \quad \|S_n - S\| < \eps$
+			\end{proof}
+		\item Для числовых рядов. Если все члены ряда в группе одного знака.
+
+			\begin{proof} \thmslashn
+				
+				$S_{n_k} \to S$
+
+				$\forall{\eps > 0}\quad \exists{K} \quad \forall{k \ge K}\quad |S_{n_k} - S| < \eps$
+		
+				$N:= n_K$
+		
+				если $n \ge N$:
+				
+				для некоторого $k$: \;$n_k \le n < n_{k+1}$
+		
+				$S_n = S_{n_k} + x_{n_k+1} + x_{n_k+2} + ...+x_n$
+		
+				если в группе все члены $\ge 0$, то $S_n \ge S_{n_k}$
+		
+				$S_n = S_{n_{k+1}} - x_{n_{k+1}} - x_{n_{k+1} - 1} - ... - x_{n+1}$
+		
+				$S_{n_{k+1}} \ge S_n$
+		
+				Тогда $|S_n - S| < \eps$
+		
+				Если в группе отрицательные члены
+		
+				$S_{n_k} \ge S_n \ge S_{n_{k+1}}$
+		
+				Тогда в этом случае тот же вывод
+
+				$|S_n - S| < \eps$
+
+			\end{proof}
+	\end{enumerate}
+
+\end{theorem}
