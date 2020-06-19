@@ -1,1 +1,46 @@
-\Subsection{Билет 81: NAME}
+\Subsection{Билет 81: Непрерывная дифференцируемость. Определение и равносильное ей свойство}
+
+\begin{definition}\slashns
+	
+	$f: E \to \R^m \;\; E \subset \R^n \;\;\; a \in \Int E$
+	
+	$f$ -- непрерывно дифференцируема в точке $a$, если 
+
+	$f$ дифференцируема в окрестности точки $a$ и 
+
+	$d_x f$ непрерывна в точке $a$ ($\left\| d_x f - d_a f \right\| \to 0$ при $x \to a$)
+\end{definition}
+
+\begin{theorem}\slashns
+	
+	$f$ -- непрерывно дифференцируема в точке $a \iff$
+	
+	все частные производные $f$ существуют в окрестности точки $a$ и непрерывны в точке $a$.
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	
+	``$\implies$''
+	Разложим $f$ на координатные функции, рассмотрим одну из них - $f_k$. Продифференцируем её по какому-то $x_j$. Рассмотрим модуль разности значений в точках $x$ и $a$:
+
+	$\left|\frac{\partial f_k}{\partial x_j}(x) - \frac{\partial f_k}{\partial x_j}(a)\right|$
+
+	для доказательства оценим эту разность сверху чем-то стремящимся к 0.
+
+	Так как $\frac{\partial f_k}{\partial x_j} (x) = \left<d_x f(e_j), e_k\right>$, то
+
+	$\left|\frac{\partial f_k}{\partial x_j}(x) - \frac{\partial f_k}{\partial x_j}(a)\right| = \left|\left<d_x f(e_j)-d_a f(e_j), e_k\right>\right| \le \left\|d_x f(e_j)-d_a f(e_j)\right\| \left\|e_k\right\|=$
+
+	$=\left\|d_x f(e_j)-d_a f(e_j)\right\|\le \left\|d_x f-d_a f\right\| \left\|e_j\right\|=\left\|d_x f-d_a f\right\|\to 0$
+	
+	``$\Longleftarrow$''
+
+	Рассмотрим $\left\|d_x f - d_a f\right\|^2$
+
+	Воспользуемся ранее доказаной теоремой, что квадрат нормы матрицы не превосходит суммы квадратов её коэффициентов:
+	
+	$\left\|d_x f - d_a f\right\|^2 \le \sum\limits_{k = 1}^{m}\sum\limits_{j = 1}^{n}(\frac{\partial f_j}{\partial x_k}(x) - \frac{\partial f_j}{\partial x_k}(a))^2 \to 0$, так как
+
+	из $x\to a$ и непрерывности частных производных следует, что каждое слагаемое стремится к 0, их конечное кол-во, значит, и сумма стремится к 0, поэтому $\left\|d_x f - d_a f\right\|^2\to0$, а тогда и $\left\|d_x f - d_a f\right\|\to0$
+\end{proof}
