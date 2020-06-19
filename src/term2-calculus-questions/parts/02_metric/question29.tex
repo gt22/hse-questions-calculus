@@ -1,1 +1,54 @@
-\Subsection{Билет 29: NAME}
+\Subsection{Билет 29: Непрерывный образ компакта. Теорема Вейерштрасса. Непрерывность обратного отображения.}
+
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $f : X \mapsto Y$, $f$ непрерывна, $K \subset X$ - компакт.
+
+    Тогда $f(K)$ компакт.
+
+    \begin{proof} \thmslashn
+    
+        Возьмём открытое покрытие $f(K)$, назовём его $U_{\alpha}$.
+
+        Тогда $V_{\alpha} = f^{-1}(U_{\alpha})$ - открытое покрытие $K$.
+
+        Выберем конечное $V_{\alpha_{k}}$.
+
+        Тогда $K \subset \bigcup\limits_{k=1}^{n} V_{\alpha_{k}} \implies f(K) \subset \bigcup\limits_{k=1}^{n} f(V_{\alpha_{k}}) = \bigcup\limits_{k=1}^{n} U_{\alpha_{k}}   $.
+    \end{proof}
+\end{theorem}
+\begin{theorem}[Вейерштрасса] \thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $f : X \mapsto Y$, $f$ непрерывна, $K \subset X$ - компакт.
+
+    Тогда $\exists{u, v\in K}\quad \forall{x\in K}\quad f(u) \le f(x) \le f(v)$.
+    \begin{proof} \thmslashn
+    
+        $f(K)$ - компакт $\implies$ замкнут и ограничен.
+
+        Ограничен $\implies$ $\inf f$ и $\sup f$ - конечные.
+
+        Предположим что $b := \sup f \not\in f(K)$.
+
+        Тогда можем взять последовательность $x_{n}\in f(K)$, $x_{n} \to b$. Тогда $b$ - предельная точка $f(K)$. $b\in f(K)' \subset \Cl f(K) = f(K)$. Противоречие. Значит $b\in f(K) \implies \exists{v\in K}\quad f(v) = b$. Аналогично для $\inf f$.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $f : X \mapsto Y$, $f$ непрерывная биекция, $X$ - компакт.
+
+    Тогда $f^{-1}$ непрерывна.
+    \begin{proof} \thmslashn
+    
+        Пусть $g := f^{-1}$.
+
+        Пусть $U \subset X$ - открытое множество.
+
+        Заметим, что $f(U) = Y \setminus f(X \setminus U)$ (так-как биекция).
+
+        $X \setminus U$ - замкнутое подмножество компакт $\implies$ компакт $\implies$ $f(X \setminus U)$ замкнуто $\implies$ $Y \setminus f(X \setminus U)$ - открыто.
+
+        $f(U) = g^{-1}(U)$, значит для $g$ прообраз открытого открыт $\implies$ $g$ непрерывно.
+    \end{proof}
+\end{theorem}
