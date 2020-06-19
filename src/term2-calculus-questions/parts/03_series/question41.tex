@@ -4,7 +4,7 @@
 	
 	$X$ -- полное нормированное пространство.
 	
-	$\sum a_n$ сходится $\iff $ $\forall \varepsilon > 0\;\; \exists N \;\; \forall m>n>N \;\; \|\sum\limits_{k=n}^{m}a_k\| < \varepsilon$
+	$\sum a_n$ сходится $\iff $ $\forall{\eps > 0}\quad \exists{N}\quad \forall{m>n>N} \;\; \left\|\sum\limits_{k=n}^{m}a_k\right\| < \eps$
 
 	\begin{proof} \thmslashn
 		
@@ -14,9 +14,9 @@
 		
 		$\iff$ (полнота $X$) $S_n$ -- фундаментальная последовательность
 		
-		$\iff \; \forall \varepsilon > 0 \;\; \exists N \;\; \forall m,n > N\; \|S_m - S_n\| < \varepsilon$
+		$\iff \; \forall{\eps > 0} \quad \exists{N} \quad \forall{m,n > N} \quad \|S_m - S_n\| < \eps$
 	
-	$\|S_m - S_{n - 1}\| = \|\sum\limits_{k =n}^{m}a_k\|$
+	$\|S_m - S_{n - 1}\| = \left\|\sum\limits_{k =n}^{m}a_k\right\|$
 	\end{proof}
 
 \end{theorem}
@@ -39,26 +39,26 @@
 		
 		\begin{proof} \thmslashn 
 
-			$\sum\limits_{n=1}^{\infty}\|x_n\|$ -- сходится $\implies$ (Критерий Коши для $\|x_n\|$) $\;\forall \varepsilon\; \exists N \;\; m,n\ge N \; \sum\limits_{k=n}^{m}\|x_k\|< \varepsilon$
+			$\sum\limits_{n=1}^{\infty}\|x_n\|$ -- сходится $\implies$ (Критерий Коши для $\|x_n\|$) $\;\forall{\eps}\quad \exists{N} \quad m,n\ge N \quad \sum\limits_{k=n}^{m}\|x_k\|< \eps$
 
-			$\varepsilon > \sum\limits_{k=n}^{m}\|x_k\| \ge \|\sum\limits_{k=n}^{m}x_k\|$
+			$\eps > \sum\limits_{k=n}^{m}\|x_k\| \ge \left\|\sum\limits_{k=n}^{m}x_k\right\|$
 	
-			$\implies\; \forall \varepsilon \; \exists N \; \forall n,m \ge N\; \|\sum\limits_{k=n}^{m}x_k\| < \varepsilon$
+			$\implies\; \forall{\eps} \quad \exists{N} \quad \forall{n,m \ge N}\quad \left\|\sum\limits_{k=n}^{m}x_k\right\| < \eps$
 			
 			$\implies$ (Критерий Коши для $x_n$) $\sum\limits_{n=1}^{\infty}x_n$ -- сходится
 		\end{proof}
 
-		\item $\|\sum\limits_{n=1}^{\infty}x_n\| \le \sum\limits_{n=1}^{\infty}\|x_n\|$
+		\item $\left\|\sum\limits_{n=1}^{\infty}x_n\right\| \le \sum\limits_{n=1}^{\infty}\|x_n\|$
 		
 		\begin{proof} \thmslashn 
 			\[
-				\|\sum\limits_{k = 1}^{n}x_k\| \le \sum\limits_{k = 1}^{n}\|x_k\|
+				\left\|\sum\limits_{k = 1}^{n}x_k\right\| \le \sum\limits_{k = 1}^{n}\|x_k\|
 			\]
 			\[
-				\|\sum\limits_{k = 1}^{n}x_k\| \to \|\sum\limits_{k = 1}^{\infty}x_k\|\;\text{и}\;\sum\limits_{k = 1}^{n}\|x_k\|\to\sum\limits_{k = 1}^{\infty}\|x_k\|
+				\left\|\sum\limits_{k = 1}^{n}x_k\right\| \to \left\|\sum\limits_{k = 1}^{\infty}x_k\right\|\;\text{и}\;\sum\limits_{k = 1}^{n}\|x_k\|\to\sum\limits_{k = 1}^{\infty}\|x_k\|
 			\]
 			\[
-				\implies \|\sum\limits_{k = 1}^{\infty}x_k\| \le \sum\limits_{k = 1}^{\infty}\|x_k\|
+				\implies \left\|\sum\limits_{k = 1}^{\infty}x_k\right\| \le \sum\limits_{k = 1}^{\infty}\|x_k\|
 			\]
 		\end{proof}
 	\end{enumerate} 
@@ -108,15 +108,15 @@
 					\le \|S_{n_k} - S\| + \|x_{n_k + 1}\| + \ldots + \|x_{n_k + r}\|	
 				\]
 
-				Выберем $K$, т.ч. если $k \ge K$, то $\|S_{n_k} - S\| < \varepsilon$
+				Выберем $K$, т.ч. если $k \ge K$, то $\|S_{n_k} - S\| < \eps$
 
-				Выберем $N$, т.ч. если $n \ge N$, то $\|x_n\| <  \varepsilon$
+				Выберем $N$, т.ч. если $n \ge N$, то $\|x_n\| <  \eps$
 
 				Если выполняется и то, и то, тогда:
 				
-				$\|S_{n_k} - S\| + \|x_{n_k + 1}\| + \ldots + \|x_{n_k + r}\| < \varepsilon(M + 1)$
+				$\|S_{n_k} - S\| + \|x_{n_k + 1}\| + \ldots + \|x_{n_k + r}\| < \eps(M + 1)$
 
-				Значит $\forall \varepsilon > 0$ мы можем выбрать $N_1$, т.ч. $\forall n \ge N_1 \; \|S_n - S\| < \varepsilon$
+				Значит $\forall{\eps > 0}$ мы можем выбрать $N_1$, т.ч. $\forall{n \ge N_1} \quad \|S_n - S\| < \eps$
 			\end{proof}
 		\item Для числовых рядов. Если все члены ряда в группе одного знака.
 
@@ -124,7 +124,7 @@
 				
 				$S_{n_k} \to S$
 
-				$\forall \varepsilon > 0\; \exists K \; \forall k \ge K\;\; |S_{n_k} - S| < \varepsilon$
+				$\forall{\eps > 0}\quad \exists{K} \quad \forall{k \ge K}\quad |S_{n_k} - S| < \eps$
 		
 				$N:= n_K$
 		
@@ -140,7 +140,7 @@
 		
 				$S_{n_{k+1}} \ge S_n$
 		
-				Тогда $|S_n - S| < \varepsilon$
+				Тогда $|S_n - S| < \eps$
 		
 				Если в группе отрицательные члены
 		
@@ -148,7 +148,7 @@
 		
 				Тогда в этом случае тот же вывод
 
-				$|S_n - S| < \varepsilon$
+				$|S_n - S| < \eps$
 
 			\end{proof}
 	\end{enumerate}
