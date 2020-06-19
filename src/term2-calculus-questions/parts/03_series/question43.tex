@@ -1,1 +1,81 @@
-\Subsection{Билет 43: NAME}
+\Subsection{Билет 43: Признак Коши (c $\varlimsup$). Примеры.}
+\begin{theorem}[признак Коши]\thmslashn
+	
+	$a_n \ge 0$
+	
+	\begin{enumerate}
+		\item Если $\sqrt[n]{a_n} \ge 1$ начиная с некоторого места, то ряд расходится
+		\item Если $\sqrt[n]{a_n} \le q < 1$ начиная с некоторого места, то ряд сходится
+		\item $q' := \varlimsup\limits_{n \to \infty} \sqrt[n]{a_n}$
+		
+		Если $q' < 1$ сходится, то и ряд сходится.
+		
+		Если $q' > 1$ расходится, то и ряд расходится.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	Судя по формулировке билета, первые два пункта доказывать не нужно, но доказательство у них быстрое, так что пусть тоже будет.
+	\begin{enumerate}
+		\item $\sqrt[n]{a_n} \ge 1 \implies a_n \ge 1 \implies a_n \not\to 0$, не выполняется необходимое условие.
+		`
+		\item $\sqrt[n]{a_n} \le q < 1 \implies a_n \le q^n$
+
+		Воспользуемся признаком сравнения с $\sum\limits_{n=1}^{\infty}q^n$. Это сумма геометрической прогрессии, знаменатель которой меньше 1, то есть $\sum\limits_{n=1}^{\infty}q^n$ сходится. Значит, $\sum\limits_{n=1}^{\infty}a_n$ сходится.
+		
+		
+		\item 
+		\begin{enumerate}
+			\item $\varlimsup\lim\limits_{n \to \infty} \sqrt[n]{a_n} = q' > 1 \implies $ найдется подпоследовательность  $a_{n_k}$, такая что $\lim\limits_{k \to \infty} a_{n_k} = q' > 1$
+
+			$\implies$ найдется такая окрестность, что при достаточно больших $k$ все $a_{n_k} \in (1, \dots)$ (важно, что промежуток точно больше $1$) 
+
+			$\implies a_{n_k} > 1$
+
+			$\implies a_n \not\to 0$ , ряд расходится
+
+
+			\item $\varlimsup\limits_{n \to \infty} \sqrt[n]{a_n} = q'< 1$
+
+			$\implies$ (по определению верхнего предела) $\varlimsup\limits_{n \to \infty} \sqrt[n]{a_n} = \lim\limits_{n \to \infty} \sup\limits_{k \ge n} \sqrt[k]{a_k} = q' < 1$
+		
+
+			$\implies$ можно выбрать окрестность $(\dots, \frac{q' + 1}{2}) \subset (\dots, 1)$, такую что начиная с некоторого момента все $\sup\limits_{k \ge n} \sqrt[k]{a_k}$ попадают в эту окрестность, то есть $\sup\limits_{k \ge n} \sqrt[k]{a_k} < \frac{q' + 1}{2} < 1$
+
+			$\implies \sqrt[k]{a_k} < \frac{q' + 1}{2} < 1$ при достаточно больших $k$, тогда $\sum\limits_{n=1}^{\infty}a_n$ сходится по доказанному в пункте 2.
+
+	\end{enumerate}
+	\end{enumerate}
+\end{proof}
+\begin{example}\thmslashn
+	
+	$\sum\limits_{n = 0}^{\infty} \frac{x^n}{n!}$, при $x > 0$
+	
+		
+	$\sqrt[n]{\frac{x^n}{n!}} = \frac{x}{\sqrt[n]{n!}}$ 
+
+	Воспользуемся формулой Стирлинга:
+
+	$ \frac{x}{\sqrt[n]{n!}} \sim \frac{x}{\sqrt[n]{n^n\cdot e^{-n} \cdot \sqrt{2\pi n}}}\sim \frac x {\frac ne} = \frac{xe}{n} \to 0$
+
+	$\implies $ ряд сходится
+\end{example}
+
+
+\begin{remark}\thmslashn
+	
+	Если $ \varlimsup\limits_{n \to \infty} \sqrt[n]{a_n} = 1$, то ряд может как сходиться, так и расходиться.
+
+	\begin{enumerate}
+
+		\item $\sum\limits_{n = 1}^{\infty} \frac1n$ -- расходится
+
+		$\varlimsup\limits_{n \to \infty} \sqrt[n]{\frac 1n} = \lim\limits_{n \to \infty} \frac 1 {\sqrt[n] {n}} = 1$
+
+		\item $\sum\limits_{n = 1}^{\infty} \frac1{n(n+1)}$ -- сходится
+	
+		$\varlimsup\limits_{n \to \infty} \sqrt[n]{\frac 1{n(n+1)}} = \lim\limits_{n \to \infty} \frac 1 {\sqrt[n] {n} \cdot \sqrt[n] {n + 1}} = 1$
+	\end{enumerate}
+\end{remark}
+
