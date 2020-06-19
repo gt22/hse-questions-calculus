@@ -4,33 +4,33 @@
 	
 	\begin{center} {Пусть $f_n : E \mapsto \R$. Тогда $f_n$ равномерно сходится на $E$ к некоторой функции} \end{center}
 	
-	\begin{center} $\Longleftrightarrow$ \end{center}
+	\begin{center} $\iff$ \end{center}
 	
-	\begin{center} $\forall \varepsilon > 0$ $\exists N$ $\forall m,n \ge N$ $\forall x \in E$ $|f_m(x) - f_n(x)| < \varepsilon$. \end{center}
+	\begin{center} $\forall{ \eps > 0}\quad {\exists N} \quad \forall{ m,n \ge N}\quad \forall {x \in E} \quad |f_m(x) - f_n(x)| < \eps$. \end{center}
 	\begin{proof} \thmslashn
 		
-		\textbf{"$\Longrightarrow$"}
+		\textbf{"$\implies$"}
 		
-		Знаем, что $f_n \rightarrow f$ на $E$. Тогда возьмем $\displaystyle \frac{\varepsilon}{2}$ вместо $\varepsilon$ в определение равномерной сходимости и найдем по нему соотвествующее $N$.
-		$$\forall n \ge N \: \forall x \in E \: |f_n(x) - f(x)| < \frac{\varepsilon}{2}$$
-		$$\forall m \ge N \: \forall x \in E \: |f_m(x) - f(x)| < \frac{\varepsilon}{2}$$
+		Знаем, что $f_n \to f$ на $E$. Тогда возьмем $\displaystyle \frac{\eps}{2}$ вместо $\eps$ в определение равномерной сходимости и найдем по нему соотвествующее $N$.
+		\[\forall{ n \ge N} \quad \forall{ x \in E }\quad |f_n(x) - f(x)| < \frac{\eps}{2}\]
+		\[\forall{ m \ge N} \quad \forall{ x \in E }\quad |f_m(x) - f(x)| < \frac{\eps}{2}\]
 		Тогда по неравенству треугольника $|f_n(x) - f_m(x)| \le |f_n(x) - f(x)| + |f(x) - f_m(x)| =$ 
 		
-		$= |f_n(x) - f(x)| + |f_m(x) - f(x)| < $ $\displaystyle \frac{\varepsilon}{2}$ $+$ $ \displaystyle \frac{\varepsilon}{2} = \varepsilon$
+		$= |f_n(x) - f(x)| + |f_m(x) - f(x)| < $ $\displaystyle \frac{\eps}{2}$ $+$ $ \displaystyle \frac{\eps}{2} = \eps$
 		
-		\textbf{"$\Longleftarrow$"}
+		\textbf{"$\impliedby$"}
 		
-		Знаем, что $\forall \varepsilon > 0$ $\exists N$ $\forall m,n \ge N$ $\forall x \in E$ $|f_n(x) - f_m(x)| < \varepsilon$
+		Знаем, что $\forall {\eps > 0} \quad {\exists N} \quad \forall {m,n \ge N} \quad \forall {x \in E} \quad |f_n(x) - f_m(x)| < \eps$
 		
 		Зафиксируем некоторый произвольный $x \in E$ и рассмотрим числовую последовательность $f_n(x)$. 
 		\begin{remark}
-			Воспоминание из 1 семестра : последовательность $x_n$ называется фундаментальной, если $\forall \varepsilon > 0$ $\exists N$ $\forall m,n \ge N$ $\Longrightarrow$ $|x_n - x_m| < \varepsilon$
+			Воспоминание из 1 семестра : последовательность $x_n$ называется фундаментальной, если $\forall {\eps > 0} \quad {\exists N} \quad \forall{ m,n \ge N} \quad \implies |x_n - x_m| < \eps$
 		\end{remark}
 		
-		Тогда $f_n(x)$ - фундаментальная последовательность. Тогда по критерию Коши для числовых последовательностей она имеет конечный предел : пусть $f(x) := \lim\limits_{n \rightarrow \infty} f_n(x)$
+		Тогда $f_n(x)$ - фундаментальная последовательность. Тогда по критерию Коши для числовых последовательностей она имеет конечный предел : пусть $f(x) := \lim\limits_{n \to \infty} f_n(x)$
 		
-		Берем неравенство $|f_n(x) - f_m(x)| < \varepsilon$ и устремим $m$ к $\infty$. При переходе к пределу потеряется строгость знака $|f_n(x) - f(x)| \le \varepsilon$.
+		Берем неравенство $|f_n(x) - f_m(x)| < \eps$ и устремим $m$ к $\infty$. При переходе к пределу потеряется строгость знака $|f_n(x) - f(x)| \le \eps$.
 		
-		Перебрав $\forall x \in E$ получаем, что $\forall \varepsilon > 0$ $\exists N$ $\forall n > N$ $\forall x \in E$ $|f_n(x) - f(x)| \le \varepsilon$. Это и есть определение равномерной сходимости $f_n \rightrightarrows f$ на $E$
+		Перебрав $\forall x \in E$ получаем, что $\forall {\eps > 0} \quad {\exists N} \quad \forall {n > N} \quad \forall {x \in E} \quad |f_n(x) - f(x)| \le \eps$. Это и есть определение равномерной сходимости $f_n \uniconv f$ на $E$
 	\end{proof}
 \end{theorem}
