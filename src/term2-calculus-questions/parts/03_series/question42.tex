@@ -1,1 +1,76 @@
-\Subsection{Билет 42: NAME}
+\Subsection{Билет 42: ! Критерий сходимости ряда с неотрицательными членами. Признак сравнения. Следствие.}
+
+\begin{theorem} \thmslashn 
+    
+    Если $a_n \ge 0$, то $\sum\limits_{n=1}^{\infty}a_n$ сходится $\iff$ частичные суммы ограничены.
+
+    \begin{proof} \thmslashn 
+        
+        $S_n = \sum\limits_{k = 1}^{n} \le \sum\limits_{k = 1}^{n + 1} = S_{n + 1}$
+
+        т.е. $S_n$ монотонно возрастает.
+
+        $\implies$ $S_n$ имеет конечный предел 
+        
+        $\iff$ (свойство монотонно возрастающей последовательности) $S_n$ -- ограничена
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[Признак сравнения] \thmslashn 
+
+    $0 \le a_n \le b_n$
+
+    \begin{enumerate}
+        \item $\sum\limits_{n = 1}^{\infty}b_n$ -- сходится $\implies$ $\sum\limits_{n = 1}^{\infty}a_n$ -- сходится
+        \item $\sum\limits_{n = 1}^{\infty}a_n$ -- расходится $\implies$ $\sum\limits_{n = 1}^{\infty}b_n$ -- расходится
+    \end{enumerate}
+    \begin{proof} \thmslashn 
+
+        \begin{enumerate}
+            \item 
+            
+                $A_n := \sum\limits_{k=1}^{n}a_k \le B_n :=  \sum\limits_{k=1}^{n}b_k$
+
+                $\sum\limits_{n = 1}^{\infty}b_n$ -- сходится 
+                
+                $\implies$ $B_n$ -- ограничены 
+                
+                $\implies$ $A_n$ -- ограничены
+
+                $\implies$ $\sum\limits_{n = 1}^{\infty}a_n$ -- сходится
+
+            \item От противного.
+            
+                Пусть $\sum\limits_{n = 1}^{\infty}b_n$ -- сходится 
+                
+                $\implies$ $\sum\limits_{n = 1}^{\infty}a_n$ -- сходится 
+
+                $\implies$ противоречие.
+        \end{enumerate}
+    \end{proof}
+
+    \begin{consequence} \thmslashn 
+    
+        $a_n, b_n \ge 0$
+    
+        \begin{enumerate}
+            \item $a_n = \mathcal{O}(b_n)$ и $\sum\limits_{n = 1}^{\infty}b_n$ -- сходится $\implies$ $\sum\limits_{n = 1}^{\infty}a_n$ -- сходится.
+            \item $a_n \sim b_n$ $\implies$ $\sum\limits_{n = 1}^{\infty}a_n$ и $\sum\limits_{n = 1}^{\infty}b_n$ ведут себя одинакого.
+        \end{enumerate}
+        
+        \begin{proof} \thmslashn 
+            
+            \begin{enumerate}
+                \item $0 \le a_n \le Cb_n$ и $\sum Cb_n = C\sum b_n$ -- сходится 
+                
+                $\implies$ (предыдущая теорема) $\sum a_n$ -- сходится
+    
+                \item При достаточно больших $n$: $\frac{b_n}{2} \le a_n \le 2b_n$
+                
+                Из $ a_n \le 2b_n$: \;$\sum b_n$ -- сходится $\implies$ $\sum a_n$ -- сходится
+    
+                Из $\frac{b_n}{2} \le a_n$: \;$\sum a_n$ -- сходится $\implies$ $\sum b_n$ -- сходится
+            \end{enumerate}
+        \end{proof}
+    \end{consequence}
+\end{theorem}
