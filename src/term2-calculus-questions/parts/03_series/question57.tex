@@ -1,1 +1,96 @@
-\Subsection{Билет 57: NAME}
+\Subsection{Билет 57: Равномерный предел непрерывных функций. Теорема Стокса–Зайделя. Пространство $\mathbb{C}$($\mathbb{K}$) и его полнота.}
+
+\begin{remark}
+    Момент с лекции: \href{https://youtu.be/OR_LP_E1UQ0?t=161}{youtu.be} \newline
+    Записи Александра Игоревича c лекции: \href{https://drive.google.com/file/d/1RjjQ-4fzkRGXTJR-QFnaVCY-DEZRW8Do/view}{drive.google}
+\end{remark}
+
+\begin{theorem}\slashns
+	
+	$f_n : E \to \mathbb{R}(\mathbb{C})$
+	
+	И $f_n$ непрерывна в точке $a \in E$, $f_n \rightrightarrows f$ на $E$
+	
+	$\implies f$ непрерывна в точке $a$.
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	Если $a$ не предельная точка в $E$, то все функции там непрерывны.
+	
+	Пусть $a$ -- предельная точка множества $E$.
+	
+	Тогда надо проверить, что $\lim\limits_{x \to a} f(x) = f(a)$
+	
+	$\forall \epsilon > 0 \ \exists \delta > 0 \ \forall x \in E \ |x-a| < \delta \implies |f(x) - f(a)| < \epsilon$
+	
+	По определению равномерной сходимости $\exists N \ \forall n > N \ \forall x \in E \ |f_n(x) - f(x)| < \frac{\epsilon}{3}$
+	
+	Зафиксируем $n > N$. Функция $f_n$ непрерывна в точке $a$.
+	
+	$\exists \delta> 0 \ \forall x\in E \ |x-a| < \delta \ |f_n(x) - f_n(a)| < \frac{\epsilon}{3}$
+	
+	Если $|x-a| < \delta$ и $x \in E$, то 
+	
+	
+	$|f(x) - f(a)| \le |f(x) - f_n(x)| + |f_n(x) - f_n(a)| + |f_n(a) - f(a)| < \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon$
+\end{proof}
+
+\begin{consequence}[(теорема Стокса-Зайделя)]\slashns
+	
+	$f_n \in C(E)$ и  $f_n \rightrightarrows f$ на $E$
+	
+	$\implies f \in C(E)$.
+\end{consequence}
+
+\begin{definition}\slashns
+	
+	
+	Пусть $K$ -- компакт в каком-нибудь метрическом пространстве. 
+	
+	$C(K):= \{f:K \to \mathbb{R}(\mathbb{C}) , \text{ непрерывные} \}$
+	
+	$||f||_{C(K)} := \max\limits_{x \in K} |f(x)|$.
+	
+	(Максимум и супремум в этом случае одно и то же, т.е. уже проверили, что это норма)
+	
+\end{definition}
+
+\begin{remark}\slashns
+	
+	$C(K)$ подпространство $l^{\infty}(K)$.
+\end{remark}
+
+\begin{theorem}\slashns
+	
+	Замкнутое подпространство полного пространства -- полное.
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	$Y \subset X \ Y$ -- замкнуто.
+	
+	$\implies \{x_n\}$ -- фундаментальная последовательность в $Y$.
+	
+	$\implies \exists \lim\limits_{n \to \infty} x_n = x \in  X$
+	
+	$\implies x$ -- предельная точка множества $Y$.
+	
+	И т.к. $Y$ замкнуто, то $x \in Y$.
+	
+	$\implies x_n$ сходится к $x$ в пространстве $Y$.
+\end{proof}
+
+\begin{consequence}\slashns
+	
+	$C(K)$ -- полное
+\end{consequence}
+
+\begin{proof}\slashns
+	
+	Надо доказать, что $C(K)$ замкнуто в $l^{\infty}(K)$.
+	
+	Т.е. если $||f_n - f|| \to 0$, где $f_n \in C(K)$, то $f \in C(K)$.
+	
+	Но это теорема Стокса-Зайделя.
+\end{proof}
