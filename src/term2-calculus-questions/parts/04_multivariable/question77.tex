@@ -66,7 +66,7 @@
 
         Значит, $||d_a f(h)|| = ||d_a f \cdot h|| \le ||d_a f|| \cdot ||h||$
 
-    \end{remark}
+    \end{remark} \thmslashn
     
     $g(f(a+h)) = g(f(a) + k) = g(b + k) = g(b) + d_b g(k) + \beta(k) ||k|| =\\= g(b) + d_b g(d_a f(h)) + d_b g(\alpha(h) ||h||)+ \beta(k) ||k|| =\\= g(f(a)) + (d_b g \circ d_a f)(h) + d_b g(\alpha(h) ||h||) + \beta(k) ||k||$
     
@@ -75,6 +75,18 @@
     $d_b g(\alpha(h) ||h||) = ||h|| \cdot d_b g(\alpha(h))$ (т.к. $d_b g(\alpha(h) ||h||) = d_b g \cdot \alpha(h) \cdot ||h||$)
     
     $||d_b g(\alpha(h) ||h||)|| \le ||h|| \cdot ||d_b g|| \cdot ||\alpha(h)||$, а $||d_b g|| \cdot ||\alpha(h)|| \to 0$
+
+    \begin{remark} \thmslashn
+
+        $\lim\limits_{h \to 0} ||d_b g|| \cdot ||\alpha(h)|| = ||d_b g|| \cdot \lim\limits_{h \to 0} ||\alpha(h)||$ 
+
+        $\alpha(h) \cdot ||h|| = o(h)$ (по определению)
+
+        Значит, $\alpha(h) \to 0$.
+
+        Известно, что если $x_n \to a$, то $||x_n|| \to ||a|| \implies ||\alpha(h)|| \to ||0|| = 0$. 
+
+    \end{remark} \thmslashn
     
     
     $||\beta(k) ||k|| || = ||k|| \cdot ||\beta(k)|| \le ||\beta(k)|| (||d_a f|| \cdot ||h|| + ||\alpha(h)|| \cdot ||h||) = ||h|| \cdot ||\beta(k)||(||d_a f|| + ||\alpha(h)||)$. 
