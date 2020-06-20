@@ -1,6 +1,4 @@
-\Subsection{Билет 66: Степенные ряды. Теорема о сходимости
-    ряда при меньших аргументах. Радиус и круг схо-
-    димости. Формула Коши–Адамара. Примеры.}
+\Subsection{Билет 66: Степенные ряды. Теорема о сходимости ряда при меньших аргументах. Радиус и круг сходимости. Формула Коши–Адамара. Примеры.}
 
 
 \begin{definition}\slashns
@@ -39,7 +37,7 @@
 
 \begin{definition}\slashns
     
-    Радиус сходимости степенного ряда -- такое число $R \in [0, +\infty]$, что при $\abs{z} < R$ ряд сходится, а при $\abs{z} > R$ ряд рассходится. (для рядов с центорм в точке 0, иначе $\abs{z - z_0} < R$ сходится и $\abs{z - z_0} > R$ расходится).
+    Радиус сходимости степенного ряда -- такое число $R \in [0, +\infty]$, что при $\abs{z} < R$ ряд сходится, а при $\abs{z} > R$ ряд рассходится. (для рядов с центром в точке 0, иначе $\abs{z - z_0} < R$ сходится и $\abs{z - z_0} > R$ расходится).
 \end{definition}
 
 \begin{definition}\slashns
@@ -47,9 +45,68 @@
     Круг сходимости -- круг радиуса $R$ с центром в точке $z_0$, где $R$ -- радиус сходимости.
 \end{definition}
 
+\begin{lemma}\slashns
+    
+    $x_n, y_n \in \R$
+    
+    $\lim\limits_{n \to \infty} x_n \in (0, +\infty)$
+    
+    Тогда $\varlimsup\limits_{n \to \infty} x_n y_n = \lim\limits_{n \to \infty} x_n \varlimsup\limits_{n\to \infty} y_n$
+\end{lemma}
+
+\begin{proof}\slashns
+    
+    $A:= \lim\limits_{n \to \infty} x_n \;\; B:= \varlimsup\limits_{n\to\infty} y_n \;\; C:= \varlimsup\limits_{n\to\infty} x_ny_n$
+    
+    Надо доказать, что $AB=C$
+    
+    ``$\leqslant$''
+    
+    $B$ -- верхний предел $\Rightarrow \exists n_1,n_2,...$, т.ч. $y_{n_k} \to B$
+    
+    $\lim\limits_{k \to \infty} x_{n_k} y_{n_k} = \lim\limits_{k \to \infty} x_{n_k} \lim\limits_{k \to \infty} y_{n_k} = AB$
+    
+    $AB$ -- частичный предел $x_ny_n$
+    
+    $C$ -- верхний предел = наибольший из частичных
+    
+    $AB \leqslant C$
+    
+    ``$\geqslant$''
+    
+    $C$ -- верхний предел.
+    
+    $\Rightarrow \exists n_1, n_2,\ldots \;\;x_{n_{k}} y_{n_k}\to C$
+    
+    $C = \lim\limits_{k \to \infty} x_{n_k} y_{n_k} \Rightarrow \frac{C}{A} = \frac{\lim\limits_{k \to \infty} x_{n_k}y_{n_k} }{\lim\limits_{k \to \infty} x_{n_k}} = \lim\limits_{k \to \infty} y_{n_k}$
+    
+    $\frac{C}{A}$ -- частичный предел для $y_n$
+    
+    $B$ -- верхний предел = наибольший из частичных.
+    
+    $\frac{C}{A} \leqslant B$
+\end{proof}
+
+\begin{remark}\slashns
+    
+    $\varlimsup x_ny_n \ne \varlimsup x_n \varlimsup y_n$
+    
+    $x_n = \begin{cases}
+    0 & n \text{ -- четно}\\
+    1 & n \text{ -- нечетно}\\
+    \end{cases} \;\;\;\;y_n = \begin{cases}
+    1 & n \text{ -- четно}\\
+    0 & n \text{ -- нечетно}\\
+    \end{cases}$
+    
+    $x_ny_n \equiv 0$
+    
+    $\varlimsup x_n = \varlimsup y_n = 1$
+\end{remark}
+
 \begin{theorem}[Формула Коши-Адамара]\slashns
     
-    Всякий степенной ряд имеет радиус сходимости и он выражается форулой $R = \frac{1}{\varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_n}} }$
+    Всякий степенной ряд имеет радиус сходимости и он выражается формулой $R = \frac{1}{\varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_n}} }$
 \end{theorem}
 
 \begin{proof}\slashns
