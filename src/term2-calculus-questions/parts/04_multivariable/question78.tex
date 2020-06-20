@@ -1,4 +1,4 @@
-\Subsection{Билет 78: Две теоремы о дифференцируемости произведения функций.}
+\Subsection{Билет 78: ! Две теоремы о дифференцируемости произведения функций.}
 
 \begin{theorem}[о дифференцировании произведения скаляра и векторной функции]\slashns
     
@@ -8,7 +8,7 @@
     
     $f$ и $\lambda$ -- дифференцируемы в точке $a$, тогда  $\lambda f$ -- дифференцируема в точке $a$.
     
-    $d_a(\lambda f) = d_a \lambda f(a) + \lambda(a) \cdot d_a f$
+    $d_a(\lambda f) = d_a \lambda \cdot f(a) + \lambda(a) \cdot d_a f$
 \end{theorem}
 
 \begin{proof}\slashns
@@ -21,14 +21,20 @@
     
     $\color{red} = \color{black} \lambda(a + h)(d_a f(h) + o(||h||)) +( d_a \lambda(h) + o(||h||))f(a) = \\=
     (\lambda(a) + d_a \lambda(h) + o(||h||))(d_a f(h) + o(||h||)) +( d_a \lambda(h) + o(||h||))f(a) =\\=\
-    \lambda(a) d_a f(h) + d_a \lambda (h) f(a)+ \lambda(a) o(||h||) + d_a \lambda(h)\cdot o(||h||) +\\+ o(||h||)\cdot o(||h||) + d_a \lambda(h) d_a f(h) + o(||h||)d_a f(h) + o(||h||)f(a)
+    \lambda(a) d_a f(h) + d_a \lambda (h) \cdot f(a)+ \lambda(a) o(||h||) + d_a \lambda(h)\cdot o(||h||) +\\+ o(||h||)\cdot o(||h||) + d_a \lambda(h) d_a f(h) + o(||h||)d_a f(h) + o(||h||)f(a)
     $
     
     Про последние шесть слагаемых хотим сказать, что они $o(||h||)$.
     
     Самое не очевидное --
-    
-    $||d_a \lambda(h) \cdot d_a f(h)|| = \left| d_a \lambda(h) \right| ||d_a f(h)||  \le ||d_a \lambda|| \cdot ||h|| \cdot ||d_a f|| \cdot ||h|| = const \cdot h^2 = o(h)$ 
+
+    $d_a \lambda(h) \cdot o(||h||) = o(||h||)$, т.к. $d_a \lambda(h) = d_a \lambda \cdot h$, при $h \to 0$, $d_a \lambda \cdot h \to 0$.
+
+    $d_a f(h) \cdot o(||h||) = o(||h||)$ показывается так же.
+
+    $o(||h||) \cdot o(||h||) = o(||h||)$ потому, что в окрестности 0: $||h||^2 < ||h||$.
+
+    $||d_a \lambda(h) \cdot d_a f(h)|| = \left| d_a \lambda(h) \right| ||d_a f(h)||  \le ||d_a \lambda|| \cdot ||h|| \cdot ||d_a f|| \cdot ||h|| = const \cdot ||h||^2 = o(||h||)$ 
 \end{proof}
 
 \begin{theorem}[о дифференцировании скалярного произведения]\slashns
