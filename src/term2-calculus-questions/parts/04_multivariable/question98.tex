@@ -1,1 +1,51 @@
-\Subsection{Билет 98: NAME}
+\Subsection{Билет 98: Неравенство Адамара.}
+
+Еще один пример для метода множителей Лагранжа.
+
+\begin{example}[Неравенство Адамара]\slashns
+    
+    Дана матрица $A$, суммы квадратов строк равны $h_1^2, h_2^2, \ldots, h_n^2$. Тогда $\abs{\det A} \leqslant h_1h_2\ldots h_n$.
+\end{example}
+
+\begin{proof}\slashns
+    \[
+    A = \begin{pmatrix}
+    x_{11} & \cdots & x_{1n} \\
+    \vdots &        & \vdots \\
+    x_{n1} & \cdots & x_{nn} \\
+    \end{pmatrix}
+    \]
+    
+    Запишем условия для матрицы $A$
+    
+    $\Phi_k(x) = \sum\limits_{j=1}^n x_{kj}^2 - h_k^2 = 0$
+    
+    Функция которую мы хотим максимизировать $f(x) = \det A$
+    
+    Поймем, что экстремум существует. $\Phi_k(x)$ -- сфера в $n$ мерном пространстве, а это компактное множество, а значит все условия тоже компакт. $f(x)$ -- непрерывная функция на компакте, значит есть минимум и максимум.
+    
+    $F(x) = \det - \sum\limits_{k=1}^n \lambda_k \Phi_k(x)$.
+    
+    $\dfrac{\partial F}{\partial x_{ij}} = 0$
+    
+    Разберемся, что такое $\dfrac{\partial \Phi_k}{\partial x_{ij}}$
+    
+    $\dfrac{\partial \Phi_k}{\partial x_{ij}} = 0$, если $i \not = k$
+    
+    $\dfrac{\partial \Phi_k}{\partial x_{ij}} = 2x_{ij}$, если $i = k$
+    
+    Разберемся, что такое $\dfrac{\partial \det}{\partial x_{ij}}$
+    
+    $\dfrac{\partial \det}{\partial x_{ij}} = \dfrac{\partial}{\partial x_{ij}} \left( \sum\limits_{k=1}^{n} x_{ik}\cdot A_{ik} \right) = A_{ij}$, где $A_{ik}$ -- алгебраические дополнения. 
+    
+    $0 = \dfrac{\partial F}{\partial x_{ij}} = A_{ij} - \lambda_i \cdot 2x_{ij} \Rightarrow A_{ij} = 2\lambda_i x_{ij} \Rightarrow \det = \sum\limits_{k=1}^n x_{ik}A_{ik} = \sum\limits_{k=1}^n x_{ik} 2\lambda_i x_{ik} = 2\lambda_i h_i^2 \Rightarrow \lambda_i = \dfrac{\det}{2h_i^2} \Rightarrow A_{ij} = \dfrac{\det}{h_{ij}} x_{ij} \Rightarrow \dfrac{A_{ij}}{\det} = \dfrac{x_{ij}}{h_i^2}$
+    
+    Заметим, что наше уравнение можно доказать, только при $h_i = 1$, т.к. если умножить строку на $t$, то и определитель увеличится в $t$ раз, тогда если мы все строчки разделим на их длины, то все длины будут равны 1, а неравенство не изменится.
+    
+    $\Rightarrow \dfrac{A_{ij}}{\det} = x_{ij} \Rightarrow (A^{-1})^T = A \Rightarrow A^{-1} = A^T$
+    
+    $1 = \det AA^{-1} = \det A \det A^{-1} = \det A \det A^T = (\det A)^2 \Rightarrow \det A = \pm 1$
+    
+    Для экстремумов верно, значит верно и для всех.
+    
+\end{proof}
