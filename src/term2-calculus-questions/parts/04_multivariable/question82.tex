@@ -59,56 +59,69 @@
 	
 	Тогда существует и $\frac{\partial^2 f}{\partial x \partial y}$ в точке $(x_0, y_0)$. 
 
-	Более того $\frac{\partial^2 f}{\partial x \partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)$
+	Более того, $\frac{\partial^2 f}{\partial x \partial y}(x_0, y_0) = \frac{\partial^2 f}{\partial y \partial x}(x_0, y_0)$
 \end{theorem}
 
 \begin{proof}\slashns
 
-	Рассмотрим $\phi(s) = f(s, y_0 + k) - f(s, y_0)$, где $k$ - некоторое малое число. 
-	$\phi$ дифф. в окресности точки $x_0$ (по условию теоремы), поэтому можем применить к ней т. Лагранжа (одномерную):
+	Рассмотрим $\phi(s) = f(s, y_0 + k) - f(s, y_0)$, что такое $k$ - поймём позже. Пока это просто какое-то число.
+
+	Заметим, что $\phi$ дифф. в окресности точки $x_0$ (следует из существования частной производной по $y$), поэтому можем применить к ней т. Лагранжа (одномерную):
 	
 	$\phi(x_0 + h) - \phi(x_0) = h \phi'(x_0 + \theta_1 h) \;\; \theta_1 \in (0,1)$
 
-	Обозначим $\Delta = \phi(x_0 + h) - \phi(x_0)$. 
+	Левую часть обозначим за $\Delta$, а правую распишем через определение $\phi$, получим:
 
-	$\Delta = h(\frac{\partial f}{\partial x} (x_0 + \theta_1 h, y_0 + k) - \frac{\partial f}{\partial x}(x_0 + \theta_1h, y_0)) = h(\tilde{\phi}(y_0+k) - \tilde{\phi}(y_0)) =\\= hk\tilde{\phi}'(y_0 + \theta_2 k) = hk \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k)$
-	
-	
-	$\tilde{\phi}(t) = \frac{\partial f}{\partial x} (x_0 + \theta_1 h, t)$
+	$\Delta = h(\frac{\partial f}{\partial x} (x_0 + \theta_1 h, y_0 + k) - \frac{\partial f}{\partial x}(x_0 + \theta_1h, y_0)) $
 
+	Обозначим $\tilde{\phi}(t) = \frac{\partial f}{\partial x} (x_0 + \theta_1 h, t)$, тогда:
+
+	$\Delta = h(\tilde{\phi}(y_0+k) - \tilde{\phi}(y_0))$
+
+	Снова применим лагранжа:
+
+	$\Delta = hk\tilde{\phi}'(y_0 + \theta_2 k) = hk \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k)$
 	
-	$\Delta = hk \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k)$
 	
-	$\psi(t) = f(x_0 + h, t) - f(x_0, t)$
+	Теперь введём $\psi(t) = f(x_0 + h, t) - f(x_0, t)$. Это как $\phi$, но меняем другую координату. $t$ это пока тоже какое-то произвольное число. Сделаем шаги, аналогичные шагам выше, получим всё тоже самое, но для другой координаты. При этом заметим, что $\Delta$ у нас получится ровно такая же (можно проверить, написав определение $\Delta$ в первом и втором случае, подставить туда $\phi$ или $\psi$). 
+
+	Делаем аналогичные шаги для $\psi$:
 	
 	$\Delta = \psi(y_0 + k) - \psi(y_0) = k\psi'(y_0 + \theta_3 k) = kh\frac{\partial^2 f}{\partial x \partial y}(x_0 + \theta_4 h, y_0 + \theta_3 k) $
 	
-	Получили, что
+	В итоге мы получили:
+
+	$\Delta = hk \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k)$
+
+	и
+
+	$\Delta = kh\frac{\partial^2 f}{\partial x \partial y}(x_0 + \theta_4 h, y_0 + \theta_3 k)$
 	
-	$\Delta = hk \frac{\partial^2 f}{\partial x \partial y} (x_0 + \theta_4 h, y_0 + \theta_3 k)$
+	Откуда
 	
-	$\implies \frac{\partial^2 f}{\partial x \partial y} (x_0 + \theta_4 h, y_0 + \theta_3 k) =\frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k) $
+	$\frac{\partial^2 f}{\partial x \partial y} (x_0 + \theta_4 h, y_0 + \theta_3 k) = \frac{\partial^2 f}{\partial y \partial x} (x_0 + \theta_1 h, y_0 + \theta_2 k) $
+
+	Осталось устремить $h,k\to 0$ и воспользоваться непрерывностью производных:
 	
-	$\implies  \frac{\partial^2 f}{\partial x \partial y} (x_0, y_0) =\frac{\partial^2 f}{\partial y \partial x} (x_0, y_0) $
+	$\frac{\partial^2 f}{\partial x \partial y} (x_0, y_0) =\frac{\partial^2 f}{\partial y \partial x} (x_0, y_0) $
 	
-	(Последнее -- в силу непрерывности этих производных, устремили $h,k\to 0$)
 	
 \end{proof}
 
 \begin{definition}\slashns
 	
-	$f: D \to \R \;\; R\subset \R^n \;\; D$ -- открыто
+	$f: E \to \R \;\; R\subset \R^n \;\; E$ -- открыто
 	
 	$f$ -- $r$ раз непрерывно дифференцируема = $r$-гладкая,
 	
 	если все частичные производные до $r$-ого порядка существуют и непрерывны.
 	
-	Обозначение -- $C^r(D)$
+	Обозначение -- $C^r(E)$
 \end{definition}
 
 \begin{theorem}\slashns
 	
-	$f: D \to \R \;\; D \subset \R^n \;\; D$ -- открыто $f \in C^r(D)$
+	$f: E \to \R \;\; E \subset \R^n \;\; E$ -- открыто $f \in C^r(E)$
 	
 	$i_1, i_2, ...,i_r$ -- перестановка $j_1, j_2, ... , j_r$
 	

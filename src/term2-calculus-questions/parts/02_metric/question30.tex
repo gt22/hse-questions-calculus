@@ -1,1 +1,44 @@
-\Subsection{Билет 30: NAME}
+\Subsection{Билет 30: Равномерная непрерывность отображений. Теорема Кантора для отображений метрических пространств.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $E \subset X$, $f : E \mapsto Y$.
+
+    $f$ называется равномерно непрерывной если
+    \[ \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x, y\in E}\quad (\rho_{X}(x, y) < \delta \implies \rho_{Y}(f(x), f(y)) < \eps) .\] 
+\end{definition}
+\begin{lemma} \thmslashn
+
+    Если $f$ равномерно непрерывна, то $f$ непрерывна.
+    \begin{proof} \thmslashn
+    
+        Чтобы показать непрерывность в точке $a$ подставим $x=a$ в определение.
+    \end{proof}
+\end{lemma}
+\begin{theorem}[Кантора] \thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $K \subset X$ - компакт, $f : K \mapsto Y$ - непрерывна.
+    
+
+    Тогда $f$ равномерно непрерывна.
+    \begin{proof} \thmslashn
+    
+        Путь $\exists{\eps > 0}\quad $ для которого ни одно $\delta$ не подходит. Возьмём $\delta = \frac{1}{n}$. 
+
+        Так-как $\delta$ не подошло, $\forall{n}\quad \exists{x_{n}, y_{n}\in K}\quad \rho_{X}(x_{n}, y_{n}) < \delta$ и $\rho_{Y}(f(x_{n}), f(y_{n})) \ge  \eps$.
+
+        $x_{n}$ - последовательность из компакта $\implies$ $\exists{x_{n_{k}}}\quad $ - сходящаяся подпоследовательность.
+
+        Пусть $a := \lim\limits_{k \to \infty} x_{n_{k}}$.
+
+        $\rho(x_{n_{k}}, a) \to 0$, $\rho(x_{n_{k}}, y_{n_{k}}) < \frac{1}{n_{k}} \to 0$.
+
+        Тогда, по $\triangle$, $\rho(y_{n_{k}}, a) \to 0 \implies \lim\limits_{k \to \infty} y_{n_{k}} = a$.
+
+        По непрерывности, $\exists{\lambda > 0}\quad \rho_{X}(x, a) < \lambda \implies \rho_{Y}(f(x), a) < \frac{\eps}{2}$.
+
+        Так-как подпоследовательности сходятся $\exists{N}\quad \rho(x_{N}, a) < \lambda$, $\rho(y_{N}, a) < \lambda$ (тут нужен только один элемент каждой последовательности).
+
+        Тогда, $\rho(f(x_{N}), f(y_{N})) \overset{\triangle}{\le} \rho(f(x_{N}), a)) + \rho(a, f(y_{N})) < \eps$. Противоречие с тем как брали $x_{n}, y_{n}$. Значит $f$ равномерно непрерывна.
+    \end{proof}
+\end{theorem}

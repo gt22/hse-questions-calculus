@@ -1,1 +1,58 @@
-\Subsection{Билет 72: NAME}
+\Subsection{Билет 72: Ряды Тейлора для $\arctg x$, $(1+x)^{p}$ и $\arcsin x$.}
+
+\begin{theorem} [Ряд Тейлора для $\arctg x$] \thmslashn
+
+    \[\arctg x = \sum_{n=0}^{\infty} \frac{(-1)^{n}x^{2n + 1}}{2n + 1} \text{, при } x \in (-1, 1)\]
+    
+    \begin{proof} \thmslashn
+        \[\frac{1}{1+x^{2}} =  \sum_{n=0}^{\infty} (-1)^{n}x^{2n}\text{, при } x \in (-1, 1)\]
+        
+        
+        \[\int_{0}^{x} \frac{dt}{1 + t^{2}} = \int_{0}^{x} \sum_{n=0}^{\infty}(-1)^{n}t^{2n} dt = \sum_{n=0}^{\infty}(-1)^{n} \int_{0}^{x} t^{2n}dt =  \sum_{n=0}^{\infty}(-1)^{n}\frac{x^{2n+1}}{2n+1} \]
+    \end{proof}
+    
+    
+    
+\end{theorem}
+
+\begin{theorem} [Ряд Тейлора для $(1+x)^{p}$] \thmslashn
+    
+    \[(1+x)^{p} = 1 + \sum_{n=1}^{\infty} \frac{p(p-1)...(p-n+1)}{n!}x^{n}\text{, при } x \in (-1, 1)\]
+    
+    \begin{proof} \thmslashn
+        \[(1+x)^{p} = T_{n}(x)  + \frac{1}{n!} \int_{0}^{x}(x - t)^{n}((1+t)^{p}){n+1}dt =  T_{n}(x)  + \frac{1}{n!} \int_{0}^{x}(x - t)^{n}p(p-1)...(p-n)(1+t)^{p-n-1}dt\]
+        
+        Обозначим $R_{n} = \frac{1}{n!} \int_{0}^{x}(x - t)^{n}p(p-1)...(p-n)(1+t)^{p-n-1}dt$
+        
+        Надо доказать, что $R_{n}(x)\implies 0\text{, при } x \in (-1, 1)$
+        
+        Достаточно проверить, что $|\frac{R_{n+1}(x)}{R_{n}(x)}| < 1 - \delta$ ($\implies \lim R_{n}(x)=0$ )
+        
+        \[\left|\frac{R_{n+1}(x)}{R_{n}(x)}\right| = \frac{|p-n-1|}{n+1} \left|\frac{\int_{0}^{x}(x-t)^{n+1}(1+t)^{p-n-2}dt}{\int_{0}^{x}(x-t)^{n}(1+t)^{p-n-1}dt}\right| = \frac{|p-n-1|}{n+1} \left|\frac{\int_{0}^{x}(x-t)^{n}(1+t)^{p-n-1}\frac{x-t}{1+t}dt}{\int_{0}^{x}(x-t)^{n}(1+t)^{p-n-1}dt}\right|\]
+        
+        Поймем, что $\left|\frac{x-t}{1+t}\right| \le |x|$: если $x > 0$, то $\frac{x-t}{1+t}\le x$, если $x < 0$, то обозначим $y = -x, s = -t$, получим $\frac{|-y+s|}{1-s} = \frac{y-s}{1-s}\le y$.
+        
+        Заметим что оставшееся выражение под большим модулем имеет фиксированный знак, тогда:
+        
+        \[\frac{|p-n-1|}{n+1} \left|\frac{\int_{0}^{x}(x-t)^{n}(1+t)^{p-n-1}\frac{x-t}{1+t}dt}{\int_{0}^{x}(x-t)^{n}(1+t)^{p-n-1}dt}\right| \le \frac{|p-n-1|}{n+1}|x| \frac{\int_{0}^{x}|(x-t)^{n}(1+t)^{p-n-1}|dt}{\int_{0}^{x}|(x-t)^{n}(1+t)^{p-n-1}|dt} =\]
+        
+        \[= \frac{|p-n-1|}{n+1}|x| \xrightarrow[n \rightarrow \infty]{} |x|\]
+        
+        \[\left|\frac{R_{n+1}(x)}{R_{n}(x)}\right| \le (1 + \epsilon ) |x| < 1 - \delta \text{, при больших   n}\]
+    \end{proof}
+    
+    
+\end{theorem}
+
+\begin{theorem} [Ряд Тейлора для $\arcsin x$] \thmslashn
+    
+     \[\arcsin x = \sum_{n=0}^{\infty} \frac{C_{2n}^{n}}{4^{n}}\frac{x^{2n + 1}}{2n + 1} \text{, при } x \in (-1, 1)\]
+    
+    \begin{proof} \thmslashn
+        \[\frac{1}{\sqrt{1-x^{2}}} =  \sum_{n=0}^{\infty} (-1)^{n}\frac{C_{2n}^{n}}{4^{n}}(-x^{2})^{n} = \sum_{n=0}^{\infty} \frac{C_{2n}^{n}}{4^{n}}x^{2n}\]
+        
+        
+        \[\arcsin x = \int_{0}^{x}\frac{dt}{\sqrt{1-t^{2}}} = \sum_{n=0}^{\infty} \frac{C_{2n}^{n}}{4^{n}}\int_{0}^{x}t^{2n}dt = \sum_{n=0}^{\infty} \frac{C_{2n}^{n}}{4^{n}}\frac{x^{2n + 1}}{2n + 1}\]
+    \end{proof}
+    
+\end{theorem}
