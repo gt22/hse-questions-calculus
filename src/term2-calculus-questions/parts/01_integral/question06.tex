@@ -14,13 +14,13 @@
     
     $b_n = \int\limits_{1}^{n} \frac{\{t\}(1 - \{t\})}{t^2}\,dt \leqslant \frac{1}{4}\int\limits_{1}^{n} \frac{dt}{t^2} = \left.\frac{1}{4} \left( -\frac{1}{t} \right) \right|_{t=1}^{t=n} = \frac{1}{4} - \frac{1}{4n} \leqslant \frac{1}{4} \Rightarrow$ $b_n$ сходятся. $\Rightarrow b:= \lim b_n \Rightarrow b_n = b + o(1)$
     
-    $\ln(n!) = n\ln n + \frac{\ln n}{2} -n -\frac{b}{2} + o(1)$
+    $\ln(n!) = n\ln n + \frac{\ln n}{2} -n + 1 -\frac{b}{2} + o(1)$
     
-    $n! = n^n e^{-n} \sqrt{n} e^{-\frac{b}{2}} e^{o(1)} \sim n^ne^{-n}\sqrt{n}e^{-\frac{b}{2}}$, т.к. $e^{o(1)} \to 1$
+    $n! = n^n e^{-n} \sqrt{n} e^{-\frac{b}{2}} e^{o(1)} \sim n^ne^{-n}\sqrt{n}e^{1-\frac{b}{2}}$, т.к. $e^{o(1)} \to 1$
     
-    Хотим понять, что такое $c := e^{-\frac{b}{2}}$.
+    Хотим понять, что такое $c := e^{1-\frac{b}{2}}$.
     
-    $\binom{2n}{n} \sim \frac{4^n}{\sqrt{\pi n}}$
+    $\binom{2n}{n} \sim \frac{4^n}{\sqrt{\pi n}}$ следствие из формулы Валлиса.
     
     $\binom{2n}{n} = \frac{(2n)!}{(n!)^2} \sim \frac{(2n)^{2n} e^{-2n}\sqrt{2n} c}{n^{2n} e^{-2n} n c^2} = \frac{2^{2n} \sqrt{2n}}{n\cdot c} = \frac{4^n \sqrt{2}}{\sqrt{n} \cdot c} \Rightarrow c = \sqrt{2 \pi}$
     
