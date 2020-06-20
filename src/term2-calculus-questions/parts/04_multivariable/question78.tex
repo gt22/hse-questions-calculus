@@ -1,1 +1,75 @@
-\Subsection{Билет 78: NAME}
+\Subsection{Билет 78: ! Две теоремы о дифференцируемости произведения функций.}
+
+\begin{theorem}[о дифференцировании произведения скаляра и векторной функции]\slashns
+    
+    $E \subset \R^n \;\; a \in \Int E \;\; f: E  \to \R^m$
+    
+    $\lambda : E \to \R$
+    
+    $f$ и $\lambda$ -- дифференцируемы в точке $a$, тогда  $\lambda f$ -- дифференцируема в точке $a$.
+    
+    $d_a(\lambda f) = d_a \lambda \cdot f(a) + \lambda(a) \cdot d_a f$
+\end{theorem}
+
+\begin{proof}\slashns
+    
+    $\lambda(a+h) f(a+h) - \lambda(a)f(a) = \lambda(a + h)(f(a+h) - f(a)) +( \lambda(a + h) - \lambda(a))f(a) \color{red} = \color{black}$
+    
+    $f(a+h) - f(a) = d_a f(h) + o(||h||)$
+    
+    $\lambda(a+h) - \lambda(a) = d_a \lambda(h) + o(||h||)$
+    
+    $\color{red} = \color{black} \lambda(a + h)(d_a f(h) + o(||h||)) +( d_a \lambda(h) + o(||h||))f(a) = \\=
+    (\lambda(a) + d_a \lambda(h) + o(||h||))(d_a f(h) + o(||h||)) +( d_a \lambda(h) + o(||h||))f(a) =\\=\
+    \lambda(a) d_a f(h) + d_a \lambda (h) \cdot f(a)+ \lambda(a) o(||h||) + d_a \lambda(h)\cdot o(||h||) +\\+ o(||h||)\cdot o(||h||) + d_a \lambda(h) d_a f(h) + o(||h||)d_a f(h) + o(||h||)f(a)
+    $
+    
+    Про последние шесть слагаемых хотим сказать, что они $o(||h||)$.
+    
+    Самое не очевидное --
+
+    $d_a \lambda(h) \cdot o(||h||) = o(||h||)$, т.к. $d_a \lambda(h) = d_a \lambda \cdot h$, при $h \to 0$, $d_a \lambda \cdot h \to 0$.
+
+    $d_a f(h) \cdot o(||h||) = o(||h||)$ показывается так же.
+
+    $o(||h||) \cdot o(||h||) = o(||h||)$ потому, что в окрестности 0: $||h||^2 < ||h||$.
+
+    $||d_a \lambda(h) \cdot d_a f(h)|| = \left| d_a \lambda(h) \right| ||d_a f(h)||  \le ||d_a \lambda|| \cdot ||h|| \cdot ||d_a f|| \cdot ||h|| = const \cdot ||h||^2 = o(||h||)$ 
+\end{proof}
+
+\begin{theorem}[о дифференцировании скалярного произведения]\slashns
+    
+    $E\subset \R^n \;\; a\in \Int E \;\; f,g : E \to \R^m$
+    
+    $f,g$ -- дифференцируемы в точке $a$.
+    
+    Тогда $\left<f,g \right>$ -- дифференцируема в точке $a$ и:
+    
+    $d_a\left<f,g\right> (h) = \left<d_a f(h), g(a)\right> + \left<f(a), d_a g(h)\right>$
+    
+    
+\end{theorem}
+
+\begin{proof}\slashns
+    
+    $F:= \left<f,g\right> = \sum\limits_{k = 1}^{m} f_k g_k$
+    
+    $d_a(f_k g_k) = d_a f_k \cdot g_k(a) + f_k(a) d_a g_k$ -- частный случай предыдущей теоремы.
+    
+    $dF = \sum\limits_{k = 1}^{m} d_a(f_k g_k) = \sum\limits_{k = 1}^{m} (d_a f_k g_k(a) + f_k(a) d_a g_k)$
+    
+    $dF(h) = \sum\limits_{k = 1}^{m}d_a f_k(h) g_k(a)+\sum\limits_{k = 1}^{m} f_k(a) d_ag_k(h) =  \left<d_a f(h), g(a)\right> + \left<f(a), d_a g(h)\right>$
+\end{proof}
+
+\begin{remark}\slashns
+    
+    Частный случай, когда $n = 1$
+    
+    $f: \R \to \R^m$
+    
+    $f'(x) = \begin{pmatrix}
+    f_1'(x)\\\vdots\\f_m'(x)\\
+    \end{pmatrix}$
+    
+    $(\left< f(x), g(x) \right> )' = \left<f'(x), g(x)\right> + \left<f(x), g'(x)\right>$
+\end{remark}

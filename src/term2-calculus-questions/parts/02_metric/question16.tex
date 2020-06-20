@@ -110,7 +110,7 @@
 
     Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
 
-    $a\in A$ называется предельной точкой, если $\forall{r > 0}\quad \punct{B}_{r}(a)\cap A \neq \emptyset$.
+    $a\in X$ называется предельной точкой, если $\forall{r > 0}\quad \punct{B}_{r}(a)\cap A \neq \emptyset$.
 
     Множества предельных точек множества $A$ обозначается $A'$.
 \end{definition}
@@ -156,11 +156,11 @@
 
                 Пусть $x \not\in A'$: Тогда $\exists{R > 0}\quad \punct{B}_{R}(x)\cap A = \emptyset$. 
 
-                Заметим, что $\forall{0 < r \le  R}\quad \punct{B}_{r}(x)\cap A \subset B_{R}(x)\cap A  = \emptyset$, значит $\forall{r > 0}\quad \exists{0 < R_{r} < r}\quad B_{R_{r}}(x)\cap A = \emptyset$.
+                Заметим, что $\forall{0 < r \le  R}\quad \punct{B}_{r}(x)\cap A \subset \punct{B}_{R}(x)\cap A  = \emptyset$, значит $\forall{r > 0}\quad \exists{0 < R_{r} < r}\quad \punct{B}_{R_{r}}(x)\cap A = \emptyset$ (если $r < R$, то подойдёт он сам, иначе подойдёт  $R - \eps$).
 
-                Так-как $\punct{B}_{R_{r}}(x)\cap (A \cup B) \neq \emptyset$, значит $\punct{B}_{R_{r}}(x)\cap B \neq \emptyset$.
+                Так-как $\punct{B}_{R_{r}}(x)\cap (A \cup B) \neq \emptyset$, значит $\punct{B}_{R_{r}}(x)\cap B \neq \emptyset$ (если пересекаемся с объединением, но не с $A$, значит с  $B$).
                 Тогда
-                \[ \forall{r > 0}\quad \punct{B}_{r}(x)\cap B \supset \punct{B}_{R_{r}}(x)\cap B \neq \emptyset  .\]
+                \[ \forall{r > 0}\quad \punct{B}_{r}(x)\cap B \supset \punct{B}_{R_{r}}(x)\cap B \neq \emptyset \text{ вложение так-как } r > R_{r} .\]
 
                 Значит, $x\in B'$
             \end{proof}

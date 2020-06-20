@@ -6,7 +6,7 @@
 
     \begin{enumerate}
         \item $\|x\| \ge 0$ и $\|x\| = 0 \iff x = \vec{0}$
-        \item $\|\lambda x\| = \lambda \|x\|$
+        \item $\|\lambda x\| = |\lambda| \|x\|$
         \item $\|x + y\| \le \|x\| + \|y\|$ ($\triangle$)
     \end{enumerate}
 \end{definition}
@@ -90,7 +90,7 @@
             
                 \begin{enumerate}
                     \item Первое свойство переносится напрямую, из аналогичных свойств для $\left<x, x\right>$ и $\sqrt{} $.
-                    \item $\|\lambda x\| = \sqrt{\left<\lambda x, \lambda x\right>} = \sqrt{\lambda^2 \left<x, x\right>} = |\lambda| \sqrt{\left<x, x\right>} = \lambda \|x\|$ 
+                    \item $\|\lambda x\| = \sqrt{\left<\lambda x, \lambda x\right>} = \sqrt{\lambda^2 \left<x, x\right>} = |\lambda| \sqrt{\left<x, x\right>} = |\lambda| \|x\|$ 
                     \item
                         \begin{equation*}
                             \begin{split}
@@ -119,7 +119,7 @@
                     \item $\|x - y\| \le \|x - z\| + \|z - y\|$ ($\triangle$ для нормы). 
                 \end{enumerate}
             \end{proof}
-        \item $| \|x\| - \|y\| | \le \|x - y\|$ 
+        \item \label{norm:diff_of_norms} $| \|x\| - \|y\| | \le \|x - y\|$ 
             \begin{proof} \thmslashn
             
                 \[ \|x\| = \|(x - y) + y\| \overset{\triangle}{\le} \|x - y\| + \|y\| .\] 

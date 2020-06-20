@@ -1,1 +1,100 @@
-\Subsection{Билет 34: NAME}
+\Subsection{Билет 34: Эквивалентные определения нормы оператора.}
+
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \norm{\cdot }_{X}\right>$, $\left<Y, \norm{\cdot }_{Y}\right>$ - нормированные пространства, $A : X \mapsto Y$ - линейный оператор.
+
+    Следующие значения равны:
+
+    \begin{enumerate}
+        \item[$N_1$] $\norm{A} = \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax}_{Y}$ 
+        \item[$N_2$] $\sup\limits_{\norm{x}_{X} < 1} \norm{Ax}_{Y}$
+        \item[$N_3$] $\sup\limits_{\norm{x}_{X} = 1} \norm{Ax}_{Y}$
+        \item[$N_4$] $\sup\limits_{x \neq 0} \frac{\norm{Ax}_{Y}}{\norm{x}_{X}}$ 
+        \item[$N_5$] $\inf\limits_{c > 0} \{\forall{x\in X} \norm{Ax}_{Y} \le c \norm{x}_{X}\quad \} $
+    \end{enumerate}
+    \begin{proof} \thmslashn
+    
+        Будем доказывать следующие факты:
+        \begin{enumerate}
+            \item \hyperref[opnorms:1g2]{$N_1 \ge N_2$} 
+            \item \hyperref[opnorms:1l2]{$N_1 \le N_2$} 
+            \item \hyperref[opnorms:1g3]{$N_1 \ge N_3$} 
+            \item \hyperref[opnorms:3e4]{$N_3 = N_4$}
+            \item \hyperref[opnorms:4g5]{$N_4 \ge N_5$}
+            \item \hyperref[opnorms:4l5]{$N_4 \le N_5$}
+            \item \hyperref[opnorms:1l5]{$N_1 \le N_5$} 
+        \end{enumerate}
+        \begin{lemma}[$N_1 \ge N_2$] \label{opnorms:1g2} \thmslashn
+        
+            Заметим, что $N_2$ это супремум по подмножеству элементов участвующих в супрермуме $N_1$, значит $N_1 \ge N_2$.
+        \end{lemma}
+        \begin{lemma}[$N_1 \le N_2$] \label{opnorms:1l2} \thmslashn
+
+            Возьмём $\eps > 0$
+
+            \begin{equation*}
+                \begin{split}
+                    \norm{x}_{X} \le 1 
+                    &\implies \norm{\frac{x}{1+\eps}}_{X} < 1\\
+                    &\implies \norm{A\left( \frac{x}{1+\eps} \right) }_{Y} \le N_2\\
+                    &\implies \frac{1}{1+\eps} \norm{Ax}_{Y} \le N_2\\
+                    &\implies \norm{Ax}_{Y} \le (1+\eps)N_2\\
+                    &\implies N_1 \le (1+\eps)N_2 \text{ так-как верно для произвольного $x$ с } \norm{x}_{X} \le 1\\
+                    &\implies N_1 \le N_2 \text{ предельный переход при $\eps \to 0$} \qedhere
+                \end{split}
+            \end{equation*}
+
+        \end{lemma}
+        \begin{lemma}[$N_1 \ge N_3$] \label{opnorms:1g3}\thmslashn
+        
+            
+            Заметим, что $N_3$ это супремум по подмножеству элементов участвующих в супрермуме $N_1$, значит $N_1 \ge N_3$.
+        \end{lemma}
+        \begin{lemma}[$N_3 = N_4$] \label{opnorms:3e4}\thmslashn
+        
+            \[\frac{\norm{Ax}_{Y}}{\norm{x}_{X}} = \norm{\frac{Ax}{\norm{x}_{X}}}_{Y} = \norm{A\left( \frac{x}{\norm{x}_{X}} \right) }_{Y} \implies N_3 = N_4. \qedhere\]
+        \end{lemma}
+        \begin{lemma}[$N_4 \ge N_5$] \label{opnorms:4g5} \thmslashn
+        
+            \[ \norm{Ax}_{Y} \le N_4 \norm{x}_{X} \implies \frac{\norm{Ax}_{Y}}{\norm{x}_{X}} \le N_4 \implies N_5 \le N_4 .\qedhere\]
+        \end{lemma}
+
+        \begin{lemma}[$N_4 \le  N_5$] \label{opnorms:4l5} \thmslashn
+        
+            Предположим $N_5 < N_4$, тогда $\frac{\norm{Ax}_{Y}}{\norm{x}_{X}} \le N_5 < N_4$, что противоречит тому, что $N_4$ - наименьшая верхня грань. Значит, $N_5 \ge N_4$.  
+        \end{lemma}
+        \begin{lemma}[$N_1 \le N_5$] \label{opnorms:1l5}\thmslashn
+        
+            Пусть $\norm{x}_{X} \le 1$.
+
+            \begin{equation*}
+                \begin{split}
+                    \norm{Ax}_{Y} \le N_5 \norm{x}_{X}
+                    &\implies \norm{Ax}_{Y} \le N_5\\ 
+                    &\implies N_1 \le N_5 \text{ так-как верно для любого $x$ с} \norm{x}_{X} \le 1 \qedhere
+                \end{split}
+            \end{equation*}
+
+        \end{lemma}
+    \end{proof}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+    \begin{enumerate}
+        \item $\norm{Ax} \le \norm{A} \norm{x}$ 
+        \item $\norm{BA} \le \norm{B} \norm{A}$ 
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        \sup\limits_{\norm{x} \le 1} \norm{B(A(x))}
+                        &\le \sup\limits_{\norm{y} \le \norm{A}} \norm{By}\\
+                        &= \sup\limits_{\norm{y} \le \norm{A}} \norm{\norm{A} B\left( \frac{y}{\norm{A}} \right) }\\
+                        &= \norm{A} \sup\limits_{\norm{y} \le 1} \norm{By}\\
+                        &= \norm{A} \norm{B} 
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+    \end{enumerate}
+\end{consequence}

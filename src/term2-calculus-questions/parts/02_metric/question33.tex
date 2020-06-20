@@ -1,1 +1,59 @@
-\Subsection{Билет 33: NAME}
+\Subsection{Билет 33: Норма оператора. Простейшие свойства.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \norm{\cdot }_{X}\right>$, $\left<Y, \norm{\cdot }_{y}\right>$ - нормированные пространства, $A : X \mapsto Y$ - линейные оператор.
+
+    Зададим норму на пространстве операторов: 
+    \[ \norm{A} := \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax}_{Y}  .\] 
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Если $\norm{A} \neq \infty$ опертор называется ограниченным.
+\end{definition}
+\begin{remark} \thmslashn
+
+    Ограниченный оператор $\neq $ ограниченное отображение.
+
+    Ограниченное линейное отображение - только тождественный ноль.
+\end{remark}
+
+\begin{lemma} \thmslashn
+
+    $\norm{A}$ - действительно норма.
+    \begin{proof} \thmslashn
+    
+        \begin{enumerate}
+            \item $\norm{A} = 0 \implies A = 0$ 
+                \begin{proof} \thmslashn
+                
+                    $\norm{A} = 0 \implies \forall{x\in X}\quad \norm{x}_{X} \le 1 \implies \norm{Ax}_{Y} = 0 \implies Ax = 0$.
+
+                    Если $x \neq 0$, то $A(x) = A\left( \norm{x}_{X} \cdot \frac{x}{\norm{x}_{X}} \right) = \norm{x}_{X} \cdot  A\left( \frac{x}{\norm{x}_{X}} \right) = \norm{x}_{X} \cdot 0 = 0$.
+
+                    А $A(0) = 0$ всегда, значит $\forall{x\in X}\quad A(x) = 0 \implies A = 0$.
+                \end{proof}
+            \item $\norm{\lambda A} = |\lambda| \norm{A}$ 
+                \begin{proof} \thmslashn
+                
+                    \[ \norm{\lambda A} = \sup\limits_{\norm{x}_{X} \le 1} \norm{(\lambda A)x}_{Y} = \sup\limits_{\norm{x}_{X} \le 1} |\lambda| \norm{Ax}_{Y} = |\lambda| \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax}_{Y} = |\lambda| \norm{A} .\qedhere\] 
+                \end{proof}
+            \item $\norm{A + B} \le \norm{A} + \norm{B}$ 
+                \begin{proof} \thmslashn
+               
+                    \begin{equation*}
+                        \begin{split}
+                            \norm{A + B}
+                            &= \sup\limits_{\norm{x}_{X} \le 1} \norm{(A+B)x}_{Y}\\
+                            &= \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax + Bx}_{Y}\\
+                            &\le \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax}_{Y} + \norm{Bx}_{Y}\\
+                            &\le \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax}_{Y} + \sup\limits_{\norm{x}_{X} \le 1} \norm{Ax}_{Y}\\
+                            &= \norm{A} + \norm{B} \qedhere
+                        \end{split}
+                    \end{equation*}
+                \end{proof}
+        \end{enumerate}
+
+        Таким образом, определние нормы выполняется.
+    \end{proof}
+\end{lemma}

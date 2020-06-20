@@ -1,1 +1,144 @@
-\Subsection{Билет 66: NAME}
+\Subsection{Билет 66: Степенные ряды. Теорема о сходимости ряда при меньших аргументах. Радиус и круг сходимости. Формула Коши–Адамара. Примеры.}
+
+
+\begin{definition}\slashns
+    
+    Степенной ряд с центром в $z_0$:
+    
+    $\sum\limits_{n = 0}^{\infty} a_n(z - z_0)^n \;\; a_n,z_0, z \in \CC$
+    
+    Мы всегда можем выбрать точку $w := z - z_0$, тогда у нас всегда центр будет в точке 0.
+    
+    $\sum\limits_{n = 0}^{\infty} a_nw^n$
+\end{definition}
+
+\begin{theorem}\slashns
+    
+    Если $\sum\limits_{n = 0}^{\infty} a_nz^n$ сходится при $z = z_0 \not = 0$, то он абсолютно сходится и при всех $\abs{z} < \abs{z_0}$.
+\end{theorem}
+
+\begin{proof}\slashns
+    
+    $\sum a_nz_0^n$ сходится $\Rightarrow a_nz_0^n \to 0$, значит $\abs{a_nz_0^n} \leqslant M \forall n$.
+    
+    $\abs{a_n z^n} = \abs{ a_nz_0^n (\frac{z}{z_0})^n } = \abs{ a_nz_0^n} \abs{ \frac{z}{z_0} }^n \leqslant M \cdot \abs{ \frac{z}{z_0} }^n$ -- этот ряд абсолютно сходится, т.к. это геометрическая прогрессия.
+
+\end{proof}
+
+\begin{consequence}\slashns
+    
+    $\sum a_nz^n$ расходится при $z = z_0$, то он расходится и при $\abs{z} > \abs{z_0}$
+\end{consequence}
+
+\begin{proof}\slashns
+    
+    От противного. Допустим он сходится в $\abs{z} > \abs{z_0}$, тогда он сходится и в $z_0$.
+\end{proof}
+
+\begin{definition}\slashns
+    
+    Радиус сходимости степенного ряда -- такое число $R \in [0, +\infty]$, что при $\abs{z} < R$ ряд сходится, а при $\abs{z} > R$ ряд рассходится. (для рядов с центром в точке 0, иначе $\abs{z - z_0} < R$ сходится и $\abs{z - z_0} > R$ расходится).
+\end{definition}
+
+\begin{definition}\slashns
+    
+    Круг сходимости -- круг радиуса $R$ с центром в точке $z_0$, где $R$ -- радиус сходимости.
+\end{definition}
+
+\begin{lemma}\slashns
+    
+    $x_n, y_n \in \R$
+    
+    $\lim\limits_{n \to \infty} x_n \in (0, +\infty)$
+    
+    Тогда $\varlimsup\limits_{n \to \infty} x_n y_n = \lim\limits_{n \to \infty} x_n \varlimsup\limits_{n\to \infty} y_n$
+\end{lemma}
+
+\begin{proof}\slashns
+    
+    $A:= \lim\limits_{n \to \infty} x_n \;\; B:= \varlimsup\limits_{n\to\infty} y_n \;\; C:= \varlimsup\limits_{n\to\infty} x_ny_n$
+    
+    Надо доказать, что $AB=C$
+    
+    ``$\leqslant$''
+    
+    $B$ -- верхний предел $\Rightarrow \exists n_1,n_2,...$, т.ч. $y_{n_k} \to B$
+    
+    $\lim\limits_{k \to \infty} x_{n_k} y_{n_k} = \lim\limits_{k \to \infty} x_{n_k} \lim\limits_{k \to \infty} y_{n_k} = AB$
+    
+    $AB$ -- частичный предел $x_ny_n$
+    
+    $C$ -- верхний предел = наибольший из частичных
+    
+    $AB \leqslant C$
+    
+    ``$\geqslant$''
+    
+    $C$ -- верхний предел.
+    
+    $\Rightarrow \exists n_1, n_2,\ldots \;\;x_{n_{k}} y_{n_k}\to C$
+    
+    $C = \lim\limits_{k \to \infty} x_{n_k} y_{n_k} \Rightarrow \frac{C}{A} = \frac{\lim\limits_{k \to \infty} x_{n_k}y_{n_k} }{\lim\limits_{k \to \infty} x_{n_k}} = \lim\limits_{k \to \infty} y_{n_k}$
+    
+    $\frac{C}{A}$ -- частичный предел для $y_n$
+    
+    $B$ -- верхний предел = наибольший из частичных.
+    
+    $\frac{C}{A} \leqslant B$
+\end{proof}
+
+\begin{remark}\slashns
+    
+    $\varlimsup x_ny_n \ne \varlimsup x_n \varlimsup y_n$
+    
+    $x_n = \begin{cases}
+    0 & n \text{ -- четно}\\
+    1 & n \text{ -- нечетно}\\
+    \end{cases} \;\;\;\;y_n = \begin{cases}
+    1 & n \text{ -- четно}\\
+    0 & n \text{ -- нечетно}\\
+    \end{cases}$
+    
+    $x_ny_n \equiv 0$
+    
+    $\varlimsup x_n = \varlimsup y_n = 1$
+\end{remark}
+
+\begin{theorem}[Формула Коши-Адамара]\slashns
+    
+    Всякий степенной ряд имеет радиус сходимости и он выражается формулой $R = \frac{1}{\varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_n}} }$
+\end{theorem}
+
+\begin{proof}\slashns
+    
+    Применим признак Коши к ряду.
+    
+    $K := \varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_nz^n}} = \varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_n}} \abs{z}$
+    \begin{description} 
+        \item 
+        Если $K < 1$, то ряд абсолютно сходится $\varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_n}} \abs{z} < 1 \Leftrightarrow \abs{z} < R$.
+    
+        \item 
+        Если $K > 1$, то члены ряда не стремятся к 0 $\Rightarrow$ ряд расходится $\varlimsup\limits_{n \to \infty} \sqrt[n]{\abs{a_n}} \abs{z} > 1 \Leftrightarrow \abs{z} > R$.
+    \end{description}
+\end{proof}
+
+\begin{remark}\slashns
+    
+    Внутри круга сходимости ряд сходится абсолютно. 
+\end{remark}
+
+\begin{example}\slashns
+    
+    \begin{enumerate}
+        \item $\sum\limits_{n = 0}^{\infty} n!z^n \;\; R = 0$
+        
+        $\varlimsup \sqrt[n]{n!} = \lim \sqrt[n]{n^n e^{-n} \sqrt{2\pi n}} = \lim \frac{n}{e} \to +\infty$
+        
+        \item $\sum\limits_{n = 0}^{\infty} \frac{z^n}{n!} \;\; R = +\infty$
+        
+        $\varlimsup \sqrt[n]{\frac{1}{n!}} = \frac{1}{\lim \sqrt[n]{n!}} = 0$
+        
+    \end{enumerate}
+\end{example}
+

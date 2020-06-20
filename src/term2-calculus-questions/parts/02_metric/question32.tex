@@ -1,1 +1,127 @@
-\Subsection{Билет 32: NAME}
+\Subsection{Билет 32: Линейные операторы. Свойства. Операции с линейными операторами. Матричное задание операторов из $\R^{n}$ в $\R^{m}$}
+
+\begin{definition} \thmslashn 
+
+    Пусть $X$, $Y$ - линейные пространства над $\R$, $A : X \mapsto Y$.
+
+    $A$ называется линейным оператором, если  
+    \[ \forall{\alpha, \beta\in \R}\quad \forall{x, y\in X}\quad A(\alpha x + \beta y) = \alpha A(x) + \beta A(y) .\] 
+\end{definition}
+\begin{remark} \thmslashn
+
+    Аналогичное определение можно дать над $\CC$.
+\end{remark}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item $A(0_{X}) = 0_{Y}$ 
+            \begin{proof} \thmslashn
+            
+                \[ A(0 \cdot x) = 0 \cdot A(x) = 0_{Y} .\] 
+            \end{proof}
+        \item $A\left( \sum\limits_{k=1}^{n} \lambda_{k}x_{k} \right) = \sum\limits_{k=1}^{n} \lambda_{k}A(x_{k})$ 
+            \begin{proof} \thmslashn
+            
+                Индукция по $n$.
+            \end{proof}
+    \end{enumerate}
+\end{properties}
+\begin{definition} \thmslashn 
+
+    Пусть $X$, $Y$ - линейные пространства, $A, B : X \mapsto Y$ - линейные операторы, $\lambda\in \R$.
+
+    \[ (A \pm B)(x) = A(x) \pm B(x) .\]
+    \[ (\lambda A)(x) = \lambda \cdot A(x) .\] 
+\end{definition}
+\begin{remark} \thmslashn
+
+    Операторы с данными операциями образуют линейное пространство.
+    \begin{proof} \thmslashn
+        
+        Покажем что в результате операцией получается линейный оператор:
+        \begin{equation*}
+            \begin{split}
+                (A+B)(\alpha x + \beta y)
+                &= A(\alpha x + \beta y) + B(\alpha x + \beta y)\\
+                &= \alpha A(x) + \beta A(y) + \alpha B(x) + \beta B(y)\\
+                &= \alpha (A(x) + B(x)) + \beta (A(y) + B(y))\\
+                &= \alpha ((A+B)(x)) + \beta ((A+B)(y))
+            \end{split}
+        \end{equation*}
+    \end{proof}
+
+    Аналогичным способом можно проверить другие аксиомы линейного пространства.
+\end{remark}
+\begin{definition} \thmslashn 
+
+    Пусть $X$, $Y$, $Z$ - линейные пространства, $A : X \mapsto Y$, $B : Y \mapsto Z$ - линейные операторы.
+
+    Их композиция: $(BA)(x) = B(A(x))$.
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Пусть $X$, $Y$ - линейные пространства, $A : X \mapsto Y$ - линейный оператор.
+
+    Тогда, обратный к $A$ оператор $A^{-1} : Y \mapsto X$, такой оператор, что $A^{-1}A = \id_{X}$, $AA^{-1} = \id_{Y}$.
+\end{definition}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item Композиция линейный операторов - линейные оператор
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        (BA)(\alpha x + \beta y) 
+                        &= B(A(\alpha x + \beta y))\\
+                        &= B(\alpha A(x) + \beta A(y))\\
+                        &= \alpha B(A(x)) + \beta B(A(y))\\
+                        &= \alpha (BA)(x) + \beta (BA)(y)
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+        \item Если обратный оператор существует, то он единственнен.
+            \begin{proof} \thmslashn
+            
+                Пусть $B$, $C$ - обратные к $A$.
+                \[ C = \id_X \cdot C = (BA)C = B(AC) = B \cdot \id_{Y} = B .\qedhere\] 
+            \end{proof}
+        \item $(\lambda A)^{-1} = \frac{1}{\lambda} A^{-1}$ 
+            \begin{proof} \thmslashn
+            
+                \[ (\frac{1}{\lambda} A^{-1})((\lambda A)(x)) = \frac{1}{\lambda} \cdot A^{-1}(\lambda A(x)) = \frac{1}{\lambda} \cdot \lambda A^{-1}(A(x)) = 1 \cdot x = x .\]
+
+                Аналогично в другую сторону.
+            \end{proof}
+        \item Множество обратимых линейных операторов из $X$ в $X$ образуют группу по композиции.
+            \begin{proof} \thmslashn
+            
+                Наличие единицы: $\id_{X}$
+
+                Наличие обратного по определнию
+
+                Ассоциативность композиции:
+                \[ (A(BC))(x) = A(BC(x)) = A(B(C(x))) = AB(C(x)) = ((AB)C)(x) .\]
+
+                Замкнутость:
+                \[ (A^{-1})^{-1} = A .\]
+                \[ (BA)^{-1} = A^{-1}B^{-1} .\]
+                \[ (A^{-1}B^{-1})(BA)(x) = A^{-1}(B^{-1}(B(A(x)))) = A^{-1}(A(x)) = x .\qedhere\] 
+            \end{proof}
+    \end{enumerate}
+\end{properties}
+\begin{remark} \thmslashn
+
+    Если $A : \R^{m} \mapsto \R^{n}$, то можно использовать матричную запись:
+
+    \begin{equation*}
+        A = \begin{bmatrix} 
+            a_{11} & a_{12} & \ldots & a_{1m}\\
+            a_{21} & a_{22} & \ldots & a_{2m}\\
+            \vdots & \vdots & \ddots & \vdots\\
+            a_{n1} & a_{n2} & \ldots & a_{nm} 
+        \end{bmatrix}
+    \end{equation*}
+
+    Пусть $A_{i}$ - функция отвечающая за $i$-ю координату выходного вектора. Тогда $a_{ik} = A_{i}(e_{k})$, где $e_{k}$ - $k$-й стандартный базисный вектор.
+\end{remark}

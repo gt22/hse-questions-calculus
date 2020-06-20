@@ -1,1 +1,98 @@
-\Subsection{Билет 77: NAME}
+\Subsection{Билет 77: ! Линейность диференциала. Дифференциал композиции.}
+
+\begin{theorem}[линейность дифференцирования]\slashns
+    
+    $f,g : E \to \R^m \;\; E\subset \R^n \;\; a \in \Int E$
+    
+    $f,g$ -- дифференцируемы в точке $a,\;\; \lambda \in \R$. Тогда:
+    
+    $f\pm g,\;\; \lambda f$ -- дифференцируемы в точке $a$
+    
+    
+    $d_a(f\pm g) = d_af \pm d_a g \;\;\; d_a(\lambda f) = \lambda \cdot d_a f$
+\end{theorem}
+
+\begin{proof} \slashns
+    
+    $f(a + h) = f(a) + d_a f(h) + o(||h||) \;\; ||h|| \to 0$
+    
+    $g(a + h) = g(a) + d_a g(h) + o(||h||) \;\; ||h|| \to 0$
+    
+    $f(a + h) + g(a + h) = f(a) + g(a) + d_a f(h) + d_a g(h) + o(||h||)$
+    
+    $f(a + h) + g(a + h) = f(a) + g(a) + (d_a f+ d_a g)(h) + o(||h||)$
+    
+\end{proof}
+
+\begin{theorem}[дифференцирование композиции]\slashns
+    
+    $f: D \to \R^m \;\; D\subset \R^n, \;\; g : E \to \R^l \;\; E\subset \R^m$
+    
+    $a\in \Int D \;\; f(a) \in \Int E \;\; f(D) \subset E$
+    
+    Тогда $g\circ f$ -- дифференцируема в точке $a$ и
+    
+    $d_a(g\circ f) = d_{f(a)} g \circ d_a f$
+\end{theorem}
+
+\begin{remark}\slashns
+    
+    $(g\circ f)'(a) = g'(f(a))\cdot f'(a)$
+\end{remark}
+
+\begin{proof}\slashns
+    
+    $f(a+h) = f(a) + d_a f(h) + \alpha(h) ||h|| \;\; ||h|| \to 0$
+    
+    $b:= f(a) \;\; g(b+k) = g(b) + d_b g(k) + \beta(k) ||k|| \;\; ||k|| \to 0$
+    
+    $k:= d_a f(h) + \alpha(h) ||h||$
+    
+    $||k|| \le ||d_a f(h)|| + ||\alpha(h) ||h|| || \le ||d_a f|| \cdot ||h|| + ||\alpha(h)|| ||h|| \to 0$ при $h \to 0$
+
+    \begin{remark} \thmslashn
+
+        Т.к. $d_a f$ - матрица, а $d_a f(h) = d_a f \cdot h$
+
+        Определение нормы матрицы(грубо):
+
+        $||A|| = \sup\limits_{||x|| \le 1} ||A x||$
+
+        Из этого мы хотим вывести, что $||A h|| \le ||A|| \cdot ||h||$.
+
+        $||A h|| = \left\lVert A \frac{h}{||h||} \cdot ||h|| \right\rVert = ||h|| \cdot \left\lVert A \frac{h}{||h||} \right\rVert$
+
+        Т.к. $\left\lVert \frac{h}{||h||} \right\rVert = 1$, то получаем, что $\left\lVert A \frac{h}{||h||} \right\rVert \le ||A||$ (в определении sup берется ото всех векторов с нормой до 1, а здесь вектора только с нормой 1).
+
+        Значит, $||d_a f(h)|| = ||d_a f \cdot h|| \le ||d_a f|| \cdot ||h||$
+
+    \end{remark} \thmslashn
+    
+    $g(f(a+h)) = g(f(a) + k) = g(b + k) = g(b) + d_b g(k) + \beta(k) ||k|| =\\= g(b) + d_b g(d_a f(h)) + d_b g(\alpha(h) ||h||)+ \beta(k) ||k|| =\\= g(f(a)) + (d_b g \circ d_a f)(h) + d_b g(\alpha(h) ||h||) + \beta(k) ||k||$
+    
+    Хотим показать, что $d_b g(\alpha(h) ||h||) + \beta(k) ||k|| = o(||h||)$
+    
+    $d_b g(\alpha(h) ||h||) = ||h|| \cdot d_b g(\alpha(h))$ (т.к. $d_b g(\alpha(h) ||h||) = d_b g \cdot \alpha(h) \cdot ||h||$)
+    
+    $||d_b g(\alpha(h) ||h||)|| \le ||h|| \cdot ||d_b g|| \cdot ||\alpha(h)||$, а $||d_b g|| \cdot ||\alpha(h)|| \to 0$
+
+    \begin{remark} \thmslashn
+
+        $\lim\limits_{h \to 0} ||d_b g|| \cdot ||\alpha(h)|| = ||d_b g|| \cdot \lim\limits_{h \to 0} ||\alpha(h)||$ 
+
+        $\alpha(h) \cdot ||h|| = o(h)$ (по определению)
+
+        Значит, $\alpha(h) \to 0$.
+
+        Известно, что если $x_n \to a$, то $||x_n|| \to ||a|| \implies ||\alpha(h)|| \to ||0|| = 0$. 
+
+    \end{remark} \thmslashn
+    
+    
+    $||\beta(k) ||k|| || = ||k|| \cdot ||\beta(k)|| \le ||\beta(k)|| (||d_a f|| \cdot ||h|| + ||\alpha(h)|| \cdot ||h||) = ||h|| \cdot ||\beta(k)||(||d_a f|| + ||\alpha(h)||)$. 
+    
+    
+    А $||\beta(k)||(||d_a f|| + ||\alpha(h)||) \to 0$.
+    
+    Все получили.
+\end{proof}
