@@ -1,1 +1,48 @@
-\Subsection{Билет 89: NAME}
+\Subsection{Билет 89: Теорема об обратной функции.}
+
+\begin{theorem} [Теорема об обратной функции] \thmslashn
+    
+    $f:D\rightarrow R^{n}, D \subset R^{n} \text{ открытое, } x_{0} \in D, f \text{ непрерывно дифференцируема в окрестности } (\cdot) x_{0} \text{ и } y_{0}=\text{ }=f(x_{0}), \text{ матрица } A:=f'(x_{0}) \text{ обратима. Тогда существуют окрестности } U \text{ точки } x_{0}, V \text{ окрестность } $ $(\cdot) y_{0} \text{, т.ч. } f:U\rightarrow V - \text{ обратима и } f^{-1}:V\rightarrow U - \text{ непрерывна.}$
+    
+    \begin{proof} \thmslashn
+        
+        \[G_{y}(x):=x+A^{-1}(y-f(x))\]
+        
+        Выберем $B_{r}(x_{0})$, т.ч. $||A^{-1}||\text{ }||A-f'(x)||\le\frac{1}{2}$ при $x\in B_{r}(x_{0})$
+        
+        Тогда $f'(x)$ при $x\in B_{r}(x_{0})$ - обратимое отображение
+        
+         \[||G_{y}'(x)||=||E+A^{-1}(-f'(x))||=||E-A^{-1}f'(x)||=||A^{-1}(A-f'(x))||\le\]\[\le||A^{-1}||\text{ }||A-f'(x)||\le\frac{1}{2}\text{ при }x\in B_{r}(x_{0})\]
+         
+         \[||G_{y}(x)-G_{y}(\tilde{x})||\le\frac{1}{2}||x-\tilde{x}||\text{ при } x, \tilde{x}\in B_{r}(x_{0}) \implies G_{y} \text{ -- сжатие}\]
+         
+         подберем $B_{r}(y_{0})$ так, чтобы $G_{y}(B_{r}(x_{0})) \subset B_{r}(x_{0})$
+         
+         \[||G_{y}(x)-x_{0}||\le||G_{y}(x_{0})-x_{0}||+||G_{y}(x_{0}) - G_{y}(x)||=||A^{-1}(y-f(x_{0}))||+||G_{y}(x_{0})-G_{y}(x)||\le\]\[\le||A^{-1}||||y-y_{0}||+\frac{1}{2}||x-x_{0}||<||A^{-1}||\cdot R + \frac{r}{2}  < r\]
+         
+        по т. Банаха у $G_{y}$ есть неподвижная точка т.е. 
+        
+        \[x\in B_{r}(x_{0}) \text{, т.ч.}  x = G_{y}(x) = x+A^{-1}(y-f(x)) \implies A^{-1}(y-f(x))=0 \implies y = f(x)\]
+        
+        \[\implies \text{ если } y\in B_{r}(y_{0}) \text{, то найдется } x \in B_{r}(x_{0}) \text{ т.ч. } y=f(x)\]
+        
+        \[U:=f^{-1}(V), V:=B_{r}(y_{0}), f:U\rightarrow V \text{ биекция, осталось доказать непрерывность} f^{-1}\]
+        
+        \[f(x) = y, f(\tilde{x})=\tilde{y}, G_{y}(x)=x, G_{\tilde{y}}(\tilde{x})=\tilde{x}\]
+        
+        \[||f^{-1}(y)-f^{-1}(\tilde{y})||=||x-\tilde{x}||\le2||G_{y}(x)-G_{\tilde{y}}(x)|| =  \]
+        
+        \[= 2||x - A^{-1}(y-f(x))-(x-A^{-1}(\tilde{y}-f(x)))|| = 2 ||A^{-1}(\tilde{y} - f(x) - (y - f(x)))|| =\]
+        
+        \[= 2||A^{-1}(\tilde{y} - y)|| \le 2||A^{-1}||\text{ }||\tilde{y} - y||\]
+        
+        Отсюда видно, что если $\tilde{y}$ близко к $y$, то $f^{-1}(\tilde{y})$ близко к $f^{-1}(y)$, и значит у нас есть непрерывность
+         
+    \end{proof}
+    
+       
+    
+   
+    
+\end{theorem}
+
