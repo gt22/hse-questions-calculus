@@ -79,3 +79,22 @@
         \end{lemma}
     \end{proof}
 \end{theorem}
+\begin{consequence} \thmslashn
+
+    \begin{enumerate}
+        \item $\norm{Ax} \le \norm{A} \norm{x}$ 
+        \item $\norm{BA} \le \norm{B} \norm{A}$ 
+            \begin{proof} \thmslashn
+            
+                \begin{equation*}
+                    \begin{split}
+                        \sup\limits_{\norm{x} \le 1} \norm{B(A(x))}
+                        &\le \sup\limits_{\norm{y} \le \norm{A}} \norm{By}\\
+                        &= \sup\limits_{\norm{y} \le \norm{A}} \norm{\norm{A} B\left( \frac{y}{\norm{A}} \right) }\\
+                        &= \norm{A} \sup\limits_{\norm{y} \le 1} \norm{By}\\
+                        &= \norm{A} \norm{B} 
+                    \end{split}
+                \end{equation*}
+            \end{proof}
+    \end{enumerate}
+\end{consequence}
