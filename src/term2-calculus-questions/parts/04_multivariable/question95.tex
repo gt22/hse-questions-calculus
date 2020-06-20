@@ -1,1 +1,186 @@
-\Subsection{Билет 95: NAME}
+\Subsection{Билет 95: ! Условный экстремум. Метод множителей Лагранжа.}
+
+\begin{definition}\thmslashn
+	
+	$\Phi \; :\; D \to \R^m \;\; D \subset \R^{n+m}$
+	
+	$f \; : \; D \to \R$
+	
+	$a \in D$ и $\Phi(a) = 0$
+	
+	$a$ -- точка условного локального максимума при условии $\Phi = 0$, если $\exists U$ -- окрестность точки $a$, т.ч. $\forall x \in U\cap D$, удовлетворяющее условию $\Phi(x) = 0$
+	
+	$\implies f(x) \le f(a)$
+	
+	$a$ -- точка условного локального минимума, если
+	
+	$\exists U$ -- окрестность точки $a$, т.ч. $\forall x \in U\cap D$, удовлетворяющее условию $\Phi(x) = 0$ $\implies f(x) \ge f(a)$
+	
+	
+	Аналогично строгий условный максимум и строгий условный минимум.
+\end{definition}
+
+\begin{example}\thmslashn
+
+	$\Phi(x, y, z) = x^2 + y^2 + z^2 - 1$
+	
+	$f(x,y,z) = x^4 + y^4 + z^4$
+\end{example}
+
+\begin{theorem}[Метод неопределенных множителей Лагранжа]\thmslashn
+	
+	
+	$\Phi \; :\; D \to \R^m \;\; D \subset \R^{n+m} \;\;\; a \in D$ -- открытое. 
+	
+	$\Phi(a) = 0$
+		
+	$f \; : \; D \to \R$
+	
+	$\Phi, f$ непрерывно дифференцируемы.
+	
+	Если $a$ точка условного экстремума, то $\grad f, \grad \Phi_1, \grad \Phi_2, ..., \grad \Phi_m$ линейно зависимы.
+\end{theorem}
+
+\begin{remark}\thmslashn
+	
+	\begin{enumerate}
+		
+		\item Если $\grad \Phi_1, \grad \Phi_2, ..., \grad \Phi_m$ линейно зависимы, то теорема ничего не утверждает.
+		
+		\item Если $\grad \Phi_1, .., \grad \Phi_m$ линейно независимы, то $\grad f = \lambda_1 \grad \Phi_1 + ...+\lambda_m \grad \Phi_m$
+		
+		\item $\Phi'(a)^T = \begin{pmatrix}
+		\frac{\partial \Phi_1}{\partial x_1} & \frac{\partial \Phi_2}{\partial x_1} & \dots & \frac{\partial \Phi_m}{\partial x_1}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		\frac{\partial \Phi_1}{\partial x_{n+m}} & \frac{\partial \Phi_2}{\partial x_{n+m}} & \dots & \frac{\partial \Phi_m}{\partial x_{n+m}}\\
+		\end{pmatrix}$
+		
+		Столбцы линейно независимы $\iff \text{rank}  \Phi'(a) = m$, т.е. максимально возможный.
+	\end{enumerate}
+\end{remark}
+
+\begin{proof}\thmslashn
+	
+	$\text{rank} \Phi'(a) = m$. (Рассматривать линейную зависимость градиентов бессмысленно, как показано в замечании) 
+	
+	Перенумеруем координаты $\Phi$ так, чтобы определитель последней подматрицы $\ne 0$.
+	
+	$a = (b,c) \;\; b \in \R^n \;\; c \in \R^m$
+	
+	$A := \Phi'(a)$
+	
+	$A(0, h) = 0 \implies h = 0$
+	
+	По теореме о неявной функции $\exists W$ -- окрестность точки $b$ и непрерывно дифференцируемая функция $g \; : \; W \to \R^m$, т.ч. $\Phi(w, g(w)) = 0\;\; \forall w \in W$
+	
+	$g(b) = c$
+	
+	Пусть $a$ -- точка условного максимума. 
+	
+	$\implies \exists U$ -- окрестность точки $a$ такая, что $\forall x \in U \;\; \Phi(x) = 0$
+	
+	$f(a) \ge f(x)$
+	
+	Уменьшим $W$ так, чтобы $W \times \{c\} \subset U$ и чтобы $(w, g(w)) \in U$ при $w \in W$.
+	
+	Почему так можем сделать?
+	
+	$w \to (w, g(w))$ -- непрерывное отображение
+	
+	$\implies$ прообраз открытого открыт $\implies $ прообраз $U \cap W$ подойдет.
+	
+	$\implies \forall w \in W \;\; f(w, g(w)) \le f(b, g(b))$
+	
+	$h(w) := f(w, g(w))\;\;\; h$ имеет локальный максимум в точке $b$.
+	
+	$h$ -- дифференцируемая функция, а значит выполняется необходимое условие экстремума. Т.е. $\grad h = 0$.
+	
+	$x = (y, z) \;\; y \in \R^n \;\; z\in \R^m$
+	
+	$\frac{\partial h}{\partial w_k} = \frac{\partial f}{\partial y_k} + \frac{\partial f}{\partial z_1} \cdot \frac{\partial g_1}{\partial y_k} +\ldots+ \frac{\partial f}{\partial z_m} \cdot \frac{\partial g_m}{\partial y_k} = 0$
+	
+	$0 = \grad h = \grad_y f+ \sum\limits_{j = 1}^{m} \frac{\partial f}{\partial z_j} \cdot \grad_y g_j$
+	
+	$\Phi(w, g(w)) \equiv 0$
+	
+	$i$ -- фиксированное.
+	
+	Посмотрим на частные производные $\Phi_i$ по $w_k$. 
+	
+	$\frac{\partial}{\partial w_k} \;\; : \;\; \frac{\partial \Phi_i}{\partial y_k} + \frac{\partial \Phi_i}{\partial z_1} \cdot \frac{\partial g_1}{\partial y_k} +...+ \frac{\partial \Phi_i}{\partial z_m} \cdot \frac{\partial g_m}{\partial y_k} = 0$
+
+	$\grad_y \Phi_i + \sum\limits_{j = 1}^{m} \frac{\partial \Phi_i}{\partial z_j} \grad g_j = 0$
+	
+	$\grad_y f + \sum\limits_{i = 1}^{m} \lambda_i \grad_y \Phi_i + \sum\limits_{i = 1}^{m} (\lambda_i \sum\limits_{j = 1}^{m} \frac{\partial \Phi_i}{\partial z_j} \grad g_j)+ \sum\limits_{j =1}^{m} \frac{\partial f}{\partial z_j} \grad g_j = 0$
+	
+	$\grad_y f + \sum\limits_{i = 1}^{m} \lambda_i \grad_y \Phi_i + \sum\limits_{j =1}^{m} (\sum\limits_{i=1}^{m} \lambda_i \frac{\partial \Phi_i}{\partial z_j} + \frac{\partial f}{\partial z_j})\grad g_j = 0$
+	
+	Хотим подобрать $\lambda_i$ так, что $(*) := \sum\limits_{i=1}^{m} \lambda_i \frac{\partial \Phi_i}{\partial z_j} + \frac{\partial f}{\partial z_j}=0 \;\; \forall j $
+
+	$\begin{pmatrix}
+		\frac{\partial \Phi_1}{\partial z_1} & \dots & \frac{\partial \Phi_m}{\partial z_1}\\
+		\dots\\
+		\frac{\partial \Phi_1}{\partial z_m} &\dots&\frac{\partial \Phi_m}{\partial z_m}
+	\end{pmatrix}\begin{pmatrix}
+	\lambda_1\\ \vdots\\ \lambda_m
+	\end{pmatrix} = -\begin{pmatrix}
+	\frac{\partial f}{\partial z_1}\\
+	\vdots\\
+	\frac{\partial f}{\partial z_m}
+	\end{pmatrix}$
+	
+	Первая матрица здесь обратима, так как это в точности последний минор, который не вырожден.
+	
+	$\implies$ система имеет решение $\implies $ можно занулить коэффициенты
+	
+	$\implies \grad_y f + \sum\limits_{i = 1}^{m} \lambda_i \grad_y \Phi_i = 0$
+	
+	Но $(*)$ в векторном виде
+	
+	$\grad_z f + \sum\limits_{i = 1}^{m} \lambda_i \grad_z \Phi_i = 0$
+\end{proof}
+
+\begin{remark}\thmslashn
+	
+	$\grad f = \sum\limits_{i = 1}^{m} \lambda_i \grad \Phi_i$
+	
+	$n+m$ уравнений.
+	
+	Неизвестных -- точка $a$ ($n + m$ неизвестных), $\lambda_i$ -- $m$ неизвестных.
+	
+	Но $\Phi(a) = 0$ -- а это еще $m$ уравнений.
+\end{remark}
+
+\begin{example}\thmslashn
+	
+	
+	Минимум и максимум квадратичной формы на сфере.
+	
+	$A$ -- симметричная матрица и $Q = \left< Ax, x \right>$
+	
+	Минимум и максимум $Q(x)$ при условии $x_1^2+...+x_n^2 = 1$ 
+	
+	$\Phi' = \begin{pmatrix}
+	2x_1 & 2x_2 & \dots & 2x_n
+	\end{pmatrix} \;\;\;\; \text{rank} = 1$
+	
+	$\implies \exists \lambda \in \R \;\; : \;\; \grad Q - \lambda \grad \Phi = 0$
+	
+	$F := Q - \lambda \Phi$ -- функция Лагранжа.
+	
+	при некотором $\lambda \;\;\;\; \grad F = 0$.
+	
+	$\frac{\partial F}{\partial x_k} = \sum\limits_{\substack{j = 1\\j\ne k}}^{n} a_{k,j} x_j + \sum\limits_{\substack{i=1\\i\ne k}}^{n} a_{i,k} x_i + a_{k,k}\cdot 2x_k - 2\lambda x_k = 0$
+	
+	$2\sum\limits_{j = 1}^{n}a_{k,j} x_j - 2 \lambda x_k = 0$
+	
+	$Ax - \lambda x = 0$
+	
+	$\implies x$ -- единичный собственный вектор, $\lambda$ -- собственное число.
+	
+	Все точки, в которых достигается экстремум -- единичные собственные вектора.
+	
+	$Q(x) = \left< Ax, x\right> = \left< \lambda x, x\right> = \lambda ||x||^2 = \lambda$
+	
+	Значения в этих точках -- соответствующие собственные числа.
+\end{example}
