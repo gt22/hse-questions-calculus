@@ -65,6 +65,18 @@
 	Это и есть критерий Коши для $\lim\limits_{c \to b-} F(c)$.
 \end{proof}
 
+\begin{remark}\slashns
+	
+	Для $ b = +\infty$:
+	
+	$ \int\limits_a^{+\infty}$ сходится $ \iff \forall \eps > 0 \;\; \exists c > a : \; \forall A, B > c \;\; \abs{\int\limits_A^B f} < \eps$
+	
+	Для $ b \in \mathbb{R}$:
+	
+	$ \int\limits_a^b$ сходится $ \iff \forall \eps > 0 \;\; \exists \delta > 0 : \; \forall A, B < b \;\; |A-b| < \delta, |B-b| < \delta \implies \abs{\int\limits_A^B f} < \eps $
+	
+\end{remark}
+
 \begin{consequence}\slashns
 	
 	$-\infty < a < b \le +\infty \;\; f \in C[a,b)$
