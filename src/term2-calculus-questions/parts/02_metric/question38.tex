@@ -101,7 +101,7 @@
                 &= \sum\limits_{k=1}^{n} \frac{M_{k}^2-m_{k}^2}{M_{k}+m_{k}}d_{k}\\
                 &= \sum\limits_{k=1}^{n} \frac{d_{k}}{M_{k}+m_{k}} \sum\limits_{i=1}^{m} \left(\left(M_{k}^{(i)}\right)^2 - \left(m_{k}^{(i)}\right)^2\right)\\
                 &= \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \frac{\left(M_{k}^{(i)}\right)^2 - \left(m_{k}^{(i)}\right)^2}{M_{k}+m_{k}}d_{k}\\
-                &= \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \frac{M_{k}^{(i)} - m_{k}^{(i)}}{M_{k}+m_{k}} \left( M_{k}^{(i)} - m_{k}^{(i)} \right)d_{k}\\
+                &= \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \frac{M_{k}^{(i)} + m_{k}^{(i)}}{M_{k}+m_{k}} \left( M_{k}^{(i)} - m_{k}^{(i)} \right)d_{k}\\
                 &\le \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \left( M_{k}^{(i)} - m_{k}^{(i)} \right)d_{k} \text{ т. к. евклидова норма всегда больше координаты}\\
                 &\le \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \omega_{\gamma'_{i}}(|\tau|)d_{k} \TODO{\text{ какой-то нетрививальный факт }}\\
                 &= (b-a)\sum\limits_{i=1}^{m} \omega_{\gamma_{i}'}(|\tau|)
