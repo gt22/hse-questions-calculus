@@ -10,7 +10,7 @@ $K$ - секвенциальный компакт. $U_{\alpha}$ - открыто
     Пусть такого $r$ не существует. Значит ни одно $r$ не подходит. Рассмотрим последовательность $r_n = \frac{1}{n}$. И для каждого такого радиуса найдем точку $x_n$, такую что
     $B_{r_n}(x_n)$ не покрывается целиком никаким $U_{\alpha_i}$. Получили последовательность $\{x_n\}$ точек секвенциального компакта. Значит можно выбрать $x_{n_k}: \lim\limits_{k\rightarrow\infty}{x_{n_k}} = a \in K$. \par
   Найдется $\alpha_0 : a \in U_{\alpha_0}$. Так как $U_{\alpha_0}$ - открытое, то $\exists \eps > 0: B_{\eps}(a) \subset U_{\alpha_0}$. \par
-  Так как $a$ - предел последовательность $x_{n_k}$, то $\exists N : \forall k \ge N \quad  \rho(x_{n_k}, a) < \frac{\eps}{2}$. К тому же если $k \ge \frac{\eps}{2} \implies n_k \ge \frac{\eps}{2} \implies \frac{1}{n_k} \le \frac{\eps}{2}$. \par
+  Так как $a$ - предел последовательность $x_{n_k}$, то $\exists N : \forall k \ge N \quad  \rho(x_{n_k}, a) < \frac{\eps}{2}$. К тому же если $k \ge \frac{2}{\eps} \implies n_k \ge \frac{2}{\eps} \implies \frac{1}{n_k} \le \frac{\eps}{2}$. ($n_{k} \ge k$, так-как $n_{k}$ задаёт подпоследовательность), а достаточно большое $k$ можем взять всегда. \par
   Теперь запишем цепочку вложений. 
   \[
     B_{\frac{1}{n_k}}(x_{n_k}) \subset B_{\frac{\eps}{2}}(x_{n_k}) \subset B_{\eps}(a) \subset U_{\alpha_0} 

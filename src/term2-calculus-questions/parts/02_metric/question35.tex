@@ -43,6 +43,8 @@
 
         Возьмём $x\in X$, $\norm{x} < 1$.
 
+        \[ \norm{x} < 1 \implies \norm{\delta x} < \delta \implies \norm{A(\delta x)} < \eps .\] 
+
         Тогда $\norm{A(\delta x)} < \eps \implies \delta \norm{Ax} < \eps \implies \norm{Ax} < \frac{\eps}{\delta} \implies \norm{A} \le \frac{\eps}{\delta}$, так-как норма - супремум по таким $x$.
     \end{proof}
 \end{theorem}
@@ -54,7 +56,7 @@
     \[ \norm{A} \le \sqrt{\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2}  .\]
     \begin{proof} \thmslashn
     
-        \[ \norm{Ax}^2 = \sum\limits_{i=1}^{m} \sum\limits_{i=1}^{m} \left( \sum\limits_{j=1}^{n} a_{ij}x_{j} \right)^2 \le \sum\limits_{i=1}^{m}\left( \sum\limits_{j=1}^{n} a_{ij}^2 \cdot \sum\limits_{j=1}^{n} x_{j}^2 \right) = \norm{x}^2 \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2  .\]
+        \[ \norm{Ax}^2 = \sum\limits_{i=1}^{m} \left( \sum\limits_{j=1}^{n} a_{ij}x_{j} \right)^2 \overset{\text{Коши}}{\underset{\text{Буняковский}}{\le}} \sum\limits_{i=1}^{m}\left( \sum\limits_{j=1}^{n} a_{ij}^2 \cdot \sum\limits_{j=1}^{n} x_{j}^2 \right) = \norm{x}^2 \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2  .\]
 
         Значит,
         \[ \norm{A} = \sup \frac{\norm{Ax}}{\norm{x}} = \sqrt{\frac{\norm{Ax}^2}{\norm{x}^2}} = \sqrt{\frac{\norm{x}^2 \sum\limits_{i=1}^{m} \sum\limits_{j=1}^{n} a_{ij}^2}{\norm{x^2}}} = \sqrt{\sum\limits_{i=1}^{m} \sum\limits_{j=1}^{n} a_{ij}^2}    .\qedhere\] 
