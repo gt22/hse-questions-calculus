@@ -1,1 +1,131 @@
-\Subsection{Билет 100: NAME}
+\Subsection{Билет 100: Лемма про дизъюнктное объединение
+множеств. Кольцо и полукольцо. Теорема о свойствах элементов полукольца.}
+
+\begin{lemma}\thmslashn
+	
+	$\bigcup\limits_{k=1}^{n} A_k = \bigsqcup\limits_{k=1}^{n} A_k \setminus (\bigcup\limits_{j=1}^{k-1} A_j)$
+	
+	
+	$\bigcup\limits_{k=1}^{\infty} A_k = \bigsqcup\limits_{k=1}^{\infty} A_k \setminus (\bigcup\limits_{j=1}^{k-1} A_j)$
+\end{lemma}
+
+\begin{proof}\thmslashn
+	
+	Рассмотрим $B_k := A_k \setminus  (\bigcup\limits_{j=1}^{k-1} A_j)$
+
+	Заметим, что $B_k \subset A_k$, поэтому если $i < k$, то $B_k \cap A_i = \emptyset \implies B_k \cap B_i = \emptyset$
+	
+	$\implies B_k$ --дизъюнктны.
+	
+	А ещё из того, что $B_k \subset A_k$, следует
+	
+	$\bigcup\limits_{k=1}^{?} B_k  \subset \bigcup\limits_{k=1}^{?} A_k$
+
+	где $?$ означает либо $n$, если хотим доказать для конечного, либо $\infty$, если хотим доказать для счетного.
+	
+	обратное включение:
+	
+	Возьмем $x \in \bigcup\limits_{k=1}^{?} A_k $. Надо доказать, что он лежит и в объединении $B$. Для этого рассмотрим такой самый первый номер $m$, что $x\in A_m$. Но тогда он не лежит в $A_1,...A_{m-1}$, но именно эти мн-ва мы исключаем в $B_m$. Поэтому, $x$ будет лежать в $B_m$
+
+\end{proof}
+
+
+
+\begin{definition}\thmslashn
+	
+	$\mathcal{R}$ -- кольцо, если $\forall A,B \in \mathcal{R}$
+	
+	$\implies A\cap B ,\; A\cup B,\; A\setminus B\;\in \mathcal{R}$
+\end{definition}
+
+\begin{remark}\thmslashn
+	
+	Любая алгебра является кольцом. Это видно из определений. У кольца оно более слабое.
+	
+\end{remark}
+
+\begin{remark}\thmslashn
+	
+	Если в кольце есть $X$, то это алгебра. Действительно, тогда берём любое $B$ из алгебры и $A=X$, получаем, что $X/B$ лежит $\implies$ симметричность. Пустое тоже есть, т.к. симметрично $X$.
+
+	
+\end{remark}
+
+Таким образом, алгебра от кольца отличается только наличием $X$.
+
+
+\begin{definition}\thmslashn
+	
+	$\mathcal{P}$ -- полукольцо, если 
+	
+	\begin{enumerate}
+		\item $\emptyset \in \mathcal{P}$
+		
+		\item $\forall A,B \in \mathcal{P} \implies A\cap B \in \mathcal{P}$
+		
+		\item $A, B \in \mathcal{P} \implies$ существует конечное число дизъюнктных множеств $C_1,...,C_n$, т.ч. $A\setminus B = \bigsqcup\limits_{k=1}^{n} C_k$.
+	\end{enumerate}
+	
+	
+\end{definition}
+
+\begin{example}\thmslashn
+	
+	\begin{enumerate}
+		\item 
+		Возьмём прямую и полуинтервалы на ней
+		$X = \R \;\; \mathcal{P} = \{[a,b) \;\;:\;\; a\le b,\;\;a,b \in \R\}$
+	
+		$\mathcal{P}$ -- полукольцо.
+
+		Действительно, пересечение полуинтервалов - полуинтервал. А вот разность может дать два полуинтервала (если один вложен в другой). Но третье условие нам как раз такое и разрешает.
+
+		\item 
+			Аналогично, но точки - рациональные. Не знаю, зачем Храбров дал этот пример, у Ани его нет. Док-во что полукольцо 1 в 1.
+		\item 
+			$X = \R^2 \;\; \mathcal{P} = \{[a,b)\times [c,d) \;\;:\;\; a\le b,\;\; c\le d,\;\; a,b \in \R\}$
+			
+			Пересечение двух прямоугольников - прямоугольник. А вот с разностью не так очевидно, если один прямоугольник лежит внутри другого. Но в этом случае можно продлить сторны одного до пересечения с другим и на получившиеся прямоугольники и разбить.
+
+	\end{enumerate}
+\end{example}
+
+\begin{theorem}\thmslashn
+	
+	\begin{enumerate}
+		\item $P_1, ...,P_n,P \in \mathcal{P} \implies \exists Q_1,...,Q_m \in \mathcal{P}$, т.ч.
+		
+		$P\setminus \bigcup\limits_{k=1}^{n} P_k = \bigsqcup\limits_{k=1}^{m} Q_k$
+		
+		\item $P_1, P_2,...,P_n \in \mathcal{P} \implies \exists Q_{jk} \in \mathcal{P}$, т.ч.
+		
+		
+		$\bigcup\limits_{k=1}^{n} P_k = \bigsqcup\limits_{j=1}^{n}\bigsqcup\limits_{k=1}^{m} Q_{jk}$, причем $Q_{jk} \subset P_j$
+		
+		\item аналогично для $n = +\infty$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}\thmslashn
+	
+	\begin{enumerate}
+		\item Индукция по $n$. База -- определение полукольца.
+		
+		Переход $n \to n+1$:
+		
+		
+		$P\setminus\bigcup\limits_{k=1}^{n+1}P_k = (P \setminus \bigcup\limits_{k=1}^n P_k)\setminus P_{n+1} = (\bigsqcup\limits_{k=1}^m Q_k) \setminus P_{n+1} = \bigsqcup\limits_{k=1}^m Q_k \setminus P_{n+1} = \bigsqcup\limits_{k=1}^m \bigsqcup\limits_{j=1}^{m_k} Q_{kj}$
+
+		Первый знак равно - св-ва объединения. Второй - применяем индукционное предположение (в скобках). Третий - скобки можно снять. Четвёртый - третье условие в определении полукольца.
+		
+		\item Применим лемму о дизъюнктных объединениях (см. начало билета) и уже доказанный первый пункт:
+		$\bigcup\limits_{k=1}^n P_k = \bigsqcup\limits_{k=1}^n P_k \setminus(\bigcup\limits_{j=1}^{k-1}P_j) = \bigsqcup\limits_{k=1}^n \bigsqcup\limits_{j=1}^{m_k} Q_{kj}$
+		
+		
+		Осталось понять, что $Q_{kj} \subset P_k$. Но это верно, так как $Q_{kj} \subset P_k \setminus(\bigcup\limits_{j=1}^{k-1}P_j)$ 
+
+		\item Аналогично, но используем лемму о дизъюнктных объединениях в форме для бесконечного числа множеств.
+	\end{enumerate}
+\end{proof}
+
+
