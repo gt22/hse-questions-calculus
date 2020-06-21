@@ -66,7 +66,7 @@
             Значит, все значения функции в $B^{X}_{\delta}(a)\cap E$ лежиат в $B^{Y}_{\rho_{Y}(f(a), b) + 1}(b)$.
         \end{proof}
 \end{theorem}
-\begin{theorem} \thmslashn
+\begin{theorem}[Критерий Коши] \thmslashn
 
     
     Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $Y$ - полное, $E \subset X$, $a\in E'$, $f : E \mapsto Y$.
@@ -87,7 +87,7 @@
             \end{cases} \implies \rho_{Y}(f(x), f(y)) < \rho(f(x), b) + \rho(b, f(y)) < 2\eps
         \end{equation*}
 
-        Достаточность $(\le)$:
+        Достаточность $(\impliedby)$:
 
         Возьмём последовательнсоть $x_{n}\in E \setminus \{a\}$, $x_{n} \to a$.
 
@@ -96,10 +96,30 @@
         Надо:
         \[ \forall{\eps > 0}\quad \exists{N}\quad \forall{n, m > N}\quad \rho_{Y}(f(x_{n}, f(x_{m})) .\]
 
-        Для данного $\eps$ возьмём $\delta$ по критерию Коши, и по $\delta$ возьмём $N$ такое, что $\forall{n > N}\quad \rho(x_{n}, a) < \eps$. Тогда критерий Коши даёт нам фундаментальность $f(x_{n})$. Так-как $Y$ - полное, фундаментальная последовательность будет сходится к точке $Y$.
+        Для данного $\eps$ возьмём $\delta$ по улсовию, и по $\delta$ возьмём $N$ такое, что $\forall{n > N}\quad \rho(x_{n}, a) < \eps$. Тогда критерий Коши для последовательностей даёт нам фундаментальность $f(x_{n})$. Так-как $Y$ - полное, фундаментальная последовательность будет сходится к точке $Y$.
 
         Пределы на последовательностях получатся одинаковыми: иначе, можем смешать их, получить сходящуюся к $a$ последовательность которая также даст предел, но тогда у сходящейся последовательности есть подпоследовательности с разными пределами. Противоречие.
     \end{proof}
 \end{theorem}
+\begin{properties} \thmslashn
 
-\TODO{Нужна-ли арифметика и всё такое? Вроде в билете даже не сказано про <<Основные свойства>> итд\ldots}
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $\left<Y, \norm{\cdot}\right>$ - нормированное пространство с метрикой $\rho_{Y}(x, y) = \norm{x - y}$.
+
+    $E \subset X$, $a\in E'$, $f, g : E \mapsto Y$.
+
+    $\lim\limits_{x \to a} f(x) =: A$
+    
+    $\lim\limits_{x \to a} g(x) =: B$
+
+    $\lambda\in \R$, $\alpha(x) : E \mapsto \R$, $\lim\limits_{x \to a} \alpha(x) = \lambda$.
+
+    Тогда
+    \begin{enumerate}
+        \item $\lim\limits_{x \to a} (f(x) \pm g(x)) = A \pm B$
+        \item $\lim\limits_{x \to a} \lambda f(x) = \lambda A$
+        \item $\lim\limits_{x \to a} \norm{f(x)} = \norm{A}$ 
+        \item $\lim\limits_{x \to a} \alpha(x)f(x) = \lambda A$
+
+        \item Если в $Y$ есть скалярное произведение, то $\lim\limits_{x \to a} \left<f(x), g(x)\right> = \left<A, B\right>$
+    \end{enumerate}
+\end{properties}
