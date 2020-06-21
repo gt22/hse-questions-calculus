@@ -1,1 +1,49 @@
-\Subsection{Билет 63: NAME}
+\Subsection{Билет 63: Теорема о перестановке пределов и о перестановке предела и суммы.}
+
+\begin{theorem}[О перестановке пределов] \thmslashn
+
+  $f_n, f : E \mapsto \mathbb{R}$, $f_n \rightrightarrows f$ на $E$, a -- предельная точка $E$, $b_n := \lim\limits_{x\to a} f_n(x) \in \mathbb{R}$.\\ Тогда существуют $\lim\limits_{n\to \infty} b_n$ и $\lim\limits_{x\to a} f(x)$ и они равны.
+  
+\begin{proof} \thmslashn
+  Сначала докажем сходимость $b_n$. Проверим, что $b_n$ фундаментальна.
+  
+  По критерию Коши для равномерной сходимости имеем: \\
+  $\forall \varepsilon > 0$ $\exists N$ $\forall n, m \geq N$  $\forall x \in E$ $|f_n(x) - f_m(x)| < \varepsilon$\\
+  Сделаем переход к пределу в неравенстве(устремим $x \to a$, строгое неравенство превратилось в нестрогое), получим: \\
+   $\forall \varepsilon > 0$ $\exists N$ $\forall n, m \geq N$ $|b_n - b_m| \leq \varepsilon$\\
+  А это и есть определение фундаментальной последовательности! Значит, $b_n$ фундаментальна. Значит, по критерию Коши для последовательностей имеет конечный предел.
+  
+  Пусть $b := \lim\limits_{n\to \infty} b_n \in \mathbb{R}$.
+  Осталось проверить, что $\lim\limits_{x\to a} f(x) = b$. Тогда автоматически докажем существование и равенство.\\
+  Посмотрим на разность $|f(x) - b|$. Творчески оценим её по неравенству треугольника следующим образом:\\
+  \[|f(x) - b| \leq |b_n - b| + |f_n(x) - b_n| + |f_n(x) - f(x)|\]
+  Заметим, что это верно для любых n. Теперь посмотрим по отдельности на каждое слогаемое в правой части неравенства. По определению предела $\forall n \geq N_1$ $|b_n - b| < \varepsilon$. По определению равномерной сходимости $\forall n \geq N_2$ $\forall x \in E$ $|f_n(x) - f(x)| < \varepsilon$. Выберем max($N_1, N_2$). Теперь посмотрим на $|f_n(x) - b_n|$. Мы знаем, что $\lim\limits_{x\to a} f_n(x) = b_n$(формулировка теоремы). Значит, мы можем сказать, что $|f_n(x) - b_n| < \varepsilon$ при $|x - a| < \delta$. Получили
+  \[|f(x) - b| \leq |b_n - b| + |f_n(x) - b_n| + |f_n(x) - f(x)| < 3\varepsilon\]
+  Собирая всё в кучу, получим определение предела:\\
+  $\forall \varepsilon > 0$ $\exists \delta > 0$ если $|x - a| < \delta \Rightarrow |f(x) - b| < 3\varepsilon$. \\
+  Значит, $\lim\limits_{x\to a} f(x) = b$. Что и требовалось доказать.
+	
+\end{proof}
+\end{theorem}
+
+\begin{theorem}[О перестановке предела и суммы] \thmslashn
+
+  $u_n : E \mapsto \mathbb{R}$, $\sum\limits_{n = 1}^{\infty} u_n(x)$ равномерно сходится на $E$ и $\lim\limits_{x\to a} u_n(x) = b_n$\\
+  Тогда $\lim\limits_{x\to a} \sum\limits_{n = 1}^{\infty} u_n(x) = \sum\limits_{n = 1}^{\infty} b_n = \sum\limits_{n = 1}^{\infty} \lim\limits_{x\to a} u_n(x)$ и все эти пределы конечны.
+\begin{proof} \thmslashn
+  
+  Посмотрим на частичные суммы $S_n(x) := \sum\limits_{k = 1}^{n} u_k(x)$. Так как сумма конечная, можно написать так: 
+  $\lim\limits_{x\to a} S_n(x) = \sum\limits_{k = 1}^{n} b_k := B_n$. Мы также знаем, что $S_n \rightrightarrows S$.\\
+  Тогда по предыдущей теореме $\lim\limits_{n\to \infty} B_n = \lim\limits_{x\to a} S(x)$. А это как раз то, что нам нужно.
+\end{proof}
+\end{theorem}
+
+\begin{consequence} \thmslashn
+
+  Если $u_n$ непрерывны в точке $a$ и $\sum\limits_{n = 1}^{\infty} u_n(x)$ равномерно сходится, то $\sum\limits_{n = 1}^{\infty} u_n(x)$ непрерывна в точке $a$.
+\begin{proof} \thmslashn
+  
+  $\lim\limits_{x\to a} u_n(x) = u_n(a) =: b_n$(по непрерывности).\\ По предыдущей теореме $\lim\limits_{x\to a} \sum\limits_{n = 1}^{\infty} u_n(x) = \sum\limits_{n = 1}^{\infty} b_n = \sum\limits_{n = 1}^{\infty} u_n(a)$, а это и есть непрерывность.
+  
+\end{proof}
+\end{consequence}

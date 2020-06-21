@@ -1,1 +1,66 @@
-\Subsection{Билет 31: NAME}
+\Subsection{Билет 31: Эквивалентные нормы. Эквивалентность норм в $\R^{d}$}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \norm{\cdot}_{1}\right>$ и $\left<X, \norm{\cdot }_{2}\right>$ - нормированные пространства.
+
+Их нормы называются эквивалентными, если 
+
+\[\exists{C_1, C_2\in \R}\quad \forall{x\in X}\quad C_1 \norm{x}_{1} \le \norm{x}_{2} \le C_2 \norm{x}_{1}.\]
+\end{definition}
+\begin{remark} \thmslashn
+
+    Сходиомсти по эквивалентным нормам равносильны
+
+    \begin{proof} \thmslashn
+    
+        \[ \norm{x_{n}}_{1} \to 0 .\]
+        \[ C_1 \norm{x_{n}}_{1} \le \norm{x_{n}}_{2} \le C_2 \norm{x}_{2} \to  0 \le \norm{x_{n}}_{2} \le 0 \implies \norm{x_{n}}_{2} \to 0 .\] 
+    \end{proof}
+\end{remark}
+\begin{remark} \thmslashn
+
+    Эквивалентность норм - отношение эквивалентности.
+    \begin{proof} \thmslashn
+    
+        $\norm{x}_{1}$ эквивалентна $\norm{x}_{2}$ $\iff \norm{x}_{1} = \Theta(\norm{x}_{2})$.
+    \end{proof}
+\end{remark}
+\begin{theorem} \thmslashn
+
+    Все нормы на $\R^{d}$ эквивалентны.
+    \begin{proof} \thmslashn
+    
+        Докажем эквивалентность всех норм Евклидовой $\norm{x} = \sqrt{\sum\limits_{k=1}^{d} x_{k}^{2}}$.
+
+        Пусть $p(x)$ - произвольная норма. $e_{k}$ - стандартный базис.
+
+        \begin{equation*}
+            \begin{split}
+                p(x-y) 
+                &= p\left( \sum\limits_{k=1}^{d} (x_{k}-y_{k})e_{k} \right)\\
+                &\overset{\triangle}{\le} \sum\limits_{k=1}^{d} p((x_{k}-y_{k})e_{k})\\ 
+                &= \sum\limits_{k=1}^{d} \abs{x_{k} - y_{k}}p(e_{k})\\
+                &\le \sqrt{\sum\limits_{k=1}^{d} (x_{k}-y_{k})^2} \cdot \sqrt{\sum\limits_{k=1}^{d} p(e_{k})^2} \text{ (по Коши-Буняковскому)}\\
+                &= C \cdot \norm{x-y} 
+            \end{split}
+        \end{equation*}
+
+
+        Получили одно неравенство.
+
+        Также, получили следующие (где метрика это $\norm{x - y}$):
+        \[ \forall{x\in X}\quad \forall{\eps > 0}\quad \exists{\delta = \frac{\eps}{C}}\quad \forall{y\in B_{\delta}(x)}\quad |p(x) - p(y)| \overset{\text{свойства нормы}}{\le} p(x-y) \le C \norm{x-y} < \eps  .\]
+ 
+        Значит, $p(x)$ - непрерывная функция.
+
+        Пусть $S = \{x\in \R^{d} \ssep \norm{x} = 1\}$. Оно замкнуто (у Ани без доказательства, набросок - если норма точки не $1$, но к нельзя подойти оставив норму  $1$, значит не предельня) и ограничено $\implies$ $S$ - компакт.
+
+        Тогда $p(x)$ принимает своё минимальное на $S$ значение. Пусть $C_1 := \min\limits_{x\in S} p(x)$.
+
+        Тогда 
+        \[ p(x) = p\left( \frac{x}{\norm{x}} \cdot \norm{x} \right) = \norm{x} p\left( \frac{x}{\norm{x}} \right) \ge C_1 \norm{x}   .\]
+
+        Получили второе неравенство, значит нормы эквивалентны.
+    \end{proof}
+\end{theorem}

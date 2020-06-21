@@ -1,1 +1,102 @@
-\Subsection{Билет 39: NAME}
+\Subsection{Билет 39: Связность и линейная связность. Теорема Больцано–Коши. Связность отрезка и линейно связного множества.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    $A$ называется связным, если для всех открытых непересекающихся $U, V \subset X$ верно
+    \[ A \subset U \cup V \implies \bcases{A \subset U\cr A \subset V} .\]
+
+    (Неформально: $A$ нельзя разбить на два открытых непересекающихся множества)
+\end{definition}
+\begin{theorem} \thmslashn
+
+    Непрерывный образ связного множества связен
+    \begin{proof} \thmslashn
+    
+        Пусть $f$ - непрерывная функция, $E$ - связное множество.
+
+        Пусть $f(E) \subset U \cup V$, где $U, V$ - открытые непересекающиеся.
+
+        Тогда $f^{-1}(U), f^{-1}(V)$ - \hyperref[cont:preimage_of_open]{открытые} непересекающиеся. И при этом, $E \subset f^{-1}(U) \cup f^{-1}(V)$. 
+
+        Тогда $E$ подмножество одного из них, и $f(E)$ подмножество соответсвующего образа.
+    \end{proof}
+\end{theorem}
+\begin{theorem}[Больцано-Коши] \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $E \subset X$ связно, $f : E \mapsto \R$, $a, b\in E$.
+
+    $A := f(a)$
+    $B := f(b)$
+
+    Тогда, $\forall{A < C < B}\quad \exists{c\in E}\quad f(c) = C$.
+    \begin{proof} \thmslashn
+    
+        $U := (-\infty, C)$, $V := (C, \infty)$ - открытые непересекающиеся.
+        
+        Предположим что такого $c$ не существует. Тогда $C \not\in f(E)$.
+        
+        Тогда $f(E) \subset U \cup V$. Но при этом $A\in U$, $B\in V$, значит $f(E) \not\subset U$ и $f(E) \not\subset V$, противоречие со связностью $f(E)$ как непрерывного образа связного $E$.
+    \end{proof}
+\end{theorem}
+\begin{theorem} \thmslashn
+
+    Отрезок связен.
+    \begin{proof} \thmslashn
+    
+        Пусть $[a, b] \subset U \cup V$. Без ограничения общности, $b\in V$.
+
+        Предположим что $S := [a, b]\cap U \neq \emptyset$.
+
+        $s := \sup S$.
+
+        Если $s\in V$:
+        
+        \[ s\in V \overset{\text{открытость}}\implies \exists{\eps > 0}\quad (s-\eps, s+\eps) \subset V \implies (s-\eps, s]\cap U = \emptyset \implies \sup U \le s - \eps < s.\]
+
+        Если $s\in U$, то $s \neq b$:
+
+        \[ s\in U \implies \exists{\eps}\quad (s-\eps, s+\eps) \subset U \implies \sup U \ge s+\eps > s .\]
+
+        В обоих случаях получили противоречие, значит $S = \emptyset \implies [a, b]  \subset V$. Значит, отрезок связен.
+    \end{proof}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+    Носитель пути - связное множество.
+
+    \begin{proof} \thmslashn
+    
+        Отрезок - связное множество, носитель пути - непрерывный образ отрезка.
+    \end{proof}
+\end{consequence}
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $A \subset X$.
+
+    $A$ называется линейно связным, если $\forall{x, y\in A}\quad \exists{\gamma : [a, b] \mapsto A}\quad \begin{cases} \gamma(a) = x\\ \gamma(b) = y\\ \gamma \text{ - путь} \end{cases}$,
+\end{definition}
+\begin{theorem} \thmslashn
+
+    Линейно связное множество связно
+
+    \begin{proof} \thmslashn
+    
+        Пусть нет, $A \subset U \cup V$ - открытые непересекающиеся, $A\cap U, A\cap V \neq \emptyset $.
+
+        Возьмём $x\in A\cap U$, $y\in A\cap V$.
+
+        Возьмём $\gamma$ - путь от $x$ до $y$.
+
+        $\gamma([a, b]) \subset U \cup V$, $\gamma(a)\in U$, $\gamma(b)\in V$. Противоречие со связностью носителя.
+    \end{proof}
+\end{theorem}
+\begin{definition} \thmslashn 
+
+    Область - открытое линейно связное множество.
+\end{definition}
+\begin{remark} \thmslashn
+
+    Если $U$ открыто, то $U$ связно $\iff U$ линейно связно. (без доказательства)
+\end{remark}

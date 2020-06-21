@@ -17,7 +17,7 @@
                 \end{equation*}
             \end{proof}
 
-            Так как $\forall{\alpha}\quad X \setminus A_{\alpha}$ - открытое, то $\bigcup_{\alpha\in I} A_{\alpha}$ - открытое, значит $\bigcap_{\alpha\in I} A_{\alpha}$ - замкнутое.
+            Так как $\forall{\alpha}\quad X \setminus A_{\alpha}$ - открытое, то $\bigcup_{\alpha\in I} X \setminus A_{\alpha}$ - открытое, значит $\bigcap_{\alpha\in I} A_{\alpha}$ - замкнутое.
 
         \item Объединение конечного количества замкнутых множеств замкнуто
             \begin{proof} \thmslashn
@@ -28,6 +28,12 @@
             \end{proof}
 
             $X \setminus A_{k}$ открыто, значит их конечное пересечение открыто, значит $\bigcup_{k=1}^{n} A_{k}$ - замкнуто.
+            \begin{remark} \thmslashn
+            
+                Конечность важна.
+
+                Пусть $C_{n} = \overline{B}_{1 - \frac{1}{n}}(a)$. Каждое из этих множеств замкнуто, но их объединение - $B_{1}(a)$ - не обязательно. (Например, $X = \R$, $C_{n} = \left[-1 + \frac{1}{n}, 1 - \frac{1}{n}\right]$, объединение - $(-1, 1)$).
+            \end{remark}
         \item $\forall{a\in X}\quad \forall{r > 0}\quad \overline{B}_{r}(a)$ - замкнутое множество.
             \begin{proof} \thmslashn
             
@@ -59,7 +65,7 @@
 
         Знаем, что $\Int (X \setminus A) = \bigcup_{\alpha} U_{\alpha}$ по всем $U_{\alpha}$ таким, что $U_{\alpha} \subset (X \setminus A)$ и $U_{\alpha}$ открыто.
 
-        Пусть $C$ - замкнутое множество, такое, что $A \subset C$. Тогда $X \setminus C$ - открытое, и $(X \setminus A) \subset (X \setminus C) \implies \exists{\alpha}\quad U_{\alpha} = X \setminus C$.
+        Пусть $C$ - замкнутое множество, такое, что $A \subset C$. Тогда $X \setminus C$ - открытое, и $(X \setminus C) \subset (X \setminus A) \implies \exists{\alpha}\quad U_{\alpha} = X \setminus C$.
 
         Аналогично в другую сторону - $\forall{\alpha}\quad X \setminus U_{\alpha}$ - замкнутое надмножество $A$.
 

@@ -1,1 +1,51 @@
-\Subsection{Билет 5: NAME}
+\Subsection{Билет 5: Оценка сумм вида $\sum_{k = 1}^{n}k^p$ при различных p. Постоянная Эйлера.}
+Будем использовать формулу Эйлера-Маклорена
+\begin{example} \thmslashn
+\begin{enumerate}
+    \item $S_p(n) := \sum\limits_{k=1}^{n} k^p$
+
+    Пусть $f(t) = t^p$, тогда $f''(t) = p(p-1)t^{p-2}$
+        
+    $S_p(n) = \int\limits_{1}^{n} t^p\,dt + \frac{1+n^p}{2} + \frac{1}{2} \int\limits_{1}^{n} p(p-1)t^{p-2} \{t\} (1-\{t\})\,dt $
+    
+    $\int\limits_{1}^{n} t^p\,dt = \left. \frac{t^{p+1}}{p+1} \right|_{t = 1}^{t = n} = \frac{n^{p+1}}{p+1} - \frac{1}{p+1}$
+    
+    \begin{description}
+        
+        \item 
+        
+        Случай $-1 < p < 1$
+        
+        $ 0 \leqslant \int\limits_{1}^{n} t^{p-2} \{t\} (1-\{t\})\,dt \leqslant \frac{1}{4} \int\limits_{1}^{n} t^{p-2} = \frac{1}{4} \left. \frac{t^{p-1}}{p-1} \right|_{t = 1}^{t = n} = \frac{1}{4 (1-p)} \left( 1 - \frac{1}{n^{1-p}} \right) \leqslant \frac{1}{4(1-p)} $
+        
+        $S_p(n) = \frac{n^{p+1}}{p+1} + \frac{n^p}{2} + O(1)$
+        
+        \item 
+        
+        Случай $p > 1$ 
+        
+        $ 0 \leqslant \int\limits_{1}^{n} t^{p-2} \{t\} (1-\{t\})\,dt \leqslant \frac{1}{4} \int\limits_{1}^{n} t^{p-2} = \frac{n^{p-1} - 1}{4(p-1)} = O(n^{p-1}) $
+        
+    \end{description}
+
+    \item \textbf{Гармонический ряд}
+    
+    $H_n = 1 = \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{n}$
+    
+    Пусть $f(t) = \frac{1}{t}$, тогда $f''(t) = \frac{2}{t^3}$
+    
+    По формуле Эйлера-Маклорена\\
+    $H_n = \int\limits_{1}^{n} \frac{dt}{t} + \frac{1 + 1/n}{2} + \frac{1}{2} \int\limits_{1}^{n} \frac{2}{t^3} \cdot \{t\}(1 - \{t\})\, dt$
+    
+    $a_n := \int\limits_{1}^{n} \frac{1}{t^3} \cdot \{t\}(1 - \{t\})\, dt$
+    
+    $a_{n+1} = a_n + \int\limits_{n}^{n+1} \frac{1}{t^3} \cdot \{t\}(1 - \{t\})\, dt \geqslant a_n \Rightarrow $ это возрастающая последовательность. 
+    
+    $a_n = \int\limits_{1}^{n} \frac{\{t\}(1 - \{t\})}{t^3} \, dt \leqslant \frac{1}{4} \int\limits_{1}^{n} \frac{dt}{t^3} = \left.\frac{1}{4} \left( -\frac{1}{t^2} \cdot \frac{1}{2} \right) \right|_1^n = \frac{1}{8} - \frac{1}{8n^2} \leqslant \frac{1}{8} \Rightarrow$ предел последовательности существует. $\Rightarrow a:= \lim a_n \Rightarrow a_n = a + o(1)$
+    
+    $H_n = \ln n + \frac{1}{2} + \frac{1}{2n} + a + o(1)$ в пределе $\frac{1}{2n}$ сокращается $o(1)$, и все кроме логарифма -- постоянная Эйлера-Маскерони.
+    
+    $\gamma = \lim_{n\to\infty} \left( \sum\limits_{k=1}^{n}{1\over k} - \ln n \right) \approx 0.5772156649\ldots$
+    
+\end{enumerate}
+\end{example}

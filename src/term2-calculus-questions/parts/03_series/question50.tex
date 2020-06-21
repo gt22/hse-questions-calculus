@@ -1,1 +1,73 @@
-\Subsection{Билет 50: NAME}
+\Subsection{Билет 50: Теорема Коши. Произведение рядов. Теорема Мертенса (без доказательства). Необходимость условия абсолютной сходимости.}
+\begin{theorem}[Коши] \thmslashn
+	
+	Если ряды $\sum a_n = A$ и $\sum b_n = B$ -- абсолютно сходятся, то ряд, образованный из слагаемых $a_nb_k$ в каком-то порядке, абсолютно сходится, и его сумма равна $AB$
+\end{theorem}
+
+\begin{proof} \thmslashn
+	
+	Сначала немного обозначений:
+
+	$A_n := \sum\limits_{k = 1}^{n} a_k$ $B_n:= \sum\limits_{k=1}^{n}b_k$
+	
+	$\tilde{A}_n := \sum\limits_{k = 1}^{n}\left|a_k\right|$ $\tilde{B}_n := \sum\limits_{k=1}^{n}\left|b_k\right|$
+	
+	$\tilde{A} := \sum\limits_{k = 1}^{\infty}\left|a_k\right|$ $\tilde{B} := \sum\limits_{k=1}^{\infty}\left|b_k\right|$
+	
+	
+	$\tilde{S}_m$ -- частичная сумма ряда из $\left|a_nb_k\right|$
+	
+	$\tilde{S}_m = \sum\limits_{i, j} \left|a_ib_j\right| \le \sum\limits_{i = 1}^{\max{i}}\left|a_i\right|\sum\limits_{j = 1}^{\max{j}}\left|b_j\right| \le \tilde{A}\tilde{B} < +\infty$, меньше бесконечности, т.к. ряды абсолютно сходятся.
+	
+	Частичные суммы $\tilde{S}_m$ ограничены $\implies $ ряд сходится.
+	
+	Складывать будем все в таком порядке: сначала $a_1b_1$, потом все, что до индекса $2$, все, что до индекса $3$, и т.д. Т.е. $(a_1b_1) + (a_2b_1 + a_2b_2 + a_1b_2) + (a_3b_1 + a_3b_2 + a_3b_3 + a_2b_3 + a_1b_3) + ...$.
+	
+	\TODO Табличка с квадратиками 
+	
+	$S_m$ -- частичная сумма такого ряда
+	
+	$S_{n^2} = \sum\limits_{j,k=1}^{n} a_j b_k = A_n B_n \to AB$
+	
+	Пусть $n^2 \le m \le (n+1)^2$
+	
+	$S_m = S_{n^2} + \sum\limits_{k=1}^{...}a_{n+1}b_k + \sum\limits_{k = n}^{...}a_kb_{n+1}$
+	
+	$\sum\limits_{k=1}^{n+1}\left|a_{n+1}b_k\right| + \sum\limits_{k=1}^{n}\left|a_kb_{n+1}\right| = \left|a_{n+1}\right|\tilde{B}_{n+1} + \left|b_{n+1}\right|\tilde{A}_{n} \le \left|a_{n+1}\right|\tilde{B} + \left|b_{n+1}\right|\tilde{A} \to 0$, т.к. $\lim a_n = \lim b_n = 0$
+	
+	$\implies S_n \to AB$
+\end{proof}
+
+\begin{definition} \thmslashn
+	
+	$\sum a_n$ и $\sum b_n$ 
+	
+	Произведением рядов называется ряд $\sum c_n$, где $c_n = a_1b_n+a_2b_{n-1}+a_3b_{n-2}+...+a_nb_1$
+\end{definition}
+
+\begin{theorem}[Мертенса] \thmslashn
+	
+	$\sum a_n = A$ и $\sum b_n = B$ сходятся, причем один из них абсолютно, то произведение рядов сходится к $AB$.
+\end{theorem}
+
+\begin{remark} \thmslashn
+	
+	Теорема идет без доказательства, но вот несколько замечаний по поводу нее.
+	
+	\begin{enumerate}
+		\item Здесь важен порядок, в котором мы складываем $a_ib_j$. В теореме Коши он был не важен, т.к. у обоих рядов была абсолютная сходимость, но здесь у обоих рядов абсолютная сходимость не гарантирована.
+		
+		\item Просто сходимости рядов не хватает. Пример:
+		
+		$\sum\limits_{n = 1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}}$ умножаем на $\sum\limits_{n = 1}^{\infty}\frac{(-1)^{n-1}}{\sqrt{n}}$
+		
+		$c_{n-1} = \frac{(-1)^{n-2}}{\sqrt{n-1}} \cdot (-1)^0 + \frac{(-1)^{n-3}}{\sqrt{n-2}} \cdot \frac{(-1)^1}{\sqrt{2}}+...  +(-1)^0 \cdot \frac{(-1)^{n-2}}{\sqrt{n-1}}=\\=
+		(-1)^{n-2}(\frac{1}{\sqrt{n-1}} + \frac{1}{\sqrt{n-2}\sqrt{2}} +\frac{1}{\sqrt{n-3}\sqrt{3}} +...+\frac{1}{\sqrt{n-1}})$
+		
+		$n-1$ слагаемых
+		
+		$\frac{1}{\sqrt{n-k}\sqrt{k}} \le \frac{1}{n-1}$ (т.к. среднее арифметичкое больше среднего геометрического)
+		
+		$\left|c_{n-1}\right| \ge 1 \implies$ ряд $\sum c_n$ расходится.
+	\end{enumerate}
+\end{remark}

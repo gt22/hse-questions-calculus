@@ -50,6 +50,14 @@
 	= -\frac12 \int\limits_{\alpha}^{\beta} f''(t)(t-\alpha)(\beta - t) \, dt$
 \end{proof}
 
+\begin{definition}[Метод трапеций]
+
+Разбиваем отрезок интегрирования $[a, b]$ точками $x_i$. $a = x_1 < x_2 < ... < x_n = b$. Считаем на каждом отрезке площадь прямоугольной трапеции $S_k = \frac{f(x_{k-1}) + f(x_k)}{2} (x_k - x_{k-1})$. Складываем полученные $S_i$. Получаем приближенное значение площади подграфика.
+
+$S = \sum\limits_{k=1}^{n} \frac{f(x_{k-1}) + f(x_k)}{2} (x_k - x_{k-1})$
+
+\end{definition}
+
 \begin{theorem}[оценка погрешности в ф-ле трапеций]\slashns
 	
 	$f \in C^2[a,b]$ и $\tau$-- дробление. Тогда:
@@ -58,7 +66,7 @@
 	
 	В частности, если дробление на равные отрезки
 	
-	$\left|\int\limits_a^b f - \frac{b-a}{n}(\frac{f(x_0)}{2} + \sum\limits_{k=1}^{n-1}f(x_k) + \frac{f(x_n)}{2})\right| S\le \frac{(b-a)^2}{8n^2} \int\limits_a^b \left|f''\right|$
+	$\left|\int\limits_a^b f - \frac{b-a}{n}(\frac{f(x_0)}{2} + \sum\limits_{k=1}^{n-1}f(x_k) + \frac{f(x_n)}{2})\right| \le \frac{(b-a)^2}{8n^2} \int\limits_a^b \left|f''\right|$
 \end{theorem}
 
 
@@ -68,7 +76,11 @@
 	
 	$\left|t-x_{k-1}\right|\left|x_{k}-t\right|\le \frac{(x_k - x_{k - 1})^2}{4}\le \frac{\left|\tau\right|^2}{4}$
 	
+	Первое неравенство выполняется, поскольку $a = \left|t-x_{k-1}\right|, b = \left|x_{k}-t\right|.\ t\in [x_k, x_{k-1}].\ a + b =  \left|x_k - x_{k - 1}\right|\\ \implies ab$ максимально при $a = b = \frac{(x_k - x_{k - 1})}{2}$(чтобы доказать это можно найти вершину параболы $\\y = (t-x_{k-1})(t-x_{k})$).
+	
 	$\left|\Delta\right| \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \left|f''(t)\right|(t - x_{k-1})(x_k - t) \, dt \le \frac12 \sum\limits_{k=1}^n \int\limits_{x_{k-1}}^{x_k} \left|f''(t)\right|\frac{\left|\tau\right|^2}{4} \, dt = \frac{\left|\tau\right|^2}{8} \int\limits_a^b \left|f''\right|$
 		
+	При делении на равные отрезки $\left|\tau\right| = \frac{b - a}{n}.$	
+	
 \end{proof}
 

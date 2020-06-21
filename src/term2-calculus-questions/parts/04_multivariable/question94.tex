@@ -1,1 +1,98 @@
-\Subsection{Билет 94: NAME}
+\Subsection{Билет 94: Квадратичная форма. Положительная и
+	отрицательная определенность. Оценка снизу положительно определенной квадратичной формы.
+	Достаточные условия экстремума.}
+
+\begin{definition}[Квадратичная форма] \thmslashn
+
+	$Q(h) = \sum\limits_{i, j}c_{i, j}h_ih_j, c_i = c_j$
+\end{definition}
+
+В формуле Тейлора выше сумма это квадратичная форма.
+
+\begin{definition} \thmslashn
+
+	$Q$ -- квадратичная форма.
+	
+	$Q$ -- строго положительно определена, если $\forall h \neq 0\ Q(h) > 0$.
+	
+	$Q$ -- нестрого положительно определена, если $\forall h\ Q(h) \ge 0$.
+	
+	Аналогично отрицательно определенная $Q$.
+\end{definition}
+
+\begin{lemma} \thmslashn
+
+	Если $Q(h)$ -- строго положительно определена, то $\exists c > 0$, такое что $Q(h) > c\|h\|^2$.
+	\begin{proof} \thmslashn
+		
+		$Q(h) = \sum\limits_{j}(Ch)_jh_j = \sum\limits_{j}\sum\limits_{i}c_{ij}h_ih_j = \langle Ch, h \rangle$ -- непрерывная функция.
+		
+		Рассмотрим $Q(h)$ на единичной сфере -- на компакте. Тогда $\exists h_0$, такое что $\forall h\ Q(h) \ge Q(h_0) > 0$. Положим $c = Q(h_0)$.
+		
+		$Q(h) = \langle Ch, h \rangle = \langle C\left(\frac{h}{\|h\|}\|h\|\right), \frac{h}{\|h\|}\|h\| \rangle = \|h\|^2 \langle C\frac{h}{\|h\|}, \frac{h}{\|h\|} \rangle = \|h\|^2Q\left(\frac{h}{\|h\|}\right) \ge c\|h\|^2$ (вектор $\frac{h}{\|h\|}$ лежит на единичной сфере).
+	\end{proof}
+\end{lemma}
+
+\begin{theorem}[Достаточные условия экстремума] \thmslashn
+
+	$E \subset \mathbb{R} ^ n,\ f : E \mapsto \mathbb{R}, a \in \Int E, a$ -- стационарная точка, $Q(h) = \sum\limits_{i, j}\frac{\partial^2f}{\partial x_i \partial x_j}h_ih_j$. Тогда
+	\begin{enumerate}
+		\item 
+		Если $Q$ строго положительно определена, то $a$ -- строгий минимум.
+		\item
+		Если $Q$ строго отрицательно определена, то $a$ -- строгий максимум.
+		\item
+		Если $a$ нестрогий минимум, то $Q$ нестрого положительно определена.
+		\item
+		Если $a$ нестрогий максимум, то $Q$ нестрого отрицательно определена.
+		\item
+		Если $Q$ не является знакоопределенной, то $a$ не точка экстремума.
+	\end{enumerate}
+	\begin{proof} \thmslashn
+		
+		$f(a + h) = f(a) + Q(h) + \alpha(h)\|h\|^2$, где $\alpha(h) \underset{h \to 0}{\to} 0$.		
+		\begin{enumerate}
+			
+			\item[1.] $Q$ -- строго положительно определена, тогда по лемме $Q(h) \ge c\|h\|^2 \implies f(a + h) \ge f(a) + c\|h\|^2 + \alpha(h)\|h\|^2 = f(a) + \|h\|^2(c + \alpha(h)) > f(a)$, т.к. при малых $h$ есть неравенство $c + \alpha(h) > 0$. При $h$ близких к $0$ получается $f(a + h) > f(a) \implies a$ -- строгий минимум.
+			\item[3.]
+			$a$ -- нестрогий минимум. $0 \le f(a + h) - f(a) = Q(h) + \alpha(h)\|h\|^2$ при малых $h$. $0 \le Q(th) + \alpha(th)\|th\|^2 = \langle C(th), th \rangle + \alpha(th)t^2\|h\|^2 = t^2(Q(h) + \alpha(th)\|h\|^2)$ при малых $t \implies 0 \le Q(h) + \alpha(th)\|h\|^2 \underset{t \to 0}{\to} Q(h) \implies Q(h) \ge 0$.
+			\item[5.]
+			От противного. Пусть $a$ точка экстремума, тогда по пункту $4$ или $5$ $Q$ нестрого положительно или отрицательно определена. Противоречие.
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}[Критерий Сильвестра] \thmslashn
+
+	$Q$ -- квадратичная форма, $C$ -- ее матрица.
+	
+	\[
+	C = \begin{pmatrix}
+	c_{11}&c_{12}&c_{13}&c_{14}&\dots\\
+	c_{21}&c_{22}&c_{23}&c_{24}&\dots\\
+	c_{31}&c_{32}&c_{33}&c_{34}&\dots\\
+	c_{41}&c_{42}&c_{43}&c_{44}&\dots\\
+	\dots&\dots&\dots&\dots&\dots
+	\end{pmatrix}
+	\]
+	
+	$Q$ -- строго положительно определена $\Leftrightarrow \det \begin{pmatrix} c_{11} \end{pmatrix} > 0 \wedge \det \begin{pmatrix}
+	c_{11}&c_{12}\\
+	c_{21}&c_{22}
+	\end{pmatrix} > 0 \wedge \det \begin{pmatrix}
+	c_{11}&c_{12}&c_{13}\\
+	c_{21}&c_{22}&c_{23}\\
+	c_{31}&c_{32}&c_{33}
+	\end{pmatrix} > 0 \wedge \dots$.
+	
+	$Q$ -- строго отрицательно определена $\Leftrightarrow \det \begin{pmatrix} c_{11} \end{pmatrix} < 0 \wedge \det \begin{pmatrix}
+	c_{11}&c_{12}\\
+	c_{21}&c_{22}
+	\end{pmatrix} > 0 \wedge \det \begin{pmatrix}
+	c_{11}&c_{12}&c_{13}\\
+	c_{21}&c_{22}&c_{23}\\
+	c_{31}&c_{32}&c_{33}
+	\end{pmatrix} < 0 \wedge \dots$.
+	
+	Для нестрогих неравенства меняются на нестрогие.
+\end{theorem}

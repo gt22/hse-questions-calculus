@@ -1,1 +1,152 @@
-\Subsection{Билет 38: NAME}
+\Subsection{Билет 38: Длина кривой, заданной параметрически(с леммой). Длина графика функции и длина кривой, заданной в полярных координатах.}
+
+В этом билете все пути - в $\R^{m}$ с Евклидовой метрикой.
+
+\begin{definition}[повтор] \thmslashn 
+
+    Пусть $\gamma : [a, b] \mapsto \R^{m}$ - путь.
+
+    Пусть $\gamma_{i} $ - $i$-я координатная функция $\gamma$.
+
+    $\gamma$ называется $r$-гладким путём, если $\forall{i}\quad \gamma_{i}\in C^{r}[a, b]$.
+
+    Просто гладкий - $r = 1$.
+\end{definition}
+
+\begin{lemma} \thmslashn
+
+    Пусть $\gamma : [a, b] \mapsto \R^{m}$ - гладкий путь.
+
+    Пусть $\Delta \subset [a, b]$ - отрезок, $\ell(\Delta)$ - его длина.
+
+    $m^{(i)}_{\Delta} := \min\limits_{t\in \Delta} \abs{\gamma'(t)}$
+    
+    $M^{(i)}_{\Delta} := \max\limits_{t\in \Delta} \abs{\gamma'(t)}$
+
+    $m_{\Delta} := \sqrt{\sum\limits_{i=1}^{m} \left(m^{(i)}_{\Delta}\right)^2} $
+    
+    $M_{\Delta} := \sqrt{\sum\limits_{i=1}^{m} \left(M^{(i)}_{\Delta}\right)^2}$
+
+    Тогда, 
+    \[ m_{\Delta} \cdot \ell(\Delta) \le \ell(\left. \gamma\right|_{\Delta}) \le M_{\Delta} \cdot \ell(\Delta) .\]
+        \begin{proof} \thmslashn
+        
+            Пусть $t_{i}$ - разбиение $\Delta$.
+
+            $a_{k}^{(i)} = \gamma_{i}(t_{k}) - \gamma_{i}(t_{k-1})$
+
+            $a_{k} = \rho(\gamma(t_{k-1}), \gamma(t_{k})) = \sqrt{\sum\limits_{i=1}^{m} \left( a_{k}^{(i)} \right)^2 } $.
+
+            По теореме Лагранжа: $\exists{c_{ik}\in (t_{k-1}, t_{k})}\quad a_{k}^{(i)} = \gamma'(c_{ik})(t_{k} - t_{k-1})$.
+
+            Тогда, $\abs{a_{k}^{(i)}} = \abs{\gamma'(c_{ik})}(t_{k}-t_{k-1}) \le M_{\Delta}^{(i)}(t_{k}-t_{k-1})$.
+
+            \begin{equation*}
+                \begin{split}
+                    a_{k} = \sqrt{\sum\limits_{i=1}^{m} \left( \abs{a_{k}^{(i)}} \right)^2} 
+                    &\le \sqrt{\sum\limits_{i=1}^{m} \left(M_{\Delta}^{(i)}\right)^2(t_{k}-t_{k-1})^2}\\
+                    &= \sqrt{(t_{k} - t_{k-1})^2 \sum\limits_{i=1}^{m} \left(M_{\Delta}^{(i)}\right)^2 }\\
+                    &= M_{\Delta}(t_{k}-t_{k-1})
+                \end{split}
+            \end{equation*}
+            
+            Аналогично для $a_{k} \ge m_{\Delta}(t_{k}-t_{k-1})$.
+
+            \[ m_{\Delta} \ell(\Delta) = m_{\Delta} \sum\limits_{k=1}^{n} (t_{k}-t_{k-1}) \le \sum\limits_{k=1}^{n} a_{k} \le M_{\Delta} \sum\limits_{k=1}^{n} (t_{k}-t_{k-1}) = M_{\Delta} \ell(\Delta) .\]
+
+            Перейдём к супремому для $t$:
+
+            \[ m_{\Delta} \ell(\Delta) \le \ell(\left.\gamma\right|_{\Delta}) \le M_{\Delta} \ell(\Delta) . \qedhere\] 
+        \end{proof}
+\end{lemma}
+
+\begin{theorem}[Длина кривой заданной параметрически] \thmslashn
+
+    Пусть $\gamma : [a, b] \mapsto \R^{m}$ - гладкий путь.
+
+    Тогда
+    \[ \ell(\gamma) = \int\limits_{a}^{b} \norm{\gamma'(t)}dt = \int\limits_{a}^{b} \sqrt{\gamma_1'(t)^2 + \gamma_2'(t)^2 + \ldots + \gamma_{n}(t)^2}dt    .\]
+    \begin{proof} \thmslashn
+    
+        Возьмём $t$ - разбиение $[a, b]$.
+        
+        $d_{k} := t_{k} - t_{k-1}$.
+
+        $m_{k} := m_{[t_{k-1}, t_{k}]}$
+
+        $M_{k} := M_{[t_{k-1}, t_{k}]}$
+
+        Тогда, по лемме значем
+        \[ m_{k}d_{k} \le \ell\left( \left. \gamma\right|_{[t_{k-1}, t_{k}]} \right) \le M_{k}d_{k}  .\]
+
+        По линейности интеграла:
+        \[ m_{k}d_{k} \le \int\limits_{t_{k-1}}^{t_{k}} \norm{\gamma'(t)}dt  \le M_{k}d_{k}  .\]
+
+        ($m_{k}$ это норма минимума, которая точно не больше нормы произвольного значения, аналогично для $M_{k}$).
+
+        Просумируем по $k$:
+        \[ \sum\limits_{k=1}^{n} m_{k}d_{k} \le \ell\left(\gamma\right) \le \sum\limits_{k=1}^{n} M_{k}d_{k}  .\]
+        
+        \[ \sum\limits_{k=1}^{n} m_{k}d_{k} \le \int\limits_{a}^{b} \norm{\gamma'(t)}dt  \le \sum\limits_{k=1}^{n} M_{k}d_{k}  .\]
+
+        Покажем что $\sum\limits_{k=1}^{n} (M_{k} - m_{k})d_{k} \to 0$ при $|\tau| := \max\limits_{k} d_{k} \to 0$.
+
+        \textbf{Дальше идёт страшная выкладка из конспекта Ани, есть есть док-во красивее, просьба сказать\ldots}
+
+
+        \begin{equation*}
+            \begin{split}
+                \sum\limits_{k=1}^{n} (M_{k}-m_{k})d_{k}
+                &= \sum\limits_{k=1}^{n} \frac{(M_{k}-m_{k})(M_{k}+m_{k})}{M_{k}+m_{k}}d_{k}\\
+                &= \sum\limits_{k=1}^{n} \frac{M_{k}^2-m_{k}^2}{M_{k}+m_{k}}d_{k}\\
+                &= \sum\limits_{k=1}^{n} \frac{d_{k}}{M_{k}+m_{k}} \sum\limits_{i=1}^{m} \left(\left(M_{k}^{(i)}\right)^2 - \left(m_{k}^{(i)}\right)^2\right)\\
+                &= \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \frac{\left(M_{k}^{(i)}\right)^2 - \left(m_{k}^{(i)}\right)^2}{M_{k}+m_{k}}d_{k}\\
+                &= \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \frac{M_{k}^{(i)} + m_{k}^{(i)}}{M_{k}+m_{k}} \left( M_{k}^{(i)} - m_{k}^{(i)} \right)d_{k}\\
+                &\le \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \left( M_{k}^{(i)} - m_{k}^{(i)} \right)d_{k} \text{ т. к. евклидова норма всегда больше координаты}\\
+                &\le \sum\limits_{k=1}^{n} \sum\limits_{i=1}^{m} \omega_{\gamma'_{i}}(|\tau|)d_{k} \TODO{\text{ какой-то нетрививальный факт }}\\
+                &= (b-a)\sum\limits_{i=1}^{m} \omega_{\gamma_{i}'}(|\tau|)
+            \end{split}
+        \end{equation*}
+
+        $\gamma$ глакдий $\implies$ $\forall{i}\quad \gamma_{i}\in C[a, b] \implies \lim\limits_{|\tau| \to 0} \omega_{\gamma_{i}'}(|\tau|) = 0$.
+
+        Значит, так-как $\abs{a-b} \le \max \{\max a - \min b, \max b - \min a\} $:
+        \[ \abs{\ell(\gamma) - \int\limits_{a}^{b} \norm{\gamma'(t)}dt } \le \sum\limits_{k=1}^{n} (M_{k}-m_{k})d_{k} \to 0 \text{} .\]
+
+        Заметим, что значения длины и интеграла не зависят от выбранного разбиения.
+
+        Если предположить что они не равны, то можем по их разности выбрать такое $t$, что сумма получится меньше. Противоречие, значит равны.
+    \end{proof}
+\end{theorem}
+
+\begin{definition} \thmslashn 
+
+    Пусть $f : [a, b] \mapsto \R$. Длиной графика $f$ называется длина пути 
+    \[ \gamma(t) = \begin{bmatrix} t\\ f(t) \end{bmatrix}  .\] 
+\end{definition}
+\begin{consequence} \thmslashn
+
+    Если $f\in C[a, b]$, то длина графика $f$ равна
+    \[ \int\limits_{a}^{b} \sqrt{1 + f'(t)^2}dt    .\] 
+    \begin{proof} \thmslashn
+    
+        \[ \gamma_1(t) = t \implies \gamma_1'(t) = 1 .\]
+        \[ \gamma_2(t) = f(t) \implies \gamma_2'(t) = f'(t).\qedhere\] 
+    \end{proof}
+\end{consequence}
+\begin{definition} \thmslashn 
+
+    Если функция задана в полярных координатах как $r : [\alpha, \beta] \mapsto \R$, то задаваемый ей путь - 
+    \[ \gamma(\phi) = \begin{bmatrix} r(\phi)\cos \phi\\ r(\phi)\sin \phi \end{bmatrix}  .\] 
+\end{definition}
+\begin{consequence} \thmslashn
+
+    Пусть функция в полярных координатах задана как  $r\in C[\alpha, \beta]$. Тогда длина её графика:
+    \[ \int\limits_{\alpha}^{\beta} \sqrt{r(\phi)^2 + r'(\phi)^2}   .\]
+    \begin{proof} \thmslashn
+    
+        \[ \gamma_1(\phi) = r(\phi)\cos \phi \implies \gamma_1'(\phi) = r(\phi)\sin \phi + r'(\phi)\cos \phi .\] 
+        \[ \gamma_2(\phi) = r(\phi)\sin \phi \implies \gamma_2'(\phi) = r'(\phi)\sin \phi + r(\phi)\cos \phi .\]
+        \[ \gamma_1'(\phi)^2 + \gamma_2'(\phi)^2 = (r(\phi)^2 + r'(\phi)^2(\cos^2 \phi +\sin^2 \phi) = r(\phi)^2 + r'(\phi)^2.\qedhere\] 
+    \end{proof}
+\end{consequence}

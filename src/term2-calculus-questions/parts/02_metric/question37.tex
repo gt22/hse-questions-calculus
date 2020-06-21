@@ -1,1 +1,80 @@
-\Subsection{Билет 37: NAME}
+\Subsection{Билет 37: Длина пути и длина кривой. Определение и простейшие свойства. Аддитивность длины кривой.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $\gamma : [a, b] \mapsto X$ - называется путём, если непрерывно.
+
+    Длина путь $\ell(\gamma) = \sup\limits_{n, t} \sum\limits_{k=1}^{n} \rho(\gamma(t_{k-1}), \gamma(t_{k}))$, где $t$ - разбиение отрезка $[a, b]$:
+    \[ a = t_0 < t_1 < t_2 < \ldots < t_{n-1} < t_{n} = b .\]
+
+    А супремум берётся по всем возможным таким разбиениям.
+\end{definition}
+\begin{properties} \thmslashn
+
+    \begin{enumerate}
+        \item Длины эквивалентных путей равны
+            \begin{proof} \thmslashn
+            
+                Пусть пути $\gamma, \tilde{\gamma}$ эквивалентны с преобразование $\tau$: $\tilde{\gamma} = \gamma \circ \tau$. Тогда разбиение для одного можно перевести в разбиение для другого не изменив суммы.
+
+                $\tilde{t}_{k} = \tau(t_{k})$.
+                
+                $\tilde{\gamma(\tilde{t}_{k}} = \gamma(t_{k}) \implies $ получили разбиение для $\tilde{\gamma}$ дающую те-же значения $\implies$ ту-же сумму $\implies \ell(\tilde{\gamma}) \ge \ell(\gamma)$ (так-как хотя-бы такая найдётся, возможно есть больше).
+
+                Проведём аналогичную операция с $\tau^{-1}$, получим неравенство в другую строну $\implies$ равенство.
+
+            \end{proof}
+        \item Длины противоположных путей равны
+            \begin{proof} \thmslashn
+            
+                Рассмотрим разбиение в противоположном порядке
+            \end{proof}
+        \item $\ell(\gamma) \ge \rho(\gamma(a), \gamma(b))$
+            \begin{proof} \thmslashn
+            
+                Как часть супремума будет рассмотрено разбиение $n=2$, $t_{0} = a$, $t_{1} = b$.
+            \end{proof}
+        \item $\ell(\gamma)$ больше либо равно длинне любой ломаной вписанной в путь
+            \begin{proof} \thmslashn
+            
+                Длина ломаной задаётся каким-то конкретным разбиением которое будет рассмотрено в супремуме.
+            \end{proof}
+    \end{enumerate}
+\end{properties}
+\begin{definition} \thmslashn 
+
+    Длина кривой - длина её произвольной параметризации.
+\end{definition}
+\begin{theorem}[об аддитивности длины кривой] \thmslashn
+
+    Пусть $X$ - метрическое пространство, $\gamma : [a, b] \mapsto X$ - путь, $c\in (a, b)$.
+
+    Тогда $\ell(\gamma) = \ell\left(\left. \gamma \right|_{[a, c]}\right) + \ell\left(\left.\gamma\right|_{[c, b]}\right)$.
+            \begin{proof} \thmslashn
+            
+                $\ge $:
+
+                Возьмём разбиение $s_{i}$ для $[a, c]$ и $t_{i}$ для $[c, b]$.
+
+                Заметим, что если их сконкатенировать, получим убрав дублирование $c$, получим разбиение для $[a, b]$, из чего получаем
+                \[ \sum\limits_{k=1}^{n} \rho(\gamma(s_{k-1}), \gamma(s_{k})) + \sum\limits_{k=1}^{m} \rho(\gamma(t_{k-1}, t_{k})) \le \ell(\gamma)   .\]
+
+                Так-как это верно для всех разбиений, можем последовательно приписать супремумы и получить $\ell\left( \left. \gamma\right|_{[a, c]} \right) + \ell\left( \left. \gamma\right|_{[c, b]} \right) \le \ell(\gamma)$.
+
+                $\le$:
+
+                Возьмём $t_{i}$ - разбиение $[a, b]$. 
+
+                Если $\exists{i}\quad t_{i} = c$, то можем разбить по нему, и получить равенство.
+
+                Если не сущесвует, то $\exists{j}\quad t_{j} < c < t_{j+1}$.
+
+                По $\triangle$: $\rho(\gamma(t_{j}), \gamma(t_{j+1})) \le \rho(\gamma(t_{j}), \gamma(c)) + \rho(\gamma(c), \gamma(t_{j+1}))$, значит можем добавить между ними $c$, не укоротив путь. 
+
+                Значит,
+                \[ \sum\limits_{k=1}^{n} \rho(\gamma(t_{k-1}), \gamma(t_{k})) \le \left(\sum\limits_{k=1}^{j} \rho(\gamma(t_{k-1}), \gamma(t_{k})) + \rho(t_{j}, c)\right) + \left( \rho(c, t_{j+1}) + \sum\limits_{k=j+1}^{n} \rho(\gamma(t_{k-1}), \gamma(t_{k})) \right) .\]
+
+                Перейдём к супремуму слева, и заменим ломаную на длину пути справа:
+                \[ \ell(\gamma) \le \ell\left( \left. \gamma\right|_{[a, c]} \right) + \ell\left( \left. \gamma\right|_{[c, b]} \right)   .\] 
+            \end{proof}
+\end{theorem}

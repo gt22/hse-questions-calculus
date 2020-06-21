@@ -1,1 +1,32 @@
-\Subsection{Билет 93: NAME}
+\Subsection{Билет 93: Локальные экстремумы. Определение и необходимое условие экстремума. Стационарные точки.}
+\begin{definition} \thmslashn
+
+	$E \subset \mathbb{R}^n,\ f : E \mapsto \mathbb{R}, a \in E$
+	
+	$a$ -- точка локального минимума, если $\exists U$ -- окрестность точки $a$, такая что $\forall x \in U \cap E\ f(x) \ge f(a)$.
+	
+	$a$ -- точка строгого локального минимума, если $\exists U$ -- окрестность точки $a$, такая что $\forall x \in U \cap E,\\x \neq a\ f(x) > f(a)$. 
+	
+	Аналогично определяются локальный максимум, строгий локальный максимум, точка экстремума и точка строгого экстремума.
+\end{definition}
+
+\begin{theorem}[Необходимое условие экстремума] \thmslashn
+
+	$f : E \mapsto \mathbb{R}, a \in \Int E, a$ -- точка экстремума. Если существует $\frac{\partial f}{\partial x_k}(a)$, то $\frac{\partial f}{\partial x_k}(a) = 0$. В частности, если $f$ -- дифференцируема в точке $a$, то $\frac{\partial f}{\partial x_1}(a) = \dots = \frac{\partial f}{\partial x_n}(a) = 0$, т.е. $\nabla f(a) = 0$.
+	\begin{proof} \thmslashn
+		
+		Пусть $a$ -- точка минимума для $f$. Заведем функцию $g(t) = f(a_1, \dots, a_{k - 1}, t, a_{k + 1}, \dots, a_n) \ge f(a_1, a_2, \dots, a_n) = g(a_k)$. Тогда $a_k$ -- точка минимума для $g$ и $g$ дифференцируема в точке $a_k$. Применяем одномерную теорему и получается, что $g'(a_k) = 0$, но $\frac{\partial f}{\partial x_k}(a) = g'(a_k) = 0$.
+	\end{proof}
+\end{theorem}
+
+\begin{definition}[Стационарная точка] \thmslashn
+	
+	Если $f$ дифференцируема в точке $a$ и $\nabla f(a) = 0$, то $a$ -- стационарная точка.
+\end{definition}
+
+\begin{remark}[Формула Тейлора в стационарной точке] \thmslashn
+
+	\[
+	f(a + h) = f(a) + \frac{1}{2}\sum_{i, j}\frac{\partial^2f}{\partial x_i \partial x_j}(a)h_ih_j + o(\|h\|^2)
+	\]
+\end{remark}

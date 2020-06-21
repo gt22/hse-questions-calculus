@@ -1,1 +1,107 @@
-\Subsection{Билет 52: NAME}
+\Subsection{Билет 52:Бесконечные произведения. Определение. Примеры. Свойства.}
+
+\begin{definition}\slashns
+	
+	$\prod\limits_{n=1}^{\infty} p_n$
+	
+	$P_n := \prod\limits_{k=1}^{n} p_k$ -- частичные произведения.
+	
+	Если $\exists P = \lim\limits_{n \to \infty} P_n$, т.ч. $P\ne 0$ и $P \ne \infty$, то произведение сходится и $\prod\limits_{k = 1}^{\infty}p_k = P$
+\end{definition}
+
+\begin{example}\slashns
+	
+	\begin{enumerate}
+		\item $\prod\limits_{n=2}^{\infty}(1 - \frac1{n^2})$
+		
+		$P_n = (1 - \frac1{2^2})(1 - \frac1{3^2})\cdot ...\cdot 1 - \frac1{n^2} = \frac{(2-1)(2+1)}{2^2}\cdot \frac{(3-1)(3+1)}{3^2}\cdot...\cdot \frac{(n-1)(n+1)}{n^2} = \frac12 \cdot \frac{n+1}{n} \to \frac12$
+		
+		\item $\prod\limits_{n=1}^{\infty}(1 - \frac1{4n^2})$
+		
+		$P_n = (1-\frac1{4^2}) (1 - \frac1{6^2})\cdot ...\cdot(1 - \frac1{(2n)^2}) = \frac{(4-1)(4+1)}{4^2}\cdot \frac{(6-1)(6+1)}{6^2}\cdot ...\cdot \frac{(2n-1)(2n+1)}{(2n)^2} = \frac{((2n-1)!!)^2(2n+1)}{((2n)!!)^2} \to \frac2{\pi}$
+	\end{enumerate}
+\end{example}
+
+Упражнение. Установить следующие равенства:
+
+$\prod\limits_{n = 1}^{\infty} (1 - \frac1{(2n+1)^2}) = \frac{\pi}{4}$
+
+$\prod\limits_{n = 1}^{\infty} (1 + x^{2^{n-1}}) = \frac1{1-x}$, при $0 < x < 1$
+
+
+\begin{properties}\slashns
+	
+	Считаем, что $p_n \ne 0 \;\; \forall n$
+	\begin{enumerate}
+		\item Конечное количество начальных множителей не влияют на сходимость.
+		\item $\prod\limits_{n=1}^{\infty}p_n$ -- сходится $\implies \lim\limits_{n \to \infty} p_n = 1$
+		
+		\begin{proof}\slashns
+			
+			$p_n = \frac{P_n}{P_{n-1}} \to \frac{P}{P} = 1$
+		\end{proof}
+		
+		\item Все можно свести к произведениям с положительными множителями.
+		
+		\item $\prod\limits_{n=1}^{\infty} p_n$ и $p_n > 0 \;\; \forall n$
+		
+		Тогда $\prod\limits_{n=1}^{\infty} p_n$ сходится $\iff \sum\limits_{n=1}^{\infty} \ln p_n$ сходится.
+		
+		\begin{proof}\slashns
+			
+			$P_n = \prod\limits_{k=1}^{n} p_k$
+			
+			$\ln P_n = \ln (\prod\limits_{k=1}^{n} p_k) = \sum\limits_{k = 1}^{n} \ln p_k =: S_n$
+			
+			$S_n $ имеет предел $\iff \ln P_n$ имеет предел $\iff P_n$ имеет предел.
+		\end{proof}
+	\end{enumerate}
+\end{properties}
+
+\begin{example}\slashns
+	
+	$\prod\limits_{n=1}^{\infty} \frac{p_n}{p_n-1}$, где $p_n$ -- $n$-ое простое число.
+	
+	$\frac{p_n}{p_n - 1} = \frac{1}{1 - \frac1{p_n}} = \sum\limits_{k=0}^{\infty} \frac1{p_n^k}$
+	
+	$\prod\limits_{n = 1}^{\infty} \frac{p_n}{p_n - 1} = \prod\limits_{n = 1}^{\infty} \sum\limits_{k=0}^{\infty} \frac1{p_n^k} = \sum \frac{1}{p_1^{\alpha_1}\cdot ...\cdot p_n^{\alpha_n}} = \sum\limits_{n=1}^{\infty} \frac1n$
+	
+	НО! Раскрывать скобочки не хорошо в бесконечностях. Формализуем.
+	
+	$P_n = \prod\limits_{j=1}^{n} \sum\limits_{k=0}^{\infty} \frac{1}{p_j^k} \ge \prod\limits_{j=1}^{n} \sum\limits_{k = 0}^{n} \frac1{p_j^k} = \sum \frac{1}{p_1^{\alpha_1}\cdot ...\cdot p_n^{\alpha_n}} \ge \sum\limits_{k = 1}^{n} \frac1k \to \infty$
+	
+	Вывод: $\prod\limits_{n=1}^{\infty} \frac{p_n}{p_n-1}$ расходится.
+	
+	Более того $P_n \ge \ln n + o(1)$
+\end{example}
+
+\begin{theorem}\slashns
+	
+	
+	$\sum\limits_{n=1}^{\infty} \frac1{p_n}$ расходится, где $p_n$ -- $n$-ое простое число.
+\end{theorem}
+
+\begin{proof}\slashns
+	
+	$\prod\limits_{n = 1}^{\infty} \frac{p_n}{p_n-1}$ расходится 
+	
+	$\implies \sum\limits_{n = 1}^{\infty} \ln (\frac{p_n}{p_n-1})$ -- расходится
+	
+	$\ln\frac{x}{x-1} = \ln \frac{1}{1 - \frac1x} = -\ln (1-\frac1x) \color{red}\le\color{black}$
+	
+	$-2t \le ln(1-t)$ при достаточно малых $t$.
+	
+	$\color{red}\le\color{black} -2(-\frac1x) = \frac2{x}$
+	
+	$\sum\limits_{n = 1}^{\infty} \ln \frac{p_n}{p_n-1} \le C + \sum\limits_{n=1}^{\infty} \frac2{p_n}$
+	
+	$\implies \sum \frac1{p_n}$ расходится.
+\end{proof}
+
+\begin{remark}\slashns
+	
+	На самом деле
+	
+	$\sum\limits_{k = 1}^{n} \frac1{p_k} \sim \ln \ln n$
+\end{remark}
+

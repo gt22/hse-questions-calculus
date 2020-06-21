@@ -1,1 +1,25 @@
-\Subsection{Билет 61: NAME}
+\Subsection{Билет 61: Признак Абеля}
+
+\begin{statement}[Признак Абеля] \thmslashn
+
+	\begin{equation*}
+		\begin{cases}
+			\sum a_n(x) &\ \text{равномерно сходится} \\
+			|b_n(x)| \leq K &\ \forall{n}, \forall{x} \\
+			b_n(x) &\ \text{монотонны по $n$ при фиксированном $x$}
+		\end{cases}
+		\implies \sum a_n b_n - \text{равномерно сходится}
+	\end{equation*}
+	\begin{proof} \thmslashn
+	
+		*\textit{здесь все ряды - \textbf{функциональные}, просто писать каждый раз $x$ не хочется}* \\
+		Проверяем условие критерия Коши. \\
+		$\sum^{n+p}_{k = n+1} a_k b_k = \sum^p_{k = 1} a_{n+k} b_{n+k}$ - заменили пределы суммы, перекинув $n$ в индексы. \\
+		$\sum^p_{k = 1} a_{n+k} b_{n+k} = (A_{n+p} - A_n)b_{n+p} + \sum^{p-1}_{k = 1}(A_{n+k} - A_n)\cdot(b_{n+k} - b_{n+k+1})$
+		 - применили преобразование Абеля \\
+		$|A_{n+p} - A_n||b_{n+p}| \leq K|A_{n+p} - A_n| = K|\sum^{n+p}_{k = n+1} a_k| \textless \eps K, \forall{x \in E}, \forall{n \geq N}$ - критерий Коши для $\sum a_n$ \\
+		$\sum^{p - 1}_{k = 1}(A_{n+k} - A_n)(b_{n+k} - b_{n+k+1}) \leq \sum^{p-1}_{k = 1}|A_{n+k} - A_n||b_{n+k} - b_{n+k+1}| \textless \eps\sum^{p-1}_{k = 1}|b_{n+k} - b_{n+k+1}|$ - т.к. первый модуль меньше $\eps$ при $n \geq N$\\
+		$\eps\sum^{p-1}_{k = 1}|b_{n+k} - b_{n+k+1}| = \eps|\sum^{p-1}_{k = 1}(b_{n+k} - b_{n+k+1})| = \eps|b_{n+1} - b_{n+p}| \leq \eps(|b_{n+1}| + |b_{n+p}|) \leq 2K\eps$ \\
+		Условие критерия Коши выполняется, значит наш ряд равномерно сходится.
+	\end{proof}
+\end{statement}

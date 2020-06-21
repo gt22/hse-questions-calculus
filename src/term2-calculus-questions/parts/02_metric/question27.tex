@@ -1,1 +1,125 @@
-\Subsection{Билет 27: NAME}
+\Subsection{Билет 27: Определения предела по Коши и по Гейне. Локальная ограниченность функции, имеющей предел. Критерий Коши.}
+\begin{definition}[Коши] \thmslashn 
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $E \subset X$, $a\in E'$, $f : E \mapsto Y$.
+
+    Тогда ($f(A) = \{f(x) \ssep x\in A\} $ - образ функции).
+    \[ \lim\limits_{x \to a} f(x) = b \iff \forall{\eps > 0}\quad \exists{\delta > 0}\quad f(\punct{B}^{X}_{\delta}(a)\cap E) \subset B^{Y}_{\eps}(b) .\] 
+
+    Аналогичная формулировка (раскрыть образ):
+    \[ \lim\limits_{x \to a} f(x) = b \iff \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x\in \punct{B}^{X}_{\delta}(a)\cap E}\quad f(x)\in B^{Y}_{\eps}(b)  .\]
+
+    И ещё одна аналогичная формулировка (раскрыть шары):
+    \[ \lim\limits_{x \to a} f(x) = b \iff \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x\in E \setminus \{a\} }\quad (\rho_{X}(x, a) < \delta \implies \rho_{Y}(f(x), b) < \eps)  .\] 
+\end{definition}
+\begin{definition}[Гёйне] \thmslashn 
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $E \subset X$, $a\in E'$, $f : E \mapsto Y$.
+
+    \[ \lim\limits_{x \to a} f(x) = b \iff \forall\text{ последовательностей } x_{n}\in E \setminus \{a\}\quad \lim\limits_{n \to \infty} x_{n} = a \implies \lim\limits_{n \to \infty} f(x_{n}) = b .\] 
+\end{definition}
+\begin{theorem} \thmslashn
+
+    Определения по Коши и по Гёйне эквивалентны.
+
+    \begin{proof} \thmslashn
+    
+        Коши $\implies$ Гёйне:
+
+        Пусть $x_{n}\in E \setminus \{a\}$, $\lim\limits_{n \to \infty} x_{n} = a \implies \forall{\delta > 0}\quad \exists{N}\quad \forall{n > N}\quad  \rho(x_{n}, a) < \delta$.
+
+        В частности, у нас $\delta$ для $\eps$ из Коши. Выберем по нему $N$. 
+
+        Тогда $\forall{n > N}\quad \rho_{X}(x_{n}, a) < \delta \implies \rho_{Y}(f(x_{n}), b) < \eps \implies \lim\limits_{n \to \infty} f(x_{n}) = b$.
+
+        Гёйне $\implies$ Коши:
+
+        От противного. Пусть $\delta$ не существует $\implies \exists{\eps > 0}\quad \forall{\delta}\quad \exists{x\in \punct{B}^{X}_{\delta}(a)\cap E }\quad \rho_{Y}(f(x), b) > \eps$.
+
+        В частночти, можем взять $\delta = \frac{1}{n}$.
+
+        Тогда $\forall{n\in \N}\quad \exists{x_{n}\in E \setminus a}\quad \rho_{X}(x_{n}, a) < \frac{1}{n} \to 0$, но $\rho_{Y}(f(x_{n}, b)) > \eps$. Получается, $\lim\limits_{n \to \infty} x_{n} = a$, но $\lim\limits_{n \to \infty} f(x_{n}) \neq b$. Противоречие с Гёйне.
+
+
+    \end{proof}
+\end{theorem}
+\begin{consequence} \thmslashn
+
+    Предел единственнен.
+    \begin{proof} \thmslashn
+    
+        Пусть предел не единственнен. Тогда по Гёйне у любой последовательности должны быть оба предела, что невозможно так как предел последовательности единственный, а функция от последовательности - последовательность.
+    \end{proof}
+\end{consequence}
+
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $E \subset X$, $a\in E'$, $f : E \mapsto Y$, $\lim\limits_{x \to a} f(x) = b$.
+
+    Тогда $\exists{r > 0}\quad \left. f\right|_{B_{r}(a)\cap E}$ - ограничена.
+        \begin{proof} \thmslashn
+        
+            Подставим $\eps=\rho_{Y}(f(a), b) + 1$ в Коши:
+
+            \[ \exists{\delta > 0}\quad \forall{x\in \punct{B}^{X}_{\delta}(a)\cap E}\quad \rho_{Y}(f(x), b) < \rho_{Y}(f(a), b) + 1 .\]
+
+            Значит, все значения функции в $B^{X}_{\delta}(a)\cap E$ лежиат в $B^{Y}_{\rho_{Y}(f(a), b) + 1}(b)$.
+        \end{proof}
+\end{theorem}
+\begin{theorem}[Критерий Коши] \thmslashn
+
+    
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $Y$ - полное, $E \subset X$, $a\in E'$, $f : E \mapsto Y$.
+    
+    Тогда
+    \[ \exists\lim\limits_{x \to a} f(x) \iff \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x, y\in \punct{B}^{X}_{\delta}(a)\cap E}\quad f(x)\in B^{Y}_{\eps}(f(y))  . \]
+
+    Альтернативная формулировка (раскрытие шаров):
+    \[ \exists\lim\limits_{x \to a} f(x) \iff \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x, y\in E \setminus \{a\}}\quad (\rho_{X}(x, a) < \delta \land \rho_{X}(y, a) < \delta \implies \rho_{Y}(f(x), f(y)) < \eps) . \]
+    \begin{proof} \thmslashn
+    
+        Необходимость ($\implies$):
+
+        \begin{equation*}
+            \begin{cases}
+                \rho_{X}(x, a) < \delta \implies \rho_{Y}(f(x), b) < \eps\\
+                \rho_{X}(y, a) < \delta \implies \rho_{Y}(f(y), b) < \eps
+            \end{cases} \implies \rho_{Y}(f(x), f(y)) < \rho(f(x), b) + \rho(b, f(y)) < 2\eps
+        \end{equation*}
+
+        Достаточность $(\impliedby)$:
+
+        Возьмём последовательнсоть $x_{n}\in E \setminus \{a\}$, $x_{n} \to a$.
+
+        Проверим фундаментальность $f(x_{n})$:
+
+        Надо:
+        \[ \forall{\eps > 0}\quad \exists{N}\quad \forall{n, m > N}\quad \rho_{Y}(f(x_{n}, f(x_{m})) .\]
+
+        Для данного $\eps$ возьмём $\delta$ по улсовию, и по $\delta$ возьмём $N$ такое, что $\forall{n > N}\quad \rho(x_{n}, a) < \eps$. Тогда критерий Коши для последовательностей даёт нам фундаментальность $f(x_{n})$. Так-как $Y$ - полное, фундаментальная последовательность будет сходится к точке $Y$.
+
+        Пределы на последовательностях получатся одинаковыми: иначе, можем смешать их, получить сходящуюся к $a$ последовательность которая также даст предел, но тогда у сходящейся последовательности есть подпоследовательности с разными пределами. Противоречие.
+    \end{proof}
+\end{theorem}
+\begin{properties} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство, $\left<Y, \norm{\cdot}\right>$ - нормированное пространство с метрикой $\rho_{Y}(x, y) = \norm{x - y}$.
+
+    $E \subset X$, $a\in E'$, $f, g : E \mapsto Y$.
+
+    $\lim\limits_{x \to a} f(x) =: A$
+    
+    $\lim\limits_{x \to a} g(x) =: B$
+
+    $\lambda\in \R$, $\alpha(x) : E \mapsto \R$, $\lim\limits_{x \to a} \alpha(x) = \lambda$.
+
+    Тогда
+    \begin{enumerate}
+        \item $\lim\limits_{x \to a} (f(x) \pm g(x)) = A \pm B$
+        \item $\lim\limits_{x \to a} \lambda f(x) = \lambda A$
+        \item $\lim\limits_{x \to a} \norm{f(x)} = \norm{A}$ 
+        \item $\lim\limits_{x \to a} \alpha(x)f(x) = \lambda A$
+
+        \item Если в $Y$ есть скалярное произведение, то $\lim\limits_{x \to a} \left<f(x), g(x)\right> = \left<A, B\right>$
+    \end{enumerate}
+\end{properties}

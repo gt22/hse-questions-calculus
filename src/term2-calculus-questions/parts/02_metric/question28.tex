@@ -1,1 +1,50 @@
-\Subsection{Билет 28: NAME}
+\Subsection{Билет 28: Непрерывные отображения. Непрерывность композиции. Характеристика непрерывности в терминах прообразов.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $E \subset X$, $f : E \mapsto Y$.
+
+    $f$ называется непрерывной в точке $a\in E$ если $a$ - изолированная точка (\TODO{не предельная? Или есть пустая проколотая окрестность в $X$?}), либо $a\in E'$ и $\lim\limits_{x \to a} f(x) = f(a)$.
+\end{definition}
+\begin{theorem} \thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$, $\left<Z, \rho_{Z}\right>$ - метрические пространства, $E \subset X$, $f : E \mapsto Y$, $f(E) \subset \tilde{E} \subset Y$, $g : \tilde{E} \mapsto Z$.
+    
+    Если $f$ непрерывна в $a\in E$, а $g$ непрерывна в $f(a)$, то $g \circ f$ непрерывна в $a$.
+    \begin{proof} \thmslashn
+   
+        \[ f \text{ непрерывна в } a  \implies \forall{\delta > 0}\quad \exists{\lambda > 0}\quad \forall{x\in \punct{B}^{X}_{\lambda}(a)\cap E}\quad f(x)\in B^{Y}_{\delta}(f(a))\cap \tilde{E} .\] 
+        \[ g \text{ непрерывна в } f(a) \implies \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x\in \punct{B}^{Y}_{\delta}(f(a))\cap \tilde{E}}\quad g(x)\in B_{\eps}(g(f(a)))  .\] 
+
+        Комбинируем:
+        \[ \forall{\eps > 0}\quad  \exists{\lambda > 0}\quad \forall{x\in \punct{B}^{X}_{\lambda}(a)}\quad g(f(x))\in B_{\eps}(g(f(a))) \implies g \circ f \text{ непрерывна в } a  .\qedhere\] 
+    \end{proof}
+\end{theorem}
+\begin{theorem} \label{cont:preimage_of_open}\thmslashn
+
+    Пусть $\left<X, \rho_{X}\right>$, $\left<Y, \rho_{Y}\right>$ - метрические пространства, $f : X \mapsto Y$.
+
+    $f$ непрерывна на $X$ $\iff$ $\forall{}\quad $ открытого $U \subset Y$ $f^{-1}(U) = \{x\in X \ssep f(x)\in U\} $ открыт.
+    \begin{proof} \thmslashn
+    
+        Необходимость ( $\implies$):
+
+        Пусть $V = f^{-1}(U)$.
+
+        Пусть $a\in V$. Так-как $U$ открыто, $\exists{\eps > 0}\quad B^{Y}_{\eps}(f(a)) \subset U$.
+
+        По непрерывности $\exists{\delta > 0}\quad f(B^{X}_{\delta}(a)) \subset B^{Y}_{\eps}(f(a)) \subset U$.
+
+        $f(B^{X}_{\delta}(a)) \subset U \implies B^{X}_{\delta}(a) \subset V \implies a\in \Int V \implies V$ - открытое.
+
+        Достаточность $(\impliedby)$:
+
+        Проверим непрервыность в $a\in X$.
+
+        $U := B^{Y}_{\eps}(f(a))$ - открытое множество.
+
+        Значит, $\exists{\delta > 0}\quad B^{X}_{\delta}(a) \subset f^{-1}(U) = f^{-1}(B^{Y}_{\eps}(f(a)))$
+        
+        Тоесть, $f(B^{X}_{\delta}(a)) \subset B^{Y}_{\eps}(f(a))$, а это и есть определение непрерывности в терминах шаров.
+    \end{proof}
+\end{theorem}

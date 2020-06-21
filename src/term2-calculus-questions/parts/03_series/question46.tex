@@ -1,1 +1,97 @@
-\Subsection{Билет 46: NAME}
+\newpage
+\Subsection{Билет 46: Преобразование Абеля. Признаки Дирихле и Абеля.}
+
+\begin{definition} \thmslashn 
+
+    $\sum a_n$ сходится абсолютно, если $\sum |a_n|$ -- сходится.
+    
+    $\sum a_n$ сходится условно, если $\sum a_n$ -- сходится, но не абсолютно.
+    
+\end{definition}
+
+\begin{theorem}[Преобразование Абеля] \thmslashn 
+
+	$\sum\limits_{k=1}^{n} a_kb_k = A_nb_n - \sum\limits_{k=1}^{n-1} A_k(b_k - b_{k+1})$,
+	
+	где $A_k := a_1 + a_2 + \dotsc + a_k$, $A_0 := 0$.
+	
+	\begin{proof} \thmslashn
+    
+        $\begin{array}{rcll}
+    	\sum\limits_{k=1}^{n} a_kb_k &=& \sum\limits_{k=1}^{n} (A_k - A_{k-1})b_k \\
+    	                             &=& \sum\limits_{k=1}^{n} A_kb_k - \sum\limits_{k=1}^{n} A_{k-1}b_k \\
+    	                             &=& \sum\limits_{k=1}^{n} A_kb_k - \sum\limits_{k=1}^{n-1} A_kb_{k+1} \\
+    	                             &=& A_nb_n + \sum\limits_{k=1}^{n-1} (A_kb_k - A_kb_{k+1}) \\
+    	                             &=& A_nb_n + \sum\limits_{k=1}^{n-1} A_k(b_k - b_{k+1}) \\
+    	\end{array}$
+
+    \end{proof}
+
+\end{theorem}
+
+\begin{theorem}[Признак Дирихле] \thmslashn 
+
+    Если: 
+    
+    \begin{enumerate}
+        \item $A_k = \sum\limits_{k=1}^{n} a_k$ ограничены
+        \item $b_n$ монотонны
+        \item $\lim\limits_{n \to \infty} b_n = 0$
+    \end{enumerate}
+
+	Тогда $\sum\limits_{n=1}^{\infty} a_nb_n$ -- сходится.
+	
+	\begin{proof} \thmslashn
+	
+	    $S_n := \sum\limits_{k=1}^{n} a_kb_k = A_nb_n + \sum\limits_{k=1}^{n-1} A_k(b_k - b_{k+1}) $ имеет предел
+	    
+	    $A_nb_n \to 0$, $A_n$ -- ограничены, $b_n \to 0$
+	    
+	    $\sum\limits_{k=1}^{n-1} A_k(b_k - b_{k+1}) $ имеет предел -- это частичная сумма ряда $\sum\limits_{k=1}^{\infty} A_k(b_k - b_{k+1})$, то есть надо доказать, что этот ряд сходится.
+	    
+	    Проверим, что он абсолютно сходится: 
+	    
+	    По условию $|A_n| \le M$
+	    
+	    $\begin{array}{rcll}
+    	\sum\limits_{k=1}^{\infty} |A_k||b_k - b_{k+1}| &\le& M\sum\limits_{k=1}^{\infty} |b_k - b_{k+1}| \\
+    	                             &=& M|\sum\limits_{k=1}^{\infty} b_k - b_{k+1}| \\
+    	                             &=& M|b_1 - b_{n+1}| \\
+    	                             &\le& M(|b_1| + |b_{n+1}|) \le 2M|b_1| \\
+    	\end{array}$
+	    
+    \end{proof}
+
+\end{theorem}
+
+\begin{theorem}[Признак Абеля] \thmslashn 
+
+    Если: 
+    
+    \begin{enumerate}
+        \item $\sum\limits_{n=1}^{\infty} a_n$ сходится
+        \item $b_n$ монотонны
+        \item $b_n$ ограничены
+    \end{enumerate}
+
+	Тогда $\sum\limits_{n=1}^{\infty} a_nb_n$ -- сходится.
+	
+	\begin{proof} \thmslashn
+	
+	    Существует $\lim\limits_{n \to \infty} b_n =: b, ~ \widetilde{b}_n = b_n - b$ монотонны и $\to 0$
+	    
+	    $A_n := \sum\limits_{k=1}^{n} a_k$ -- сходится $\implies A_n$ -- ограничена.
+	    
+	    По признаку Дирихле $\sum\limits_{n=1}^{\infty} a_n\widetilde{b}_n$ -- сходится.
+	    
+	    $\begin{array}{rcll}
+    	\sum\limits_{n=1}^{\infty} a_nb_n &=& \sum\limits_{n=1}^{\infty} a_n(\widetilde{b}_n + b) \\
+    	                             &=& \sum\limits_{n=1}^{\infty} a_n\widetilde{b}_n + \sum\limits_{n=1}^{\infty} a_nb \\
+    	                             &=& \sum\limits_{n=1}^{\infty} a_n\widetilde{b}_n + b\sum\limits_{n=1}^{\infty} a_n \\
+    	\end{array}$
+	    
+	    Оба ряда сходятся, значит, и их сумма тоже сходится.
+	   
+    \end{proof}
+
+\end{theorem}

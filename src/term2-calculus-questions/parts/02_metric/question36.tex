@@ -1,1 +1,58 @@
-\Subsection{Билет 36: NAME}
+\Subsection{Билет 36: Путь. Носитель пути. Простой путь. Гладкий путь. Эквивалентные пути. Определение кривой.}
+
+\begin{definition} \thmslashn 
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство. $\gamma : [a, b] \mapsto X$ - непрерывная функция.
+
+    Тогда $\gamma$ называется путём.
+
+    Начало пути - $\gamma(a)$
+
+    Конец пути - $\gamma(b)$
+
+    \textbf{Носитель пути} - $\gamma([a, b]) \iff \Im \gamma$.
+
+    Путь называется замкнутым если $\gamma(a) = \gamma(b)$.
+
+    Путь называется простым если $\nexists{t \neq s\in (a, b)}\quad \gamma(t) = \gamma(s)$ (путь простой если $\gamma$ - инъекция на $(a, b)$, но может быть $\gamma(a) = \gamma(b)$).
+
+    Противоположный путь: $\tilde{\gamma}(t) = \gamma(a + b - t)$, $\tilde{\gamma} : [a, b] \mapsto X$.
+
+    Пути $\gamma : [a, b] \mapsto X$ и $\gamma' : [c, d] \mapsto X$ называются эквивалентными (обозначается $\gamma \sim \gamma'$), если $\exists{\tau : [a, b] \mapsto [c, d]}\quad$, непрерывное строго монотонное отображение, такое, что $\tau(a) = c$ и $\tau(b) = d$, такое, что $\gamma = \gamma' \circ \tau$. 
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Пусть $\gamma : [a, b] \mapsto \R^{m}$ - путь.
+
+    Пусть $\gamma_{i} $ - $i$-я координатная функция $\gamma$.
+
+    $\gamma$ называется $r$-гладким путём, если $\forall{i}\quad \gamma_{i}\in C^{r}[a, b]$.
+
+    Просто гладкий - $r = 1$.
+\end{definition}
+\begin{definition} \thmslashn 
+
+    Путь называется кусочно-гладким если его можно разбить на конечное число гладких кусков.
+\end{definition}
+\begin{remark} \thmslashn
+
+    Эквивалетность путей - отношение эквивалентности.
+
+    \begin{proof} \thmslashn
+    
+        Рефлексивность очевидно.
+
+        Симметричность: подойёдт $\tau^{-1}$, все нужные свойства когда-то доказывались отдельной теоремой.
+
+        Транзитивность: подойдёт композиция нужных отображений.
+    \end{proof}
+\end{remark}
+
+\begin{definition} \thmslashn 
+
+    Кривая - класс эквивалентности путей.
+
+    Конкретный представитель класса - параметризация кривой.
+
+    Носитель кривой - носитель путей этого класса.
+\end{definition}

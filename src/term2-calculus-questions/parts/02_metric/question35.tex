@@ -1,1 +1,64 @@
-\Subsection{Билет 35: NAME}
+\Subsection{Билет 35: Свойства, эквивалентные ограниченности линейного оператора. Оценка нормы через сумму квадратов. Ограниченность операторов из $\R^{n}$ в $\R^{m}$}
+
+\begin{theorem} \thmslashn
+
+    Пусть $A : X\mapsto Y$ - линейный опертор.
+
+    Следующие условия равносильны (с метрикой $\rho(x, y) = \norm{x - y}$ в обоих пространствах):
+
+    \begin{enumerate}
+        \item $A$ - ограниченный оператор
+        \item $A$ непрерывен в $0$
+        \item $A$ непрерывен
+        \item $A$ равномерно непрерывен
+    \end{enumerate}
+    \begin{proof} \thmslashn
+    
+        $4 \implies 3 \implies 2$ очевидно.
+
+        $1 \implies 4$:
+
+        Хотим получить 
+        \[ \forall{\eps > 0}\quad \exists{\delta > 0}\quad \forall{x, y\in X}\quad \norm{x - y}_{X} < \delta \implies \norm{Ax - Ay}_{Y} < \eps .\] 
+
+        Возьмём $\delta = \frac{\eps}{\norm{A}}$.
+
+        \begin{equation*}
+            \begin{split}
+                \norm{Ax - Ay} 
+                &= \norm{A(x-y)}\\
+                &\le \norm{A} \norm{x - y}\\
+                &< \norm{A} \delta\\
+                &= \norm{A} \frac{\eps}{\norm{A}}\\
+                &= \eps
+            \end{split}
+        \end{equation*}
+
+        $2 \implies 1$:
+
+        Знаем, что $A(0_{X}) = 0_{Y}$ независимо от $A$.
+
+        Имеем 
+        \[ \forall{\eps > 0}\quad \exists{\delta > 0}\quad \norm{x}_{X} < \delta \implies \norm{Ax}_{Y} < \eps.\]
+
+        Возьмём $x\in X$, $\norm{x} < 1$.
+
+        \[ \norm{x} < 1 \implies \norm{\delta x} < \delta \implies \norm{A(\delta x)} < \eps .\] 
+
+        Тогда $\norm{A(\delta x)} < \eps \implies \delta \norm{Ax} < \eps \implies \norm{Ax} < \frac{\eps}{\delta} \implies \norm{A} \le \frac{\eps}{\delta}$, так-как норма - супремум по таким $x$.
+    \end{proof}
+\end{theorem}
+\begin{theorem}\label{q25_th2.29} \thmslashn
+
+    Пусть $A : \R^{n} \mapsto \R^{m}$ - линейный оператор, норма Евклидова.
+
+    Тогда
+    \[ \norm{A} \le \sqrt{\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2}  .\]
+    \begin{proof} \thmslashn
+    
+        \[ \norm{Ax}^2 = \sum\limits_{i=1}^{m} \left( \sum\limits_{j=1}^{n} a_{ij}x_{j} \right)^2 \overset{\text{Коши}}{\underset{\text{Буняковский}}{\le}} \sum\limits_{i=1}^{m}\left( \sum\limits_{j=1}^{n} a_{ij}^2 \cdot \sum\limits_{j=1}^{n} x_{j}^2 \right) = \norm{x}^2 \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2  .\]
+
+        Значит,
+        \[ \norm{A} = \sup \frac{\norm{Ax}}{\norm{x}} = \sqrt{\frac{\norm{Ax}^2}{\norm{x}^2}} = \sqrt{\frac{\norm{x}^2 \sum\limits_{i=1}^{m} \sum\limits_{j=1}^{n} a_{ij}^2}{\norm{x^2}}} = \sqrt{\sum\limits_{i=1}^{m} \sum\limits_{j=1}^{n} a_{ij}^2}    .\qedhere\] 
+    \end{proof}
+\end{theorem}

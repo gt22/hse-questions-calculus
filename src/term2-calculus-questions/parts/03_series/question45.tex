@@ -1,1 +1,82 @@
-\Subsection{Билет 45: NAME}
+\newpage
+\Subsection{Билет 45: Связь между суммами и интегралами. Интегральный признак.}
+
+\begin{theorem} \thmslashn 
+
+	Если $f : [m, n] \mapsto \R$ монотонна, то $|\sum\limits_{k=m}^{n} f(k) - \int\limits_{m}^{n} f(x)dx| \le \max\{|f(m)|, |f(n)|\} $
+	
+	\begin{proof} \thmslashn
+    
+        Не умаляя общности $f \ge 0$ и монотонно убывает.
+        
+        Здесь удобно нарисовать убывающий график и изобразить суммы двумя видами столбиков: когда начинаем от $m$ и столбики вылезают над графиком, и когда от $m+1$ столбики под графиком.
+        
+        $\sum\limits_{k=m}^{n-1} f(k) \ge \int\limits_{m}^{n} f(x)dx \ge \sum\limits_{k=m+1}^{n} f(k)$
+        
+        $\int\limits_{m}^{n} f(x)dx \ge \sum\limits_{k=m+1}^{n} f(k) \implies \int\limits_{m}^{n} f(x)dx - \sum\limits_{k=m}^{n} f(k) \ge -f(m)$
+        
+        $\int\limits_{m}^{n} f(x)dx - \sum\limits_{k=m}^{n} f(k) = -|\int\limits_{m}^{n} f(x)dx - \sum\limits_{k=m}^{n} f(k)| \ge -f(m) \implies$ 
+        
+        $|\int\limits_{m}^{n} f(x)dx - \sum\limits_{k=m}^{n} f(k)| \le f(m)$
+        
+        $\sum\limits_{k=m}^{n-1} f(k) \ge \int\limits_{m}^{n} f(x)dx \implies \sum\limits_{k=m}^{n-1} f(k) - \int\limits_{m}^{n} f(x)dx \ge 0 \implies$
+        
+        $\sum\limits_{k=m}^{n} f(k) - \int\limits_{m}^{n} f(x)dx \ge f(n) \ge 0$
+
+    \end{proof}
+
+\end{theorem}
+
+\begin{theorem}[Интегральный признак сходимости] \thmslashn 
+
+    $f : [1, +\infty) \mapsto \R, ~ f \ge 0$ монотонно убывает.
+    
+    Тогда $\sum\limits_{k=1}^{\infty} f(k)$ и $\int\limits_{1}^{\infty} f(x)dx$ ведут себя одинаково.
+
+	\begin{proof} \thmslashn
+	
+	    $\sum\limits_{k=1}^{\infty} f(k)$ -- сходится $\iff S_n := \sum\limits_{k=1}^{n} f(k)$ ограничены.
+	    
+	    $\int\limits_{1}^{\infty} f(x)dx$ -- сходится $\iff F(n) := \int\limits_{1}^{n} f(x)dx$ ограничены.
+	    
+	    По предыдущей теореме $|S_n - F(n)| \le f(1)$
+	    
+    \end{proof}
+
+\end{theorem}
+
+\begin{example} \thmslashn
+
+    $\sum\limits_{n=1}^{\infty} \frac{1}{n^p}$
+    
+    Если $p \le 0$, то $\frac{1}{n^p} \nrightarrow 0 \implies$ ряд расходится.
+    
+    Если $p > 0$, то $f(x) = \frac{1}{x^p} \ge 0$ и монотонно убывает $\implies$ по интегральному признаку
+    
+    $\sum\limits_{n=1}^{\infty} \frac{1}{n^p}$ и $\int\limits_{1}^{\infty} \frac{dx}{x^p}$ (сходится $\iff p > 1$) ведут себя одинаково.
+    
+    Значит, ряд $\sum\limits_{n=1}^{\infty} \frac{1}{n^p}$ сходится $\iff p > 1$.
+    
+    \begin{consequence} \thmslashn
+    	
+    	Если $0 \le a_n \le \frac{c}{n^p}$ при $p > 1$, то ряд $\sum\limits_{n=1}^{\infty} a_n$ сходится.
+
+    	(Следует из примера выше и признака сравнения.)
+
+    \end{consequence}
+    
+\end{example}
+
+\begin{example} \thmslashn
+
+    $\sum\limits_{n=2}^{\infty} \frac{1}{n\ln{n}}$
+    
+    $f(x) = \frac{1}{x\ln{x}} \ge 0$ и монотонно убывает $\implies$ по интегральному признаку
+    
+    $\sum\limits_{n=2}^{\infty} \frac{1}{n\ln{n}}$ и $\int\limits_{2}^{\infty} \frac{dx}{x\ln{x}}$ ведут себя одинаково.
+    
+    $\int\limits_{2}^{b} \frac{dx}{x\ln{x}} = \int\limits_{\ln{2}}^{\ln{b}} \frac{dy}{y} = \ln{y} \Bigr|_{ln{2}}^{ln{b}} = \ln{\ln{b}} - \ln{\ln{2}} \xrightarrow[b \to +\infty]{} +\infty$
+    
+    Значит, ряд $\sum\limits_{n=2}^{\infty} \frac{1}{n\ln{n}}$ расходится.
+
+\end{example}

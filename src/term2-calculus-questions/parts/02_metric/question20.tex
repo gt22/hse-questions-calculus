@@ -46,7 +46,9 @@
         \item $\|x_{n}\| \to \|a\|$ 
             \begin{proof} \thmslashn
             
-                \[ 0 \le \left| \|x\| - \|a\| \right| \le \|x - a\| \to 0 .\qedhere\] 
+                По \hyperref[norm:diff_of_norms]{свойству нормы}:
+
+                \[ 0 \le \left| \|x\| - \|a\| \right| \le \|x - a\| \to 0.\qedhere\] 
             \end{proof}
         \item Если задано скалярное произведение и $\|x\| = \sqrt{\left<x, x\right>} $, то $\left<x_{n}, y_{n}\right> \to \left<a, b\right>$.
             \begin{proof} \thmslashn
@@ -67,8 +69,8 @@
                     \begin{split}
                         \left<x_{n}, y_{n}\right> - \left<a, b\right> 
                         &= \left<x_{n}, y_{n}\right> - \left<x_{n}, b\right> + \left<x_{n}, b\right> - \left<a, b\right>\\
-                        &= \left<x_{n}, y_{n} - b\right> - \left<x_{n} - a, y_{n}\right>\\
-                        &= \frac{1}{4}\left( \|x_{n} + y_{n} - b\|^2 - \|x_{n} - y_{n} + b\|^2 - \|x_{n} - a + y_{n}\|^2 + \|x_{n} - a - y_{n}\|^2  \right)\\
+                        &= \left<x_{n}, y_{n} - b\right> - \left<x_{n} - a, b\right>\\
+                        &= \frac{1}{4}\left( \|x_{n} + y_{n} - b\|^2 - \|x_{n} - y_{n} + b\|^2 - \|x_{n} - a + b\|^2 + \|x_{n} - a - b\|^2  \right)\\
                         &\to  \frac{1}{4}\left( \|a\|^2 - \|a\|^2 - \|b\|^2 + \|b\|^2  \right) = 0 \qedhere 
                     \end{split}
                 \end{equation*}
@@ -82,9 +84,9 @@
     Тогда $x_{n}$ покоординатно сходится к $x_0$, если
     \[ \forall{k\in [1, d]}\quad \lim\limits_{n \to \infty} x_{n}^{(k)} = x_0^{(k)} .\] 
 \end{definition}
-\begin{theorem} \thmslashn
+\begin{theorem} \label{q20_th2.7} \thmslashn
 
-    В $\R^{d}$ с евклидовой нормой сходимость по норме эквивалентна координатной.
+    В $\R^{d}$ с евклидовой нормой $\left( \norm{x} = \sqrt{\sum\limits_{k=1}^{d} x_{k}^2}  \right) $ сходимость по норме эквивалентна координатной.
     \begin{proof} \thmslashn
     
         Необходимость (норма $\implies$ коорд):
@@ -93,6 +95,6 @@
 
     Достаточноость (коорд $\implies$ норма)
 
-    \[ 0 \le \|x - x_0\|^2 = \sum\limits_{k=1}^{d} (x_{n}^{(k)} - x_{0}^{(k)}) \to 0. \qedhere\] 
+    \[ 0 \le \|x - x_0\|^2 = \sum\limits_{k=1}^{d} (x_{n}^{(k)} - x_{0}^{(k)})^2 \to 0. \qedhere\] 
     \end{proof}
 \end{theorem}

@@ -1,1 +1,53 @@
-\Subsection{Билет 65: NAME}
+\Subsection{Билет 65: Теорема о дифференцировании равномер-
+    но сходящейся последовательности (ряда). Суще-
+    ственность равномерности.}
+
+\begin{theorem}\slashns
+    
+    $f_n \in C^1[a,b], \;\; f_n(c) \to A$ и $f'_n$  равномерно сходятся к $g$ на $[a, b]$.
+    
+    Тогда $f_n \rightrightarrows f$ на $[a, b]$, $f \in C^1[a,b]$ и $f' = g$.
+    
+    В частности $\lim\limits_{n \to \infty} f_n'(x) = (\lim\limits_{n \to \infty} f_n(x))'$.
+\end{theorem}
+
+\begin{proof}\slashns
+    
+    $\int\limits_c^x g(t)\,dt = \lim\limits_{n \to \infty} \int\limits_c^x f_n'(t) \, dt = \lim\limits_{n \to \infty} (f_n(x) - f_n(c)) = \lim\limits_{n \to \infty} f_n(x) - A$.
+    
+    $f_n(x) \rightrightarrows A + \int\limits_c^x g(t)\,dt =: f(x)$ мы проверили равномерную сходимость. И $f(x)$ -- дифференцируемая функция.
+    
+    $f'(x) = g(x)$ -- непрерывная функция, т.к. $f_n' \rightrightarrows g$ и $f_n$ непрерывние.
+\end{proof}
+
+\begin{consequence}\slashns
+    
+    $u_n \in C^1[a,b] \;\; c \in [a,b] \;\; \sum u_n'(x)$ равномерно сходится на $[a, b]$ и $\sum u_n(c)$ сходится.
+    
+    Тогда $\sum u_n(x)$ равномерно сходится к непрерывной дифференцируемной функции и $\left( \sum u_n(x) \right)' = \sum u_n'(x)$
+    
+\end{consequence}
+
+\begin{proof}\slashns
+    
+    $S_n = \sum\limits_{k = 1}^{n} u_k \Rightarrow S_n' = \sum\limits_{k = 1}^{n} u_k'$
+    
+    По условию $\sum\limits_{k = 1}^{n} u_k' \rightrightarrows g$ и $S_n(c) \to A$.
+    
+    И тогда по прошлой теореме 
+    
+    $S_n \rightrightarrows S, S \in C^1[a,b]$ и $S' = g \Rightarrow \left( \sum u_n(x) \right)' = \sum u_n'(x)$.
+\end{proof}
+
+\begin{example}\slashns
+    
+    
+    Равномерная сходимость ряда производной важна:
+    
+    $\sum\limits_{n=1}^{\infty} \frac{\sin n x}{n^2}$ -- равномерно сходится по признаку Вейерштрасса
+    
+    $(\sum\limits_{n=1}^{\infty} \frac{\sin n x}{n^2})' \stackrel{?}{=} \sum\limits_{n=1}^{\infty} (\frac{\sin n x}{n^2})' = \sum\limits_{n= 1}^{\infty} \frac{\cos nx}{n}$ -- расходится при $x=2\pi k$
+    
+    Т.е. равенства нет.
+\end{example}
+
