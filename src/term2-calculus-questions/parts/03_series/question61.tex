@@ -12,8 +12,29 @@
 	\end{equation*}
 	\begin{proof} \thmslashn
 	
-		*\textit{здесь все ряды - \textbf{функциональные}, просто писать каждый раз $x$ не хочется}* \\
-		Проверяем условие критерия Коши. \\
+		*\textit{здесь все ряды - \textbf{функциональные}, просто писать каждый раз $x$ не хочется}* 
+
+        Заметим, что по критерию Коши для $\sum\limits_{k=1}^{\infty} a_{n}$ - 
+        \[ \forall{\eps > 0}\quad \exists{N}\quad \forall{x\in E}\quad  \forall{n \ge N}\quad \abs{A_{n+p}-A_{n}} = \abs{\sum\limits_{k=n+1}^{n+p} a_{k}} < \eps .\] 
+
+		Проверяем условие критерия Коши. 
+        \begin{equation*}
+            \begin{split}
+                \sum\limits_{k=n+1}^{n+p} a_{k}b_{k}
+                &= \sum\limits_{k=1}^{p} a_{n+k}b_{n+k} \text{ - переносим $n$ из предела в индексы}\\
+                &= (A_{n+p} - A_{n})b_{n+p} + \sum\limits_{k=1}^{p-1} (A_{n+k} - A_{n}) \cdot (b_{n+k} - b_{n+k+1}) \text{ - преобразование Абеля}\\
+                &\le \eps K + \sum\limits_{k=1}^{p-1} (A_{n+k} - A_{n}) \cdot (b_{n+k} - b_{n+k+1}) \text{ - оценили через замечание и $|b_n| \le K$}\\
+                &\le \eps K + \sum\limits_{k=1}^{p-1} \abs{A_{n+k} - A_{n}} \cdot \abs{b_{n+k} - b_{n+k+1}} \text{ - поменяли всё на модули, сумма не уменьшилась}\\
+                &\le \eps K + \eps \sum\limits_{k=1}^{p-1} \abs{b_{n+k}-b_{n+k+1}} \text{ - оценили через замечание}\\
+                &= \eps K + \eps \abs{\sum\limits_{k=1}^{p-1} b_{n+k}-b_{n+k+1}} \text{ - по монотонности $b$}\\
+                &= \eps K + \eps \abs{b_{n+1} - b_{n+p}}\\
+                &\le \eps K + \eps \abs{b_{n+1}} + \eps \abs{b_{n+p}}\\
+                &\le 3\eps K \to 0
+            \end{split}
+        \end{equation*}
+
+        Критерий Коши выполняется $\implies$ ряд равномерно сходится.
+
 		$\sum^{n+p}_{k = n+1} a_k b_k = \sum^p_{k = 1} a_{n+k} b_{n+k}$ - заменили пределы суммы, перекинув $n$ в индексы. \\
 		$\sum^p_{k = 1} a_{n+k} b_{n+k} = (A_{n+p} - A_n)b_{n+p} + \sum^{p-1}_{k = 1}(A_{n+k} - A_n)\cdot(b_{n+k} - b_{n+k+1})$
 		 - применили преобразование Абеля \\
