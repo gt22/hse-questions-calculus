@@ -35,10 +35,10 @@
 
         Тогда, по $\triangle$, $\rho(y_{n_{k}}, a) \to 0 \implies \lim\limits_{k \to \infty} y_{n_{k}} = a$.
 
-        По непрерывности, $\exists{\lambda > 0}\quad \rho_{X}(x, a) < \lambda \implies \rho_{Y}(f(x), a) < \frac{\eps}{2}$.
+        По непрерывности, $\exists{\lambda > 0}\quad \rho_{X}(x, a) < \lambda \implies \rho_{Y}(f(x), f(a)) < \frac{\eps}{2}$.
 
         Так-как подпоследовательности сходятся $\exists{N}\quad \rho(x_{N}, a) < \lambda$, $\rho(y_{N}, a) < \lambda$ (тут нужен только один элемент каждой последовательности).
 
-        Тогда, $\rho(f(x_{N}), f(y_{N})) \overset{\triangle}{\le} \rho(f(x_{N}), a)) + \rho(a, f(y_{N})) < \eps$. Противоречие с тем как брали $x_{n}, y_{n}$. Значит $f$ равномерно непрерывна.
+        Тогда, $\rho(f(x_{N}), f(y_{N})) \overset{\triangle}{\le} \rho(f(x_{N}), f(a))) + \rho(f(a), f(y_{N})) < \eps$. Противоречие с тем как брали $x_{n}, y_{n}$. Значит $f$ равномерно непрерывна.
     \end{proof}
 \end{theorem}

@@ -9,7 +9,7 @@
 	\\
 	Но этот ряд не сходится равномерно абсолютно.\\
 	Возьмём $\eps = \frac{1}{10}$
-	\[ \forall{n} \quad \exists{x \in (0,1)} \quad \sum^{\infty}_{k = n} \frac{x^k}{k} \geq n(\frac{x^{2n}}{2n}) = \frac{x^{2n}}{2} \textgreater \frac{1}{10} \]
+	\[ \forall{n} \quad \exists{x \in (0,1)} \quad \sum^{\infty}_{k = n} \frac{x^k}{k} \ge n\left(\frac{x^{2n}}{2n}\right) = \frac{x^{2n}}{2} \ge \frac{1}{10} \]
 \end{example}
 
 \begin{statement} \thmslashn
@@ -18,20 +18,26 @@
 	\begin{equation*}
 		\begin{cases}
 			u_n \in C(K) &\ u_n \geq 0 \\
-			S(x) = \sum^{\infty}_{n = 1} u_n(x) &\ u_n \in C(K)
+			S(x) = \sum^{\infty}_{n = 1} u_n(x) &\ S \in C(K)
 		\end{cases}
 	\end{equation*}
 	$\implies$ $\sum u_n$ - равномерно сходится.
-	\begin{proof} \thmslashn
-	
-		*\textit{помним, все ряды - функциональные}* \\
-		$r_n = \sum^{\infty}_{k = n+1} u_k = S - S_n$ - убывают по $n$ при фиксированном $x$. \\
-		$r_n \rightrightarrows 0$? \\
-		Докажем, что $\forall{\eps \textgreater 0} \quad \exists n : \forall{x \in K} \quad r_n \textless \eps$ \\
-		Пусть такого $n$ не существует. Тогда $\forall{n} \quad \exists{x_n \in K} : r_n(x_n) \geq \eps $ \\
-		$x_n$ - последовательность $K$. Тогда у неё есть сходящаяся подпоследовательность $x_{n_k}\to x_0$ (т.к. $K$ - компакт) \\
-		Рассмотрим $r_m$. \\
-		$n_k \geq m \implies \eps \leq r_{n_k}(x_{n_k}) \leq r_m(x_{n_k}) \to r_m(x_0) \geq \eps $ - верно при всех $m$. \\
-		Значит, $\sum u_n$ - расходится, что неверно. Значит, наше предположение неверно, и $r_n \rightrightarrows 0$.
+	\begin{proof} ~\\
+		*\textit{помним, все ряды - функциональные}* 
+
+		$r_n = \sum^{\infty}_{k = n+1} u_k = S - S_n$ - убывают по $n$ при фиксированном $x$, непрерывна как разность непрерывных функций.
+
+		Хотим показать что $r_n \uniconv 0$.
+
+    Докажем, что $\forall{\eps > 0} \quad \exists{n}\quad \forall{x \in K} \quad r_n < \eps$
+
+		Пусть такого $n$ не существует. Тогда $\forall{n} \quad \exists{x_n \in K}\quad r_n(x_n) \geq \eps $ 
+
+		$x_n$ - последовательность из $K$. Тогда у неё есть сходящаяся подпоследовательность $x_{n_k}\to x_0$ (т.к. $K$ - компакт). 
+		Рассмотрим $r_m$:
+
+		$n_k \geq m \implies \eps \leq r_{n_k}(x_{n_k}) \leq r_m(x_{n_k}) \to r_m(x_0) \geq \eps $ - верно при всех $m$.
+
+		Значит, $\sum u_n$ - расходится, что неверно. Значит, наше предположение неверно, и $r_n \uniconv 0$.
 	\end{proof}
 \end{statement}

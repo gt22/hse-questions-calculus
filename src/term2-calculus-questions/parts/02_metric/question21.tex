@@ -1,6 +1,5 @@
 \Subsection{Билет 21: ! Фундаментальные последовательности. Свойства. Полнота. Полнота $\R^{d}$}
 
-\textbf{Тут что-то странное с порядком билетов, рекомендуется сначала прочитать билет 22}
 
 \begin{definition} \thmslashn 
 
@@ -16,14 +15,30 @@
 
     \begin{proof} \thmslashn
     
-        Подставим $\eps = 1$, получим $\forall{n \ge N}\quad \rho(x_{N}, x_{n}) < 1 \implies x_{n}\in B_{1}(N)$, пусть 
+        Подставим $\eps = 1$, получим $\forall{n \ge N}\quad \rho(x_{N}, x_{n}) < 1 \implies x_{n}\in B_{1}(x_{N})$, пусть 
         \[ r = \max \{1, \max\limits_{k < N} \{\rho(x_{N}, x_{k})\} \} .\]
 
         Тогда $\forall{n\in \N}\quad x_{n}\in B_{r}(x_{N})$.
     \end{proof}
 \end{lemma}
 
-\TODO{Это все свойства фундаментальной последовательнсоти?}
+\begin{lemma} \thmslashn
+
+    Пусть $\left<X, \rho\right>$ - метрическое пространство.
+
+    $x_{n}\in X$, $\exists{a\in X}\quad \lim\limits_{n \to \infty} x_{n} = a$.
+
+    Тогда $x_{n}$ фундаментальна.
+
+    \begin{proof} \thmslashn
+    
+        Из предела получаем следующие:
+        \[ \forall{\eps > 0}\quad \exists{N\in \N}\quad \forall{n \ge N}\quad \rho(x_{n}, a) < \frac{\eps}{2} .\]
+
+        Тогда
+        \[ \forall{n, m \ge N}\quad \rho(x_{n}, x_{m}) \overset{\triangle}{\le} \rho(x_{n}, a) + \rho(a, x_{m}) < \eps .\] 
+    \end{proof}
+\end{lemma}
 
 \begin{definition} \thmslashn 
 
@@ -39,7 +54,7 @@
         \[ \lim\limits_{n \to \infty} x_{n_{k}} = a \implies \forall{\eps > 0}\quad \exists{M\in \N}\quad \forall{k \ge M}\quad \rho(x_{n_{k}}, a) < \eps  .\]
         \[ x_{n} \text{ - фундаментальна } \implies \forall{\eps > 0}\quad \exists{N \in \N}\quad \forall{n, m \ge N}\quad \rho(x_{n}, x_{m}) < \eps .\] 
 
-        Пусть $L = \max \{N, n_{M}\}$.
+        Пусть $L = \max \{N, M\}$.
 
         Тогда $\forall{n > L}\quad \exists{k}\quad \rho(x_{n}, a) < \rho(x_{n}, x_{n_{k}}) + \rho(x_{n_{k}}, a) < 2\eps$.
 
@@ -53,6 +68,17 @@
             \begin{proof} \thmslashn
             
                 Пусть $x_{n}\in \R^{d}$ - фундаментальная последовательность.
+
+                \begin{equation*}
+                    \begin{split}
+                        \forall{\eps > 0}\quad \exists{N\in \N}\quad \forall{n, m \ge N}\quad \rho(x_{n}, x_{m}) < \eps
+                        &\iff \sqrt{\sum\limits_{k=1}^{d} (x_{n}^{(k)}-x_{m}^{(k)})^2} < \eps\\
+                        &\implies \forall{k}\quad \abs{x_{n}^{(k)}-x_{m}^{(k)}} < \eps\\
+                        &\implies \forall{k}\quad x_{n}^{(k)} \text{ фундаментальна в $\R$ }\\
+                        &\implies \text{ есть покоординатная сходимость}\\
+                        &\implies \exists{a = \begin{bmatrix} \lim\limits_{n \to \infty} x_{n}^{(1)}, \ldots, \lim\limits_{n \to \infty} x_{n}^{(d)} \end{bmatrix} }\quad \lim\limits_{n \to \infty} x_{n} = a 
+                    \end{split}
+                \end{equation*}
 
                 Тогда $x_{n}$ ограничена $\implies$ $\exists{x_{n_{k}}}\quad $ - сходящаяся к точке из $\R^{d}$ подпоследовательность (Больцано-Вейерштрасс из следующего билета), пусть $\lim\limits_{k \to \infty} x_{n_{k}} = a$.
 
