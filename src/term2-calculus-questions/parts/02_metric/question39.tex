@@ -53,11 +53,13 @@
 
         Если $s\in V$:
         
-        \[ s\in V \overset{\text{открытость}}\implies \exists{\eps > 0}\quad (s-\eps, s+\eps) \subset V \implies (s-\eps, s]\cap U = \emptyset \implies \sup U \le s - \eps < s.\]
+        \[ s\in V \overset{\text{открытость}}\implies \exists{\eps > 0}\quad (s-\eps, s+\eps) \subset V \implies (s-\eps, s]\cap U = \emptyset \implies \sup S \le s - \eps < s.\]
 
-        Если $s\in U$, то $s \neq b$:
+        Если $s\in U \implies s\in S$, то $s \neq b$:
 
-        \[ s\in U \implies \exists{\eps}\quad (s-\eps, s+\eps) \subset U \implies \sup U \ge s+\eps > s .\]
+        \[ s\in U \implies \exists{\eps}\quad (s-\eps, s+\eps) \subset U\cap [a, b] \implies \sup S \ge s+\eps > s .\]
+
+        ($\exists{\eps}\quad (s - \eps, s+\eps) \subset U$ так-как $U$ открыто, и всегда можем ещё уменьшить чтобы получилось $(s - \eps, s + \eps) \subset [a, b]$).
 
         В обоих случаях получили противоречие, значит $S = \emptyset \implies [a, b]  \subset V$. Значит, отрезок связен.
     \end{proof}
