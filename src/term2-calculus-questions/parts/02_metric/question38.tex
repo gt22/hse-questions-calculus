@@ -19,9 +19,9 @@
 
     Пусть $\Delta \subset [a, b]$ - отрезок, $\ell(\Delta)$ - его длина.
 
-    $m^{(i)}_{\Delta} := \min\limits_{t\in \Delta} \abs{\gamma'(t)}$
+    $m^{(i)}_{\Delta} := \min\limits_{t\in \Delta} \abs{\gamma_{i}'(t)}$
     
-    $M^{(i)}_{\Delta} := \max\limits_{t\in \Delta} \abs{\gamma'(t)}$
+    $M^{(i)}_{\Delta} := \max\limits_{t\in \Delta} \abs{\gamma_{i}'(t)}$
 
     $m_{\Delta} := \sqrt{\sum\limits_{i=1}^{m} \left(m^{(i)}_{\Delta}\right)^2} $
     
@@ -118,7 +118,10 @@
         Если предположить что они не равны, то можем по их разности выбрать такое $t$, что сумма получится меньше. Противоречие, значит равны.
     \end{proof}
 \end{theorem}
+\begin{consequence} \thmslashn
 
+    \[ \ell(\gamma) \le (b-a) \cdot  \max\limits_{t} \norm{\gamma'} .\] 
+\end{consequence}
 \begin{definition} \thmslashn 
 
     Пусть $f : [a, b] \mapsto \R$. Длиной графика $f$ называется длина пути 
@@ -145,8 +148,18 @@
     \[ \int\limits_{\alpha}^{\beta} \sqrt{r(\phi)^2 + r'(\phi)^2}   .\]
     \begin{proof} \thmslashn
     
-        \[ \gamma_1(\phi) = r(\phi)\cos \phi \implies \gamma_1'(\phi) = r(\phi)\sin \phi + r'(\phi)\cos \phi .\] 
+        \[ \gamma_1(\phi) = r(\phi)\cos \phi \implies \gamma_1'(\phi) = -r(\phi)\sin \phi + r'(\phi)\cos \phi .\] 
         \[ \gamma_2(\phi) = r(\phi)\sin \phi \implies \gamma_2'(\phi) = r'(\phi)\sin \phi + r(\phi)\cos \phi .\]
-        \[ \gamma_1'(\phi)^2 + \gamma_2'(\phi)^2 = (r(\phi)^2 + r'(\phi)^2(\cos^2 \phi +\sin^2 \phi) = r(\phi)^2 + r'(\phi)^2.\qedhere\] 
+        \[ \gamma_1'(\phi)^2 + \gamma_2'(\phi)^2 = (r(\phi)^2 + r'(\phi)^2)(\cos^2 \phi +\sin^2 \phi) = r(\phi)^2 + r'(\phi)^2.\qedhere\] 
     \end{proof}
+\end{consequence}
+\begin{definition} \thmslashn 
+
+    Кривая называется спрямляемой, если её длина конечна.
+\end{definition}
+\begin{consequence} \thmslashn
+
+    Для любой кривой, $f(t) := \ell\left( \left. \gamma\right|_{[a, t]} \right) $ - монотонная функция.
+
+        $f(t)$ непрерывна тогда и только тогда, когда кривая спрямляема. Без доказательства.
 \end{consequence}

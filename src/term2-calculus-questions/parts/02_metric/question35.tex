@@ -55,7 +55,31 @@
     Тогда
     \[ \norm{A} \le \sqrt{\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2}  .\]
     \begin{proof} \thmslashn
-    
+
+        Вспомним, как выглядит применение матрицы как оператора:
+
+        \begin{equation*}
+            \begin{bmatrix} 
+                a_{11} & a_{12} & \ldots & a_{1n}\\
+                a_{21} & a_{22} & \ldots & a_{2n}\\
+                \vdots & \vdots & \ddots & \vdots\\
+                a_{m1} & a_{m2} & \ldots & a_{mn}
+            \end{bmatrix}
+            \begin{bmatrix} 
+                x_1\\
+                x_2\\
+                \vdots\\
+                x_{n}
+            \end{bmatrix}
+            =
+            \begin{bmatrix} 
+                a_{11}x_1 & + &  a_{12}x_2 & + & \ldots & + & a_{1n}x_{n}\\
+                a_{21}x_1 & + & a_{22}x_2 & + & \ldots & + & a_{2n}x_{n}\\
+                \vdots & + & \vdots & + & \ddots & + & \vdots\\
+                a_{m1}x_1 & + & a_{m2}x_2 & + & \ldots & + & a_{mn}x_{n}
+            \end{bmatrix} 
+        \end{equation*}
+
         \[ \norm{Ax}^2 = \sum\limits_{i=1}^{m} \left( \sum\limits_{j=1}^{n} a_{ij}x_{j} \right)^2 \overset{\text{Коши}}{\underset{\text{Буняковский}}{\le}} \sum\limits_{i=1}^{m}\left( \sum\limits_{j=1}^{n} a_{ij}^2 \cdot \sum\limits_{j=1}^{n} x_{j}^2 \right) = \norm{x}^2 \sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n} a_{ij}^2  .\]
 
         Значит,
